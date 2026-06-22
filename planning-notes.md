@@ -20,8 +20,8 @@ _Last updated: 2026-06-22_
 
 ## The Trip
 
-**Dates**: Oct 1 – Oct 17/18, 2026  
-**Route**: New York → Calgary → Bangkok → Koh Samui → Hong Kong (+GZ day trip) → Shanghai → New York
+**Dates**: Oct 1 – Oct ~25, 2026  
+**Route**: New York → Calgary → Bangkok → Koh Samui → Hong Kong → Shanghai → [Yan: Shanxi] → Beijing → New York
 
 ### Fixed Anchor
 
@@ -31,13 +31,14 @@ _Last updated: 2026-06-22_
 
 | Leg | Destination | Dates | Nights | Status |
 |---|---|---|---|---|
-| 1 | Calgary / Banff | Oct 1–5 | 5 | Yun flight confirmed |
-| 2 | Bangkok | Oct 5–7 | ~10 | Nothing booked |
+| 1 | Calgary / Banff | Oct 1–5 | 4 | Both flights confirmed · Shuttle confirmed |
+| 2 | Bangkok | Oct 5–7 | 2 | Nothing booked |
 | 3 | Koh Samui | Oct 7–12 | 5 | Flight KSM→HKG confirmed |
 | 4 | Hong Kong | Oct 12–14 | 2 | Arrival flight confirmed |
-| 4b | Guangzhou (day trip) | Oct 13 | — | Day trip from HK via HSR |
-| 5 | Shanghai | Oct 14–17 | 3 | Nothing booked · Yan stays till Oct 17 |
-| — | Home (EWR) | Oct 17–18 | — | Flight not yet booked |
+| 5 | Shanghai | Oct 14–17 | 3 | Nothing booked · together |
+| 5b | Yan → Shanxi | Oct 17–~23 | ~6 | Tentative · nothing booked |
+| 6 | Beijing (both reunite) | Oct ~23–24 | 1–2 | Tentative · nothing booked |
+| — | Home PEK→EWR (biz class) | Oct ~24–25 | — | Not yet booked |
 
 ---
 
@@ -58,7 +59,7 @@ _Last updated: 2026-06-22_
 ### Current Balances (from points_tracker.xlsx)
 
 **Yun Yang**
-- Chase Sapphire Reserve: NEW — earning 3× on travel/dining
+- Chase Sapphire Reserve: NEW — earning 3× on travel/dining; **100K opening bonus pending**
 - United MileagePlus: 33,000
 - Marriott Bonvoy: 103,000
 - Delta SkyMiles: 16,393
@@ -73,12 +74,11 @@ _Last updated: 2026-06-22_
 
 ### Flight Points Strategy
 
-- **Award flights needed**: YYC→BKK + PVG→EWR = 140K United total (2 pax economy, 35K each)
-- **On hand**: Yun 33K + Yan 16K = 49K United
-- **Gap**: −91K → Transfer Yan's 46K Chase → United (closes to −45K gap)
-- **Remaining gap**: Transfer ~45K from Yan's Amex MR → United or Aeroplan
-- **Business class option**: Yan's 180K Amex → Aeroplan → ANA/EVA biz (~80K per pax)
-- **Transfer guide**: Chase → United/Hyatt (1:1), Amex → Aeroplan/Delta (1:1), Bonvoy → hotel stays (best value)
+- **YYC→BKK (economy × 2)**: ~70K United → covered by Yun's 100K Chase UR bonus → United (30K surplus)
+- **PEK→EWR (business × 2)**: ~160K Aeroplan → ANA → covered by Yan's 180K Amex MR → Aeroplan (20K surplus)
+- **No GZ**: removed from itinerary; fly HKG → PVG direct Oct 14
+- **Return changed**: PVG→EWR → **PEK→EWR** (business class, lay flat)
+- **Transfer guide**: Chase UR → United/Hyatt (1:1), Amex MR → Aeroplan/Delta (1:1), Bonvoy → hotel stays
 
 ### Hotel Points Strategy
 
@@ -143,8 +143,10 @@ Priority: Hyatt (Chase UR partner) or Marriott Bonvoy properties matching this a
 - [ ] Hong Kong hotel (2 nights, Oct 12–14) — The Murray with Bonvoy pts
 - [ ] HKG → PVG both (Oct 14)
 - [ ] Shanghai hotel (3 nights, Oct 14–17) — The Middle House or Andaz
-- [ ] PVG → EWR both (Oct 17–18) — use United pts
-- [ ] China tourist visas × 2 (apply 4–6 weeks ahead)
+- [ ] Yan: SHA → Shanxi transport + accommodation (~Oct 17–23)
+- [ ] Hotel Beijing (1–2 nights, ~Oct 23–24)
+- [ ] PEK → EWR both (~Oct 24–25) — **business class**, Yan's 180K Amex MR → Aeroplan → ANA
+- [ ] China tourist visas × 2 (apply 4–6 weeks ahead; covers SHA + PEK)
 - [ ] Japan decision — add or defer to dedicated trip
 
 ---

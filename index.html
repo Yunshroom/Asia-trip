@@ -342,7 +342,7 @@ body {
 
 .tracker-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 2px;
   background: var(--tracker-grid-bg);
   border: 1px solid var(--tracker-grid-border);
@@ -1131,15 +1131,15 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="hero-meta">
           <strong>Yan Liu &amp; Yun Yang</strong>
           New York → Calgary → Bangkok<br>
-          Koh Samui → Hong Kong → Shanghai → New York
+          Koh Samui → Hong Kong → Shanghai → Beijing → New York
         </div>
         <div class="hero-stats">
           <div>
-            <div class="h-stat-n" style="text-align:right">18</div>
+            <div class="h-stat-n" style="text-align:right">~25</div>
             <div class="h-stat-l">Days</div>
           </div>
           <div>
-            <div class="h-stat-n" style="text-align:right">6</div>
+            <div class="h-stat-n" style="text-align:right">7</div>
             <div class="h-stat-l">Cities</div>
           </div>
           <div>
@@ -1150,7 +1150,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       </div>
     </div>
     <div class="hero-bottom">
-      <span>EWR · YYC · BKK · USM · HKG · CAN · PVG · EWR</span>
+      <span>EWR · YYC · BKK · USM · HKG · PVG · PEK · EWR</span>
       <span>Scroll <span class="scroll-line"></span></span>
     </div>
   </section>
@@ -1165,18 +1165,18 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <span class="route-arrow">→</span>
     <span class="route-stop" onclick="scrollToId('p-leg4')">Hong Kong</span>
     <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg4')">Guangzhou</span>
-    <span class="route-arrow">→</span>
     <span class="route-stop" onclick="scrollToId('p-leg5')">Shanghai</span>
     <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg5')">Home</span>
+    <span class="route-stop" onclick="scrollToId('p-leg6')">Beijing</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg6')">Home</span>
     <span class="route-arrow">→</span>
     <span class="route-stop" onclick="scrollToId('p-budget')">Budget</span>
   </nav>
 
   <!-- TRACKER -->
   <div class="tracker">
-    <div class="tracker-heading">Booking tracker — 5 destinations</div>
+    <div class="tracker-heading">Booking tracker — 6 destinations</div>
 
     <div class="tracker-grid">
 
@@ -1196,7 +1196,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <!-- Bangkok -->
       <div class="tracker-col">
         <div class="tracker-city">Bangkok</div>
-        <div class="tracker-dates">Sept 25–Oct 7 · 10 nights</div>
+        <div class="tracker-dates">Oct 5–7 · 2 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-needed"></span>Flight YYC → BKK</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Bangkok</div>
@@ -1217,26 +1217,38 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
       </div>
 
-      <!-- Hong Kong / GZ -->
+      <!-- Hong Kong -->
       <div class="tracker-col">
-        <div class="tracker-city">Hong Kong<br>/ Guangzhou</div>
+        <div class="tracker-city">Hong Kong</div>
         <div class="tracker-dates">Oct 12–14 · 2 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-booked"></span>HKG flight confirmed ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Hong Kong</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Ferry / train to GZ</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>China visa</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>HKG → PVG flight</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>China visa × 2</div>
         </div>
       </div>
 
-      <!-- Shanghai / Home -->
+      <!-- Shanghai -->
       <div class="tracker-col">
-        <div class="tracker-city">Shanghai<br>+ Home</div>
+        <div class="tracker-city">Shanghai</div>
         <div class="tracker-dates">Oct 14–17 · 3 nights</div>
         <div class="tracker-rows">
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Train / flight GZ → PVG</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Shanghai</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Flight PVG → EWR</div>
+          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan → Shanxi Oct 17</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
+        </div>
+      </div>
+
+      <!-- Beijing / Home -->
+      <div class="tracker-col">
+        <div class="tracker-city">Beijing<br>+ Home</div>
+        <div class="tracker-dates">Oct ~23–25</div>
+        <div class="tracker-rows">
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Beijing</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>PEK → EWR biz class</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
         </div>
       </div>
@@ -1261,7 +1273,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <!-- LEG 1 -->
     <section class="leg" id="p-leg1">
       <div class="leg-sidebar">
-        <div class="leg-num">Leg 01 / 05</div>
+        <div class="leg-num">Leg 01 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-canada"></span>Canada</div>
         <div class="leg-date-range">Oct 1–5</div>
       </div>
@@ -1302,9 +1314,9 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <!-- LEG 2 -->
     <section class="leg" id="p-leg2">
       <div class="leg-sidebar">
-        <div class="leg-num">Leg 02 / 05</div>
+        <div class="leg-num">Leg 02 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-bkk"></span>Thailand</div>
-        <div class="leg-date-range">Sept 25–Oct 7</div>
+        <div class="leg-date-range">Oct 5–7</div>
       </div>
       <div class="stops">
         <div class="stop">
@@ -1315,7 +1327,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <div class="tip-box">United Excursionist Perk: one stopover free on a round-trip award. HKG on the outbound costs nothing extra.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Sept 25–26</div>
+            <div class="stop-dates">Oct 5</div>
             <span class="badge badge-points">United pts</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Flight not yet booked</div>
@@ -1325,11 +1337,11 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="stop">
           <div>
             <div class="stop-type">🏙 Explore</div>
-            <div class="stop-title">Bangkok — 10 Days</div>
-            <div class="stop-desc">Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town. Street food along Yaowarat at night. Day trip to Ayutthaya by boat or train. October is shoulder season — warm with occasional afternoon rain, manageable crowds before high season hits in November.</div>
+            <div class="stop-title">Bangkok — 2 Nights</div>
+            <div class="stop-desc">Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town. Street food along Yaowarat at night. Short stay — save the deep Bangkok exploration for a dedicated trip, or pad the stay if Banff can end a day earlier.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Sept 26–Oct 7<br>10 nights</div>
+            <div class="stop-dates">Oct 5–7<br>2 nights</div>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
             </div>
@@ -1341,7 +1353,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <!-- LEG 3 -->
     <section class="leg" id="p-leg3">
       <div class="leg-sidebar">
-        <div class="leg-num">Leg 03 / 05</div>
+        <div class="leg-num">Leg 03 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-wedding"></span>Koh Samui</div>
         <div class="leg-date-range">Oct 7–12</div>
       </div>
@@ -1381,16 +1393,17 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <!-- LEG 4 -->
     <section class="leg" id="p-leg4">
       <div class="leg-sidebar">
-        <div class="leg-num">Leg 04 / 05</div>
-        <div class="leg-region"><span class="leg-dot dot-hk"></span>HK &amp; GZ</div>
+        <div class="leg-num">Leg 04 / 06</div>
+        <div class="leg-region"><span class="leg-dot dot-hk"></span>Hong Kong</div>
         <div class="leg-date-range">Oct 12–14</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">🏙 Explore</div>
-            <div class="stop-title">Hong Kong — 3 Nights</div>
-            <div class="stop-desc">Arrive HKG Terminal 2 at 16:20 on Oct 12. October is one of HK's finest months — typhoon season over, skies clear, mid-20s. Kowloon night markets, dim sum in Central, Victoria Peak at dusk, ferry to Lantau Island.</div>
+            <div class="stop-title">Hong Kong — 2 Nights</div>
+            <div class="stop-desc">Arrive HKG Terminal 2 at 16:20 on Oct 12. October is one of HK's finest months — typhoon season over, skies clear, mid-20s. Kowloon night markets, dim sum in Central, Victoria Peak at dusk, ferry to Lantau Island. Fly out to Shanghai on Oct 14.</div>
+            <div class="tip-box">China tourist visa required for the mainland — covers Shanghai and Beijing. Apply 4–6 weeks in advance.</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 12–14<br>2 nights</div>
@@ -1398,21 +1411,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Arrival flight booked</div>
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
-            </div>
-          </div>
-        </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type">⛴ Transfer + Explore</div>
-            <div class="stop-title">Guangzhou</div>
-            <div class="stop-desc">With the tightened schedule, best done as a day trip from Hong Kong on Oct 13. High-speed rail West Kowloon → Guangzhoudong in 50 min — leave early, back by evening. Canton Tower, Shamian Island colonial quarter, and the best Cantonese dim sum in the world.</div>
-            <div class="tip-box">China tourist visa required even for a day trip — apply 4–6 weeks in advance. One visa covers GZ + Shanghai.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 13<br>Day trip</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Ferry / train needed</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>China visa needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>HKG → PVG flight needed</div>
             </div>
           </div>
         </div>
@@ -1422,37 +1421,76 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <!-- LEG 5 -->
     <section class="leg" id="p-leg5">
       <div class="leg-sidebar">
-        <div class="leg-num">Leg 05 / 05</div>
-        <div class="leg-region"><span class="leg-dot dot-home"></span>Shanghai + Home</div>
-        <div class="leg-date-range">Oct 14–18</div>
+        <div class="leg-num">Leg 05 / 06</div>
+        <div class="leg-region"><span class="leg-dot dot-home"></span>Shanghai</div>
+        <div class="leg-date-range">Oct 14–17</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Travel + Explore</div>
             <div class="stop-title">Hong Kong → Shanghai</div>
-            <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs. Guangzhou is now a day trip from HK on Oct 13 (high-speed rail 50 min each way). Three nights in Shanghai Oct 14–17 — Yan stays through Oct 17. The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck.</div>
+            <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs. Three nights in Shanghai together — The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck. Neri&amp;Hu architecture woven into the city fabric.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 14<br>depart HKG</div>
+            <div class="stop-dates">Oct 14–17<br>3 nights</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>HKG → PVG flight needed</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Shanghai (3 nts, Oct 14–17)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Shanghai (Oct 14–17)</div>
             </div>
           </div>
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flight Home</div>
-            <div class="stop-title">Shanghai → New York</div>
-            <div class="stop-desc">United PVG → EWR nonstop, ~14 hrs. MileagePlus miles for the transpacific return is one of the best redemptions — economy ~35–45K pts or Polaris business ~70–80K pts per person. Book well ahead for award space.</div>
-            <div class="tip-box">United Excursionist Perk may allow Shanghai as a free stopover on a round-trip award originating in New York.</div>
+            <div class="stop-type">↕ Split — Oct 17</div>
+            <div class="stop-title">Yan → Shanxi · Yun stays in Shanghai</div>
+            <div class="stop-desc">On Oct 17 the trip splits. Yan heads to Shanxi (flight or high-speed rail, ~2.5 hrs from SHA). Yun remains in Shanghai and makes their way to Beijing independently before the Oct 24 weekend. Both reunite in Beijing — see Leg 06.</div>
+            <div class="tip-box">Shanxi highlights: Pingyao Ancient City (UNESCO), Yungang Grottoes, hanging temples at Xuankong Si. Worth 3–4 nights if time allows.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 17–18</div>
-            <span class="badge badge-points">United pts</span>
+            <div class="stop-dates">Oct 17<br>split day</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>PVG → EWR not yet booked</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yan: SHA → Shanxi transport</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yan: Shanxi accommodation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEG 6 -->
+    <section class="leg" id="p-leg6">
+      <div class="leg-sidebar">
+        <div class="leg-num">Leg 06 / 06</div>
+        <div class="leg-region"><span class="leg-dot dot-home"></span>Beijing + Home</div>
+        <div class="leg-date-range">Oct ~23–25</div>
+      </div>
+      <div class="stops">
+        <div class="stop">
+          <div>
+            <div class="stop-type">🏯 Explore</div>
+            <div class="stop-title">Beijing — Reunion</div>
+            <div class="stop-desc">Yan and Yun reunite in Beijing before the Oct 24 weekend. Yan arrives from Shanxi (high-speed rail ~3.5 hrs from Taiyuan); Yun from Shanghai (~5 hrs on G-train). The Forbidden City, 798 Art District, Temple of Heaven, Hutong neighbourhoods. One full day together before the flight home.</div>
+            <div class="tip-box">Book PEK → EWR as an award at least 4–6 months out — United Polaris and Aeroplan ANA business space on this route goes fast.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct ~23–24<br>1–2 nights</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Beijing</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">✈ Flight Home — Lay Flat</div>
+            <div class="stop-title">Beijing → New York (Business Class)</div>
+            <div class="stop-desc">PEK → EWR nonstop on United (~13 hrs) or via ANA/Air China. This is the ideal redemption for the points stockpile — Polaris business at 70–80K United per person, or Aeroplan on ANA at ~80K per person. With Yun's 100K Chase UR opening bonus transferring to United, and Yan's 180K Amex MR to Aeroplan, both seats are fully coverable with points on hand.</div>
+            <div class="tip-box">Best value: Yan's 180K Amex MR → Aeroplan → ANA PEK–EWR biz = 80K × 2 = 160K pts, ~$40 in fees. Lay flat, arrive fresh.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct ~24–25</div>
+            <span class="badge badge-points">Points — biz class</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>PEK → EWR biz award needed</div>
             </div>
           </div>
         </div>
@@ -1467,7 +1505,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
         <div class="points-card">
           <div class="points-card-header">Yun Yang</div>
-          <div class="points-item"><span class="points-route">Chase Sapphire Reserve</span><span class="points-val" style="color:var(--green)">Earning ↑</span></div>
+          <div class="points-item"><span class="points-route">Chase UR — opening bonus</span><span class="points-val" style="color:var(--green)">100,000 ✦</span></div>
+          <div class="points-item"><span class="points-route">Chase Sapphire Reserve</span><span class="points-val" style="color:var(--green)">Earning 3× ↑</span></div>
           <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">33,000</span></div>
           <div class="points-item"><span class="points-route">Marriott Bonvoy</span><span class="points-val">103,000</span></div>
           <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">16,393</span></div>
@@ -1484,11 +1523,11 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="points-card">
           <div class="points-card-header">Award Flight Plan</div>
           <div class="points-item"><span class="points-route">YYC → BKK economy × 2 pax</span><span class="points-val">70K United</span></div>
-          <div class="points-item"><span class="points-route">PVG → EWR economy × 2 pax</span><span class="points-val">70K United</span></div>
-          <div class="points-item"><span class="points-route">On hand (Yun 33K + Yan 16K)</span><span class="points-val">49K</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route" style="color:var(--accent)">Gap to fill</span><span class="points-val" style="color:var(--accent)">−91K</span></div>
-          <div class="points-item"><span class="points-route">Yan Chase → United (1:1)</span><span class="points-val" style="color:var(--green)">+46K</span></div>
-          <div class="points-item"><span class="points-route">Remaining after transfer</span><span class="points-val" style="color:var(--warm)">−45K</span></div>
+          <div class="points-item"><span class="points-route">PEK → EWR business × 2 pax</span><span class="points-val" style="color:var(--green)">160K Aeroplan</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">YYC→BKK: Yun 100K Chase → United</span><span class="points-val" style="color:var(--green)">Covered ✓</span></div>
+          <div class="points-item"><span class="points-route">PEK→EWR biz: Yan 180K Amex → Aeroplan</span><span class="points-val" style="color:var(--green)">160K → ANA</span></div>
+          <div class="points-item"><span class="points-route">Remaining Amex MR after flights</span><span class="points-val">~20K left</span></div>
+          <div class="points-item"><span class="points-route">Yun United 33K (backup / upgrade)</span><span class="points-val" style="color:var(--green)">Surplus</span></div>
         </div>
         <div class="points-card">
           <div class="points-card-header">Hotel Points Strategy</div>
@@ -1500,7 +1539,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="points-item"><span class="points-route">Yan flex (226K Amex + Chase)</span><span class="points-val" style="color:var(--green)">Biz upgrade</span></div>
         </div>
       </div>
-      <div class="tip-box">Strategy: Transfer Yan's 46K Chase UR → United (closes half the flight gap to 140K needed). Cover remaining ~45K from Yan's 180K Amex MR → United or Aeroplan. Keep Yun's Marriott Bonvoy 103K for hotel stays — W Bangkok + Murray HKG = ~5–6 nights free (~$600 value). Use Chase Sapphire Reserve for all cash travel to earn 3× points and activate trip protections. Yan's 180K Amex MR is the big lever for business class upgrades or a Japan leg if added.</div>
+      <div class="tip-box">Strategy: Yun's 100K Chase UR opening bonus → United covers YYC→BKK for both (70K) with 30K to spare. Yan's 180K Amex MR → Aeroplan → ANA PEK→EWR business = 160K pts (~$40 fees), both lay flat home. Keep Yun's Bonvoy 103K for hotel stays — W Bangkok + Murray HKG ≈ 5–6 nights free (~$600 value). Use CSR for all cash travel to earn 3× and activate trip protections.</div>
     </section>
 
     <!-- JAPAN CONSIDERATION -->
@@ -1562,6 +1601,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="points-item"><span class="points-route">BKK Suvarnabhumi</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
           <div class="points-item"><span class="points-route">HKG Hong Kong</span><span class="points-val" style="color:var(--green)">✓ Plaza Premium</span></div>
           <div class="points-item"><span class="points-route">PVG Shanghai</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
+          <div class="points-item"><span class="points-route">PEK Beijing</span><span class="points-val" style="color:var(--green)">✓ Air China lounge</span></div>
           <div class="points-item"><span class="points-route">USM Koh Samui</span><span class="points-val">Bangkok Air Boutique</span></div>
         </div>
       </div>
@@ -1785,16 +1825,9 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <span class="budget-line-amt confirmed">THB 18,090 (~$504)</span>
           </div>
           <div class="budget-line">
-            <span class="budget-line-label">HKG → GZ ferry or train · both <span class="budget-line-est">est.</span></span>
-            <span class="budget-line-amt estimate">~$60</span>
-          </div>
           <div class="budget-line">
-            <span class="budget-line-label">GZ → PVG train or flight · both <span class="budget-line-est">est.</span></span>
-            <span class="budget-line-amt estimate">~$100</span>
-          </div>
-          <div class="budget-line">
-            <span class="budget-line-label">PVG → EWR · both <span class="budget-line-est">est. points</span></span>
-            <span class="budget-line-amt estimate">~175K pts + $60</span>
+            <span class="budget-line-label">PEK → EWR biz class · both <span class="budget-line-est">est. Aeroplan → ANA</span></span>
+            <span class="budget-line-amt estimate">~160K pts + $40</span>
           </div>
         </div>
 
@@ -2112,10 +2145,10 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
           <div style="font-size:11px;color:var(--ink);line-height:2.2;">
-            YYC → BKK &nbsp;·&nbsp; Sept 25–26<br>
+            YYC → BKK &nbsp;·&nbsp; Oct 5<br>
             BKK → USM &nbsp;·&nbsp; Oct 7 or 8<br>
             HKG → PVG &nbsp;·&nbsp; Oct 14<br>
-            PVG → EWR &nbsp;·&nbsp; Oct 17–18
+            PEK → EWR &nbsp;·&nbsp; Oct ~24–25 <em>(biz class)</em>
           </div>
         </div>
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
@@ -2125,7 +2158,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             Bangkok &nbsp;·&nbsp; 10 nights<br>
             Koh Samui (pre-wedding) &nbsp;·&nbsp; 2 nights<br>
             Hong Kong &nbsp;·&nbsp; 2 nights (Oct 12–14)<br>
-            Shanghai &nbsp;·&nbsp; 3 nights (Oct 14–17)
+            Shanghai &nbsp;·&nbsp; 3 nights (Oct 14–17)<br>
+            Beijing &nbsp;·&nbsp; 1–2 nights (Oct ~23–24)
           </div>
         </div>
       </div>
@@ -2136,8 +2170,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
 <!-- FOOTER -->
 <footer>
-  <span>Yan Liu &amp; Yun Yang · Sept–Oct 2026</span>
-  <span>EWR · YYC · BKK · USM · HKG · CAN · PVG · EWR</span>
+  <span>Yan Liu &amp; Yun Yang · Oct 2026</span>
+  <span>EWR · YYC · BKK · USM · HKG · PVG · PEK · EWR</span>
 </footer>
 
 <script>
