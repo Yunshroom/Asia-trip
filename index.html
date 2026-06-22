@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asia Trip 2026 — Yan & Yun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0f0d0b;
+  --paper: #f2ece0;
+  --surface: #e8dfd0;
+  --warm: #a07830;
+  --muted: #5a4e3c;
+  --line: rgba(15,13,11,0.18);
+  --line-strong: rgba(15,13,11,0.35);
+  --accent: #a03020;
+  --green: #2e6640;
+  --green-bg: #d4e8da;
+  --amber-bg: #f0e0b8;
+  --red-bg: #f0d0c8;
+  --gray-bg: #ddd8d0;
+  --pink: #a84060;
+  --gold: #a07830;
+  --nav-bg: #f2ece0;
+  --nav-text: rgba(15,13,11,0.5);
+  --nav-border: rgba(15,13,11,0.12);
+  --nav-toggle-bg: rgba(15,13,11,0.08);
+  --nav-btn-active-bg: #0f0d0b;
+  --nav-btn-active-color: #f2ece0;
+  --nav-btn-color: rgba(15,13,11,0.5);
+  --tracker-bg: #f2ece0;
+  --tracker-col-bg: rgba(255,255,255,0.7);
+  --tracker-city-color: #0f0d0b;
+  --tracker-row-text: rgba(15,13,11,0.65);
+  --tracker-grid-bg: rgba(15,13,11,0.08);
+  --tracker-grid-border: rgba(15,13,11,0.12);
+  --hero-bg: #f2ece0;
+  --hero-color: #0f0d0b;
+  --hero-muted: rgba(15,13,11,0.45);
+  --hero-label-color: #a07830;
+  --hero-title-em: rgba(15,13,11,0.35);
+  --hero-scroll-line: rgba(15,13,11,0.18);
+  --route-bg: #e8dfd0;
+  --route-text: rgba(15,13,11,0.4);
+  --route-active: #0f0d0b;
+}
+
+html.dark {
+  --ink: #f0ece2;
+  --paper: #1a1714;
+  --surface: #252118;
+  --warm: #c9a96e;
+  --muted: #a89880;
+  --line: rgba(240,236,226,0.12);
+  --line-strong: rgba(240,236,226,0.22);
+  --accent: #d4705a;
+  --green: #5aab78;
+  --green-bg: #1a3526;
+  --amber-bg: #2e2410;
+  --red-bg: #2e1810;
+  --gray-bg: #2a2520;
+  --pink: #d4789a;
+  --gold: #c9a96e;
+  --nav-bg: #111009;
+  --nav-text: rgba(240,236,226,0.4);
+  --nav-border: rgba(255,255,255,0.08);
+  --nav-toggle-bg: rgba(255,255,255,0.06);
+  --nav-btn-active-bg: #2e2a24;
+  --nav-btn-active-color: #f0ece2;
+  --nav-btn-color: rgba(240,236,226,0.4);
+  --tracker-bg: #111009;
+  --tracker-col-bg: rgba(10,9,8,0.7);
+  --tracker-city-color: #f0ece2;
+  --tracker-row-text: rgba(240,236,226,0.6);
+  --tracker-grid-bg: rgba(255,255,255,0.06);
+  --tracker-grid-border: rgba(255,255,255,0.08);
+  --hero-bg: #111009;
+  --hero-color: #f0ece2;
+  --hero-muted: rgba(240,236,226,0.45);
+  --hero-label-color: #c9a96e;
+  --hero-title-em: rgba(240,236,226,0.38);
+  --hero-scroll-line: rgba(240,236,226,0.2);
+  --route-bg: #1a1714;
+  --route-text: rgba(240,236,226,0.35);
+  --route-active: #f0ece2;
+}
+
+html { transition: background .25s, color .25s; }
+body { transition: background .25s, color .25s; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Mono', monospace;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── PAGE SWITCH ─── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ─── TOP NAV ─── */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  height: 52px;
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.topnav-brand {
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+}
+
+.page-toggle {
+  display: flex;
+  background: var(--nav-toggle-bg);
+  border-radius: 4px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.page-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--nav-btn-color);
+  transition: all .2s;
+}
+
+.page-btn.active {
+  background: var(--nav-btn-active-bg);
+  color: var(--nav-btn-active-color);
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 88vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 3rem;
+  position: relative;
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--hero-bg);
+  color: var(--hero-color);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 80% 30%, rgba(160,120,48,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(46,102,64,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--hero-muted);
+  text-transform: uppercase;
+  position: relative;
+}
+
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.hero-label {
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--hero-label-color);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.5rem, 11vw, 10rem);
+  font-weight: 300;
+  line-height: .9;
+  letter-spacing: -.02em;
+  color: var(--hero-color);
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--hero-title-em);
+}
+
+.hero-sub {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  align-items: flex-end;
+  position: relative;
+}
+
+.hero-meta {
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--hero-muted);
+  line-height: 1.9;
+}
+
+.hero-meta strong {
+  font-weight: 400;
+  color: var(--hero-color);
+  display: block;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-left: auto;
+}
+
+.h-stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--hero-color);
+  text-align: right;
+}
+
+.h-stat-l {
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--hero-muted);
+  margin-top: 3px;
+  text-align: right;
+}
+
+.hero-bottom {
+  font-size: 10px;
+  letter-spacing: .13em;
+  color: var(--hero-muted);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--hero-scroll-line);
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--hero-color);
+  animation: scanline 2.2s ease-in-out infinite;
+}
+@keyframes scanline { 0%{left:-100%} 100%{left:100%} }
+
+/* ─── ROUTE BAR ─── */
+.route-bar {
+  padding: 1.2rem 3rem;
+  border-bottom: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  background: var(--route-bg);
+  color: var(--route-text);
+  gap: 0;
+}
+
+.route-stop {
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .2s;
+  padding: 2px 0;
+  color: var(--route-text);
+}
+.route-stop:hover, .route-stop.active { color: var(--route-active); }
+
+.route-arrow {
+  padding: 0 .9rem;
+  color: var(--line);
+}
+
+/* ─── PLANNING PAGE ─── */
+
+/* TRACKER */
+.tracker {
+  background: var(--tracker-bg);
+  color: var(--ink);
+  padding: 2.5rem 3rem;
+  border-bottom: 2px solid var(--line-strong);
+}
+
+.tracker-heading {
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+}
+
+.tracker-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: var(--tracker-grid-bg);
+  border: 1px solid var(--tracker-grid-border);
+}
+
+.tracker-col {
+  padding: 1.2rem 1rem;
+  background: var(--tracker-col-bg);
+}
+
+.tracker-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--tracker-city-color);
+  margin-bottom: .3rem;
+  line-height: 1;
+}
+
+.tracker-dates {
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+
+.tracker-rows { display: flex; flex-direction: column; gap: 6px; }
+
+.tracker-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  letter-spacing: .04em;
+  color: var(--tracker-row-text);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.s-confirmed { background: #3a9e58; }
+.s-booked    { background: #3a9e58; }
+.s-inflight  { background: #c88020; }
+.s-needed    { background: transparent; border: 1px solid var(--muted); }
+.s-na        { background: var(--line); }
+
+.tracker-legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  align-items: center;
+}
+
+.legend-item { display: flex; align-items: center; gap: 6px; }
+
+/* PLANNING PROGRESS BAR */
+.progress-bar-wrap {
+  margin-top: 1.4rem;
+  background: var(--line);
+  height: 2px;
+  border-radius: 1px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: #5cb87a;
+  border-radius: 1px;
+  transition: width .8s ease;
+}
+
+/* ─── MAIN ─── */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem 6rem;
+}
+
+/* ─── LEG ─── */
+.leg {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid var(--line-strong);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+
+.leg.visible { opacity: 1; transform: none; }
+
+.leg-sidebar { padding-top: 4px; }
+
+.leg-num {
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .5rem;
+}
+
+.leg-region {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: .8rem;
+}
+
+.leg-date-range {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .05em;
+  border-top: 1px solid var(--line-strong);
+  padding-top: .75rem;
+  margin-top: .75rem;
+}
+
+.leg-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+.dot-canada  { background: var(--green); }
+.dot-bkk     { background: var(--accent); }
+.dot-wedding { background: var(--pink); }
+.dot-hk      { background: var(--gold); }
+.dot-home    { background: var(--muted); }
+
+/* ─── STOPS ─── */
+.stops { display: flex; flex-direction: column; }
+
+.stop {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+.stop:last-child { border-bottom: none; }
+
+.stop-type {
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .5rem;
+}
+
+.stop-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  margin-bottom: .6rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.stop-desc {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.stop-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.stop-dates {
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+  line-height: 1.7;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid;
+  white-space: nowrap;
+  font-family: 'DM Mono', monospace;
+}
+
+.badge-points  { border-color: var(--green); color: var(--green); }
+.badge-booked  { border-color: var(--accent); color: var(--accent); }
+.badge-tip     { border-color: var(--gold); color: var(--gold); }
+.badge-needed  { border-color: rgba(15,13,11,0.3); color: var(--muted); }
+
+.tip-box {
+  margin-top: .9rem;
+  padding: .75rem 1rem;
+  border-left: 2px solid var(--gold);
+  font-size: 11px;
+  color: var(--warm);
+  letter-spacing: .03em;
+  line-height: 1.65;
+  background: rgba(160,120,48,0.07);
+}
+
+/* BOOKING STATUS in planning mode */
+.booking-status {
+  margin-top: .8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.bk-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bk-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.bk-confirmed { background: #3a9e58; }
+.bk-needed    { background: rgba(15,13,11,0.2); border: 1px solid rgba(15,13,11,0.35); }
+.bk-inflight  { background: #c88020; }
+
+/* ─── POINTS TABLE ─── */
+.points-section { padding: 5rem 0; }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  color: var(--ink);
+}
+
+.points-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+}
+
+.points-card {
+  background: var(--paper);
+  padding: 2rem;
+}
+
+.points-card-header {
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.points-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  gap: 1rem;
+}
+.points-item:last-child { border-bottom: none; }
+.points-route { color: var(--ink); }
+.points-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ─── NOTICES ─── */
+.notices { padding: 4rem 0; border-top: 1px solid var(--line-strong); }
+
+.notices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.notice-card {
+  padding: 1.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: var(--surface);
+}
+
+.notice-icon { font-size: 1.3rem; margin-bottom: .75rem; }
+
+.notice-title {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: .5rem;
+}
+
+.notice-text {
+  font-size: 11px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+
+/* ─── THEME TOGGLE ─── */
+.theme-btn {
+  background: none;
+  border: 1px solid var(--nav-border);
+  border-radius: 3px;
+  color: var(--muted);
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: .5rem;
+  padding: 0;
+  line-height: 1;
+}
+.theme-btn:hover {
+  background: var(--nav-toggle-bg);
+  color: var(--ink);
+}
+
+/* ─── USEFUL LINKS ─── */
+.links-section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+  margin-top: 2rem;
+}
+
+.links-group {
+  background: var(--paper);
+  padding: 1.8rem;
+}
+
+.links-group-title {
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.link-item {
+  display: flex;
+  flex-direction: column;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: all .15s;
+}
+.link-item:last-child { border-bottom: none; }
+.link-item:hover .link-name { color: var(--accent); }
+.link-item:hover .link-desc { color: var(--ink); }
+
+.link-name {
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: .03em;
+  margin-bottom: 2px;
+  transition: color .15s;
+}
+
+.link-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 10px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all .15s;
+}
+.link-item:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.link-desc {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  transition: color .15s;
+}
+
+
+/* ─── BUDGET ─── */
+.budget-section { padding: 5rem 0; border-top: 1px solid var(--line-strong); }
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.budget-total-label {
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.budget-total-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.budget-total-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.budget-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+  margin-bottom: 2rem;
+}
+
+.budget-cat {
+  background: var(--paper);
+  padding: 1.8rem;
+}
+
+html.dark .budget-cat { background: var(--surface); }
+
+.budget-cat-title {
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line-strong);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.budget-cat-title span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.budget-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  gap: 1rem;
+}
+
+.budget-line:last-child { border-bottom: none; }
+
+.budget-line-label { color: var(--muted); flex: 1; }
+
+.budget-line-ref {
+  font-size: 9px;
+  letter-spacing: .08em;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+.budget-line-est { font-size: 9px; color: var(--muted); font-style: italic; margin-left: 4px; }
+
+.budget-line-amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.budget-line-amt.confirmed { color: var(--green); }
+.budget-line-amt.estimate { color: var(--muted); }
+
+.budget-tracker-wrap {
+  margin-top: 2rem;
+  border: 1px solid var(--line-strong);
+}
+
+.budget-tracker-header {
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-strong);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+html.dark .budget-tracker-header { background: var(--surface); }
+
+.budget-bar-container {
+  padding: 1.5rem;
+  background: var(--paper);
+}
+
+html.dark .budget-bar-container { background: var(--surface); }
+
+.budget-bar-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 80px;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: .9rem;
+}
+
+.budget-bar-row:last-child { margin-bottom: 0; }
+
+.budget-bar-label {
+  font-size: 10px;
+  letter-spacing: .06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.budget-bar-track {
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.bar-confirmed { background: var(--green); }
+.bar-estimate  { background: var(--warm); }
+.bar-zero      { background: var(--line); }
+
+.budget-bar-val {
+  font-size: 11px;
+  color: var(--ink);
+  text-align: right;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.budget-summary-row {
+  display: flex;
+  gap: 2px;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+  margin-top: 2rem;
+}
+
+.budget-summary-cell {
+  flex: 1;
+  background: var(--paper);
+  padding: 1.4rem;
+  text-align: center;
+}
+
+html.dark .budget-summary-cell { background: var(--surface); }
+
+.bsc-label {
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .4rem;
+}
+
+.bsc-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.bsc-val.green { color: var(--green); }
+.bsc-val.amber { color: var(--warm); }
+
+/* ─── FINAL PAGE ─── */
+
+.final-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--line-strong);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.final-section.visible { opacity: 1; transform: none; }
+
+.final-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.final-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.confirmed-card {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 2rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.confirmed-card:last-child { border-bottom: none; }
+
+.cc-date {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.8;
+  padding-top: 4px;
+}
+
+.cc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: .4rem;
+  line-height: 1.2;
+}
+
+.cc-detail {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.cc-ref {
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: .4rem;
+}
+
+.cc-badge {
+  text-align: right;
+  padding-top: 4px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 2rem 3rem;
+  border-top: 1px solid var(--line-strong);
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: .12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  background: var(--nav-bg);
+  color: var(--nav-text);
+}
+
+html.dark .notice-card { background: var(--surface); }
+html.dark .points-card { background: var(--surface); }
+html.dark .links-group { background: var(--surface); }
+html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--nav-btn-active-color); }
+@media (max-width: 800px) {
+  .hero, main { padding: 1.5rem; }
+  .topnav { padding: 0 1.5rem; }
+  .tracker { padding: 2rem 1.5rem; }
+  .tracker-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { display: none; }
+  .leg { grid-template-columns: 1fr; gap: 1.5rem; }
+  .stop { grid-template-columns: 1fr; }
+  .stop-right { text-align: left; }
+  .booking-status { align-items: flex-start; }
+  .points-grid, .notices-grid { grid-template-columns: 1fr; }
+  .confirmed-card { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: .5rem; }
+  .route-bar { padding: 1rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <span class="topnav-brand">Yan &amp; Yun · Asia 2026</span>
+  <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">☀</button>
+  <div class="page-toggle">
+    <button class="page-btn active" onclick="switchPage('planning')">Planning</button>
+    <button class="page-btn" onclick="switchPage('final')">Final Itinerary</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE: PLANNING
+════════════════════════════════════════════════ -->
+<div class="page active" id="page-planning">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top">
+      <span>Oct 1 — Oct 18, 2026</span>
+      <span>Planning mode</span>
+    </div>
+    <div class="hero-center">
+      <p class="hero-label">A journey through Asia</p>
+      <h1 class="hero-title">
+        Banff<br>
+        <em>Bangkok</em><br>
+        Beyond
+      </h1>
+      <div class="hero-sub">
+        <div class="hero-meta">
+          <strong>Yan Liu &amp; Yun Yang</strong>
+          New York → Calgary → Bangkok<br>
+          Koh Samui → Hong Kong → Shanghai → New York
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="h-stat-n" style="text-align:right">18</div>
+            <div class="h-stat-l">Days</div>
+          </div>
+          <div>
+            <div class="h-stat-n" style="text-align:right">6</div>
+            <div class="h-stat-l">Cities</div>
+          </div>
+          <div>
+            <div class="h-stat-n" style="text-align:right">Oct 9</div>
+            <div class="h-stat-l">Wedding</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span>EWR · YYC · BKK · USM · HKG · CAN · PVG · EWR</span>
+      <span>Scroll <span class="scroll-line"></span></span>
+    </div>
+  </section>
+
+  <!-- ROUTE BAR -->
+  <nav class="route-bar">
+    <span class="route-stop active" onclick="scrollToId('p-leg1')">Calgary / Banff</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg2')">Bangkok</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg3')">Koh Samui</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg4')">Hong Kong</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg4')">Guangzhou</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg5')">Shanghai</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg5')">Home</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-budget')">Budget</span>
+  </nav>
+
+  <!-- TRACKER -->
+  <div class="tracker">
+    <div class="tracker-heading">Booking tracker — 5 destinations</div>
+
+    <div class="tracker-grid">
+
+      <!-- Calgary / Banff -->
+      <div class="tracker-col">
+        <div class="tracker-city">Calgary<br>/ Banff</div>
+        <div class="tracker-dates">Oct 1–5 · 5 nights</div>
+        <div class="tracker-rows">
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Yun: AC585 EWR→YYC ✓</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel / Canmore</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Moraine Lake shuttle</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Banff park pass</div>
+        </div>
+      </div>
+
+      <!-- Bangkok -->
+      <div class="tracker-col">
+        <div class="tracker-city">Bangkok</div>
+        <div class="tracker-dates">Sept 25–Oct 7 · 10 nights</div>
+        <div class="tracker-rows">
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Flight YYC → BKK</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Bangkok</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
+        </div>
+      </div>
+
+      <!-- Koh Samui -->
+      <div class="tracker-col">
+        <div class="tracker-city">Koh Samui</div>
+        <div class="tracker-dates">Oct 7–12 · 5 nights</div>
+        <div class="tracker-rows">
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Flight BKK → USM</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel (pre-wedding)</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Wedding confirmed ✓</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>KSM → HKG confirmed ✓</div>
+        </div>
+      </div>
+
+      <!-- Hong Kong / GZ -->
+      <div class="tracker-col">
+        <div class="tracker-city">Hong Kong<br>/ Guangzhou</div>
+        <div class="tracker-dates">Oct 12–14 · 2 nights</div>
+        <div class="tracker-rows">
+          <div class="tracker-row"><span class="status-dot s-booked"></span>HKG flight confirmed ✓</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Hong Kong</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Ferry / train to GZ</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>China visa</div>
+        </div>
+      </div>
+
+      <!-- Shanghai / Home -->
+      <div class="tracker-col">
+        <div class="tracker-city">Shanghai<br>+ Home</div>
+        <div class="tracker-dates">Oct 14–17 · 3 nights</div>
+        <div class="tracker-rows">
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Train / flight GZ → PVG</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Shanghai</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Flight PVG → EWR</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LEGEND + PROGRESS -->
+    <div class="tracker-legend">
+      <div class="legend-item"><span class="status-dot s-booked"></span> Confirmed</div>
+      <div class="legend-item"><span class="status-dot s-inflight"></span> In progress</div>
+      <div class="legend-item"><span class="status-dot s-needed"></span> Not yet booked</div>
+      <div class="legend-item" style="margin-left:auto; color:var(--muted)">4 of 14 items confirmed</div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" style="width: 28.6%"></div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main id="planning-main">
+
+    <!-- LEG 1 -->
+    <section class="leg" id="p-leg1">
+      <div class="leg-sidebar">
+        <div class="leg-num">Leg 01 / 05</div>
+        <div class="leg-region"><span class="leg-dot dot-canada"></span>Canada</div>
+        <div class="leg-date-range">Oct 1–5</div>
+      </div>
+      <div class="stops">
+        <div class="stop">
+          <div>
+            <div class="stop-type">✈ Flight</div>
+            <div class="stop-title">New York → Calgary</div>
+            <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5hr 05m. Yun Yang confirmed on Aeroplan Flex Reward — 34,190 pts used, seat 16A. Yan Liu still needs to book separately — note the flight departs Oct 1 (not Sept 20 as originally planned), arriving 17:30 YYC.</div>
+            <div class="tip-box">Yan still needs to book EWR → YYC. Yun's seat: 16A · Ref: BCFAML · Aeroplan ••••8773 · 34,190 pts</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 1</div>
+            <span class="badge badge-booked">Yun confirmed ✓</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yun: AC585 · Ref BCFAML</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yan: still to book</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">⛰ Explore</div>
+            <div class="stop-title">Banff / Canmore — Larch Season</div>
+            <div class="stop-desc">Peak golden larch color runs Sept 20–Oct 5 — Sept 25 is the statistical sweet spot. Hike Larch Valley from Moraine Lake up to Sentinel Pass. Also: Pocaterra Cirque in Kananaskis (less crowded, equally stunning). Moraine Lake road is closed to private cars at peak season — pre-book the Parks Canada shuttle.</div>
+            <div class="tip-box">7am light on the larches is exceptional. Worth the early alarm.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Sept 20–25<br>5 nights</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Shuttle needed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEG 2 -->
+    <section class="leg" id="p-leg2">
+      <div class="leg-sidebar">
+        <div class="leg-num">Leg 02 / 05</div>
+        <div class="leg-region"><span class="leg-dot dot-bkk"></span>Thailand</div>
+        <div class="leg-date-range">Sept 25–Oct 7</div>
+      </div>
+      <div class="stops">
+        <div class="stop">
+          <div>
+            <div class="stop-type">✈ Flight</div>
+            <div class="stop-title">Calgary → Bangkok (BKK)</div>
+            <div class="stop-desc">Best routing: YYC → SFO or LAX → HKG → BKK on United/Star Alliance. United award pricing ~35K miles economy or ~70–80K Polaris business per person. For premium cabin, Aeroplan on ANA or EVA Air often better value at ~80K pts. Yan has 16K United miles; Yun has 33K — combined enough for two economy awards.</div>
+            <div class="tip-box">United Excursionist Perk: one stopover free on a round-trip award. HKG on the outbound costs nothing extra.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Sept 25–26</div>
+            <span class="badge badge-points">United pts</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Flight not yet booked</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-title">Bangkok — 10 Days</div>
+            <div class="stop-desc">Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town. Street food along Yaowarat at night. Day trip to Ayutthaya by boat or train. October is shoulder season — warm with occasional afternoon rain, manageable crowds before high season hits in November.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Sept 26–Oct 7<br>10 nights</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEG 3 -->
+    <section class="leg" id="p-leg3">
+      <div class="leg-sidebar">
+        <div class="leg-num">Leg 03 / 05</div>
+        <div class="leg-region"><span class="leg-dot dot-wedding"></span>Koh Samui</div>
+        <div class="leg-date-range">Oct 7–12</div>
+      </div>
+      <div class="stops">
+        <div class="stop">
+          <div>
+            <div class="stop-type">✈ Flight</div>
+            <div class="stop-title">Bangkok → Koh Samui</div>
+            <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Arrive Oct 7 or 8 to settle in before wedding festivities. Bangkok Airways runs their own lounge at Samui Airport.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 7 or 8</div>
+            <span class="badge badge-needed">To book</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>BKK → USM flight needed</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">💍 Wedding</div>
+            <div class="stop-title">Private Island Wedding</div>
+            <div class="stop-desc">Oct 9–12 at a private island off Koh Samui. Return flight confirmed: Bangkok Airways PG807 departs 11:55 Oct 12, arrives Hong Kong 16:20. Yan Liu seat 16B, Yun Yang seat 16A. Booking ref FVZ2OD.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 9–12</div>
+            <span class="badge badge-booked">Confirmed ✓</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>KSM → HKG confirmed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Pre-wedding hotel needed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEG 4 -->
+    <section class="leg" id="p-leg4">
+      <div class="leg-sidebar">
+        <div class="leg-num">Leg 04 / 05</div>
+        <div class="leg-region"><span class="leg-dot dot-hk"></span>HK &amp; GZ</div>
+        <div class="leg-date-range">Oct 12–14</div>
+      </div>
+      <div class="stops">
+        <div class="stop">
+          <div>
+            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-title">Hong Kong — 3 Nights</div>
+            <div class="stop-desc">Arrive HKG Terminal 2 at 16:20 on Oct 12. October is one of HK's finest months — typhoon season over, skies clear, mid-20s. Kowloon night markets, dim sum in Central, Victoria Peak at dusk, ferry to Lantau Island.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 12–14<br>2 nights</div>
+            <span class="badge badge-booked">Arrival confirmed ✓</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Arrival flight booked</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">⛴ Transfer + Explore</div>
+            <div class="stop-title">Guangzhou</div>
+            <div class="stop-desc">With the tightened schedule, best done as a day trip from Hong Kong on Oct 13. High-speed rail West Kowloon → Guangzhoudong in 50 min — leave early, back by evening. Canton Tower, Shamian Island colonial quarter, and the best Cantonese dim sum in the world.</div>
+            <div class="tip-box">China tourist visa required even for a day trip — apply 4–6 weeks in advance. One visa covers GZ + Shanghai.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 13<br>Day trip</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Ferry / train needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>China visa needed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEG 5 -->
+    <section class="leg" id="p-leg5">
+      <div class="leg-sidebar">
+        <div class="leg-num">Leg 05 / 05</div>
+        <div class="leg-region"><span class="leg-dot dot-home"></span>Shanghai + Home</div>
+        <div class="leg-date-range">Oct 14–18</div>
+      </div>
+      <div class="stops">
+        <div class="stop">
+          <div>
+            <div class="stop-type">✈ Travel + Explore</div>
+            <div class="stop-title">Hong Kong → Shanghai</div>
+            <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs. Guangzhou is now a day trip from HK on Oct 13 (high-speed rail 50 min each way). Three nights in Shanghai Oct 14–17 — Yan stays through Oct 17. The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 14<br>depart HKG</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>HKG → PVG flight needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Shanghai (3 nts, Oct 14–17)</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">✈ Flight Home</div>
+            <div class="stop-title">Shanghai → New York</div>
+            <div class="stop-desc">United PVG → EWR nonstop, ~14 hrs. MileagePlus miles for the transpacific return is one of the best redemptions — economy ~35–45K pts or Polaris business ~70–80K pts per person. Book well ahead for award space.</div>
+            <div class="tip-box">United Excursionist Perk may allow Shanghai as a free stopover on a round-trip award originating in New York.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 17–18</div>
+            <span class="badge badge-points">United pts</span>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>PVG → EWR not yet booked</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POINTS -->
+    <section class="points-section" id="p-points">
+      <h2 class="section-title">Points &amp; Miles Planner</h2>
+
+      <div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
+      <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
+        <div class="points-card">
+          <div class="points-card-header">Yun Yang</div>
+          <div class="points-item"><span class="points-route">Chase Sapphire Reserve</span><span class="points-val" style="color:var(--green)">Earning ↑</span></div>
+          <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">33,000</span></div>
+          <div class="points-item"><span class="points-route">Marriott Bonvoy</span><span class="points-val">103,000</span></div>
+          <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">16,393</span></div>
+          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val">7,000</span></div>
+          <div class="points-item"><span class="points-route">Air Canada Aeroplan</span><span class="points-val" style="color:var(--muted)">5,810 ← used</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Yan Liu</div>
+          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val" style="color:var(--green)">180,000</span></div>
+          <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">155,000</span></div>
+          <div class="points-item"><span class="points-route">Chase Ultimate Rewards</span><span class="points-val">46,000</span></div>
+          <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">16,000</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Award Flight Plan</div>
+          <div class="points-item"><span class="points-route">YYC → BKK economy × 2 pax</span><span class="points-val">70K United</span></div>
+          <div class="points-item"><span class="points-route">PVG → EWR economy × 2 pax</span><span class="points-val">70K United</span></div>
+          <div class="points-item"><span class="points-route">On hand (Yun 33K + Yan 16K)</span><span class="points-val">49K</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route" style="color:var(--accent)">Gap to fill</span><span class="points-val" style="color:var(--accent)">−91K</span></div>
+          <div class="points-item"><span class="points-route">Yan Chase → United (1:1)</span><span class="points-val" style="color:var(--green)">+46K</span></div>
+          <div class="points-item"><span class="points-route">Remaining after transfer</span><span class="points-val" style="color:var(--warm)">−45K</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Hotel Points Strategy</div>
+          <div class="points-item"><span class="points-route">Yun Bonvoy 103K → W Bangkok</span><span class="points-val">~4 nts free</span></div>
+          <div class="points-item"><span class="points-route">Yun Bonvoy → Murray HKG</span><span class="points-val">~2 nts free</span></div>
+          <div class="points-item"><span class="points-route">Yan Chase → Hyatt (1:1)</span><span class="points-val">BKK / SHA</span></div>
+          <div class="points-item"><span class="points-route">CSR 3× earn on all hotels</span><span class="points-val" style="color:var(--green)">Use for rest</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Bonvoy 103K hotel value</span><span class="points-val" style="color:var(--green)">~$600 saved</span></div>
+          <div class="points-item"><span class="points-route">Yan flex (226K Amex + Chase)</span><span class="points-val" style="color:var(--green)">Biz upgrade</span></div>
+        </div>
+      </div>
+      <div class="tip-box">Strategy: Transfer Yan's 46K Chase UR → United (closes half the flight gap to 140K needed). Cover remaining ~45K from Yan's 180K Amex MR → United or Aeroplan. Keep Yun's Marriott Bonvoy 103K for hotel stays — W Bangkok + Murray HKG = ~5–6 nights free (~$600 value). Use Chase Sapphire Reserve for all cash travel to earn 3× points and activate trip protections. Yan's 180K Amex MR is the big lever for business class upgrades or a Japan leg if added.</div>
+    </section>
+
+    <!-- JAPAN CONSIDERATION -->
+    <section class="points-section" id="p-japan" style="border-top:1px solid var(--line-strong);">
+      <h2 class="section-title">Japan — Should You Add It?</h2>
+      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="points-card">
+          <div class="points-card-header">The Case For</div>
+          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.75;">Early October in Tokyo is near-perfect — low 20s, clear skies, first hints of fall color before peak foliage crowds. 2–3 nights slots naturally after Banff (Oct 5–7) before arriving Bangkok Oct 8, wedding Oct 9. The routing YYC → NRT → BKK is a clean westward arc.</div>
+          <div class="points-item"><span class="points-route">Weather (Oct 5–8 Tokyo)</span><span class="points-val" style="color:var(--green)">Ideal</span></div>
+          <div class="points-item"><span class="points-route">Routing fit YYC → NRT → BKK</span><span class="points-val" style="color:var(--green)">Natural</span></div>
+          <div class="points-item"><span class="points-route">Yan's Amex MR 180K coverage</span><span class="points-val" style="color:var(--green)">Strong</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">The Trade-offs</div>
+          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.75;">Bangkok shrinks from 10 to ~7 nights. Another hotel booking and flight segment to arrange. Japan rewards a full week — 3 days is a taste, not a stay. Adds ~$150–300 in award fees and one more hotel to book during already busy larch season planning.</div>
+          <div class="points-item"><span class="points-route">Bangkok reduced</span><span class="points-val" style="color:var(--warm)">10 → 7 nts</span></div>
+          <div class="points-item"><span class="points-route">Extra leg to book</span><span class="points-val" style="color:var(--warm)">+1 flight, +1 hotel</span></div>
+          <div class="points-item"><span class="points-route">Japan rewards a full week</span><span class="points-val" style="color:var(--warm)">Short dip</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">If You Go — How to Book</div>
+          <div class="points-item"><span class="points-route">Yan Amex MR → ANA via Aeroplan</span><span class="points-val">Biz option</span></div>
+          <div class="points-item"><span class="points-route">United Excursionist Perk + NRT</span><span class="points-val">Free stopover</span></div>
+          <div class="points-item"><span class="points-route">Yan Delta 155K → JL codeshare</span><span class="points-val">~35K econ</span></div>
+          <div class="points-item"><span class="points-route">Andaz Tokyo (Chase → Hyatt)</span><span class="points-val">~20K pts/nt</span></div>
+          <div class="points-item"><span class="points-route">Park Hyatt Tokyo (Chase → Hyatt)</span><span class="points-val">~25K pts/nt</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route" style="color:var(--muted)">Verdict: save Japan for a dedicated trip. Add it here only if Bangkok can flex shorter.</span><span class="points-val"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHASE SAPPHIRE RESERVE -->
+    <section class="points-section" id="p-csr" style="border-top:1px solid var(--line-strong);">
+      <h2 class="section-title">Chase Sapphire Reserve — This Trip</h2>
+      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="points-card">
+          <div class="points-card-header">Earning — Use CSR for Everything</div>
+          <div class="points-item"><span class="points-route">Hotels &amp; flights (cash purchases)</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
+          <div class="points-item"><span class="points-route">All restaurants &amp; dining</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
+          <div class="points-item"><span class="points-route">Ride-share, taxis, tuk-tuks</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
+          <div class="points-item"><span class="points-route">No foreign transaction fee</span><span class="points-val" style="color:var(--green)">$0</span></div>
+          <div class="points-item"><span class="points-route">$300 annual travel credit</span><span class="points-val" style="color:var(--green)">Auto-applies</span></div>
+          <div class="points-item"><span class="points-route">Global Entry / TSA PreCheck</span><span class="points-val">$100 credit</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Protection — Book All Travel on CSR</div>
+          <div class="points-item"><span class="points-route">Trip delay insurance (6 hrs+)</span><span class="points-val">$500/ticket</span></div>
+          <div class="points-item"><span class="points-route">Trip cancellation / interruption</span><span class="points-val">$10K/trip</span></div>
+          <div class="points-item"><span class="points-route">Baggage delay (6 hrs+)</span><span class="points-val">$100/day × 5</span></div>
+          <div class="points-item"><span class="points-route">Primary rental car insurance</span><span class="points-val" style="color:var(--green)">Banff leg ✓</span></div>
+          <div class="points-item"><span class="points-route">Emergency medical evacuation</span><span class="points-val">Unlimited</span></div>
+          <div class="points-item"><span class="points-route">Lost luggage reimbursement</span><span class="points-val">$3K</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Priority Pass Lounges on Route</div>
+          <div class="points-item"><span class="points-route">EWR Newark</span><span class="points-val" style="color:var(--green)">✓ United Polaris</span></div>
+          <div class="points-item"><span class="points-route">YYC Calgary</span><span class="points-val" style="color:var(--green)">✓ Air Canada Maple Leaf</span></div>
+          <div class="points-item"><span class="points-route">BKK Suvarnabhumi</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
+          <div class="points-item"><span class="points-route">HKG Hong Kong</span><span class="points-val" style="color:var(--green)">✓ Plaza Premium</span></div>
+          <div class="points-item"><span class="points-route">PVG Shanghai</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
+          <div class="points-item"><span class="points-route">USM Koh Samui</span><span class="points-val">Bangkok Air Boutique</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTEL PICKS -->
+    <section class="points-section" id="p-hotels" style="border-top:1px solid var(--line-strong);">
+      <h2 class="section-title">Hotel Picks — Design &amp; Points</h2>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:2rem;line-height:1.7;">Design-forward properties in the Shinola Detroit / Nobu Chicago vein — ranked by vibe and points match. <strong style="color:var(--ink);font-weight:400;">Bold</strong> = top pick per city.</div>
+
+      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:2px;">
+        <div class="points-card">
+          <div class="points-card-header">Canmore / Banff · 5 nights</div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Malcolm Hotel, Canmore</strong></div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Design boutique · mountain-modern · no chain · CSR 3× earn · ~$300/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Basecamp Resorts, Canmore</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Boutique mountain suites · contemporary · no chain · ~$180/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Buffalo Mountain Lodge (Bonvoy)</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Heritage timber lodge · Marriott Autograph · use Bonvoy pts · ~$250/nt</div>
+          </div>
+        </div>
+
+        <div class="points-card">
+          <div class="points-card-header">Bangkok · 10 nights (consider split stay)</div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">W Bangkok (Marriott Bonvoy)</strong></div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Sathorn · very design-forward · rooftop bar · 25K Bonvoy/nt → 4 nts free with 103K pts</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Rosewood Bangkok</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Design masterpiece · Ploenchit · CSR Luxury Hotels perks (upgrade + $100 F&amp;B) · ~$350/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">SO/ Bangkok</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Christian Lacroix interiors · Sathorn · wild design · CSR 3× · ~$200/nt</div>
+          </div>
+        </div>
+
+        <div class="points-card">
+          <div class="points-card-header">Koh Samui · 2 nights pre-wedding</div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Conrad Koh Samui (Hilton)</strong></div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Cliff pool villas · private beach · ultra-designed · ~$400/nt or Hilton pts</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">W Koh Samui (Marriott Bonvoy)</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Beach villas · design-forward W brand · Bonvoy pts eligible · ~$300/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Samui Buri Beach Resort</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Boutique · Thai garden design · Chaweng · ~$150/nt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="points-card">
+          <div class="points-card-header">Hong Kong · 2 nights</div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Murray Hong Kong (Bonvoy)</strong></div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Foster+Partners heritage redesign · Central · Autograph Collection · use Bonvoy pts · most on-brand</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Rosewood Hong Kong</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Victoria Dockside · design icon · CSR Luxury Hotels perks · ~$400/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">The Upper House (Swire)</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Boutique · Pacific Place Admiralty · understated luxury · ~$350/nt</div>
+          </div>
+        </div>
+
+        <div class="points-card">
+          <div class="points-card-header">Shanghai · 3 nights Oct 14–17</div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Middle House (SLH)</strong></div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Neri&amp;Hu designed · Jing An · most Shinola-like in Shanghai · CSR 3× · ~$280/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Andaz Shanghai (Hyatt)</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Bund area · transfer Yan's Chase UR → Hyatt · boutique Hyatt brand · ~25K pts/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">URBN Hotel Shanghai</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">French Concession · eco-boutique · converted warehouse · ~$180/nt</div>
+          </div>
+        </div>
+
+        <div class="points-card" style="border:1px dashed var(--line-strong);opacity:.7;">
+          <div class="points-card-header">Tokyo (if Japan added) · 2–3 nights</div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Andaz Tokyo (Chase → Hyatt)</strong></div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Toranomon Hills · skyline views · most on-brand for Yun · ~20K Hyatt pts/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Park Hyatt Tokyo (Chase → Hyatt)</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Shinjuku · iconic · Lost in Translation · ~25K Hyatt pts/nt</div>
+          </div>
+          <div class="points-item" style="display:block;padding:.7rem 0;">
+            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">The Trunk Hotel, Shibuya</div>
+            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Design boutique · most Shinola-like in Tokyo · cash only · ~$300/nt</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- USEFUL LINKS -->
+    <section class="links-section">
+      <h2 class="section-title">Useful Links</h2>
+      <div class="links-grid">
+
+        <!-- Canada / Banff -->
+        <div class="links-group">
+          <div class="links-group-title">Canada &amp; Banff</div>
+
+          <a class="link-item" href="https://www.banffhiking.com" target="_blank" rel="noopener">
+            <span class="link-name">BanffHiking.com <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Trail guides, conditions, and larch season updates for Banff &amp; Kananaskis</span>
+          </a>
+          <a class="link-item" href="https://reservation.pc.gc.ca" target="_blank" rel="noopener">
+            <span class="link-name">Parks Canada Reservations <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Book the Moraine Lake shuttle — essential for larch season, sells out fast</span>
+          </a>
+          <a class="link-item" href="https://www.pc.gc.ca/en/pn-np/ab/banff" target="_blank" rel="noopener">
+            <span class="link-name">Banff National Park <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Official park info, trail reports, and entry pass purchase</span>
+          </a>
+          <a class="link-item" href="https://www.travelbanffcanada.com" target="_blank" rel="noopener">
+            <span class="link-name">Travel Banff Canada <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Local guides for Banff, Canmore, and Lake Louise accommodation</span>
+          </a>
+        </div>
+
+        <!-- Thailand -->
+        <div class="links-group">
+          <div class="links-group-title">Thailand</div>
+
+          <a class="link-item" href="https://www.bangkokairways.com" target="_blank" rel="noopener">
+            <span class="link-name">Bangkok Airways <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Book BKK → Koh Samui (USM) — ref FVZ2OD already confirmed for Oct 12</span>
+          </a>
+          <a class="link-item" href="https://www.tourismthailand.org" target="_blank" rel="noopener">
+            <span class="link-name">Tourism Thailand <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Official tourism board — entry requirements, visa info, and travel advisories</span>
+          </a>
+          <a class="link-item" href="https://www.tatravellersloungebkk.com" target="_blank" rel="noopener">
+            <span class="link-name">TAT Bangkok Visitors <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Bangkok visitor info, temple opening hours, and guided tour listings</span>
+          </a>
+          <a class="link-item" href="https://www.ayutthaya.go.th" target="_blank" rel="noopener">
+            <span class="link-name">Ayutthaya Historical Park <span class="link-arrow">↗</span></span>
+            <span class="link-desc">UNESCO site 1.5hrs from Bangkok — worth a day trip from the city</span>
+          </a>
+        </div>
+
+        <!-- Points & Booking -->
+        <div class="links-group">
+          <div class="links-group-title">Points &amp; Booking</div>
+
+          <a class="link-item" href="https://www.united.com/en/us/fly/mileageplus.html" target="_blank" rel="noopener">
+            <span class="link-name">United MileagePlus <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Yun: 33K · Yan: 16K — search YYC→BKK and PVG→EWR award space</span>
+          </a>
+          <a class="link-item" href="https://www.aircanada.com/aeroplan" target="_blank" rel="noopener">
+            <span class="link-name">Air Canada Aeroplan <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Yun: 40K — use for EWR→YYC and Asia business class via ANA / EVA Air</span>
+          </a>
+          <a class="link-item" href="https://www.visaforchina.cn" target="_blank" rel="noopener">
+            <span class="link-name">China Visa Application <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Official portal — US citizens need a tourist visa for GZ &amp; Shanghai. Allow 4–6 weeks</span>
+          </a>
+          <a class="link-item" href="https://www.seat61.com/china.htm" target="_blank" rel="noopener">
+            <span class="link-name">The Man in Seat 61 — China <span class="link-arrow">↗</span></span>
+            <span class="link-desc">Guide to booking Guangzhou → Shanghai high-speed rail (G-train)</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- BUDGET -->
+    <section class="budget-section" id="p-budget">
+      <div class="budget-header">
+        <div>
+          <div class="budget-total-label">Trip budget — 2 people, 18 nights</div>
+          <div class="budget-total-num">~$7,460</div>
+          <div class="budget-total-sub">Reference estimate · excl. points redemptions · USD</div>
+        </div>
+      </div>
+
+      <div class="budget-grid">
+
+        <!-- FLIGHTS -->
+        <div class="budget-cat">
+          <div class="budget-cat-title">Flights <span>~$960 cash + points</span></div>
+          <div class="budget-line">
+            <span class="budget-line-label">EWR → YYC · Yun (AC585 Oct 1) <span class="budget-line-ref">✓ BCFAML</span></span>
+            <span class="budget-line-amt confirmed">34,190 pts + $40</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">EWR → YYC · Yan <span class="budget-line-est">est.</span></span>
+            <span class="budget-line-amt estimate">~$350–450</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">YYC → BKK · both <span class="budget-line-est">est. points</span></span>
+            <span class="budget-line-amt estimate">~140K pts + $60</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">BKK → USM · both <span class="budget-line-est">est.</span></span>
+            <span class="budget-line-amt estimate">~$120</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">USM → HKG · both (PG807 Oct 12) <span class="budget-line-ref">✓ FVZ2OD</span></span>
+            <span class="budget-line-amt confirmed">THB 18,090 (~$504)</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">HKG → GZ ferry or train · both <span class="budget-line-est">est.</span></span>
+            <span class="budget-line-amt estimate">~$60</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">GZ → PVG train or flight · both <span class="budget-line-est">est.</span></span>
+            <span class="budget-line-amt estimate">~$100</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">PVG → EWR · both <span class="budget-line-est">est. points</span></span>
+            <span class="budget-line-amt estimate">~175K pts + $60</span>
+          </div>
+        </div>
+
+        <!-- HOTELS -->
+        <div class="budget-cat">
+          <div class="budget-cat-title">Hotels <span>~$3,270</span></div>
+          <div class="budget-line">
+            <span class="budget-line-label">Canmore / Banff · 5 nights <span class="budget-line-est">est. $180/nt</span></span>
+            <span class="budget-line-amt estimate">~$900</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Bangkok · 10 nights <span class="budget-line-est">est. $90/nt mid-range</span></span>
+            <span class="budget-line-amt estimate">~$900</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Koh Samui pre-wedding · 2 nights <span class="budget-line-est">est.</span></span>
+            <span class="budget-line-amt estimate">~$300</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Hong Kong · 3 nights <span class="budget-line-est">est. $200/nt</span></span>
+            <span class="budget-line-amt estimate">~$600</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Shanghai · 3 nights <span class="budget-line-est">est. $190/nt · Oct 14–17</span></span>
+            <span class="budget-line-amt estimate">~$570</span>
+          </div>
+          <div class="budget-line" style="margin-top:.5rem">
+            <span class="budget-line-label" style="color:var(--green)">Marriott Bonvoy (103K pts) could cover Bangkok or HK</span>
+            <span class="budget-line-amt" style="color:var(--green)">save ~$600</span>
+          </div>
+        </div>
+
+        <!-- FOOD & TRANSPORT -->
+        <div class="budget-cat">
+          <div class="budget-cat-title">Food &amp; local transport <span>~$1,800</span></div>
+          <div class="budget-line">
+            <span class="budget-line-label">Canada — Banff / Canmore dining <span class="budget-line-est">5 days</span></span>
+            <span class="budget-line-amt estimate">~$300</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Bangkok — food &amp; tuk-tuks <span class="budget-line-est">10 days</span></span>
+            <span class="budget-line-amt estimate">~$500</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Koh Samui — resort / island transfers</span>
+            <span class="budget-line-amt estimate">~$150</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Hong Kong — MTR, ferries, dim sum</span>
+            <span class="budget-line-amt estimate">~$300</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Guangzhou &amp; Shanghai — metro + food</span>
+            <span class="budget-line-amt estimate">~$250</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Banff National Park pass (both) </span>
+            <span class="budget-line-amt estimate">~$130 CAD</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Moraine Lake shuttle (both)</span>
+            <span class="budget-line-amt estimate">~$60 CAD</span>
+          </div>
+        </div>
+
+        <!-- ACTIVITIES & MISC -->
+        <div class="budget-cat">
+          <div class="budget-cat-title">Activities &amp; misc <span>~$1,440</span></div>
+          <div class="budget-line">
+            <span class="budget-line-label">China tourist visas × 2</span>
+            <span class="budget-line-amt estimate">~$300</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Travel insurance (both)</span>
+            <span class="budget-line-amt estimate">~$300</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Bangkok temple tours + Ayutthaya day trip</span>
+            <span class="budget-line-amt estimate">~$120</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Hong Kong — Peak tram, Big Buddha, ferries</span>
+            <span class="budget-line-amt estimate">~$80</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Shanghai Tower + French Concession</span>
+            <span class="budget-line-amt estimate">~$60</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Shopping &amp; gifts budget</span>
+            <span class="budget-line-amt estimate">~$300</span>
+          </div>
+          <div class="budget-line">
+            <span class="budget-line-label">Buffer / contingency (~10%)</span>
+            <span class="budget-line-amt estimate">~$280</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SPEND TRACKER BARS -->
+      <div class="budget-tracker-wrap">
+        <div class="budget-tracker-header">
+          <span>Spend tracker — actual vs. reference</span>
+          <span>Green = confirmed · Amber = estimated</span>
+        </div>
+        <div class="budget-bar-container">
+          <div class="budget-bar-row">
+            <div class="budget-bar-label">Flights</div>
+            <div class="budget-bar-track">
+              <div class="budget-bar-fill bar-confirmed" style="width:7%"></div>
+            </div>
+            <div class="budget-bar-val">$504 <span style="font-size:10px;color:var(--muted)">/ ~$1,150</span></div>
+          </div>
+          <div class="budget-bar-row">
+            <div class="budget-bar-label">Hotels</div>
+            <div class="budget-bar-track">
+              <div class="budget-bar-fill bar-zero" style="width:0%"></div>
+            </div>
+            <div class="budget-bar-val"><span style="font-size:10px;color:var(--muted)">$0 / ~$3,200</span></div>
+          </div>
+          <div class="budget-bar-row">
+            <div class="budget-bar-label">Food &amp; transport</div>
+            <div class="budget-bar-track">
+              <div class="budget-bar-fill bar-zero" style="width:0%"></div>
+            </div>
+            <div class="budget-bar-val"><span style="font-size:10px;color:var(--muted)">$0 / ~$1,800</span></div>
+          </div>
+          <div class="budget-bar-row">
+            <div class="budget-bar-label">Activities</div>
+            <div class="budget-bar-track">
+              <div class="budget-bar-fill bar-zero" style="width:0%"></div>
+            </div>
+            <div class="budget-bar-val"><span style="font-size:10px;color:var(--muted)">$0 / ~$1,440</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUMMARY ROW -->
+      <div class="budget-summary-row">
+        <div class="budget-summary-cell">
+          <div class="bsc-label">Total reference</div>
+          <div class="bsc-val">~$7,660</div>
+        </div>
+        <div class="budget-summary-cell">
+          <div class="bsc-label">Confirmed spent</div>
+          <div class="bsc-val green">$544</div>
+        </div>
+        <div class="budget-summary-cell">
+          <div class="bsc-label">Points redeemed</div>
+          <div class="bsc-val amber">34,190 pts</div>
+        </div>
+        <div class="budget-summary-cell">
+          <div class="bsc-label">Remaining est.</div>
+          <div class="bsc-val">~$7,046</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- NOTICES -->
+    <section class="notices">
+      <h2 class="section-title">Before You Go</h2>
+      <div class="notices-grid">
+        <div class="notice-card">
+          <div class="notice-icon">📋</div>
+          <div class="notice-title">China Visa</div>
+          <div class="notice-text">US citizens require a tourist visa for Guangzhou and Shanghai. Apply at the Chinese Consulate — allow 4–6 weeks. One visa covers both cities.</div>
+        </div>
+        <div class="notice-card">
+          <div class="notice-icon">🏔</div>
+          <div class="notice-title">Banff — Book Now</div>
+          <div class="notice-text">Moraine Lake shuttle books out months ahead via Parks Canada. Accommodation in Canmore and Banff during late September larch season fills up fast.</div>
+        </div>
+        <div class="notice-card">
+          <div class="notice-icon">🎫</div>
+          <div class="notice-title">Bangkok Airways — Confirmed</div>
+          <div class="notice-text">PG807 Oct 12, 11:55 Koh Samui → Hong Kong 16:20. Booking ref FVZ2OD. Tickets are non-endorsable and change-restricted.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     PAGE: FINAL ITINERARY
+════════════════════════════════════════════════ -->
+<div class="page" id="page-final">
+
+  <section class="hero">
+    <div class="hero-top">
+      <span>Sept 20 — Oct 18, 2026</span>
+      <span>Confirmed itinerary</span>
+    </div>
+    <div class="hero-center">
+      <p class="hero-label">Confirmed reservations only</p>
+      <h1 class="hero-title">
+        The<br>
+        <em>Final</em><br>
+        Plan
+      </h1>
+      <div class="hero-sub">
+        <div class="hero-meta">
+          <strong>Yan Liu &amp; Yun Yang</strong>
+          Only confirmed bookings shown below.<br>
+          As you confirm flights and hotels, they will appear here.
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="h-stat-n" style="text-align:right">4</div>
+            <div class="h-stat-l">Confirmed</div>
+          </div>
+          <div>
+            <div class="h-stat-n" style="text-align:right">10</div>
+            <div class="h-stat-l">Pending</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span>Only confirmed items shown</span>
+    </div>
+  </section>
+
+  <main style="max-width:1200px;margin:0 auto;padding:0 3rem 6rem;">
+
+    <!-- CONFIRMED FLIGHTS -->
+    <section class="final-section" id="f-flights">
+      <div class="final-section-title">Confirmed flights</div>
+
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 1, 2026<br>14:25 → 17:30</div>
+        <div>
+          <div class="cc-title">Newark → Calgary</div>
+          <div class="cc-detail">Air Canada AC585 · Boeing 737 MAX 8 · 5h 05m · Economy (G)<br>Yun Yang — Seat 16A · Aeroplan ••••8773 · 34,190 pts used<br>Baggage: 1 bag complimentary · Flex Reward (changeable, $75 cancel fee)</div>
+          <div class="cc-ref">Booking ref: BCFAML · Ticket: 0142328353008 · Yan Liu: still to book</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
+      </div>
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 12, 2026<br>11:55 → 16:20</div>
+        <div>
+          <div class="cc-title">Koh Samui → Hong Kong</div>
+          <div class="cc-detail">Bangkok Airways PG807 · Terminal 2 HKG · 3h 25m<br>Yan Liu — Seat 16B · Yun Yang — Seat 16A<br>Baggage: 20kg checked per person · Economy (PGPROMO)</div>
+          <div class="cc-ref">Booking ref: FVZ2OD · Tickets: 829 2311084997 / 829 2311084998</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CONFIRMED ACCOMMODATION -->
+    <section class="final-section" id="f-hotels">
+      <div class="final-section-title">Confirmed accommodation</div>
+
+      <div style="padding: 3rem 0; text-align:center; color:var(--muted); font-size:12px; letter-spacing:.08em;">
+        No hotels confirmed yet — add them here as you book.
+      </div>
+    </section>
+
+    <!-- CONFIRMED EVENTS -->
+    <section class="final-section" id="f-events">
+      <div class="final-section-title">Confirmed events</div>
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 9–12<br>2026</div>
+        <div>
+          <div class="cc-title">Wedding — Private Island, Koh Samui</div>
+          <div class="cc-detail">Both attendees confirmed. Private island off the coast of Koh Samui, Thailand.<br>Return flight confirmed same day (Oct 12, 11:55 departure).</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PENDING -->
+    <section class="final-section" id="f-pending">
+      <div class="final-section-title">Still to confirm</div>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
+        <div style="background:var(--paper);padding:1.2rem 1.5rem;">
+          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
+          <div style="font-size:11px;color:var(--ink);line-height:2.2;">
+            EWR → YYC · Yan &nbsp;·&nbsp; Oct 1<br>
+            YYC → BKK &nbsp;·&nbsp; Sept 25–26<br>
+            BKK → USM &nbsp;·&nbsp; Oct 7 or 8<br>
+            HKG → PVG &nbsp;·&nbsp; Oct 14<br>
+            PVG → EWR &nbsp;·&nbsp; Oct 17–18
+          </div>
+        </div>
+        <div style="background:var(--paper);padding:1.2rem 1.5rem;">
+          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
+          <div style="font-size:11px;color:var(--ink);line-height:2.2;">
+            Canmore / Banff &nbsp;·&nbsp; 5 nights<br>
+            Bangkok &nbsp;·&nbsp; 10 nights<br>
+            Koh Samui (pre-wedding) &nbsp;·&nbsp; 2 nights<br>
+            Hong Kong &nbsp;·&nbsp; 2 nights (Oct 12–14)<br>
+            Shanghai &nbsp;·&nbsp; 3 nights (Oct 14–17)
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>Yan Liu &amp; Yun Yang · Sept–Oct 2026</span>
+  <span>EWR · YYC · BKK · USM · HKG · CAN · PVG · EWR</span>
+</footer>
+
+<script>
+// ── Theme ──────────────────────────────────────────
+function toggleTheme() {
+  const dark = document.documentElement.classList.toggle('dark');
+  document.getElementById('theme-toggle').textContent = dark ? '☾' : '☀';
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+
+// Default light — restore preference only if user previously chose dark
+(function() {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '☾';
+    });
+  }
+})();
+
+function switchPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Re-trigger scroll animations for the new page
+  setTimeout(observeLegs, 100);
+}
+
+function scrollToId(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function observeLegs() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.leg, .final-section').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+observeLegs();
+
+// Route bar active highlight on scroll
+const planLegs = document.querySelectorAll('#page-planning .leg');
+const planStops = document.querySelectorAll('#page-planning .route-stop');
+const routeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = Array.from(planLegs).indexOf(e.target);
+      const map = [0, 1, 2, 3, 5, 6];
+      planStops.forEach(s => s.classList.remove('active'));
+      if (planStops[map[idx]]) planStops[map[idx]].classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+
+planLegs.forEach(el => routeObserver.observe(el));
+</script>
+
+</body>
+</html>
