@@ -123,17 +123,19 @@ Priority: Hyatt (Chase UR partner) or Marriott Bonvoy properties matching this a
 | Item | Detail | Ref |
 |---|---|---|
 | EWR → YYC (Yun) | AC585 Oct 1, 14:25–17:30, Seat 16A, Aeroplan, 34,190 pts | BCFAML |
+| EWR → YYC (Yan) | AC585 Oct 1, 14:25–17:30, Seat TBA, Aeroplan ••••1922, 18,400 pts + CAD $279.80 | BCFEFG |
 | KSM → HKG (both) | PG807 Oct 12, 11:55–16:20, Seats 16A (Yun) / 16B (Yan) | FVZ2OD |
 | Wedding | Oct 9–12, private island off Koh Samui | Confirmed |
+| Moraine Lake Shuttle (both) | Parks Canada, Oct 4, Lake Louise 7am–8am slot, 2 adults, $29 | INPC26-13891950B1 |
 
 ---
 
 ## Still To Book (priority order)
 
-- [ ] Moraine Lake shuttle (Parks Canada — sells out months ahead, book NOW)
+- [x] Moraine Lake shuttle — INPC26-13891950B1, Oct 4, 7am, $29 ✓
 - [ ] Banff hotel / Canmore hotel — larch season fills fast
 - [ ] Banff National Park pass
-- [ ] EWR → YYC for **Yan** (Oct 1)
+- [x] EWR → YYC for **Yan** (Oct 1) — BCFEFG, 18,400 pts + CAD $279.80 ✓
 - [ ] YYC → BKK both (Sept 25–26) — use United pts; transfer Yan Chase → United first
 - [ ] BKK → USM both (Oct 7 or 8)
 - [ ] Bangkok hotel (10 nights) — W Bangkok with Bonvoy pts
