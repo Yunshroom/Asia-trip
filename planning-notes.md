@@ -20,8 +20,8 @@ _Last updated: 2026-06-22_
 
 ## The Trip
 
-**Dates**: Oct 1 – Oct ~25, 2026  
-**Route**: New York → Calgary → Bangkok → Koh Samui → Hong Kong → Shanghai → [Yan: Shanxi] → Beijing → New York
+**Dates**: Oct 1 – Oct 30, 2026  
+**Route**: New York → Calgary → Bangkok → Koh Samui → Hong Kong → Shanghai → [Yan: Shanxi] → Athens → New York
 
 ### Fixed Anchor
 
@@ -37,8 +37,8 @@ _Last updated: 2026-06-22_
 | 4 | Hong Kong | Oct 12–14 | 2 | Arrival flight confirmed |
 | 5 | Shanghai | Oct 14–17 | 3 | Nothing booked · together |
 | 5b | Yan → Shanxi | Oct 17–~23 | ~6 | Tentative · nothing booked |
-| 6 | Beijing (both reunite) | Oct ~23–24 | 1–2 | Tentative · nothing booked |
-| — | Home PEK→EWR (biz class) | Oct ~24–25 | — | Not yet booked |
+| 6 | Athens (both) | Oct 24–30 | 6 | Nothing booked · Yan hotel Oct 26–29 company |
+| — | Home ATH→EWR | Oct 30 | — | Yan company-covered · Yun self-book |
 
 ---
 
@@ -144,8 +144,12 @@ Priority: Hyatt (Chase UR partner) or Marriott Bonvoy properties matching this a
 - [ ] HKG → PVG both (Oct 14)
 - [ ] Shanghai hotel (3 nights, Oct 14–17) — The Middle House or Andaz
 - [ ] Yan: SHA → Shanxi transport + accommodation (~Oct 17–23)
-- [ ] Hotel Beijing (1–2 nights, ~Oct 23–24)
-- [ ] PEK → EWR both (~Oct 24–25) — **business class**, Yan's 180K Amex MR → Aeroplan → ANA
+- [ ] Car rental — pick up YYC Oct 1, drop off Oct 5 (Banff/Canmore area)
+- [ ] Yun: SHA → ATH (~Oct 24) — Turkish or Qatar Airways; or Chase UR → Flying Blue ~25K pts
+- [ ] Hotel Athens Oct 24–25 (both) + Oct 29–30 (both)
+- [ ] Yun: hotel Athens Oct 26–30 (Yan's Oct 26–29 covered by company/BHI)
+- [ ] Yun: ATH → EWR Oct 30 — Delta DL1 ATH→JFK or Flying Blue; Yan's covered by company
+- [ ] Yan: confirm company booking SHA/PEK→ATH + ATH→NY (send confirmation when received)
 - [ ] China tourist visas × 2 (apply 4–6 weeks ahead; covers SHA + PEK)
 - [ ] Japan decision — add or defer to dedicated trip
 
