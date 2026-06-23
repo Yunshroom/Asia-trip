@@ -1912,6 +1912,295 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   .ic-badge { display: none; }
   .ic-plan { padding: 0 1rem; }
 }
+
+/* ── Tracker v2 — horizontal sections ───────────────────── */
+.tracker-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  background: var(--tracker-grid-bg);
+  border: 1px solid var(--tracker-grid-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.tr-city {
+  padding: .9rem .85rem .75rem;
+  background: var(--tracker-col-bg);
+  border-right: 1px solid var(--tracker-grid-bg);
+  cursor: pointer;
+  transition: background .15s;
+  position: relative;
+}
+.tr-city:last-child { border-right: none; }
+.tr-city:hover { background: var(--surface); }
+.tr-city:hover .tr-nav-hint { opacity: 1; transform: translateX(0); }
+.tr-nav-hint {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--green);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .18s, transform .18s;
+  margin-top: .35rem;
+}
+.tr-band {
+  grid-column: 1/-1;
+  background: var(--surface);
+  border-top: 1px solid var(--tracker-grid-border);
+  border-bottom: 1px solid var(--tracker-grid-border);
+  padding: .3rem 1rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+.tr-section {
+  padding: .6rem .85rem .75rem;
+  background: var(--tracker-col-bg);
+  border-right: 1px solid var(--tracker-grid-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  vertical-align: top;
+}
+.tr-section:last-of-type { border-right: none; }
+.tracker-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: var(--tracker-row-text);
+  padding: .22rem 0;
+  line-height: 1.3;
+}
+.tr-detail {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .02em;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+.tracker-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.38rem;
+  font-weight: 400;
+  color: var(--tracker-city-color);
+  line-height: 1.1;
+}
+.tracker-dates {
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: .25rem;
+}
+
+/* ── Ledger v2 — color-coded + expandable ───────────────── */
+.ldg-wrap { border: 1px solid var(--line-strong); border-radius: 4px; overflow: hidden; }
+
+.ldg-hdr {
+  display: grid;
+  grid-template-columns: 1fr 68px 110px 120px;
+  background: var(--surface);
+  border-bottom: 2px solid var(--line-strong);
+}
+.ldg-hdr-cell {
+  padding: .6rem 1rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ldg-hdr-cell.r { text-align: right; }
+
+.ldg-cat {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: .38rem 1rem;
+  border-top: 1px solid var(--line-strong);
+}
+.ldg-cat:first-of-type { border-top: none; }
+.ldg-cat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.ldg-cat-transport { background: rgba(79,100,200,.055); color: #5565c0; }
+.ldg-cat-stay      { background: rgba(185,125,25,.055);  color: #9e6e18; }
+.ldg-cat-activities{ background: rgba(45,155,80,.055);   color: #2d8a4c; }
+html.dark .ldg-cat-transport { background: rgba(100,130,255,.07); color: #8fa0ef; }
+html.dark .ldg-cat-stay      { background: rgba(220,160,40,.07);  color: #d4a040; }
+html.dark .ldg-cat-activities{ background: rgba(80,200,110,.07);  color: #50c870; }
+
+.ldg-cat-subtotal {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+.ldg-row {
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  transition: background .12s;
+  position: relative;
+}
+.ldg-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+.ldg-row:hover { background: var(--surface); }
+.ldg-transport::before { background: rgba(79,100,200,.38); }
+.ldg-stay::before      { background: rgba(185,125,25,.38); }
+.ldg-activities::before{ background: rgba(45,155,80,.38); }
+.ldg-dimmed { opacity: .42; }
+.ldg-dimmed::before { background: transparent; }
+
+.ldg-row-top {
+  display: grid;
+  grid-template-columns: 1fr 68px 110px 120px;
+  align-items: center;
+  padding: .65rem 1rem .65rem 1.2rem;
+  gap: 0;
+}
+.ldg-row-main { display: flex; flex-direction: column; gap: .12rem; }
+.ldg-route {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: .01em;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.ldg-route-sub {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .03em;
+}
+.ldg-badges { display: flex; gap: .3rem; flex-wrap: wrap; margin-top: .3rem; }
+.ldg-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .07em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.ldg-badge-ok { border-color: var(--green); color: var(--green); background: var(--green-bg); }
+.ldg-badge-no { border-color: rgba(210,60,40,.45); color: #c03825; background: rgba(210,60,40,.05); }
+.ldg-badge-pts{ border-color: var(--line-strong); color: var(--muted); background: transparent; }
+html.dark .ldg-badge-no { color: #f08070; background: rgba(210,60,40,.09); }
+
+.ldg-payer-cell { text-align: center; }
+.ldg-payer { font-size: 12px; color: var(--muted); }
+.ldg-card-cell { }
+.ldg-card-short { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .03em; line-height: 1.4; }
+.ldg-amount-cell { text-align: right; }
+.ldg-amount {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: var(--mono);
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: .35rem;
+}
+.ldg-amount-orig { font-size: 10px; color: var(--muted); font-weight: 400; }
+.ldg-chevron {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--muted);
+  transition: transform .18s;
+  margin-left: .25rem;
+}
+.ldg-row.open .ldg-chevron { transform: rotate(90deg); }
+
+.ldg-row-body {
+  display: none;
+  padding: .1rem 1rem .85rem 1.2rem;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+.ldg-row.open .ldg-row-body { display: block; }
+.ldg-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: .35rem 1.4rem;
+  padding-top: .6rem;
+}
+.ldg-detail-item {}
+.ldg-detail-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.ldg-detail-val { font-size: 12.5px; color: var(--ink); line-height: 1.45; }
+.ldg-detail-ok { color: var(--green); }
+.ldg-detail-no { color: #c03825; }
+html.dark .ldg-detail-no { color: #f08070; }
+
+.ldg-subtotal-row {
+  display: grid;
+  grid-template-columns: 1fr 68px 110px 120px;
+  background: var(--surface);
+  border-top: 1px solid var(--line-strong);
+  padding: .45rem 1rem .45rem 1.2rem;
+  align-items: center;
+}
+.ldg-subtotal-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ldg-subtotal-val {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ldg-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface);
+  border-top: 2px solid var(--ink);
+  padding: .8rem 1rem .8rem 1.2rem;
+}
+.ldg-total-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 </style>
 </head>
 <body>
@@ -2009,106 +2298,151 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
     <div class="tracker-grid">
 
-      <!-- Calgary / Banff -->
-      <div class="tracker-col">
-        <div class="tracker-city">Calgary<br>Jasper · Banff</div>
+      <!-- ── CITY HEADERS (row 1) ── -->
+      <div class="tr-city" onclick="scrollToId('p-leg1')">
+        <div class="tracker-city">Calgary<br><span style="font-size:1.05rem">Jasper · Banff</span></div>
         <div class="tracker-dates">Oct 1–5 · 4 nights</div>
-        <div class="tracker-rows">
-          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Yun: AC585 EWR→YYC ✓</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: AC585 EWR→YYC ✓</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Sixt CX-5 · Oct 2–5 ✓</div>
-          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Residence Inn Calgary ✓</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Miette Cabins · Jasper ✓</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Otter Hotel · Banff ✓</div>
-          <span class="tracker-section-label"><i class="ri-compass-line"></i> Activities</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Moraine Lake shuttle ✓</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Banff park pass</div>
-        </div>
+        <span class="tr-nav-hint">View plan →</span>
       </div>
-
-      <!-- Bangkok -->
-      <div class="tracker-col">
+      <div class="tr-city" onclick="scrollToId('p-leg2')">
         <div class="tracker-city">Bangkok</div>
         <div class="tracker-dates">Oct 7–9 · 2 nights</div>
-        <div class="tracker-rows">
-          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>WS80/WS5930 ✓ KXOXGQ · Oct 6 14:50</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>BKK → USM (Oct 9)</div>
-          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Public House Bangkok · 2 nts ✓</div>
-          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
-          <div class="tracker-row"><span class="status-dot s-na"></span>Grand Palace · Wat Arun</div>
-          <div class="tracker-row"><span class="status-dot s-na"></span>Floating market · Oct 8</div>
-        </div>
+        <span class="tr-nav-hint">View plan →</span>
       </div>
-
-      <!-- Koh Samui -->
-      <div class="tracker-col">
+      <div class="tr-city" onclick="scrollToId('p-leg3')">
         <div class="tracker-city">Koh Samui</div>
         <div class="tracker-dates">Oct 9–12 · 3 nights</div>
-        <div class="tracker-rows">
-          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>BKK → USM flight</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>PG807 KSM→HKG ✓ FVZ2OD</div>
-          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Wedding island Oct 9–12 ✓</div>
-          <span class="tracker-section-label"><i class="ri-heart-line"></i> Activities</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Wedding confirmed ✓</div>
-        </div>
+        <span class="tr-nav-hint">View plan →</span>
       </div>
-
-      <!-- Hong Kong -->
-      <div class="tracker-col">
+      <div class="tr-city" onclick="scrollToId('p-leg4')">
         <div class="tracker-city">Hong Kong</div>
         <div class="tracker-dates">Oct 12–14 · 2 nights</div>
-        <div class="tracker-rows">
-          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>PG807 KSM→HKG ✓</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>HKG → PVG flight</div>
-          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Hong Kong · 2 nts</div>
-          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>China visa × 2</div>
-          <div class="tracker-row"><span class="status-dot s-na"></span>Victoria Peak · Star Ferry</div>
-        </div>
+        <span class="tr-nav-hint">View plan →</span>
       </div>
-
-      <!-- Shanghai -->
-      <div class="tracker-col">
+      <div class="tr-city" onclick="scrollToId('p-leg5')">
         <div class="tracker-city">Shanghai</div>
-        <div class="tracker-dates">Oct 14–23 · (incl. family)</div>
-        <div class="tracker-rows">
-          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Yan: SHA → Shanxi (Oct 17)</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH (Oct 23)</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: PVG→ATH AZ5QGD ✓</div>
-          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>2 rooms Oct 14–17 (incl. mom)</div>
-          <div class="tracker-row"><span class="status-dot s-na"></span>Oct 17–23: w/ family</div>
-          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
-          <div class="tracker-row"><span class="status-dot s-na"></span>The Bund · Jing An Temple</div>
-        </div>
+        <div class="tracker-dates">Oct 14–23 · family</div>
+        <span class="tr-nav-hint">View plan →</span>
+      </div>
+      <div class="tr-city" onclick="scrollToId('p-leg6')">
+        <div class="tracker-city">Athens<br><span style="font-size:1.05rem">+ Home</span></div>
+        <div class="tracker-dates">Oct 23–30 · 7 nights</div>
+        <span class="tr-nav-hint">View plan →</span>
       </div>
 
-      <!-- Athens / Home -->
-      <div class="tracker-col">
-        <div class="tracker-city">Athens<br>+ Home</div>
-        <div class="tracker-dates">Oct 23–30 · 7 nights</div>
-        <div class="tracker-rows">
-          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH (A3 1900)</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: PVG→ATH AZLZGO ✓</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: ATH → EWR (Oct 30)</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: ATH→EWR AZLZGO ✓</div>
-          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Oct 23–27 (both, 4 nts)</div>
-          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan Oct 27–29 (company ✦)</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Yun Oct 27–30 (self, 3 nts)</div>
-          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
-          <div class="tracker-row"><span class="status-dot s-na"></span>Acropolis · Cape Sounion</div>
-        </div>
+      <!-- ── TRANSPORT BAND ── -->
+      <div class="tr-band"><i class="ri-plane-line"></i> Transport</div>
+
+      <!-- Calgary transport -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun · AC585 EWR→YYC<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan · AC585 EWR→YYC<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Sixt CX-5 · YYC<span class="tr-detail">Oct 2 07:00 pickup → Oct 5 drop-off · Free cancel before pickup</span></span></div>
+      </div>
+
+      <!-- Bangkok transport -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>WS80+WS5930 · KXOXGQ<span class="tr-detail">Oct 6 dep 14:50 YYC → Oct 7 arr 23:00 BKK · 19h 10m via NRT</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>BKK → USM · Oct 9<span class="tr-detail">Not yet booked · Bangkok Air PG recommended</span></span></div>
+      </div>
+
+      <!-- Koh Samui transport -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>BKK → USM · Oct 9<span class="tr-detail">Not yet booked</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>PG807 USM→HKG · FVZ2OD<span class="tr-detail">Oct 12 dep 11:55 → arr 16:20 HKG T2 · 1h 25m</span></span></div>
+      </div>
+
+      <!-- Hong Kong transport -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>PG807 USM→HKG · FVZ2OD<span class="tr-detail">Oct 12 dep 11:55 → arr 16:20 HKG T2</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>HKG → PVG · Oct 14<span class="tr-detail">Not yet booked</span></span></div>
+      </div>
+
+      <!-- Shanghai transport -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan: SHA → Shanxi<span class="tr-detail">Oct 17 · domestic · TBD</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun: SHA → ATH (A3 1900)<span class="tr-detail">Oct 23 · dep 01:10 · 11h 50m</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: PVG→ATH · AZ5QGD ✓<span class="tr-detail">Oct 23 · company-covered</span></span></div>
+      </div>
+
+      <!-- Athens transport -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun: ATH → EWR · Oct 30<span class="tr-detail">Not yet booked · Flying Blue or Delta</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: ATH→EWR · AZLZGO ✓<span class="tr-detail">Oct 27 · company-covered</span></span></div>
+      </div>
+
+      <!-- ── STAY BAND ── -->
+      <div class="tr-band"><i class="ri-hotel-bed-line"></i> Stay</div>
+
+      <!-- Calgary stay -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Residence Inn Calgary<span class="tr-detail">Oct 1–2 · 1 nt · $211/nt · Free cancel 24h</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Miette Cabins · Jasper<span class="tr-detail">Oct 2–3 · 1 nt · CA$364/nt · Free cancel Sep 29</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Otter Hotel · Banff<span class="tr-detail">Oct 3–5 · 2 nts · CA$656/nt · Free cancel Sep 30</span></span></div>
+      </div>
+
+      <!-- Bangkok stay -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Public House Bangkok<span class="tr-detail">Oct 7–9 · 2 nts · 55K Bonvoy · Free cancel Oct 4</span></span></div>
+      </div>
+
+      <!-- Koh Samui stay -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Wedding island<span class="tr-detail">Oct 9–12 · 3 nts · confirmed ✓</span></span></div>
+      </div>
+
+      <!-- Hong Kong stay -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel Hong Kong<span class="tr-detail">Oct 12–14 · 2 nts · TBD · Murray HKG (Bonvoy)?</span></span></div>
+      </div>
+
+      <!-- Shanghai stay -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>2 rooms · Oct 14–17<span class="tr-detail">Incl. Yun's mom · TBD</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>Oct 17–23: w/ family<span class="tr-detail">Staying with Yan's family</span></span></div>
+      </div>
+
+      <!-- Athens stay -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel · Oct 23–27<span class="tr-detail">Both · 4 nts · TBD</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-inflight"></span><span>Yan · Oct 27–29 ✦<span class="tr-detail">Company-covered · 2 nts</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun · Oct 27–30<span class="tr-detail">Self · 3 nts · TBD</span></span></div>
+      </div>
+
+      <!-- ── ACTIVITIES BAND ── -->
+      <div class="tr-band"><i class="ri-compass-line"></i> Activities</div>
+
+      <!-- Calgary activities -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Moraine Lake shuttle ✓<span class="tr-detail">INPC26-13891950B1 · Oct 4 07:00</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Banff park pass<span class="tr-detail">Parks Canada · purchase at gate</span></span></div>
+      </div>
+
+      <!-- Bangkok activities -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>Grand Palace · Wat Arun<span class="tr-detail">Oct 8</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>Floating market<span class="tr-detail">Oct 8 · Damnoen Saduak</span></span></div>
+      </div>
+
+      <!-- Koh Samui activities -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Wedding ✓<span class="tr-detail">Oct 9 · Meryl & Michael</span></span></div>
+      </div>
+
+      <!-- Hong Kong activities -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>China visa × 2<span class="tr-detail">Required for Shanghai leg</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>Victoria Peak · Star Ferry</span></div>
+      </div>
+
+      <!-- Shanghai activities -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>The Bund · Jing An Temple</span></div>
+      </div>
+
+      <!-- Athens activities -->
+      <div class="tr-section">
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>Acropolis · Cape Sounion</span></div>
       </div>
 
     </div>
@@ -2118,10 +2452,10 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <div class="legend-item"><span class="status-dot s-booked"></span> Confirmed</div>
       <div class="legend-item"><span class="status-dot s-inflight"></span> In progress / company-covered ✦</div>
       <div class="legend-item"><span class="status-dot s-needed"></span> Not yet booked</div>
-      <div class="legend-item" style="margin-left:auto; color:var(--muted)">6 of 15 items confirmed</div>
+      <div class="legend-item" style="margin-left:auto; color:var(--muted)">Click any destination to jump to itinerary</div>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" style="width: 40%"></div>
+      <div class="progress-bar-fill" style="width: 42%"></div>
     </div>
   </div>
 
@@ -2826,233 +3160,311 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <div class="final-section-title">Expense ledger</div>
 
       <!-- Currency selector -->
-      <div style="display:flex;align-items:center;justify-content:flex-end;gap:.6rem;margin-bottom:.85rem;">
-        <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Display in</span>
-        <div style="display:flex;background:var(--nav-toggle-bg);border-radius:3px;padding:2px;gap:1px;">
-          <button class="curr-btn" onclick="setCurr('USD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:var(--ink);color:var(--paper);transition:all .18s;">USD</button>
-          <button class="curr-btn" onclick="setCurr('CAD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CAD</button>
-          <button class="curr-btn" onclick="setCurr('CNY',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CNY</button>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:1rem;">
+        <div style="font-size:12px;color:var(--muted);letter-spacing:.04em;">Click any row to expand details &nbsp;·&nbsp; <span id="fx-rate-note"></span></div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Show in</span>
+          <div style="display:flex;background:var(--nav-toggle-bg);border-radius:3px;padding:2px;gap:1px;">
+            <button class="curr-btn" onclick="setCurr('USD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:var(--ink);color:var(--paper);transition:all .18s;">USD</button>
+            <button class="curr-btn" onclick="setCurr('CAD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CAD</button>
+            <button class="curr-btn" onclick="setCurr('CNY',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CNY</button>
+          </div>
+          <span id="fx-live-status" style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.05em;"></span>
         </div>
-        <span id="fx-live-status" style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.05em;"></span>
       </div>
 
-      <div class="ledger-wrap">
-      <!-- Header row -->
-      <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
-        <div style="background:var(--surface);padding:.7rem 1.2rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Item</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center;">Paid by</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Card</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Amount</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Currency</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;" id="ledger-curr-hdr">USD equiv.</div>
-      </div>
+      <div class="ldg-wrap">
 
-      <!-- Rows -->
-      <div style="border:1px solid var(--line-strong);border-top:none;">
-
-        <!-- ── TRANSPORTATION ── -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-bottom:1px solid var(--line-strong);">
-          <div style="padding:.4rem 1.2rem;grid-column:1/-1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;"><i class="ri-plane-line"></i> Transportation</div>
+        <!-- Header -->
+        <div class="ldg-hdr">
+          <div class="ldg-hdr-cell">Item</div>
+          <div class="ldg-hdr-cell" style="text-align:center;">Paid by</div>
+          <div class="ldg-hdr-cell">Card</div>
+          <div class="ldg-hdr-cell r" id="ledger-curr-hdr">USD equiv.</div>
         </div>
 
-        <!-- EWR→YYC Yun -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">EWR → YYC <span style="color:var(--muted);font-size:14px">Yun · BCFAML · AC585</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Air Canada · ~5h 35m · Oct 1 · arr YYC 17:30 MDT</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> Aeroplan award — refundable with cancellation fee</div>
-          </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Aeroplan ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">34,190 pts</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">Points</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;">—</div>
+        <!-- ══ TRANSPORTATION ══ -->
+        <div class="ldg-cat ldg-cat-transport">
+          <div class="ldg-cat-label"><i class="ri-plane-fill"></i> Transportation</div>
+          <div class="ldg-cat-subtotal"><span data-usd="3411.02">$3,411.02</span></div>
         </div>
 
-        <!-- EWR→YYC Yan -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">EWR → YYC <span style="color:var(--muted);font-size:14px">Yan · BCFEFG · AC585</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Air Canada · ~5h 35m · Oct 1 · arr YYC 17:30 MDT</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> Aeroplan award — refundable with cancellation fee</div>
+        <!-- EWR→YYC Yun (Aeroplan points — $0) -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">EWR → YYC <span style="font-size:11px;font-weight:400;color:var(--muted)">Yun · AC585</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Air Canada · Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ Aeroplan award</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Aeroplan<br>••••1431</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—<span class="ldg-amount-orig">34,190 pts</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yan</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Aeroplan ••••1922</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size:14px;color:var(--muted)">+ CAD $279.80</span></div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="197.63">$197.63</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">BCFAML</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Aircraft</div><div class="ldg-detail-val">Air Canada A320 · nonstop</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Refundable with Aeroplan cancel fee</div></div>
+            </div>
+          </div>
         </div>
 
-        <!-- YYC→BKK WS80+WS5930 -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">YYC → BKK (both) <span style="color:var(--muted);font-size:14px">KXOXGQ · WS80 + WS5930</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">WestJet/JAL · B787-9 + B787-8 · 19h 10m · Oct 6 dep 14:50 YYC → Oct 7 arr 23:00 BKK · 1 stop NRT (2h 5m)</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-error-warning-line" style="color:var(--accent)"></i> Non-refundable · Chase Travel #1019416112</div>
+        <!-- EWR→YYC Yan (Aeroplan + cash) -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">EWR → YYC <span style="font-size:11px;font-weight:400;color:var(--muted)">Yan · AC585</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Air Canada · Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ Aeroplan + surcharge</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yan</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Aeroplan<br>••••1922</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="197.63">$197.63</span><span class="ldg-amount-orig">CAD $279.80</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">$2,209.20</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="2209.20">$2,209.20</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">BCFEFG</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Points + cash</div><div class="ldg-detail-val">18,400 Aeroplan pts + CAD $279.80 surcharge</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Refundable with Aeroplan cancel fee</div></div>
+            </div>
+          </div>
         </div>
 
-        <!-- KSM→HKG PG807 -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">USM → HKG (both) <span style="color:var(--muted);font-size:14px">FVZ2OD · PG807</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Bangkok Airways · A319 · ~1h 25m · Oct 12 · dep 11:55 USM → arr 16:20 HKG T2</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-error-warning-line" style="color:var(--accent)"></i> Non-endorsable · change-restricted · no refund</div>
+        <!-- YYC→BKK WestJet/JAL -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">YYC → BKK <span style="font-size:11px;font-weight:400;color:var(--muted)">Both · KXOXGQ</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">WestJet/JAL · Oct 6 dep 14:50 → Oct 7 arr 23:00 · 19h 10m · 1 stop NRT</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-no">⚠ Non-refundable</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">CSR<br>••••7559</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="2209.20">$2,209.20</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">฿18,090</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">THB</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="549.94">$549.94</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Confirmation</div><div class="ldg-detail-val">KXOXGQ · Chase Travel #1019416112</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Aircraft</div><div class="ldg-detail-val">WS80 B787-9 (YYC→NRT) + WS5930 B787-8 operated by JAL (NRT→BKK)</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Layover</div><div class="ldg-detail-val">NRT Tokyo Narita · 2h 05m</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-no"><i class="ri-error-warning-line"></i> Non-refundable · no changes allowed</div></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Yan BCG company flights -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line-strong);align-items:start;opacity:.55;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--muted);font-style:italic;">Yan: PVG→ATH + ATH→EWR (BCG company ✦)</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Managed by BCG travel · Oct 23 + Oct 27</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-building-line"></i> Company-covered — excluded from personal total</div>
+        <!-- USM→HKG Bangkok Airways -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">USM → HKG <span style="font-size:11px;font-weight:400;color:var(--muted)">Both · FVZ2OD</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Bangkok Airways PG807 · Oct 12 dep 11:55 → arr 16:20 HKG T2 · 1h 25m</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-no">⚠ Non-refundable</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">TD Aeroplan<br>••••1431</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="549.94">$549.94</span><span class="ldg-amount-orig">฿18,090</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:center;">BCG</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Lodge card</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">$6,526.53</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">Not yours</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">FVZ2OD</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Aircraft</div><div class="ldg-detail-val">Bangkok Airways A319</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-no"><i class="ri-error-warning-line"></i> Non-endorsable · change-restricted · no refund</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BCG company flights (dimmed) -->
+        <div class="ldg-row ldg-dimmed" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route" style="font-style:italic;color:var(--muted)">Yan: PVG→ATH + ATH→EWR <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">BCG company ✦ · Oct 23 + Oct 27 · not your expense</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ Company-covered</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer" style="color:var(--muted)">BCG</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Lodge card</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—<span class="ldg-amount-orig">$6,526.53</span></div></div>
+          </div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Refs</div><div class="ldg-detail-val">Yan: PVG→ATH AZ5QGD · ATH→EWR AZLZGO</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Note</div><div class="ldg-detail-val">Managed by BCG travel — excluded from personal total</div></div>
+            </div>
+          </div>
         </div>
 
         <!-- Sixt Car Rental -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">Sixt Mazda CX-5 · YYC <span style="color:var(--muted);font-size:14px">CN961135523748</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Oct 2 pickup 7:00 → Oct 5 drop-off · 4 days · YYC airport</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> See Sixt confirmation for cancel policy</div>
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">Sixt · Mazda CX-5 · YYC <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Oct 2 07:00 pickup → Oct 5 drop-off YYC Airport · 4 days</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel before pickup</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">CSR<br>••••7559</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="454.25">$454.25</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">$454.25</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="454.25">$454.25</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">CN961135523748 · Chase Travel</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Pickup</div><div class="ldg-detail-val">Oct 2 07:00 · YYC Calgary Airport</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Drop-off</div><div class="ldg-detail-val">Oct 5 · YYC Calgary Airport</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancellation before Oct 2 07:00 pickup · After pickup: no refund for unused days</div></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Transportation subtotal -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-top:1px solid var(--line-strong);">
-          <div style="padding:.6rem 1.2rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Transportation subtotal</div>
-          <div></div><div></div><div></div><div></div>
-          <div style="padding:.6rem 1rem;font-size:13px;font-weight:500;color:var(--ink);text-align:right;" data-usd="3411.02">$3,411.02</div>
+        <!-- Transport subtotal -->
+        <div class="ldg-subtotal-row">
+          <div class="ldg-subtotal-label" style="color:#5565c0;"><i class="ri-plane-fill" style="margin-right:.35rem"></i>Transportation total</div>
+          <div></div><div></div>
+          <div class="ldg-subtotal-val"><span data-usd="3411.02">$3,411.02</span></div>
         </div>
 
-        <!-- ── STAY ── -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-bottom:1px solid var(--line-strong);border-top:1px solid var(--line-strong);">
-          <div style="padding:.4rem 1.2rem;grid-column:1/-1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;"><i class="ri-hotel-bed-line"></i> Stay</div>
+        <!-- ══ STAY ══ -->
+        <div class="ldg-cat ldg-cat-stay">
+          <div class="ldg-cat-label"><i class="ri-hotel-bed-fill"></i> Stay</div>
+          <div class="ldg-cat-subtotal"><span data-usd="1571.32">$1,571.32</span></div>
         </div>
 
         <!-- Residence Inn Calgary -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">Residence Inn Calgary <span style="color:var(--muted);font-size:14px">#2491461985</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 1 → Check-out Oct 2 · 1 night · $211.16/nt</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> Marriott standard — free cancel up to 24h before check-in</div>
+        <div class="ldg-row ldg-stay" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">Residence Inn Calgary <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Check-in Oct 1 → Check-out Oct 2 · 1 night · $211.16/nt</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel 24h before</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">CSR<br>••••7559</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="211.16">$211.16</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">$211.16</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="211.16">$211.16</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">#2491461985 · Marriott Bonvoy</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Check-in / out</div><div class="ldg-detail-val">Oct 1 → Oct 2 · 1 night · $211.16/nt</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel up to 24h before check-in · After: 1 night charged</div></div>
+            </div>
+          </div>
         </div>
 
         <!-- Miette Mountain Cabins -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">Miette Mountain Cabins · Jasper <span style="color:var(--muted);font-size:14px">#72075854441977</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 2 4:00 PM → Check-out Oct 3 11:00 AM · 1 night · Cedar Lodge · CA $363.60/nt + CA $24.55 resort fee due at property</div>
-            <div style="font-size:11px;color:var(--green);margin-top:.15rem;opacity:.9;"><i class="ri-shield-check-line"></i> Free cancel until Sept 29, 6:00 PM local · after: 100% of total, no refund</div>
+        <div class="ldg-row ldg-stay" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">Miette Mountain Cabins · Jasper <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Check-in Oct 2 16:00 → Check-out Oct 3 11:00 · 1 night · Cedar Lodge · CA $363.60/nt</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel Sep 29 18:00</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Expedia<br>••••1431</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="310.92">$310.92</span><span class="ldg-amount-orig">CA $440.27</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Expedia ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">CAD $440.27</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="310.92">$310.92</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">#72075854441977 · Expedia</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Rate detail</div><div class="ldg-detail-val">CA $363.60/nt base + CA $24.55 resort fee at property</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel until Sep 29, 18:00 local · After: 100% charged, no refund</div></div>
+            </div>
+          </div>
         </div>
 
         <!-- Otter Hotel Banff -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">Otter Hotel · Banff <span style="color:var(--muted);font-size:14px">#72075854361589</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 3 4:00 PM → Check-out Oct 5 11:00 AM · 2 nights · Superior Room King · CAD $656.10/nt avg</div>
-            <div style="font-size:11px;color:var(--green);margin-top:.15rem;opacity:.9;"><i class="ri-shield-check-line"></i> Free cancel until Sept 30, 6:00 PM local · after: 1st night + taxes · no-show = 100%</div>
+        <div class="ldg-row ldg-stay" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">Otter Hotel · Banff <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Check-in Oct 3 16:00 → Check-out Oct 5 11:00 · 2 nights · Superior Room King · CA $656/nt avg</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel Sep 30 18:00</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Expedia<br>••••1431</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="1049.24">$1,049.24</span><span class="ldg-amount-orig">CA $1,485.67</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Expedia ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="1049.24">$1,049.24</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">#72075854361589 · Expedia</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Rate detail</div><div class="ldg-detail-val">CA $656.10/nt avg · Superior Room King</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel until Sep 30, 18:00 local · After: 1st night + taxes · No-show: 100%</div></div>
+            </div>
+          </div>
         </div>
 
         <!-- Public House Bangkok -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">Public House Bangkok · Design Hotels <span style="color:var(--muted);font-size:14px">#88511655</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 7 → Check-out Oct 9 · 2 nights · 27,500 pts/nt avg · Sukhumvit Soi 31</div>
-            <div style="font-size:11px;color:var(--green);margin-top:.15rem;opacity:.9;"><i class="ri-shield-check-line"></i> Free cancel until Oct 4, 2026 11:59 PM local</div>
+        <div class="ldg-row ldg-stay" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">Public House Bangkok · Design Hotels <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Check-in Oct 7 → Check-out Oct 9 · 2 nights · 27,500 pts/nt · Sukhumvit Soi 31</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ 55,000 Bonvoy pts</span><span class="ldg-badge ldg-badge-ok">✓ Free cancel Oct 4</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Bonvoy pts</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—</div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Bonvoy pts</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">55,000 pts</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">Points</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;">—</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">#88511655 · Marriott Bonvoy</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Points</div><div class="ldg-detail-val">55,000 Bonvoy pts redeemed (27,500/nt avg)</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel until Oct 4, 2026 23:59 local · Points returned in full</div></div>
+            </div>
+          </div>
         </div>
 
         <!-- Stay subtotal -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-top:1px solid var(--line-strong);">
-          <div style="padding:.6rem 1.2rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Stay subtotal</div>
-          <div></div><div></div><div></div><div></div>
-          <div style="padding:.6rem 1rem;font-size:13px;font-weight:500;color:var(--ink);text-align:right;" data-usd="1571.32">$1,571.32</div>
+        <div class="ldg-subtotal-row">
+          <div class="ldg-subtotal-label" style="color:#9e6e18;"><i class="ri-hotel-bed-fill" style="margin-right:.35rem"></i>Stay total</div>
+          <div></div><div></div>
+          <div class="ldg-subtotal-val"><span data-usd="1571.32">$1,571.32</span></div>
         </div>
 
-        <!-- ── ACTIVITIES ── -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-bottom:1px solid var(--line-strong);border-top:1px solid var(--line-strong);">
-          <div style="padding:.4rem 1.2rem;grid-column:1/-1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;"><i class="ri-map-line"></i> Activities</div>
+        <!-- ══ ACTIVITIES ══ -->
+        <div class="ldg-cat ldg-cat-activities">
+          <div class="ldg-cat-label"><i class="ri-map-2-fill"></i> Activities</div>
+          <div class="ldg-cat-subtotal"><span data-usd="20.48">$20.48</span></div>
         </div>
 
         <!-- Moraine Lake Shuttle -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
-          <div style="padding:.85rem 1.2rem;">
-            <div style="font-size:15px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size:14px">INPC26-13891950B1</span></div>
-            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Parks Canada · Oct 4 · 7:00 AM slot · Lake Louise → Moraine Lake</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-error-warning-line" style="color:var(--accent)"></i> Parks Canada shuttles — non-refundable</div>
+        <div class="ldg-row ldg-activities" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">Moraine Lake Shuttle <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Parks Canada · Oct 4 · 07:00 AM slot · Lake Louise → Moraine Lake</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-no">⚠ Non-refundable</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">TD Aeroplan<br>••••1431</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="20.48">$20.48</span><span class="ldg-amount-orig">CA $29.00</span></div></div>
           </div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">CAD $29.00</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="20.48">$20.48</div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">INPC26-13891950B1 · Parks Canada</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Route</div><div class="ldg-detail-val">Lake Louise shuttle hub → Moraine Lake · 07:00 AM slot</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-no"><i class="ri-error-warning-line"></i> Non-refundable — Parks Canada policy</div></div>
+            </div>
+          </div>
         </div>
 
         <!-- Activities subtotal -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-top:1px solid var(--line-strong);">
-          <div style="padding:.6rem 1.2rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Activities subtotal</div>
-          <div></div><div></div><div></div><div></div>
-          <div style="padding:.6rem 1rem;font-size:13px;font-weight:500;color:var(--ink);text-align:right;" data-usd="20.48">$20.48</div>
+        <div class="ldg-subtotal-row">
+          <div class="ldg-subtotal-label" style="color:#2d8a4c;"><i class="ri-map-2-fill" style="margin-right:.35rem"></i>Activities total</div>
+          <div></div><div></div>
+          <div class="ldg-subtotal-val"><span data-usd="20.48">$20.48</span></div>
         </div>
 
-        <!-- Total row -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-top:2px solid var(--ink);">
-          <div style="padding:.85rem 1.2rem;font-size: 14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
-          <div></div><div></div><div></div><div></div>
-          <div style="padding:.85rem 1rem;font-size: 16px;font-weight:500;color:var(--ink);text-align:right;" id="ledger-total-val">$5,002.82</div>
+        <!-- Grand total -->
+        <div class="ldg-total-row">
+          <div class="ldg-total-label">Total personal cash</div>
+          <div style="font-family:var(--mono);font-size:1.45rem;font-weight:700;color:var(--ink);letter-spacing:.02em;" id="ledger-total-val">$5,002.82</div>
         </div>
 
-      </div>
-      </div><!-- /ledger-wrap -->
+      </div><!-- /ldg-wrap -->
 
       <!-- FX note -->
       <div style="font-size: 13px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
-        <span id="fx-rate-note"></span>Rates auto-fetched live via frankfurter.app. Points shown separately. Yan's BCG-covered flights ($6,526.53) excluded from personal total.
+        Rates live via frankfurter.app · Points shown separately · Yan's BCG-covered flights ($6,526.53) excluded from personal total.
       </div>
       <div style="font-size: 13px;color:var(--muted);margin-top:.3rem;letter-spacing:.04em;">
         Cards: Yun ••••1431 = TD Aeroplan Visa Infinite (CAD) — used for KSM→HKG + Moraine Lake + Miette + Otter · Yun ••••7559 = Chase Sapphire Reserve (USD) · Yan ••••1922 = Aeroplan
@@ -3639,6 +4051,10 @@ function switchPage(name) {
 
 function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggleLdgRow(el) {
+  el.classList.toggle('open');
 }
 
 function copyAddr(btn, addr) {
