@@ -498,6 +498,48 @@ main {
 }
 .stop:last-child { border-bottom: none; }
 
+/* ── Time tags ── */
+.time-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .04em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.time-day  { background: #fef3c7; color: #92400e; }
+.time-night{ background: #1e3058; color: #93c5fd; }
+html.dark .time-day  { background: rgba(250,204,21,.12); color: #fbbf24; }
+html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
+
+/* ── Expandable stops ── */
+.stop.collapsed .stop-desc,
+.stop.collapsed .tip-box { display: none; }
+
+.stop-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: .9rem;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--sans);
+}
+.stop-toggle:hover { color: var(--ink); }
+.stop-toggle-icon { display: inline-block; transition: transform .18s; font-style: normal; }
+.stop.collapsed .stop-toggle-icon { transform: rotate(-90deg); }
+
 .stop-type {
   font-size: 9px;
   letter-spacing: .2em;
@@ -1117,7 +1159,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   <!-- HERO -->
   <section class="hero">
     <div class="hero-top">
-      <span>Oct 1 — Oct 18, 2026</span>
+      <span>Oct 1 — Oct 30, 2026</span>
       <span>Planning mode</span>
     </div>
     <div class="hero-center">
@@ -1180,8 +1222,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
       <!-- Calgary / Banff -->
       <div class="tracker-col">
-        <div class="tracker-city">Calgary<br>/ Banff</div>
-        <div class="tracker-dates">Oct 1–5 · 5 nights</div>
+        <div class="tracker-city">Calgary<br>/ Banff / Jasper</div>
+        <div class="tracker-dates">Oct 1–7 · 6 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yun: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: AC585 EWR→YYC ✓</div>
@@ -1195,10 +1237,10 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <!-- Bangkok -->
       <div class="tracker-col">
         <div class="tracker-city">Bangkok</div>
-        <div class="tracker-dates">Oct 5–7 · 2 nights</div>
+        <div class="tracker-dates">Oct 8 · transit (1 night)</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-needed"></span>Flight YYC → BKK</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Bangkok</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Bangkok (1 nt, Bonvoy)</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
         </div>
@@ -1207,7 +1249,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <!-- Koh Samui -->
       <div class="tracker-col">
         <div class="tracker-city">Koh Samui</div>
-        <div class="tracker-dates">Oct 7–12 · 5 nights</div>
+        <div class="tracker-dates">Oct 9–12 · 3 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-needed"></span>Flight BKK → USM</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel (pre-wedding)</div>
@@ -1233,10 +1275,10 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="tracker-city">Shanghai</div>
         <div class="tracker-dates">Oct 14–17 · 3 nights</div>
         <div class="tracker-rows">
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Shanghai</div>
-          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan → Shanxi Oct 17</div>
-          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
-          <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>2 rooms (Oct 14–17, incl. mom)</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Yan: SHA → Shanxi transport</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH (same as Yan)</div>
+          <div class="tracker-row"><span class="status-dot s-na"></span>Oct 17–23: staying w/ family</div>
         </div>
       </div>
 
@@ -1248,7 +1290,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH flight</div>
           <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan: flight (company ✦)</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Athens Oct 24–25</div>
-          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan hotel Oct 26–29 (company ✦)</div>
+          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan hotel Oct 27–29 (company ✦)</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: ATH → EWR Oct 30</div>
           <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan: ATH → NY Oct 30 (company ✦)</div>
         </div>
@@ -1276,13 +1318,13 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 01 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-canada"></span>Canada</div>
-        <div class="leg-date-range">Oct 1–5</div>
+        <div class="leg-date-range">Oct 1–7</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight</div>
-            <div class="stop-title">New York → Calgary</div>
+            <div class="stop-title">New York → Calgary <span class="time-tag time-day">Arr 17:30 MDT</span></div>
             <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5h 05m. Departs <strong style="font-weight:500">14:25 EDT</strong> (Newark) · arrives <strong style="font-weight:500">17:30 MDT</strong> (Calgary). Both confirmed on Aeroplan Flex Reward. Yun: 34,190 pts, seat 16A, ref BCFAML. Yan: 18,400 pts + CAD $279.80, ref BCFEFG.</div>
           </div>
           <div class="stop-right">
@@ -1298,14 +1340,30 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div>
             <div class="stop-type">⛰ Explore</div>
             <div class="stop-title">Banff / Canmore — Larch Season</div>
-            <div class="stop-desc">Peak golden larch color runs Sept 20–Oct 5 — Sept 25 is the statistical sweet spot. Hike Larch Valley from Moraine Lake up to Sentinel Pass. Also: Pocaterra Cirque in Kananaskis (less crowded, equally stunning). Moraine Lake road is closed to private cars at peak season — pre-book the Parks Canada shuttle.</div>
-            <div class="tip-box">7am light on the larches is exceptional. Worth the early alarm.</div>
+            <div class="stop-desc">Peak golden larch color runs Sept 20–Oct 5 — Sept 25 is the statistical sweet spot. Hike Larch Valley from Moraine Lake up to Sentinel Pass. Also: Pocaterra Cirque in Kananaskis (less crowded, equally stunning). Moraine Lake road is closed to private cars at peak season — pre-book the Parks Canada shuttle. Car rental from YYC — CSR covers primary rental car insurance.</div>
+            <div class="tip-box">7am light on the larches is exceptional. Worth the early alarm. Oct 4: Moraine Lake shuttle at 7am (Lake Louise slot) — confirmed INPC26-13891950B1.</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 1–5<br>4 nights</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel / Canmore needed</div>
               <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Shuttle: INPC26-13891950B1 ✓</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Car rental YYC Oct 1–7</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Banff park pass</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">🏔 Explore</div>
+            <div class="stop-title">Jasper — Athabasca &amp; Columbia Icefield</div>
+            <div class="stop-desc">Drive the Icefields Parkway north from Lake Louise to Jasper (~3 hrs) — one of the world's most spectacular drives. Stop at Peyto Lake, Bow Lake, Athabasca Falls, and the Columbia Icefield. In Jasper town: Maligne Lake, Spirit Island, hiking in Jasper National Park. October brings rutting elk and early snow on the peaks.</div>
+            <div class="tip-box">Drive Icefields Parkway in the morning light heading north. Jasper Dark Sky Preserve — one of the world's largest. Book Maligne Lake boat tour in advance.</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 5–7<br>2 nights</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Jasper needed</div>
             </div>
           </div>
         </div>
@@ -1317,18 +1375,18 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 02 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-bkk"></span>Thailand</div>
-        <div class="leg-date-range">Oct 5–7</div>
+        <div class="leg-date-range">Oct 8–9</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight</div>
-            <div class="stop-title">Calgary → Bangkok (BKK)</div>
-            <div class="stop-desc">Best routing: YYC → SFO/LAX → BKK on United/Star Alliance. United award pricing ~35K miles economy per person. Typical departure <strong style="font-weight:500">~20:00–22:00 MDT</strong> Calgary, arrives Bangkok <strong style="font-weight:500">~07:00–09:00 ICT</strong> next day (+1) with one stop (~20–22 hrs total). Use Yun's 100K Chase UR → United (70K for both).</div>
+            <div class="stop-title">Calgary → Bangkok (BKK) <span class="time-tag time-day">Arr ~08:00 ICT +1</span></div>
+            <div class="stop-desc">Best routing: YYC → SFO/LAX → BKK on United/Star Alliance. United award pricing ~35K miles economy per person. Depart Jasper/Calgary evening <strong style="font-weight:500">Oct 7 ~21:00 MDT</strong>, arrives Bangkok <strong style="font-weight:500">~08:00 ICT Oct 8</strong> with one stop (~20–22 hrs total). Drive Jasper → YYC (~3.5 hrs) on Oct 7 to catch evening flight. Use Yun's 100K Chase UR → United (70K for both).</div>
             <div class="tip-box">United Excursionist Perk: one stopover free on a round-trip award. HKG on the outbound costs nothing extra.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 5</div>
+            <div class="stop-dates">Oct 7 (depart)<br>Oct 8 (arrive)</div>
             <span class="badge badge-points">United pts</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Flight not yet booked</div>
@@ -1337,14 +1395,15 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏙 Explore</div>
-            <div class="stop-title">Bangkok — 2 Nights</div>
-            <div class="stop-desc">Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town. Street food along Yaowarat at night. Short stay — save the deep Bangkok exploration for a dedicated trip, or pad the stay if Banff can end a day earlier.</div>
+            <div class="stop-type">🏙 Transit</div>
+            <div class="stop-title">Bangkok — 1 Night</div>
+            <div class="stop-desc">Arrive Oct 8 morning, fly to Koh Samui Oct 9 morning to check in before 15:00 (wedding island check-in). One full day in BKK — Wat Pho, Wat Arun, Grand Palace, street food along Yaowarat. Use Yun's Bonvoy points for W Bangkok (design-forward, ~25K pts/nt) — 4 free nights on 103K pts.</div>
+            <div class="tip-box">Save deep Bangkok exploration for a dedicated trip. This is a warmup night — eat well, sleep early, catch a morning Bangkok Airways flight Oct 9.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 5–7<br>2 nights</div>
+            <div class="stop-dates">Oct 8<br>1 night</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel (W Bangkok, Bonvoy pts)</div>
             </div>
           </div>
         </div>
@@ -1356,17 +1415,17 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 03 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-wedding"></span>Koh Samui</div>
-        <div class="leg-date-range">Oct 7–12</div>
+        <div class="leg-date-range">Oct 9–12</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight</div>
-            <div class="stop-title">Bangkok → Koh Samui</div>
-            <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Typical departures <strong style="font-weight:500">~06:00–18:00 ICT</strong> (Bangkok time), arrivals ~1.5 hrs later at Koh Samui. Arrive Oct 7 or 8 to settle in before wedding check-in Oct 9 at 15:00. Bangkok Airways runs their own boutique lounge at Samui Airport.</div>
+            <div class="stop-title">Bangkok → Koh Samui <span class="time-tag time-day">Arr ~10:30 ICT</span></div>
+            <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Catch a morning flight on <strong style="font-weight:500">Oct 9</strong> — departs <strong style="font-weight:500">~09:00 ICT</strong>, arrives Koh Samui <strong style="font-weight:500">~10:30 ICT</strong>. Wedding island check-in is 15:00 — plenty of time to settle in and freshen up. Bangkok Airways runs their own boutique lounge at Samui Airport.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 7 or 8</div>
+            <div class="stop-dates">Oct 9</div>
             <span class="badge badge-needed">To book</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>BKK → USM flight needed</div>
@@ -1408,7 +1467,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="stop">
           <div>
             <div class="stop-type">🏙 Explore</div>
-            <div class="stop-title">Hong Kong — 2 Nights</div>
+            <div class="stop-title">Hong Kong — 2 Nights <span class="time-tag time-day">Arr 16:20 HKT</span></div>
             <div class="stop-desc">Arrive HKG Terminal 2 at <strong style="font-weight:500">16:20 HKT</strong> on Oct 12 (from PG807). October is one of HK's finest months — typhoon season over, skies clear, mid-20s. Kowloon night markets, dim sum in Central, Victoria Peak at dusk, ferry to Lantau Island. Fly HKG → PVG on Oct 14 — typical departures <strong style="font-weight:500">~08:00–13:00 HKT</strong>, arrive Shanghai <strong style="font-weight:500">~10:30–15:30 CST</strong> (~2.5 hrs).</div>
             <div class="tip-box">China tourist visa required for the mainland — covers Shanghai and Beijing. Apply 4–6 weeks in advance.</div>
           </div>
@@ -1435,14 +1494,30 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Travel + Explore</div>
-            <div class="stop-title">Hong Kong → Shanghai</div>
-            <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs. Three nights in Shanghai together — The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck. Neri&amp;Hu architecture woven into the city fabric.</div>
+            <div class="stop-type">✈ Flight</div>
+            <div class="stop-title">Hong Kong → Shanghai <span class="time-tag time-day">Arr ~13:00 CST</span></div>
+            <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs nonstop. Typical departures <strong style="font-weight:500">08:00–13:00 HKT</strong>, arrivals <strong style="font-weight:500">10:30–15:30 CST</strong>. Multiple carriers: Air China, China Eastern, Cathay Pacific. Book with China tourist visa (same visa covers HKG→PVG mainlaind entry for SHA and PEK).</div>
+          </div>
+          <div class="stop-right">
+            <div class="stop-dates">Oct 14</div>
+            <div class="booking-status">
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>HKG → PVG flight needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>China visa × 2</div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div>
+            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-title">Shanghai — Together</div>
+            <div class="stop-desc">Three nights in Shanghai — The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck. Neri&amp;Hu architecture woven into the city fabric. Yun's mom joins for the Shanghai leg — <strong style="font-weight:500">2 hotel rooms needed</strong>: one for Yun + Yan, one for Yun's mom.</div>
+            <div class="tip-box">The Middle House (Jing An) — Neri&Hu designed, SLH · best design-forward choice. Or Andaz Shanghai on Yan's 46K Chase UR → Hyatt. Book 2 rooms same hotel for ease.</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 14–17<br>3 nights</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Shanghai (Oct 14–17)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Room 1: Yun + Yan (Oct 14–17)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Room 2: Yun's mom (Oct 14–17)</div>
             </div>
           </div>
         </div>
@@ -1450,14 +1525,15 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div>
             <div class="stop-type">↕ Split — Oct 17</div>
             <div class="stop-title">Yan → Shanxi · Yun stays in Shanghai</div>
-            <div class="stop-desc">On Oct 17 the trip splits. Yan heads to Shanxi (flight or high-speed rail, ~2.5 hrs from SHA) for a few days before flying company-covered to Athens ~Oct 23–24. Yun remains in Shanghai, then books a separate flight to Athens arriving Oct 24. Both reunite in Athens — see Leg 06.</div>
-            <div class="tip-box">Shanxi highlights: Pingyao Ancient City (UNESCO), Yungang Grottoes, hanging temples at Xuankong Si. Worth 3–4 nights if time allows.</div>
+            <div class="stop-desc">On Oct 17 the trip splits. Yan heads to Shanxi (flight or high-speed rail, ~2.5 hrs from SHA) to visit family — no accommodation needed, staying with family Oct 17–23. Yun also stays with family in Shanghai Oct 17–24, then books a flight to Athens. Both reunite in Athens Oct 24 — see Leg 06.</div>
+            <div class="tip-box">Shanxi highlights (day trips from family home): Pingyao Ancient City (UNESCO), Yungang Grottoes, hanging temples at Xuankong Si.</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 17<br>split day</div>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Yan: SHA → Shanxi transport</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yan: Shanxi accommodation</div>
+              <div class="bk-row" style="color:var(--muted)"><span class="bk-dot s-na" style="background:transparent;border:1.5px solid var(--muted);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan: staying with family ✓</div>
+              <div class="bk-row" style="color:var(--muted)"><span class="bk-dot s-na" style="background:transparent;border:1.5px solid var(--muted);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yun: staying with family ✓</div>
             </div>
           </div>
         </div>
@@ -1475,9 +1551,9 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flights to Athens</div>
-            <div class="stop-title">Shanghai / Shanxi → Athens (ATH)</div>
-            <div class="stop-desc">Both arrive Athens on Oct 24. Yan flies company-covered from Shanxi/Shanghai to ATH (~11–13 hrs via Istanbul or Dubai). Yun needs a separate self-booked ticket from Shanghai to Athens — best options are Turkish Airlines SHA→IST→ATH (~11 hrs) or Qatar Airways SHA→DOH→ATH (~13 hrs). Arrive late Oct 24, hotel needed.</div>
-            <div class="tip-box">Best points play for Yun's SHA→ATH: Chase UR → Flying Blue (Air France/KLM) ~25–30K pts one-way business. Or cash on Turkish/Qatar, typically $400–700.</div>
+            <div class="stop-title">Shanghai / Shanxi → Athens (ATH) <span class="time-tag time-night">Overnight</span></div>
+            <div class="stop-desc">Both arrive Athens on Oct 24. Yan flies company-covered from Shanxi/Shanghai to ATH (~11–13 hrs via Istanbul or Dubai). Yun aims to book the same flight as Yan (self-expense). Best options: Turkish Airlines SHA→IST→ATH (~11 hrs) or Qatar Airways SHA→DOH→ATH (~13 hrs). Overnight flight — arrives Athens morning/afternoon Oct 24.</div>
+            <div class="tip-box">Best points play for Yun's SHA→ATH: Chase UR → Flying Blue (Air France/KLM) ~25–30K pts one-way economy/business. Or cash on Turkish/Qatar, typically $400–700.</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 24<br>depart Asia</div>
@@ -1492,18 +1568,17 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <div class="stop-type">🏛 Explore</div>
             <div class="stop-title">Athens — 6 Nights</div>
             <div class="stop-desc">Oct 24–30. Acropolis and Parthenon, Plaka neighbourhood, Monastiraki flea market, Cape Sounion at sunset. The Athenian Riviera for a beach day (Glyfada or Vouliagmeni lake). Greek food: souvlaki, fresh mezze, rooftop dinners with Acropolis views.<br><br>
-              <strong style="font-weight:500">Oct 24–25</strong> — Leisure · hotel for both to book<br>
-              <strong style="font-weight:500">Oct 26–29</strong> — Yan: BHI Conference · hotel company-covered ✦<br>
-              <strong style="font-weight:500">Oct 27–29</strong> — Yan: conference sessions<br>
+              <strong style="font-weight:500">Oct 24–27</strong> — Leisure · hotel for both to book (3 nights)<br>
+              <strong style="font-weight:500">Oct 27–29</strong> — Yan: BHI Conference · hotel company-covered ✦ (2 nights) · Yun: self-book<br>
               <strong style="font-weight:500">Oct 29–30</strong> — Post-conference night · hotel for both to book
             </div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 24–30<br>6 nights</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 24–25 (both)</div>
-              <div class="bk-row" style="color:var(--warm)"><span class="bk-dot" style="background:var(--warm);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan hotel Oct 26–29 (company ✦)</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: hotel Oct 26–30 (self)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 24–27 (both, 3 nts)</div>
+              <div class="bk-row" style="color:var(--warm)"><span class="bk-dot" style="background:var(--warm);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan hotel Oct 27–29 · 2 nts (company ✦)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: hotel Oct 27–30 (self, 3 nts)</div>
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 29–30 (both)</div>
             </div>
           </div>
@@ -1511,7 +1586,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight Home</div>
-            <div class="stop-title">Athens → New York — Oct 30</div>
+            <div class="stop-title">Athens → New York — Oct 30 <span class="time-tag time-day">Arr ~13:30 EDT</span></div>
             <div class="stop-desc">Both fly home Oct 30. Yan's ATH→NY ticket is company-covered (confirmation TBD). Yun books separately — Delta flies ATH→JFK nonstop ~10 hrs, departing ~10:30 ATH local (EEST), arriving ~14:30 JFK (EDT). Best points option: Yun's Delta SkyMiles (16,393) toward economy, or Chase UR → Flying Blue ~25K for Air France ATH→CDG→EWR business.</div>
             <div class="tip-box">Delta DL1 ATH→JFK runs daily, typically departs 10:25 EEST, arrives 13:30 EDT. Book as early as possible — Oct 30 departures fill fast.</div>
           </div>
@@ -2008,11 +2083,11 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
           <div style="font-size:11px;color:var(--ink);line-height:2.2;">
-            YYC → BKK &nbsp;·&nbsp; Oct 5<br>
-            BKK → USM &nbsp;·&nbsp; Oct 7 or 8<br>
+            YYC → BKK &nbsp;·&nbsp; Oct 7 (depart)<br>
+            BKK → USM &nbsp;·&nbsp; Oct 9<br>
             HKG → PVG &nbsp;·&nbsp; Oct 14<br>
-            Yun: SHA → ATH &nbsp;·&nbsp; Oct 24<br>
-            <span style="color:var(--warm)">Yan: SHA → ATH &nbsp;·&nbsp; Oct ~23–24 (company ✦)</span><br>
+            Yun: SHA → ATH &nbsp;·&nbsp; Oct ~24 (same as Yan, self-pay)<br>
+            <span style="color:var(--warm)">Yan: SHA → ATH &nbsp;·&nbsp; Oct ~24 (company ✦)</span><br>
             Yun: ATH → EWR &nbsp;·&nbsp; Oct 30<br>
             <span style="color:var(--warm)">Yan: ATH → NY &nbsp;·&nbsp; Oct 30 (company ✦)</span>
           </div>
@@ -2020,14 +2095,16 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
           <div style="font-size:11px;color:var(--ink);line-height:2.2;">
-            Car rental · Banff (YYC pickup, Oct 1–5)<br>
-            Canmore / Banff hotel &nbsp;·&nbsp; 4 nights<br>
-            Bangkok hotel &nbsp;·&nbsp; 2 nights<br>
-            Koh Samui (pre-wedding) &nbsp;·&nbsp; 2 nights<br>
+            Car rental · YYC pickup Oct 1, drop Oct 7<br>
+            Canmore / Banff hotel &nbsp;·&nbsp; 4 nights (Oct 1–5)<br>
+            Jasper hotel &nbsp;·&nbsp; 2 nights (Oct 5–7)<br>
+            Bangkok hotel &nbsp;·&nbsp; 1 night Oct 8 (Bonvoy pts)<br>
+            Koh Samui (pre-wedding) &nbsp;·&nbsp; 0 nights (arrive Oct 9)<br>
             Hong Kong hotel &nbsp;·&nbsp; 2 nights (Oct 12–14)<br>
-            Shanghai hotel &nbsp;·&nbsp; 3 nights (Oct 14–17)<br>
-            Athens hotel Oct 24–25 (both)<br>
-            Yun: Athens hotel Oct 26–30<br>
+            Shanghai · 2 rooms &nbsp;·&nbsp; 3 nights (Oct 14–17, incl. Yun's mom)<br>
+            Athens hotel Oct 24–27 (both, 3 nts)<br>
+            <span style="color:var(--warm)">Yan hotel Oct 27–29 · 2 nts (company ✦)</span><br>
+            Yun: Athens hotel Oct 27–30 · 3 nts (self)<br>
             Athens hotel Oct 29–30 (both)
           </div>
         </div>
@@ -2105,6 +2182,25 @@ const routeObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.35 });
 
 planLegs.forEach(el => routeObserver.observe(el));
+
+// Expandable stops
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('#planning-main .stop').forEach(stop => {
+    const hasContent = stop.querySelector('.stop-desc, .tip-box');
+    if (!hasContent) return;
+    stop.classList.add('collapsed');
+    const leftDiv = stop.querySelector('div:first-child');
+    const btn = document.createElement('button');
+    btn.className = 'stop-toggle';
+    btn.innerHTML = '<span class="stop-toggle-icon">▾</span> Details';
+    btn.addEventListener('click', () => {
+      stop.classList.toggle('collapsed');
+      btn.childNodes[1].textContent = stop.classList.contains('collapsed')
+        ? ' Details' : ' Collapse';
+    });
+    leftDiv.appendChild(btn);
+  });
+});
 </script>
 
 </body>
