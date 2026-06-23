@@ -502,15 +502,15 @@ main {
 .time-tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .04em;
-  padding: 2px 8px;
-  border-radius: 3px;
+  font-size: 15px;
+  letter-spacing: .03em;
+  padding: 3px 11px;
+  border-radius: 4px;
   margin-left: 10px;
   vertical-align: middle;
   font-weight: 400;
   white-space: nowrap;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .time-day  { background: #fef3c7; color: #92400e; }
 .time-night{ background: #1e3058; color: #93c5fd; }
@@ -557,15 +557,30 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 .stop.collapsed .stop-toggle-icon { transform: rotate(-90deg); }
 
 .stop-type {
-  font-size: 18px;
-  letter-spacing: .06em;
-  color: var(--ink);
-  margin-bottom: .5rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
-  opacity: .85;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+  font-weight: 400;
+  padding: 5px 13px;
+  border-radius: 20px;
+  margin-bottom: .75rem;
+  white-space: nowrap;
 }
+
+/* Filled badge variants by category */
+.st-flight  { background: #dbeafe; color: #1e40af; }
+.st-explore { background: #dcfce7; color: #166534; }
+.st-wedding { background: #fce7f3; color: #9d174d; }
+.st-split   { background: #fef9c3; color: #854d0e; }
+
+html.dark .st-flight  { background: rgba(59,130,246,.18);  color: #93c5fd; }
+html.dark .st-explore { background: rgba(74,222,128,.12);  color: #86efac; }
+html.dark .st-wedding { background: rgba(244,114,182,.14); color: #f9a8d4; }
+html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 
 .stop-title {
   font-family: 'Cormorant Garamond', serif;
@@ -1273,7 +1288,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Moraine Lake shuttle ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel / Canmore</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Car rental (YYC)</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Car rental YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Banff park pass</div>
         </div>
       </div>
@@ -1367,7 +1382,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flight</div>
+            <div class="stop-type st-flight">✈ Flight</div>
             <div class="stop-title">New York → Calgary <span class="time-tag time-day">Arr 17:30 MDT</span></div>
             <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5h 05m. Departs <strong style="font-weight:500">14:25 EDT</strong> (Newark) · arrives <strong style="font-weight:500">17:30 MDT</strong> (Calgary). Both confirmed on Aeroplan Flex Reward. Yun: 34,190 pts, seat 16A, ref BCFAML. Yan: 18,400 pts + CAD $279.80, ref BCFEFG.</div>
           </div>
@@ -1382,7 +1397,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏔 Itinerary</div>
+            <div class="stop-type st-explore">🏔 Itinerary</div>
             <div class="stop-title">Jasper — Miette Hot Springs &amp; Dark Skies</div>
             <div class="stop-desc">
               <strong style="font-weight:500">Oct 1 (Tue) — Arrival (long drive)</strong><br>
@@ -1401,14 +1416,14 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <span class="badge badge-booked">Confirmed ✓</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Miette Mountain Cabins #72075854441977 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Car rental YYC Oct 1–5</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Car rental YYC Oct 1–5 ✓</div>
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Maligne Lake boat tour</div>
             </div>
           </div>
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">⛰ Itinerary</div>
+            <div class="stop-type st-explore">⛰ Itinerary</div>
             <div class="stop-title">Banff — Larch Season &amp; Moraine Lake</div>
             <div class="stop-desc">
               <strong style="font-weight:500">Oct 3 (Thu) — Arrive via Icefields Parkway</strong><br>
@@ -1444,7 +1459,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flight</div>
+            <div class="stop-type st-flight">✈ Flight</div>
             <div class="stop-title">Calgary → Bangkok (BKK) <span class="time-tag time-day">Arr ~08:00 ICT +1</span></div>
             <div class="stop-desc">Best routing: YYC → SFO/LAX → BKK on United/Star Alliance. United award pricing ~35K miles economy per person. Depart Calgary evening <strong style="font-weight:500">Oct 5 ~20:00 MDT</strong> after dropping car at YYC, arrives Bangkok <strong style="font-weight:500">~08:00 ICT Oct 6</strong> with one stop (~20–22 hrs total). Use Yun's 100K Chase UR → United (70K for both).</div>
             <div class="tip-box">United Excursionist Perk: one stopover free on a round-trip award. HKG on the outbound costs nothing extra.</div>
@@ -1459,7 +1474,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-type st-explore">🏙 Explore</div>
             <div class="stop-title">Bangkok — 2 Nights</div>
             <div class="stop-desc">Arrive Oct 6 morning. Two full days in BKK — Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town at golden hour. Street food along Yaowarat (Chinatown) at night. Floating market on Oct 7 morning. Fly to Koh Samui Oct 8 morning. Use Yun's Bonvoy points for W Bangkok (design-forward, ~25K pts/nt).</div>
             <div class="tip-box">W Bangkok is on Sathorn Rd — excellent design-forward Bonvoy property, walkable to BTS Chong Nonsi. Book the Wonderful room category for points redemption.</div>
@@ -1484,7 +1499,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flight</div>
+            <div class="stop-type st-flight">✈ Flight</div>
             <div class="stop-title">Bangkok → Koh Samui <span class="time-tag time-day">Arr ~09:30 ICT</span></div>
             <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Morning flight on <strong style="font-weight:500">Oct 8</strong> — departs <strong style="font-weight:500">~08:00 ICT</strong>, arrives Koh Samui <strong style="font-weight:500">~09:30 ICT</strong>. Wedding island check-in is Oct 9 at 15:00 — a full free day Oct 8 to explore Koh Samui (Big Buddha, Fisherman's Village, Chaweng Beach). Bangkok Airways runs their own boutique lounge at Samui Airport.</div>
           </div>
@@ -1499,7 +1514,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">💍 Wedding — Meryl &amp; Michael</div>
+            <div class="stop-type st-wedding">💍 Wedding — Meryl &amp; Michael</div>
             <div class="stop-title">Private Island, Koh Samui</div>
             <div class="stop-desc">Private island a short swim from Chaweng Mon Beach — luxury 5-star boutique hotel with beach, pool, gym and spa. Private villa for each guest. All meals included from arrival dinner Friday through breakfast Monday.<br><br>
               <strong style="font-weight:500">Fri Oct 9</strong> — Check-in from 3:00 PM · Arrival dinner on the beach at 7:00 PM<br>
@@ -1531,7 +1546,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-type st-explore">🏙 Explore</div>
             <div class="stop-title">Hong Kong — 2 Nights <span class="time-tag time-day">Arr 16:20 HKT</span></div>
             <div class="stop-desc">Arrive HKG Terminal 2 at <strong style="font-weight:500">16:20 HKT</strong> on Oct 12 (from PG807). October is one of HK's finest months — typhoon season over, skies clear, mid-20s. Kowloon night markets, dim sum in Central, Victoria Peak at dusk, ferry to Lantau Island. Fly HKG → PVG on Oct 14 — typical departures <strong style="font-weight:500">~08:00–13:00 HKT</strong>, arrive Shanghai <strong style="font-weight:500">~10:30–15:30 CST</strong> (~2.5 hrs).</div>
             <div class="tip-box">China tourist visa required for the mainland — covers Shanghai and Beijing. Apply 4–6 weeks in advance.</div>
@@ -1559,7 +1574,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flight</div>
+            <div class="stop-type st-flight">✈ Flight</div>
             <div class="stop-title">Hong Kong → Shanghai <span class="time-tag time-day">Arr ~13:00 CST</span></div>
             <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs nonstop. Typical departures <strong style="font-weight:500">08:00–13:00 HKT</strong>, arrivals <strong style="font-weight:500">10:30–15:30 CST</strong>. Multiple carriers: Air China, China Eastern, Cathay Pacific. Book with China tourist visa (same visa covers HKG→PVG mainlaind entry for SHA and PEK).</div>
           </div>
@@ -1573,7 +1588,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-type st-explore">🏙 Explore</div>
             <div class="stop-title">Shanghai — Together</div>
             <div class="stop-desc">Three nights in Shanghai — The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck. Neri&amp;Hu architecture woven into the city fabric. Yun's mom joins for the Shanghai leg — <strong style="font-weight:500">2 hotel rooms needed</strong>: one for Yun + Yan, one for Yun's mom.</div>
             <div class="tip-box">The Middle House (Jing An) — Neri&Hu designed, SLH · best design-forward choice. Or Andaz Shanghai on Yan's 46K Chase UR → Hyatt. Book 2 rooms same hotel for ease.</div>
@@ -1588,7 +1603,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">↕ Split — Oct 17</div>
+            <div class="stop-type st-split">↕ Split — Oct 17</div>
             <div class="stop-title">Yan → Shanxi · Yun stays in Shanghai</div>
             <div class="stop-desc">On Oct 17 the trip splits. Yan heads to Shanxi (flight or high-speed rail, ~2.5 hrs from SHA) to visit family — no accommodation needed, staying with family Oct 17–23. Yun also stays with family in Shanghai Oct 17–24, then books a flight to Athens. Both reunite in Athens Oct 24 — see Leg 06.</div>
             <div class="tip-box">Shanxi highlights (day trips from family home): Pingyao Ancient City (UNESCO), Yungang Grottoes, hanging temples at Xuankong Si.</div>
@@ -1615,7 +1630,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="stops">
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flights to Athens</div>
+            <div class="stop-type st-flight">✈ Flights to Athens</div>
             <div class="stop-title">Shanghai → Athens (ATH) <span class="time-tag time-night">Dep 01:10 CST · Arr 07:55 EEST</span></div>
             <div class="stop-desc">Yan departs Shanghai Pudong (PVG T2) on <strong style="font-weight:500">Oct 23 at 01:10 CST</strong> on Aegean Airlines A3 1900 → arrives Athens at <strong style="font-weight:500">07:55 EEST</strong>. Business class, company-covered (BCG lodge card, ref AZ5QGD). Leave for airport night of Oct 22 ~22:00. Yun aims to book the same flight (Aegean A3 1900 PVG→ATH, self-expense) — book directly on Aegean or via Chase UR → Flying Blue.</div>
             <div class="tip-box">Aegean A3 1900: PVG dep 01:10 → ATH arr 07:55, ~11h45m. Business class has lie-flat seats — arrive well-rested. Yun's best booking option: direct Aegean booking (aegeanair.com) or Flying Blue miles (~60-80K for business). Cash fare typically $800-1200.</div>
@@ -1630,7 +1645,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏛 Explore</div>
+            <div class="stop-type st-explore">🏛 Explore</div>
             <div class="stop-title">Athens — 7 Nights</div>
             <div class="stop-desc">Oct 23–30. Acropolis and Parthenon, Plaka neighbourhood, Monastiraki flea market, Cape Sounion at sunset. The Athenian Riviera for a beach day (Glyfada or Vouliagmeni lake). Greek food: souvlaki, fresh mezze, rooftop dinners with Acropolis views.<br><br>
               <strong style="font-weight:500">Oct 23–27</strong> — Leisure · hotel for both to book (4 nights)<br>
@@ -1650,7 +1665,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">✈ Flight Home</div>
+            <div class="stop-type st-flight">✈ Flight Home</div>
             <div class="stop-title">Athens → New York — Oct 30 <span class="time-tag time-day">Arr 21:20 EDT</span></div>
             <div class="stop-desc">Both fly home Oct 30. Yan: Aegean Airlines A3 3415 ATH → EWR, departs <strong style="font-weight:500">16:20 EEST</strong>, arrives <strong style="font-weight:500">21:20 EDT</strong> at Newark Terminal B. Business class, company-covered, ref AZLZGO. Yun books separately — consider Aegean A3 3415 same flight (check availability) or Delta ATH→JFK (departs ~10:25 EEST, nonstop ~10 hrs). Best points option: Chase UR → Flying Blue ~25K for Air France business.</div>
             <div class="tip-box">Aegean A3 3415: ATH 16:20 → EWR 21:20, ~10h. If Yun books same Aegean flight, you land together at Newark — much easier than separate airports. Check aegeanair.com · Yun's CSR earns 3× points on airfare.</div>
@@ -2276,7 +2291,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
           <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
-            Car rental · YYC pickup Oct 1, drop Oct 5<br>
+            <span style="color:var(--green)">Car rental · YYC pickup Oct 1, drop Oct 5 ✓</span><br>
             <span style="color:var(--green)">Miette Mountain Cabins · Jasper ✓ (Oct 1–3)</span><br>
             <span style="color:var(--green)">Otter Hotel · Banff ✓ (Oct 3–5)</span><br>
             Bangkok hotel &nbsp;·&nbsp; 2 nights Oct 6–8 (W Bangkok, Bonvoy pts)<br>
@@ -2289,6 +2304,87 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             Athens hotel Oct 29–30 (both)
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ── INSURANCE ──────────────────────────────── -->
+    <section class="final-section" id="f-insurance">
+      <div class="final-section-title">Travel Insurance</div>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
+
+        <!-- TD Aeroplan Visa Infinite -->
+        <div style="background:var(--paper); padding:1.8rem 2rem;">
+          <div style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; padding-bottom:.6rem; border-bottom:1px solid var(--line-strong);">
+            TD Aeroplan Visa Infinite &nbsp;·&nbsp; ••••1431
+          </div>
+          <div style="display:flex; flex-direction:column; gap:.55rem;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Emergency medical</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$2M / person</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Coverage duration</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--accent); font-weight:500;">⚠ 21 days max</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Trip cancellation / interruption</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$1,500 / person</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Flight delay (4 hrs+)</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$500 / person</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Delayed / lost baggage</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$1,000 / person</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0;">
+              <span style="color:var(--ink);">Rental car collision</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">Up to MSRP $65K CAD</span>
+            </div>
+          </div>
+          <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--accent); background:rgba(160,48,32,.07); font-size:12px; color:var(--accent); line-height:1.65; letter-spacing:.03em;">
+            ⚠ <strong style="font-weight:500">Gap: trip is 30 days, coverage ends Day 21.</strong> Days 22–30 (Oct 22–30, Athens) have no medical coverage under this card. Buy a top-up policy for the final 9 days.
+          </div>
+        </div>
+
+        <!-- Chase Sapphire Reserve -->
+        <div style="background:var(--paper); padding:1.8rem 2rem;">
+          <div style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; padding-bottom:.6rem; border-bottom:1px solid var(--line-strong);">
+            Chase Sapphire Reserve &nbsp;·&nbsp; ••••7559
+          </div>
+          <div style="display:flex; flex-direction:column; gap:.55rem;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Trip delay (6 hrs+)</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$500 / ticket</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Trip cancellation / interruption</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$10,000 / person</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Baggage delay (6 hrs+)</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$100 / day, 5 days max</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Rental car — Primary CDW</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--green);">✓ Primary (Banff leg)</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+              <span style="color:var(--ink);">Emergency evacuation</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$100,000</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0;">
+              <span style="color:var(--ink);">Priority Pass airport lounges</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--green);">✓ Unlimited</span>
+            </div>
+          </div>
+          <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--gold); background:rgba(160,120,48,.07); font-size:12px; color:var(--warm); line-height:1.65; letter-spacing:.03em;">
+            Tip: CSR covers trip cancellation up to $10K — make sure flights charged to ••••7559 are eligible. Emergency medical <em>not</em> included in CSR. Use Aeroplan card (••••1431) for medical days 1–21; buy top-up for days 22–30.
+          </div>
+        </div>
+
       </div>
     </section>
 
