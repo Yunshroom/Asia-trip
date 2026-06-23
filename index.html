@@ -2894,7 +2894,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
       <div class="ledger-wrap">
       <!-- Header row -->
-      <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
+      <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
         <div style="background:var(--surface);padding:.7rem 1.2rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Item</div>
         <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center;">Paid by</div>
         <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Card</div>
@@ -2906,108 +2906,163 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <!-- Rows -->
       <div style="border:1px solid var(--line-strong);border-top:none;">
 
+        <!-- ── TRANSPORTATION ── -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-bottom:1px solid var(--line-strong);">
+          <div style="padding:.4rem 1.2rem;grid-column:1/-1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;"><i class="ri-plane-line"></i> Transportation</div>
+        </div>
+
         <!-- EWR→YYC Yun -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">EWR → YYC (Yun) <span style="color:var(--muted);font-size: 14px">BCFAML · AC585</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Aeroplan ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">34,190 pts</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">Points</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">—</div>
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">EWR → YYC <span style="color:var(--muted);font-size:14px">Yun · BCFAML · AC585</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Air Canada · ~5h 35m · Oct 1 · arr YYC 17:30 MDT</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> Aeroplan award — refundable with cancellation fee</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Aeroplan ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">34,190 pts</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">Points</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;">—</div>
         </div>
 
         <!-- EWR→YYC Yan -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">EWR → YYC (Yan) <span style="color:var(--muted);font-size: 14px">BCFEFG · AC585</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yan</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Aeroplan ••••1922</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size: 14px;color:var(--muted)">+ CAD $279.80</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="197.63">$197.63</div>
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">EWR → YYC <span style="color:var(--muted);font-size:14px">Yan · BCFEFG · AC585</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Air Canada · ~5h 35m · Oct 1 · arr YYC 17:30 MDT</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> Aeroplan award — refundable with cancellation fee</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yan</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Aeroplan ••••1922</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size:14px;color:var(--muted)">+ CAD $279.80</span></div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="197.63">$197.63</div>
         </div>
 
-        <!-- KSM→HKG -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">KSM → HKG (both) <span style="color:var(--muted);font-size: 14px">FVZ2OD · PG807</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">••••1431</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">฿18,090</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">THB</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="549.94">$549.94</div>
+        <!-- KSM→HKG PG807 -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">USM → HKG (both) <span style="color:var(--muted);font-size:14px">FVZ2OD · PG807</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Bangkok Airways · A319 · ~1h 25m · Oct 12 · dep 11:55 USM → arr 16:20 HKG T2</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-error-warning-line" style="color:var(--accent)"></i> Non-endorsable · change-restricted · no refund</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">฿18,090</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">THB</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="549.94">$549.94</div>
         </div>
 
-        <!-- Moraine Lake Shuttle -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size: 14px">INPC26-13891950B1</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">••••1431</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $29.00</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="20.48">$20.48</div>
-        </div>
-
-        <!-- Miette Mountain Cabins -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Miette Mountain Cabins · Jasper <span style="color:var(--muted);font-size: 14px">#72075854441977</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Expedia ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $931.96</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="658.08">$658.08</div>
-        </div>
-
-        <!-- Otter Hotel Banff -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Otter Hotel · Banff <span style="color:var(--muted);font-size: 14px">#72075854361589</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Expedia ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="1049.24">$1,049.24</div>
-        </div>
-
-        <!-- Yan company flights (BCG-covered, shown for reference) -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);opacity:.6;">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--muted);font-style:italic;">Yan: PVG→ATH + ATH→EWR (BCG company ✦)</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:center;">BCG</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Lodge card</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">$6,526.53</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">Not yours</div>
-        </div>
-
-        <!-- Residence Inn Calgary -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Residence Inn Calgary · 1 nt <span style="color:var(--muted);font-size: 14px">#2491461985</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">$211.16</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="211.16">$211.16</div>
+        <!-- Yan BCG company flights -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line-strong);align-items:start;opacity:.55;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--muted);font-style:italic;">Yan: PVG→ATH + ATH→EWR (BCG company ✦)</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Managed by BCG travel · Oct 23 + Oct 27</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-building-line"></i> Company-covered — excluded from personal total</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:center;">BCG</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Lodge card</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">$6,526.53</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">Not yours</div>
         </div>
 
         <!-- Sixt Car Rental -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Sixt rental car · YYC Oct 2–5 <span style="color:var(--muted);font-size: 14px">CN961135523748</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">$454.25</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="454.25">$454.25</div>
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">Sixt Mazda CX-5 · YYC <span style="color:var(--muted);font-size:14px">CN961135523748</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Oct 2 pickup 7:00 → Oct 5 drop-off · 4 days · YYC airport</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> See Sixt confirmation for cancel policy</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">CSR ••••7559</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">$454.25</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="454.25">$454.25</div>
+        </div>
+
+        <!-- ── STAY ── -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-bottom:1px solid var(--line-strong);border-top:1px solid var(--line-strong);">
+          <div style="padding:.4rem 1.2rem;grid-column:1/-1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;"><i class="ri-hotel-bed-line"></i> Stay</div>
+        </div>
+
+        <!-- Residence Inn Calgary -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">Residence Inn Calgary <span style="color:var(--muted);font-size:14px">#2491461985</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 1 → Check-out Oct 2 · 1 night · $211.16/nt</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> Marriott standard — free cancel up to 24h before check-in</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">CSR ••••7559</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">$211.16</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="211.16">$211.16</div>
+        </div>
+
+        <!-- Miette Mountain Cabins -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">Miette Mountain Cabins · Jasper <span style="color:var(--muted);font-size:14px">#72075854441977</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 2 → Check-out Oct 3 · 1 night · CAD $931.96/nt</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> See Expedia confirmation for cancel policy</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Expedia ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">CAD $931.96</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="658.08">$658.08</div>
+        </div>
+
+        <!-- Otter Hotel Banff -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">Otter Hotel · Banff <span style="color:var(--muted);font-size:14px">#72075854361589</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 3 → Check-out Oct 5 · 2 nights · CAD $742.84/nt avg</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-information-line"></i> See Expedia confirmation for cancel policy</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Expedia ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="1049.24">$1,049.24</div>
         </div>
 
         <!-- Public House Bangkok -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Public House Bangkok · 2 nts <span style="color:var(--muted);font-size: 14px">#88511655 · Oct 7–9</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Bonvoy pts</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">55,000 pts</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">Points</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">—</div>
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">Public House Bangkok · Design Hotels <span style="color:var(--muted);font-size:14px">#88511655</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Check-in Oct 7 → Check-out Oct 9 · 2 nights · 27,500 pts/nt avg · Sukhumvit Soi 31</div>
+            <div style="font-size:11px;color:var(--green);margin-top:.15rem;opacity:.9;"><i class="ri-shield-check-line"></i> Free cancel until Oct 4, 2026 11:59 PM local</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">Bonvoy pts</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">55,000 pts</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">Points</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;">—</div>
+        </div>
+
+        <!-- ── ACTIVITIES ── -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-bottom:1px solid var(--line-strong);border-top:1px solid var(--line-strong);">
+          <div style="padding:.4rem 1.2rem;grid-column:1/-1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;"><i class="ri-map-line"></i> Activities</div>
+        </div>
+
+        <!-- Moraine Lake Shuttle -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;border-bottom:1px solid var(--line);align-items:start;">
+          <div style="padding:.85rem 1.2rem;">
+            <div style="font-size:15px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size:14px">INPC26-13891950B1</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:.22rem;">Parks Canada · Oct 4 · 7:00 AM slot · Lake Louise → Moraine Lake</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:.15rem;opacity:.8;"><i class="ri-error-warning-line" style="color:var(--accent)"></i> Parks Canada shuttles — non-refundable</div>
+          </div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:14px;color:var(--muted);">••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--ink);text-align:right;">CAD $29.00</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:15px;color:var(--green);text-align:right;" data-usd="20.48">$20.48</div>
         </div>
 
         <!-- Total row -->
-        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;background:var(--surface);">
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 130px;background:var(--surface);border-top:1px solid var(--line-strong);">
           <div style="padding:.85rem 1.2rem;font-size: 14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
           <div></div><div></div><div></div><div></div>
           <div style="padding:.85rem 1rem;font-size: 16px;font-weight:500;color:var(--ink);text-align:right;" id="ledger-total-val">$3,140.78</div>
