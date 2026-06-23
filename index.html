@@ -557,11 +557,14 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 .stop.collapsed .stop-toggle-icon { transform: rotate(-90deg); }
 
 .stop-type {
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-size: 18px;
+  letter-spacing: .06em;
+  color: var(--ink);
   margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: .85;
 }
 
 .stop-title {
@@ -1238,8 +1241,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
       <!-- Calgary / Banff -->
       <div class="tracker-col">
-        <div class="tracker-city">Calgary<br>/ Banff / Jasper</div>
-        <div class="tracker-dates">Oct 1–7 · 6 nights</div>
+        <div class="tracker-city">Calgary<br>Jasper · Banff</div>
+        <div class="tracker-dates">Oct 1–5 · 4 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yun: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: AC585 EWR→YYC ✓</div>
@@ -1253,10 +1256,10 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <!-- Bangkok -->
       <div class="tracker-col">
         <div class="tracker-city">Bangkok</div>
-        <div class="tracker-dates">Oct 8 · transit (1 night)</div>
+        <div class="tracker-dates">Oct 6–8 · 2 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-needed"></span>Flight YYC → BKK</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Bangkok (1 nt, Bonvoy)</div>
+          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Bangkok (2 nts, Bonvoy)</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>—</div>
         </div>
@@ -1265,7 +1268,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <!-- Koh Samui -->
       <div class="tracker-col">
         <div class="tracker-city">Koh Samui</div>
-        <div class="tracker-dates">Oct 9–12 · 3 nights</div>
+        <div class="tracker-dates">Oct 8–12 · 4 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-needed"></span>Flight BKK → USM</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel (pre-wedding)</div>
@@ -1301,14 +1304,14 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <!-- Athens / Home -->
       <div class="tracker-col">
         <div class="tracker-city">Athens<br>+ Home</div>
-        <div class="tracker-dates">Oct 24–30 · 6 nights</div>
+        <div class="tracker-dates">Oct 23–30 · 7 nights</div>
         <div class="tracker-rows">
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH flight</div>
-          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan: flight (company ✦)</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: PVG→ATH AZ5QGD ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Athens Oct 24–25</div>
           <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan hotel Oct 27–29 (company ✦)</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: ATH → EWR Oct 30</div>
-          <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan: ATH → NY Oct 30 (company ✦)</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: ATH→EWR AZLZGO ✓</div>
         </div>
       </div>
 
@@ -1334,7 +1337,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 01 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-canada"></span>Canada</div>
-        <div class="leg-date-range">Oct 1–7</div>
+        <div class="leg-date-range">Oct 1–5</div>
       </div>
       <div class="stops">
         <div class="stop">
@@ -1354,58 +1357,52 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">⛰ Itinerary</div>
-            <div class="stop-title">Banff / Canmore — Larch Season</div>
+            <div class="stop-type">🏔 Itinerary</div>
+            <div class="stop-title">Jasper — Miette Hot Springs &amp; Dark Skies</div>
             <div class="stop-desc">
-              <strong style="font-weight:500">Oct 1 (Tue) — Arrival</strong><br>
-              Land 17:30 MDT · collect car · drive Canmore/Banff ~1.5 hrs · arrive ~19:30. Dinner in Banff: Saltlik Steakhouse or Park Distillery. Early night — big days ahead.<br><br>
-              <strong style="font-weight:500">Oct 2 (Wed) — Icefields Parkway Sampler</strong><br>
-              Drive north on Hwy 93 toward Lake Louise. Stop at Bow Lake (mirror reflection, easy 20-min walk), Peyto Lake lookout (10-min walk, unmissable), and Mistaya Canyon. Return through Banff townsite — wander Banff Ave, Johnston Canyon afternoon walk. Banff Gondola at sunset for Bow Valley panorama.<br><br>
-              <strong style="font-weight:500">Oct 3 (Thu) — Lake Louise</strong><br>
-              Early start at Lake Louise (7am to beat crowds, golden morning light). Hike Plain of Six Glaciers trail (14km round trip, passes teahouse open mid-June to mid-Oct). Or shorter: Lake Agnes Tea House trail (7km). Afternoon: Fairview Lookout for aerial Lake Louise view. Drive back via Johnston Canyon lower falls (30-min return).<br><br>
-              <strong style="font-weight:500">Oct 4 (Fri) — 🌟 Moraine Lake &amp; Larch Valley</strong><br>
-              <em>Moraine Lake shuttle confirmed — INPC26-13891950B1 · 7am slot</em><br>
-              6:30am: Drive to Lake Louise shuttle hub. 7am: Bus to Moraine Lake. Hike Larch Valley trail (5.8km to valley, +2km to Sentinel Pass at 2611m). Peak golden larch color in early October — electric yellow against blue rock and snow. Best light: morning before noon. Return shuttle afternoon. Evening: Upper Hot Springs ($10pp) to rest sore legs.<br><br>
-              <strong style="font-weight:500">Oct 5 (Sat) — Drive to Jasper via Icefields Parkway</strong><br>
-              Depart Canmore 9am · drive north on Hwy 93 (230km, 3–4 hrs with stops). Key stops en route to Jasper →
+              <strong style="font-weight:500">Oct 1 (Tue) — Arrival (long drive)</strong><br>
+              Land YYC 17:30 MDT · collect car · drive to Miette Mountain Cabins via Hwy 2N → Hwy 16W (~5.5 hrs, ~550km). Arrive ~23:00. ⚠ Miette front desk closes 8pm — <em>call ahead: +1 780-866-3732 to arrange late check-in</em>. Grab food on the road in Edson or Hinton.<br><br>
+              <strong style="font-weight:500">Oct 2 (Wed) — Full Jasper Day</strong><br>
+              Morning: <strong style="font-weight:500">Miette Hot Springs</strong> (5 min from cabins) — hottest natural springs in the Rockies, 54°C source, cooled to 40°C in pools. Dramatic mountain backdrop. Then: <strong style="font-weight:500">Maligne Lake</strong> (45 min) — Spirit Island boat tour if available (check ahead, season ends ~Oct 11) or Mary Schaffer Loop hike (3.2km). Midday: <strong style="font-weight:500">Maligne Canyon</strong> — 48m limestone slot canyon with walkway bridges. Afternoon: <strong style="font-weight:500">Valley of the Five Lakes</strong> (4.4km, turquoise glacial lakes with fall color). Evening: Jasper is a UNESCO Dark Sky Preserve — Milky Way visible on clear October nights after 9pm from the cabins' yard.<br><br>
+              <strong style="font-weight:500">Oct 3 (Thu) — Morning hike, drive Icefields Parkway to Banff</strong><br>
+              6:30am: <strong style="font-weight:500">Pyramid Lake</strong> (30 min from Miette) — elk at dawn, mirror reflection. Quick Old Fort Point hike (3.5km, panoramic valley views). Check out by 11am. <strong style="font-weight:500">Drive south on Hwy 93 (Icefields Parkway)</strong> — the world's most scenic drive, heading to Banff with these stops:<br>
+              · Athabasca Falls (30 min from Jasper) · Sunwapta Falls · Columbia Icefield / Athabasca Glacier (walk to the toe — one of the few accessible glaciers in the world) · Peyto Lake lookout · Bow Lake<br>
+              Arrive Otter Hotel Banff ~5–6pm.
             </div>
-            <div class="tip-box">Car rental: book on Chase Sapphire Reserve (card ••••7559) — primary coverage means you skip the ~$30/day CDW. Get an AWD SUV — Jasper elevation gets early October snow. Confirm unlimited mileage (total loop is ~900km).</div>
+            <div class="tip-box">Miette Hot Springs: first soak of the morning (opens 8:30am) — empty, mist rising, elk wandering the road. Worth setting the alarm. Spirit Island boat tour: book at experiencejasper.com · limited Oct spots. Dark skies: ask the cabins about best stargazing spots — they're in the preserve.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 1–5<br>4 nights</div>
+            <div class="stop-dates">Oct 1–3<br>2 nights</div>
+            <span class="badge badge-booked">Confirmed ✓</span>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel / Canmore needed</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Shuttle: INPC26-13891950B1 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Car rental YYC Oct 1–7</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Banff park pass</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Miette Mountain Cabins #72075854441977 ✓</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Car rental YYC Oct 1–5</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Maligne Lake boat tour</div>
             </div>
           </div>
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏔 Itinerary</div>
-            <div class="stop-title">Jasper — Icefields Parkway &amp; Dark Skies</div>
+            <div class="stop-type">⛰ Itinerary</div>
+            <div class="stop-title">Banff — Larch Season &amp; Moraine Lake</div>
             <div class="stop-desc">
-              <strong style="font-weight:500">Oct 5 (Sat) — Icefields Parkway Drive</strong><br>
-              Depart Banff/Lake Louise 9am. Drive Hwy 93N (the Icefields Parkway — often called the world's most scenic drive). Stops:<br>
-              · <strong style="font-weight:500">Crowfoot Glacier</strong> — quick pullout, dramatic hanging glacier<br>
-              · <strong style="font-weight:500">Bow Lake</strong> — if not visited Oct 2<br>
-              · <strong style="font-weight:500">Parker Ridge</strong> (optional 5.6km return) — views down the Saskatchewan Glacier tongue<br>
-              · <strong style="font-weight:500">Columbia Icefield / Athabasca Glacier</strong> — walk to the toe of the glacier on foot. One of the few accessible glaciers in the world. Skywalk glass floor walkway nearby.<br>
-              · <strong style="font-weight:500">Athabasca Falls</strong> — powerful canyon waterfall, 30-min stop<br>
-              Arrive Jasper town ~5–6pm. Dinner: Treeline Restaurant or Sunhouse Café.<br><br>
-              <strong style="font-weight:500">Oct 6 (Sun) — Full Jasper Day</strong><br>
-              Morning: <strong style="font-weight:500">Maligne Lake</strong> (45 min from Jasper). Spirit Island boat tour if running (typically Oct 11 is last day — check ahead). Or hike the lake's eastern shore (Mary Schaffer Loop, 3.2km). Midday: <strong style="font-weight:500">Maligne Canyon</strong> — 48m deep limestone slot canyon, walkway bridges across. Afternoon: <strong style="font-weight:500">Valley of the Five Lakes</strong> (4.4km easy loop, turquoise glacial lakes with fall color reflections). Evening: Jasper is a UNESCO Dark Sky Preserve — clearest skies in North America. Milky Way visible on clear October nights after 9pm.<br><br>
-              <strong style="font-weight:500">Oct 7 (Mon) — Morning hike, drive to YYC</strong><br>
-              7am: <strong style="font-weight:500">Pyramid Lake</strong> (10-min drive from Jasper) — elk and mountain reflection at dawn. Quick hike: Old Fort Point (3.5km, panoramic Athabasca Valley views). <strong style="font-weight:500">Depart Jasper by 11:30am</strong> → drive Hwy 16 → Hwy 2 to Calgary (~3.5 hrs). Drop car at YYC airport by 3:30pm · Priority Pass lounge at YYC (CSR) · Evening flight ~21:00 MDT.
+              <strong style="font-weight:500">Oct 3 (Thu) — Arrive via Icefields Parkway</strong><br>
+              Arrives Otter Hotel Banff ~5–6pm after Icefields Parkway drive from Jasper. Dinner on Banff Ave: Saltlik Steakhouse or Park Distillery. Check in: 4pm, Superior King room.<br><br>
+              <strong style="font-weight:500">Oct 4 (Fri) — 🌟 Moraine Lake &amp; Larch Valley</strong><br>
+              <em>Moraine Lake shuttle confirmed — INPC26-13891950B1 · 7am Lake Louise slot</em><br>
+              6:30am: Drive to Lake Louise shuttle hub. 7am: Bus to Moraine Lake. Hike Larch Valley trail (5.8km to valley, +2km to Sentinel Pass at 2611m). Peak golden larch color in early October — electric yellow against blue rock and snow. Best light: morning before noon. Return shuttle afternoon. Evening: Upper Hot Springs ($10pp, 5 min from Banff townsite) to soak tired legs.<br><br>
+              <strong style="font-weight:500">Oct 5 (Sat) — Lake Louise, then fly to Bangkok</strong><br>
+              7am start at <strong style="font-weight:500">Lake Louise</strong> — golden morning light on the glacier. Hike Plain of Six Glaciers trail (14km return) or shorter Lake Agnes Tea House (7km). Check out Otter Hotel by 11am. <strong style="font-weight:500">Drive YYC ~1.5 hrs · drop car · Priority Pass lounge (CSR)</strong>. Evening flight to Bangkok.
             </div>
-            <div class="tip-box">Maligne Lake Spirit Island boat tour ends ~Oct 11 — book online as soon as possible if you want it Oct 6. Jasper is colder than Banff (higher elevation) — pack a down layer. Elk rut peaks mid-Sept–Oct, common in Jasper townsite at dawn.</div>
+            <div class="tip-box">Otter Hotel (600 Banff Ave) · Superior King · free cancellation until Sept 30 at 6pm. Banff park pass: buy at the park gate — $25/person/day or $72 annual Discovery Pass (worth it for 5+ days in national parks). Annual pass also covers Lake Louise and Jasper fees.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 5–7<br>2 nights</div>
+            <div class="stop-dates">Oct 3–5<br>2 nights</div>
+            <span class="badge badge-booked">Confirmed ✓</span>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Jasper (Oct 5–7)</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Maligne Lake boat tour</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Otter Hotel #72075854361589 ✓</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Shuttle: INPC26-13891950B1 ✓</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Banff/Jasper park pass</div>
             </div>
           </div>
         </div>
@@ -1417,18 +1414,18 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 02 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-bkk"></span>Thailand</div>
-        <div class="leg-date-range">Oct 8–9</div>
+        <div class="leg-date-range">Oct 6–8</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight</div>
             <div class="stop-title">Calgary → Bangkok (BKK) <span class="time-tag time-day">Arr ~08:00 ICT +1</span></div>
-            <div class="stop-desc">Best routing: YYC → SFO/LAX → BKK on United/Star Alliance. United award pricing ~35K miles economy per person. Depart Jasper/Calgary evening <strong style="font-weight:500">Oct 7 ~21:00 MDT</strong>, arrives Bangkok <strong style="font-weight:500">~08:00 ICT Oct 8</strong> with one stop (~20–22 hrs total). Drive Jasper → YYC (~3.5 hrs) on Oct 7 to catch evening flight. Use Yun's 100K Chase UR → United (70K for both).</div>
+            <div class="stop-desc">Best routing: YYC → SFO/LAX → BKK on United/Star Alliance. United award pricing ~35K miles economy per person. Depart Calgary evening <strong style="font-weight:500">Oct 5 ~20:00 MDT</strong> after dropping car at YYC, arrives Bangkok <strong style="font-weight:500">~08:00 ICT Oct 6</strong> with one stop (~20–22 hrs total). Use Yun's 100K Chase UR → United (70K for both).</div>
             <div class="tip-box">United Excursionist Perk: one stopover free on a round-trip award. HKG on the outbound costs nothing extra.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 7 (depart)<br>Oct 8 (arrive)</div>
+            <div class="stop-dates">Oct 5 (depart)<br>Oct 6 (arrive)</div>
             <span class="badge badge-points">United pts</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Flight not yet booked</div>
@@ -1437,13 +1434,13 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏙 Transit</div>
-            <div class="stop-title">Bangkok — 1 Night</div>
-            <div class="stop-desc">Arrive Oct 8 morning, fly to Koh Samui Oct 9 morning to check in before 15:00 (wedding island check-in). One full day in BKK — Wat Pho, Wat Arun, Grand Palace, street food along Yaowarat. Use Yun's Bonvoy points for W Bangkok (design-forward, ~25K pts/nt) — 4 free nights on 103K pts.</div>
-            <div class="tip-box">Save deep Bangkok exploration for a dedicated trip. This is a warmup night — eat well, sleep early, catch a morning Bangkok Airways flight Oct 9.</div>
+            <div class="stop-type">🏙 Explore</div>
+            <div class="stop-title">Bangkok — 2 Nights</div>
+            <div class="stop-desc">Arrive Oct 6 morning. Two full days in BKK — Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town at golden hour. Street food along Yaowarat (Chinatown) at night. Floating market on Oct 7 morning. Fly to Koh Samui Oct 8 morning. Use Yun's Bonvoy points for W Bangkok (design-forward, ~25K pts/nt).</div>
+            <div class="tip-box">W Bangkok is on Sathorn Rd — excellent design-forward Bonvoy property, walkable to BTS Chong Nonsi. Book the Wonderful room category for points redemption.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 8<br>1 night</div>
+            <div class="stop-dates">Oct 6–8<br>2 nights</div>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel (W Bangkok, Bonvoy pts)</div>
             </div>
@@ -1457,20 +1454,21 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 03 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-wedding"></span>Koh Samui</div>
-        <div class="leg-date-range">Oct 9–12</div>
+        <div class="leg-date-range">Oct 8–12</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight</div>
-            <div class="stop-title">Bangkok → Koh Samui <span class="time-tag time-day">Arr ~10:30 ICT</span></div>
-            <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Catch a morning flight on <strong style="font-weight:500">Oct 9</strong> — departs <strong style="font-weight:500">~09:00 ICT</strong>, arrives Koh Samui <strong style="font-weight:500">~10:30 ICT</strong>. Wedding island check-in is 15:00 — plenty of time to settle in and freshen up. Bangkok Airways runs their own boutique lounge at Samui Airport.</div>
+            <div class="stop-title">Bangkok → Koh Samui <span class="time-tag time-day">Arr ~09:30 ICT</span></div>
+            <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Morning flight on <strong style="font-weight:500">Oct 8</strong> — departs <strong style="font-weight:500">~08:00 ICT</strong>, arrives Koh Samui <strong style="font-weight:500">~09:30 ICT</strong>. Wedding island check-in is Oct 9 at 15:00 — a full free day Oct 8 to explore Koh Samui (Big Buddha, Fisherman's Village, Chaweng Beach). Bangkok Airways runs their own boutique lounge at Samui Airport.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 9</div>
+            <div class="stop-dates">Oct 8</div>
             <span class="badge badge-needed">To book</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-needed"></span>BKK → USM flight needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 8 (pre-wedding)</div>
             </div>
           </div>
         </div>
@@ -1587,30 +1585,30 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="leg-sidebar">
         <div class="leg-num">Leg 06 / 06</div>
         <div class="leg-region"><span class="leg-dot dot-home"></span>Athens + Home</div>
-        <div class="leg-date-range">Oct 24–30</div>
+        <div class="leg-date-range">Oct 23–30</div>
       </div>
       <div class="stops">
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flights to Athens</div>
-            <div class="stop-title">Shanghai / Shanxi → Athens (ATH) <span class="time-tag time-night">Overnight</span></div>
-            <div class="stop-desc">Both arrive Athens on Oct 24. Yan flies company-covered from Shanxi/Shanghai to ATH (~11–13 hrs via Istanbul or Dubai). Yun aims to book the same flight as Yan (self-expense). Best options: Turkish Airlines SHA→IST→ATH (~11 hrs) or Qatar Airways SHA→DOH→ATH (~13 hrs). Overnight flight — arrives Athens morning/afternoon Oct 24.</div>
-            <div class="tip-box">Best points play for Yun's SHA→ATH: Chase UR → Flying Blue (Air France/KLM) ~25–30K pts one-way economy/business. Or cash on Turkish/Qatar, typically $400–700.</div>
+            <div class="stop-title">Shanghai → Athens (ATH) <span class="time-tag time-night">Dep 01:10 CST · Arr 07:55 EEST</span></div>
+            <div class="stop-desc">Yan departs Shanghai Pudong (PVG T2) on <strong style="font-weight:500">Oct 23 at 01:10 CST</strong> on Aegean Airlines A3 1900 → arrives Athens at <strong style="font-weight:500">07:55 EEST</strong>. Business class, company-covered (BCG lodge card, ref AZ5QGD). Leave for airport night of Oct 22 ~22:00. Yun aims to book the same flight (Aegean A3 1900 PVG→ATH, self-expense) — book directly on Aegean or via Chase UR → Flying Blue.</div>
+            <div class="tip-box">Aegean A3 1900: PVG dep 01:10 → ATH arr 07:55, ~11h45m. Business class has lie-flat seats — arrive well-rested. Yun's best booking option: direct Aegean booking (aegeanair.com) or Flying Blue miles (~60-80K for business). Cash fare typically $800-1200.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 24<br>depart Asia</div>
+            <div class="stop-dates">Oct 22 night<br>Oct 23 arrive</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: SHA → ATH (self-book)</div>
-              <div class="bk-row" style="color:var(--warm)"><span class="bk-dot" style="background:var(--warm);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan: company-covered ✦</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: Aegean A3 1900 (self-book)</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yan: A3 1900 · AZ5QGD ✓</div>
             </div>
           </div>
         </div>
         <div class="stop">
           <div>
             <div class="stop-type">🏛 Explore</div>
-            <div class="stop-title">Athens — 6 Nights</div>
-            <div class="stop-desc">Oct 24–30. Acropolis and Parthenon, Plaka neighbourhood, Monastiraki flea market, Cape Sounion at sunset. The Athenian Riviera for a beach day (Glyfada or Vouliagmeni lake). Greek food: souvlaki, fresh mezze, rooftop dinners with Acropolis views.<br><br>
-              <strong style="font-weight:500">Oct 24–27</strong> — Leisure · hotel for both to book (3 nights)<br>
+            <div class="stop-title">Athens — 7 Nights</div>
+            <div class="stop-desc">Oct 23–30. Acropolis and Parthenon, Plaka neighbourhood, Monastiraki flea market, Cape Sounion at sunset. The Athenian Riviera for a beach day (Glyfada or Vouliagmeni lake). Greek food: souvlaki, fresh mezze, rooftop dinners with Acropolis views.<br><br>
+              <strong style="font-weight:500">Oct 23–27</strong> — Leisure · hotel for both to book (4 nights)<br>
               <strong style="font-weight:500">Oct 27–29</strong> — Yan: BHI Conference · hotel company-covered ✦ (2 nights) · Yun: self-book<br>
               <strong style="font-weight:500">Oct 29–30</strong> — Post-conference night · hotel for both to book
             </div>
@@ -1618,7 +1616,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="stop-right">
             <div class="stop-dates">Oct 24–30<br>6 nights</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 24–27 (both, 3 nts)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 23–27 (both, 4 nts)</div>
               <div class="bk-row" style="color:var(--warm)"><span class="bk-dot" style="background:var(--warm);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan hotel Oct 27–29 · 2 nts (company ✦)</div>
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: hotel Oct 27–30 (self, 3 nts)</div>
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 29–30 (both)</div>
@@ -1628,15 +1626,15 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="stop">
           <div>
             <div class="stop-type">✈ Flight Home</div>
-            <div class="stop-title">Athens → New York — Oct 30 <span class="time-tag time-day">Arr ~13:30 EDT</span></div>
-            <div class="stop-desc">Both fly home Oct 30. Yan's ATH→NY ticket is company-covered (confirmation TBD). Yun books separately — Delta flies ATH→JFK nonstop ~10 hrs, departing ~10:30 ATH local (EEST), arriving ~14:30 JFK (EDT). Best points option: Yun's Delta SkyMiles (16,393) toward economy, or Chase UR → Flying Blue ~25K for Air France ATH→CDG→EWR business.</div>
-            <div class="tip-box">Delta DL1 ATH→JFK runs daily, typically departs 10:25 EEST, arrives 13:30 EDT. Book as early as possible — Oct 30 departures fill fast.</div>
+            <div class="stop-title">Athens → New York — Oct 30 <span class="time-tag time-day">Arr 21:20 EDT</span></div>
+            <div class="stop-desc">Both fly home Oct 30. Yan: Aegean Airlines A3 3415 ATH → EWR, departs <strong style="font-weight:500">16:20 EEST</strong>, arrives <strong style="font-weight:500">21:20 EDT</strong> at Newark Terminal B. Business class, company-covered, ref AZLZGO. Yun books separately — consider Aegean A3 3415 same flight (check availability) or Delta ATH→JFK (departs ~10:25 EEST, nonstop ~10 hrs). Best points option: Chase UR → Flying Blue ~25K for Air France business.</div>
+            <div class="tip-box">Aegean A3 3415: ATH 16:20 → EWR 21:20, ~10h. If Yun books same Aegean flight, you land together at Newark — much easier than separate airports. Check aegeanair.com · Yun's CSR earns 3× points on airfare.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 30<br>depart ~10:25 EEST</div>
+            <div class="stop-dates">Oct 30<br>depart 16:20 EEST</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: ATH → EWR/JFK (self-book)</div>
-              <div class="bk-row" style="color:var(--warm)"><span class="bk-dot" style="background:var(--warm);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan: company-covered ✦</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: ATH → EWR (self-book, A3 3415?)</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yan: A3 3415 · AZLZGO ✓</div>
             </div>
           </div>
         </div>
@@ -1985,11 +1983,11 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="hero-stats">
           <div>
-            <div class="h-stat-n" style="text-align:right">6</div>
+            <div class="h-stat-n" style="text-align:right">10</div>
             <div class="h-stat-l">Confirmed</div>
           </div>
           <div>
-            <div class="h-stat-n" style="text-align:right">8</div>
+            <div class="h-stat-n" style="text-align:right">5</div>
             <div class="h-stat-l">Pending</div>
           </div>
         </div>
@@ -2043,15 +2041,60 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
       </div>
 
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 23, 2026<br>01:10 → 07:55</div>
+        <div>
+          <div class="cc-title">Shanghai Pudong → Athens</div>
+          <div class="cc-detail">Aegean Airlines A3 1900 · PVG T2 → ATH · ~11h 45m · Business class<br>Yan Liu · BCG company-covered · Lodge card · Trip #1014853645</div>
+          <div class="cc-ref">Confirmation: AZ5QGD · Booking ref: EHMJVO · USD $3,152.50 (BCG)</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Yan confirmed ✓</span>
+        </div>
+      </div>
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 30, 2026<br>16:20 → 21:20</div>
+        <div>
+          <div class="cc-title">Athens → Newark (EWR)</div>
+          <div class="cc-detail">Aegean Airlines A3 3415 · ATH → EWR Terminal B · ~10h · Business class<br>Yan Liu · BCG company-covered · Lodge card · Trip #1014853753</div>
+          <div class="cc-ref">Confirmation: AZLZGO · Booking ref: EIGQSX · USD $3,374.03 (BCG)</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Yan confirmed ✓</span>
+        </div>
+      </div>
+
     </section>
 
     <!-- CONFIRMED ACCOMMODATION -->
     <section class="final-section" id="f-hotels">
       <div class="final-section-title">Confirmed accommodation</div>
 
-      <div style="padding: 3rem 0; text-align:center; color:var(--muted); font-size: 14px; letter-spacing:.08em;">
-        No hotels confirmed yet — add them here as you book.
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 1–3<br>2 nights</div>
+        <div>
+          <div class="cc-title">Miette Mountain Cabins — Jasper</div>
+          <div class="cc-detail">Highway 16 East, Pocahontas, AB · Panebode motel unit · 2 adults<br>Check-in Oct 1 (late arrival — call +1 780-866-3732) · Check-out Oct 3 at 11am<br>Free cancellation until Sept 28 at 6pm · Resort fee CAD $22.45/night incl. pool + in-room coffee</div>
+          <div class="cc-ref">Expedia Itinerary: 72075854441977 · CAD $931.96 total (incl. locally collected fees)</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
       </div>
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 3–5<br>2 nights</div>
+        <div>
+          <div class="cc-title">Otter Hotel — Banff</div>
+          <div class="cc-detail">600 Banff Ave, Banff, AB · Superior Room, 1 King Bed · 2 adults<br>Check-in Oct 3 at 4pm · Check-out Oct 5 at 11am<br>Free cancellation until Sept 30 at 6pm</div>
+          <div class="cc-ref">Expedia Itinerary: 72075854361589 · CAD $1,485.67 total</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
+      </div>
+
     </section>
 
     <!-- CONFIRMED EVENTS -->
@@ -2140,18 +2183,48 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$20.48</div>
         </div>
 
+        <!-- Miette Mountain Cabins -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Miette Mountain Cabins · Jasper <span style="color:var(--muted);font-size:12px">#72075854441977</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Expedia ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">CAD $931.96</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$658.08</div>
+        </div>
+
+        <!-- Otter Hotel Banff -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Otter Hotel · Banff <span style="color:var(--muted);font-size:12px">#72075854361589</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Expedia ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$1,049.24</div>
+        </div>
+
+        <!-- Yan company flights (BCG-covered, shown for reference) -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);opacity:.6;">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--muted);font-style:italic;">Yan: PVG→ATH + ATH→EWR (BCG company ✦)</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:center;">BCG</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Lodge card</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">$6,526.53</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">Not yours</div>
+        </div>
+
         <!-- Total row -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;background:var(--surface);">
-          <div style="padding:.85rem 1.2rem;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total cash (USD equiv.)</div>
+          <div style="padding:.85rem 1.2rem;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
           <div></div><div></div><div></div><div></div>
-          <div style="padding:.85rem 1rem;font-size:14px;font-weight:500;color:var(--ink);text-align:right;">$768.05</div>
+          <div style="padding:.85rem 1rem;font-size:14px;font-weight:500;color:var(--ink);text-align:right;">$2,475.37</div>
         </div>
 
       </div>
 
       <!-- FX note -->
       <div style="font-size:11px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
-        FX rates as of 2026-06-22: 1 CAD = $0.7062 USD · 1 THB = $0.0304 USD (via frankfurter.dev). Points redemptions shown separately — not counted as cash.
+        FX rates as of 2026-06-22: 1 CAD = $0.7062 USD · 1 THB = $0.0304 USD (via frankfurter.dev). Points redemptions shown separately. Yan's BCG-covered flights ($6,526.53) excluded from personal total.
       </div>
       <div style="font-size:11px;color:var(--muted);margin-top:.3rem;letter-spacing:.04em;">
         Cards: Yun ••••1431 = Canadian Visa Aeroplan · Yun ••••7559 = Chase Sapphire Reserve (USD) · Yan ••••1922 = Aeroplan
@@ -2166,26 +2239,26 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
           <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
-            YYC → BKK &nbsp;·&nbsp; Oct 7 (depart)<br>
-            BKK → USM &nbsp;·&nbsp; Oct 9<br>
+            YYC → BKK &nbsp;·&nbsp; Oct 5 (depart)<br>
+            BKK → USM &nbsp;·&nbsp; Oct 8<br>
             HKG → PVG &nbsp;·&nbsp; Oct 14<br>
-            Yun: SHA → ATH &nbsp;·&nbsp; Oct ~24 (same as Yan, self-pay)<br>
-            <span style="color:var(--warm)">Yan: SHA → ATH &nbsp;·&nbsp; Oct ~24 (company ✦)</span><br>
+            Yun: SHA → ATH &nbsp;·&nbsp; Oct 23, 01:10 (Aegean A3 1900, self-pay)<br>
+            <span style="color:var(--green)">Yan: A3 1900 PVG→ATH · AZ5QGD ✓ (company)</span><br>
             Yun: ATH → EWR &nbsp;·&nbsp; Oct 30<br>
-            <span style="color:var(--warm)">Yan: ATH → NY &nbsp;·&nbsp; Oct 30 (company ✦)</span>
+            <span style="color:var(--green)">Yan: A3 3415 ATH→EWR · AZLZGO ✓ (company)</span>
           </div>
         </div>
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
           <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
-            Car rental · YYC pickup Oct 1, drop Oct 7<br>
-            Canmore / Banff hotel &nbsp;·&nbsp; 4 nights (Oct 1–5)<br>
-            Jasper hotel &nbsp;·&nbsp; 2 nights (Oct 5–7)<br>
-            Bangkok hotel &nbsp;·&nbsp; 1 night Oct 8 (Bonvoy pts)<br>
-            Koh Samui (pre-wedding) &nbsp;·&nbsp; 0 nights (arrive Oct 9)<br>
+            Car rental · YYC pickup Oct 1, drop Oct 5<br>
+            <span style="color:var(--green)">Miette Mountain Cabins · Jasper ✓ (Oct 1–3)</span><br>
+            <span style="color:var(--green)">Otter Hotel · Banff ✓ (Oct 3–5)</span><br>
+            Bangkok hotel &nbsp;·&nbsp; 2 nights Oct 6–8 (W Bangkok, Bonvoy pts)<br>
+            Koh Samui hotel &nbsp;·&nbsp; 1 night Oct 8 (pre-wedding)<br>
             Hong Kong hotel &nbsp;·&nbsp; 2 nights (Oct 12–14)<br>
             Shanghai · 2 rooms &nbsp;·&nbsp; 3 nights (Oct 14–17, incl. Yun's mom)<br>
-            Athens hotel Oct 24–27 (both, 3 nts)<br>
+            Athens hotel Oct 23–27 (both, 4 nts)<br>
             <span style="color:var(--warm)">Yan hotel Oct 27–29 · 2 nts (company ✦)</span><br>
             Yun: Athens hotel Oct 27–30 · 3 nts (self)<br>
             Athens hotel Oct 29–30 (both)
