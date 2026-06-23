@@ -388,8 +388,8 @@ body {
   flex-shrink: 0;
 }
 
-.s-confirmed { background: #3a9e58; }
-.s-booked    { background: #3a9e58; }
+.s-confirmed { background: var(--green); }
+.s-booked    { background: var(--green); }
 .s-inflight  { background: #c88020; }
 .s-needed    { background: transparent; border: 1px solid var(--muted); }
 .s-na        { background: var(--line); }
@@ -625,7 +625,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .badge-points  { border-color: var(--green); color: var(--green); }
-.badge-booked  { border-color: var(--accent); color: var(--accent); }
+.badge-booked  { border-color: var(--green); color: var(--green); }
 .badge-tip     { border-color: var(--gold); color: var(--gold); }
 .badge-needed  { border-color: rgba(15,13,11,0.3); color: var(--muted); }
 
@@ -665,7 +665,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
   flex-shrink: 0;
 }
 
-.bk-confirmed { background: #3a9e58; }
+.bk-confirmed { background: var(--green); }
 .bk-needed    { background: rgba(15,13,11,0.2); border: 1px solid rgba(15,13,11,0.35); }
 .bk-inflight  { background: #c88020; }
 
@@ -1287,8 +1287,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yun: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Moraine Lake shuttle ✓</div>
-          <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel / Canmore</div>
-          <div class="tracker-row"><span class="status-dot s-booked"></span>Car rental YYC ✓</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Residence Inn Calgary ✓</div>
+          <div class="tracker-row"><span class="status-dot s-booked"></span>Sixt YYC · CN961135523748 ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Banff park pass</div>
         </div>
       </div>
@@ -1384,7 +1384,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div>
             <div class="stop-type st-flight">✈ Flight</div>
             <div class="stop-title">New York → Calgary <span class="time-tag time-day">Arr 17:30 MDT</span></div>
-            <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5h 05m. Departs <strong style="font-weight:500">14:25 EDT</strong> (Newark) · arrives <strong style="font-weight:500">17:30 MDT</strong> (Calgary). Both confirmed on Aeroplan Flex Reward. Yun: 34,190 pts, seat 16A, ref BCFAML. Yan: 18,400 pts + CAD $279.80, ref BCFEFG.</div>
+            <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5h 05m. Departs <strong style="font-weight:500">14:25 EDT</strong> (Newark) · arrives <strong style="font-weight:500">17:30 MDT</strong> (Calgary). Both confirmed on Aeroplan Flex Reward. Yun: 34,190 pts, seat 16A, ref BCFAML. Yan: 18,400 pts + CAD $279.80, ref BCFEFG.<br><br><strong style="font-weight:500">Tonight: Calgary — Residence Inn Beltline</strong><br>
+              Bag pickup → rideshare/taxi to Residence Inn (610 10th Ave SW, ~15 min). Check-in 4pm. No car tonight — Sixt pickup is tomorrow 7am at YYC. Good dinner on 17th Ave nearby: Model Milk or Saltlik. Confirmation: 2491461985 (non-refundable · Visa ••••7559).</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 1</div>
@@ -1392,6 +1393,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yun: AC585 · Ref BCFAML</div>
               <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yan: AC585 · Ref BCFEFG</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Residence Inn Calgary · #2491461985 ✓</div>
             </div>
           </div>
         </div>
@@ -1400,23 +1402,23 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
             <div class="stop-type st-explore">🏔 Itinerary</div>
             <div class="stop-title">Jasper — Miette Hot Springs &amp; Dark Skies</div>
             <div class="stop-desc">
-              <strong style="font-weight:500">Oct 1 (Tue) — Arrival (long drive)</strong><br>
-              Land YYC 17:30 MDT · collect car · drive to Miette Mountain Cabins via Hwy 2N → Hwy 16W (~5.5 hrs, ~550km). Arrive ~23:00. ⚠ Miette front desk closes 8pm — <em>call ahead: +1 780-866-3732 to arrange late check-in</em>. Grab food on the road in Edson or Hinton.<br><br>
-              <strong style="font-weight:500">Oct 2 (Wed) — Full Jasper Day</strong><br>
-              Morning: <strong style="font-weight:500">Miette Hot Springs</strong> (5 min from cabins) — hottest natural springs in the Rockies, 54°C source, cooled to 40°C in pools. Dramatic mountain backdrop. Then: <strong style="font-weight:500">Maligne Lake</strong> (45 min) — Spirit Island boat tour if available (check ahead, season ends ~Oct 11) or Mary Schaffer Loop hike (3.2km). Midday: <strong style="font-weight:500">Maligne Canyon</strong> — 48m limestone slot canyon with walkway bridges. Afternoon: <strong style="font-weight:500">Valley of the Five Lakes</strong> (4.4km, turquoise glacial lakes with fall color). Evening: Jasper is a UNESCO Dark Sky Preserve — Milky Way visible on clear October nights after 9pm from the cabins' yard.<br><br>
-              <strong style="font-weight:500">Oct 3 (Thu) — Morning hike, drive Icefields Parkway to Banff</strong><br>
-              6:30am: <strong style="font-weight:500">Pyramid Lake</strong> (30 min from Miette) — elk at dawn, mirror reflection. Quick Old Fort Point hike (3.5km, panoramic valley views). Check out by 11am. <strong style="font-weight:500">Drive south on Hwy 93 (Icefields Parkway)</strong> — the world's most scenic drive, heading to Banff with these stops:<br>
-              · Athabasca Falls (30 min from Jasper) · Sunwapta Falls · Columbia Icefield / Athabasca Glacier (walk to the toe — one of the few accessible glaciers in the world) · Peyto Lake lookout · Bow Lake<br>
+              <strong style="font-weight:500">Oct 2 (Fri) — Drive YYC → Jasper</strong><br>
+              7:00am: Pick up <strong style="font-weight:500">Sixt Mazda CX-5</strong> at YYC airport (counter conf 9735700791). Drive Hwy 2N → Hwy 16W to Jasper (~3.5 hrs, ~360km). Arrive Miette Mountain Cabins ~10:30–11am. Drop bags, quick lunch in Jasper town.<br><br>
+              <strong style="font-weight:500">Oct 2 (Fri) — Jasper day</strong><br>
+              Afternoon: <strong style="font-weight:500">Miette Hot Springs</strong> (5 min from cabins, opens 8:30am) — hottest natural springs in the Rockies, 54°C source, cooled to 40°C. Then: <strong style="font-weight:500">Maligne Canyon</strong> — 48m limestone slot canyon with walkway bridges. Late afternoon: <strong style="font-weight:500">Valley of the Five Lakes</strong> (4.4km, turquoise glacial lakes, peak fall color). Evening: Jasper is a UNESCO Dark Sky Preserve — Milky Way visible after 9pm from the cabins' yard.<br><br>
+              <strong style="font-weight:500">Oct 3 (Sat) — Morning, then Icefields Parkway to Banff</strong><br>
+              6:30am: <strong style="font-weight:500">Pyramid Lake</strong> (30 min from Miette) — elk at dawn, mirror reflection. Quick Old Fort Point hike (3.5km, panoramic valley views). 8:30am: <strong style="font-weight:500">Maligne Lake</strong> (45 min) — Spirit Island boat tour if available (season ends ~Oct 11, book at experiencejasper.com) or Mary Schaffer Loop (3.2km). Check out by 11am. <strong style="font-weight:500">Drive south on Hwy 93 (Icefields Parkway)</strong>:<br>
+              · Athabasca Falls · Sunwapta Falls · Columbia Icefield / Athabasca Glacier (walk to the glacier toe) · Peyto Lake lookout · Bow Lake<br>
               Arrive Otter Hotel Banff ~5–6pm.
             </div>
             <div class="tip-box">Miette Hot Springs: first soak of the morning (opens 8:30am) — empty, mist rising, elk wandering the road. Worth setting the alarm. Spirit Island boat tour: book at experiencejasper.com · limited Oct spots. Dark skies: ask the cabins about best stargazing spots — they're in the preserve.</div>
           </div>
           <div class="stop-right">
-            <div class="stop-dates">Oct 1–3<br>2 nights</div>
+            <div class="stop-dates">Oct 2–3<br>1 night</div>
             <span class="badge badge-booked">Confirmed ✓</span>
             <div class="booking-status">
               <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Miette Mountain Cabins #72075854441977 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Car rental YYC Oct 1–5 ✓</div>
+              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Sixt CX-5 · CN961135523748 · Oct 2–5 ✓</div>
               <div class="bk-row"><span class="bk-dot bk-needed"></span>Maligne Lake boat tour</div>
             </div>
           </div>
@@ -2112,10 +2114,22 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="final-section-title">Confirmed accommodation</div>
 
       <div class="confirmed-card">
-        <div class="cc-date">Oct 1–3<br>2 nights</div>
+        <div class="cc-date">Oct 1, 2026<br>1 night</div>
+        <div>
+          <div class="cc-title">Residence Inn by Marriott Calgary Downtown/Beltline District</div>
+          <div class="cc-detail">610 10th Avenue SW, Calgary, AB T2R 1M3 · Studio, 1 King Bed · 2 guests<br>Check-in Thu Oct 1 at 4:00pm · Check-out Fri Oct 2 at 12:00pm · Non-refundable</div>
+          <div class="cc-ref">Chase Travel Trip #1019392378 · Conf: 2491461985 · USD $211.16 · Visa ••••7559 (CSR)</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
+      </div>
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 2–3<br>1 night</div>
         <div>
           <div class="cc-title">Miette Mountain Cabins — Jasper</div>
-          <div class="cc-detail">Highway 16 East, Pocahontas, AB · Panebode motel unit · 2 adults<br>Check-in Oct 1 (late arrival — call +1 780-866-3732) · Check-out Oct 3 at 11am<br>Free cancellation until Sept 28 at 6pm · Resort fee CAD $22.45/night incl. pool + in-room coffee</div>
+          <div class="cc-detail">Highway 16 East, Pocahontas, AB · Panebode motel unit · 2 adults<br>Check-in Oct 2 (afternoon, after drive from Calgary) · Check-out Oct 3 at 11am<br>Free cancellation until Sept 28 at 6pm · Resort fee CAD $22.45/night incl. pool + in-room coffee</div>
           <div class="cc-ref">Expedia Itinerary: 72075854441977 · CAD $931.96 total (incl. locally collected fees)</div>
         </div>
         <div class="cc-badge">
@@ -2129,6 +2143,18 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div class="cc-title">Otter Hotel — Banff</div>
           <div class="cc-detail">600 Banff Ave, Banff, AB · Superior Room, 1 King Bed · 2 adults<br>Check-in Oct 3 at 4pm · Check-out Oct 5 at 11am<br>Free cancellation until Sept 30 at 6pm</div>
           <div class="cc-ref">Expedia Itinerary: 72075854361589 · CAD $1,485.67 total</div>
+        </div>
+        <div class="cc-badge">
+          <span class="badge badge-booked">Confirmed ✓</span>
+        </div>
+      </div>
+
+      <div class="confirmed-card">
+        <div class="cc-date">Oct 2–5<br>4 days</div>
+        <div>
+          <div class="cc-title">Sixt Car Rental — Mazda CX-5 (Intermediate)</div>
+          <div class="cc-detail">Calgary Int'l Airport, 119 Aero Way NE · Pick-up Fri Oct 2 at 7:00am · Drop-off Mon Oct 5 at 8:00pm<br>Driver: Yun Yang · Unlimited mileage · Full-to-full fuel · Free cancel until Sep 29, 2026<br>Sixt counter: 1-888-749-8227 · Note: no CDW included in rate — CSR card (••••7559) provides primary CDW</div>
+          <div class="cc-ref">Chase Travel Trip #1019389645 · Car conf: CN961135523748 · Sixt counter: 9735700791 · USD $454.25 · Visa ••••7559 (CSR)</div>
         </div>
         <div class="cc-badge">
           <span class="badge badge-booked">Confirmed ✓</span>
@@ -2253,11 +2279,31 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">Not yours</div>
         </div>
 
+        <!-- Residence Inn Calgary -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Residence Inn Calgary · 1 nt <span style="color:var(--muted);font-size:12px">#2491461985</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">CSR ••••7559</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">$211.16</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$211.16</div>
+        </div>
+
+        <!-- Sixt Car Rental -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Sixt rental car · YYC Oct 2–5 <span style="color:var(--muted);font-size:12px">CN961135523748</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">CSR ••••7559</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">$454.25</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$454.25</div>
+        </div>
+
         <!-- Total row -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;background:var(--surface);">
           <div style="padding:.85rem 1.2rem;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
           <div></div><div></div><div></div><div></div>
-          <div style="padding:.85rem 1rem;font-size:14px;font-weight:500;color:var(--ink);text-align:right;">$2,475.37</div>
+          <div style="padding:.85rem 1rem;font-size:14px;font-weight:500;color:var(--ink);text-align:right;">$3,140.78</div>
         </div>
 
       </div>
@@ -2292,7 +2338,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
           <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
             <span style="color:var(--green)">Car rental · YYC pickup Oct 1, drop Oct 5 ✓</span><br>
-            <span style="color:var(--green)">Miette Mountain Cabins · Jasper ✓ (Oct 1–3)</span><br>
+            <span style="color:var(--green)">Residence Inn · Calgary ✓ (Oct 1, non-refundable)</span><br>
+            <span style="color:var(--green)">Miette Mountain Cabins · Jasper ✓ (Oct 2–3)</span><br>
             <span style="color:var(--green)">Otter Hotel · Banff ✓ (Oct 3–5)</span><br>
             Bangkok hotel &nbsp;·&nbsp; 2 nights Oct 6–8 (W Bangkok, Bonvoy pts)<br>
             Koh Samui hotel &nbsp;·&nbsp; 1 night Oct 8 (pre-wedding)<br>
