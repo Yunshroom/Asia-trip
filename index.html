@@ -6,45 +6,46 @@
 <title>Asia Trip 2026 — Yan & Yun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --ink: #0f0d0b;
-  --paper: #f2ece0;
-  --surface: #e8dfd0;
+  --paper: #F9F6F1;
+  --surface: #EEEAE2;
   --warm: #a07830;
-  --muted: #5a4e3c;
-  --line: rgba(15,13,11,0.18);
-  --line-strong: rgba(15,13,11,0.35);
+  --muted: #6E6256;
+  --line: rgba(15,13,11,0.10);
+  --line-strong: rgba(15,13,11,0.18);
   --accent: #a03020;
-  --green: #2e6640;
-  --green-bg: #d4e8da;
+  --green: #4A8C60;
+  --green-bg: #C8E6D2;
   --amber-bg: #f0e0b8;
   --red-bg: #f0d0c8;
   --gray-bg: #ddd8d0;
-  --pink: #a84060;
+  --pink: #C47898;
   --gold: #a07830;
-  --nav-bg: #f2ece0;
+  --nav-bg: #F9F6F1;
   --nav-text: rgba(15,13,11,0.5);
   --nav-border: rgba(15,13,11,0.12);
   --nav-toggle-bg: rgba(15,13,11,0.08);
   --nav-btn-active-bg: #0f0d0b;
-  --nav-btn-active-color: #f2ece0;
+  --nav-btn-active-color: #F9F6F1;
   --nav-btn-color: rgba(15,13,11,0.5);
-  --tracker-bg: #f2ece0;
+  --tracker-bg: #F9F6F1;
   --tracker-col-bg: rgba(255,255,255,0.7);
   --tracker-city-color: #0f0d0b;
   --tracker-row-text: rgba(15,13,11,0.65);
   --tracker-grid-bg: rgba(15,13,11,0.08);
   --tracker-grid-border: rgba(15,13,11,0.12);
-  --hero-bg: #f2ece0;
+  --hero-bg: #F9F6F1;
   --hero-color: #0f0d0b;
   --hero-muted: rgba(15,13,11,0.45);
   --hero-label-color: #a07830;
   --hero-title-em: rgba(15,13,11,0.35);
   --hero-scroll-line: rgba(15,13,11,0.18);
-  --route-bg: #e8dfd0;
+  --route-bg: #EEEAE2;
   --route-text: rgba(15,13,11,0.4);
   --route-active: #0f0d0b;
   --sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -133,7 +134,7 @@ footer { font-family: var(--mono); }
 }
 .stop-hotel-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -141,7 +142,7 @@ footer { font-family: var(--mono); }
   margin-right: .3rem;
 }
 .stop-hotel .cc-address-row { margin: 0; flex-wrap: wrap; }
-.stop-hotel .cc-address { font-size: 12px; }
+.stop-hotel .cc-address { font-size: 14px; }
 
 /* ─── PAGE SWITCH ─── */
 .page { display: none; }
@@ -162,7 +163,7 @@ footer { font-family: var(--mono); }
 }
 
 .topnav-brand {
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--nav-text);
@@ -178,7 +179,7 @@ footer { font-family: var(--mono); }
 
 .page-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .12em;
   text-transform: uppercase;
   padding: 6px 16px;
@@ -222,7 +223,7 @@ footer { font-family: var(--mono); }
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .14em;
   color: var(--hero-muted);
   text-transform: uppercase;
@@ -238,7 +239,7 @@ footer { font-family: var(--mono); }
 }
 
 .hero-label {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--hero-label-color);
@@ -247,7 +248,7 @@ footer { font-family: var(--mono); }
 
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(4.5rem, 11vw, 10rem);
+  font-size: clamp(5.17rem, 11vw, 11.5rem);
   font-weight: 300;
   line-height: .9;
   letter-spacing: -.02em;
@@ -268,7 +269,7 @@ footer { font-family: var(--mono); }
 }
 
 .hero-meta {
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: .06em;
   color: var(--hero-muted);
   line-height: 1.9;
@@ -288,7 +289,7 @@ footer { font-family: var(--mono); }
 
 .h-stat-n {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
+  font-size: 3.45rem;
   font-weight: 300;
   line-height: 1;
   color: var(--hero-color);
@@ -296,7 +297,7 @@ footer { font-family: var(--mono); }
 }
 
 .h-stat-l {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--hero-muted);
@@ -305,7 +306,7 @@ footer { font-family: var(--mono); }
 }
 
 .hero-bottom {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .13em;
   color: var(--hero-muted);
   text-transform: uppercase;
@@ -342,7 +343,7 @@ footer { font-family: var(--mono); }
   display: flex;
   align-items: center;
   overflow-x: auto;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .13em;
   text-transform: uppercase;
   background: var(--route-bg);
@@ -375,7 +376,7 @@ footer { font-family: var(--mono); }
 }
 
 .tracker-heading {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -397,7 +398,7 @@ footer { font-family: var(--mono); }
 
 .tracker-city {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
+  font-size: 1.61rem;
   font-weight: 400;
   color: var(--tracker-city-color);
   margin-bottom: .3rem;
@@ -405,7 +406,7 @@ footer { font-family: var(--mono); }
 }
 
 .tracker-dates {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   color: var(--muted);
   margin-bottom: 1.2rem;
@@ -418,7 +419,7 @@ footer { font-family: var(--mono); }
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .04em;
   color: var(--tracker-row-text);
 }
@@ -440,7 +441,7 @@ footer { font-family: var(--mono); }
   display: flex;
   gap: 1.5rem;
   margin-top: 1.5rem;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -488,7 +489,7 @@ main {
 .leg-sidebar { padding-top: 4px; }
 
 .leg-num {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -497,7 +498,7 @@ main {
 
 .leg-region {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.4rem;
+  font-size: 2.76rem;
   font-weight: 300;
   line-height: 1.1;
   color: var(--ink);
@@ -505,7 +506,7 @@ main {
 }
 
 .leg-date-range {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   letter-spacing: .05em;
   border-top: 1px solid var(--line-strong);
@@ -544,7 +545,7 @@ main {
 .time-tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: .03em;
   padding: 3px 11px;
   border-radius: 4px;
@@ -568,7 +569,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   align-items: center;
   gap: 8px;
   margin-top: 1.1rem;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -593,7 +594,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   display: inline-block;
   transition: transform .22s cubic-bezier(.4,0,.2,1);
   font-style: normal;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1;
 }
 .stop.collapsed .stop-toggle-icon { transform: rotate(-90deg); }
@@ -602,7 +603,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .1em;
   text-transform: uppercase;
   font-family: 'DM Mono', monospace;
@@ -626,7 +627,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 
 .stop-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.65rem;
+  font-size: 1.9rem;
   font-weight: 400;
   margin-bottom: .6rem;
   line-height: 1.2;
@@ -634,7 +635,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .stop-desc {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--muted);
   max-width: 520px;
@@ -646,7 +647,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .stop-dates {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .1em;
   color: var(--muted);
   text-transform: uppercase;
@@ -656,7 +657,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 
 .badge {
   display: inline-block;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   padding: 4px 10px;
@@ -675,7 +676,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
   margin-top: .9rem;
   padding: .75rem 1rem;
   border-left: 2px solid var(--gold);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--warm);
   letter-spacing: .03em;
   line-height: 1.65;
@@ -695,7 +696,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -716,7 +717,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 
 .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.6rem;
+  font-size: 2.99rem;
   font-weight: 300;
   margin-bottom: 2.5rem;
   color: var(--ink);
@@ -736,7 +737,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .points-card-header {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -751,14 +752,14 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
   align-items: baseline;
   padding: .65rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 15px;
   gap: 1rem;
 }
 .points-item:last-child { border-bottom: none; }
 .points-route { color: var(--ink); }
 .points-val {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 1.26rem;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -780,10 +781,10 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
   background: var(--surface);
 }
 
-.notice-icon { font-size: 1.3rem; margin-bottom: .75rem; }
+.notice-icon { font-size: 1.49rem; margin-bottom: .75rem; }
 
 .notice-title {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--ink);
@@ -791,7 +792,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .notice-text {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.75;
   color: var(--muted);
 }
@@ -803,7 +804,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
   border: 1px solid var(--nav-border);
   border-radius: 3px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 18px;
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -841,7 +842,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .links-group-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -863,7 +864,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 .link-item:hover .link-desc { color: var(--ink); }
 
 .link-name {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink);
   letter-spacing: .03em;
   margin-bottom: 2px;
@@ -873,7 +874,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 .link-arrow {
   display: inline-block;
   margin-left: 4px;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0;
   transform: translateX(-4px);
   transition: all .15s;
@@ -884,7 +885,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .link-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.5;
   transition: color .15s;
@@ -904,7 +905,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .budget-total-label {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--muted);
@@ -912,14 +913,14 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 
 .budget-total-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.8rem;
+  font-size: 3.22rem;
   font-weight: 300;
   color: var(--ink);
   line-height: 1;
 }
 
 .budget-total-sub {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   margin-top: 2px;
 }
@@ -941,7 +942,7 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 html.dark .budget-cat { background: var(--surface); }
 
 .budget-cat-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -955,7 +956,7 @@ html.dark .budget-cat { background: var(--surface); }
 
 .budget-cat-title span {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 1.26rem;
   letter-spacing: 0;
   text-transform: none;
   color: var(--ink);
@@ -967,7 +968,7 @@ html.dark .budget-cat { background: var(--surface); }
   align-items: baseline;
   padding: .5rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 15px;
   gap: 1rem;
 }
 
@@ -976,18 +977,18 @@ html.dark .budget-cat { background: var(--surface); }
 .budget-line-label { color: var(--muted); flex: 1; }
 
 .budget-line-ref {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .08em;
   color: var(--green);
   text-transform: uppercase;
   margin-left: 6px;
 }
 
-.budget-line-est { font-size: 10px; color: var(--muted); font-style: italic; margin-left: 4px; }
+.budget-line-est { font-size: 12px; color: var(--muted); font-style: italic; margin-left: 4px; }
 
 .budget-line-amt {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
+  font-size: 1.21rem;
   color: var(--ink);
   white-space: nowrap;
   text-align: right;
@@ -1008,7 +1009,7 @@ html.dark .budget-cat { background: var(--surface); }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1034,7 +1035,7 @@ html.dark .budget-bar-container { background: var(--surface); }
 .budget-bar-row:last-child { margin-bottom: 0; }
 
 .budget-bar-label {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .06em;
   color: var(--muted);
   text-transform: uppercase;
@@ -1058,11 +1059,11 @@ html.dark .budget-bar-container { background: var(--surface); }
 .bar-zero      { background: var(--line); }
 
 .budget-bar-val {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink);
   text-align: right;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .budget-summary-row {
@@ -1083,7 +1084,7 @@ html.dark .budget-bar-container { background: var(--surface); }
 html.dark .budget-summary-cell { background: var(--surface); }
 
 .bsc-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1092,7 +1093,7 @@ html.dark .budget-summary-cell { background: var(--surface); }
 
 .bsc-val {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-size: 2.07rem;
   font-weight: 300;
   color: var(--ink);
   line-height: 1.1;
@@ -1115,7 +1116,7 @@ html.dark .budget-summary-cell { background: var(--surface); }
 
 .final-section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+  font-size: 1.38rem;
   font-weight: 400;
   letter-spacing: .04em;
   color: var(--muted);
@@ -1144,7 +1145,7 @@ html.dark .budget-summary-cell { background: var(--surface); }
 .confirmed-card:last-child { border-bottom: none; }
 
 .cc-date {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1154,7 +1155,7 @@ html.dark .budget-summary-cell { background: var(--surface); }
 
 .cc-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: 1.72rem;
   font-weight: 400;
   color: var(--ink);
   margin-bottom: .4rem;
@@ -1162,13 +1163,13 @@ html.dark .budget-summary-cell { background: var(--surface); }
 }
 
 .cc-detail {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
   color: var(--muted);
 }
 
 .cc-ref {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--accent);
@@ -1186,7 +1187,7 @@ footer {
   border-top: 1px solid var(--line-strong);
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .12em;
   color: var(--muted);
   text-transform: uppercase;
@@ -1207,7 +1208,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   margin-bottom: .45rem;
 }
 .cc-address {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink);
   letter-spacing: .02em;
 }
@@ -1221,7 +1222,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   align-items: center;
   gap: 3px;
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
   padding: 3px 9px;
@@ -1256,20 +1257,20 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
   /* Nav */
   .topnav { padding: 0 1rem; height: 48px; }
-  .topnav-brand { font-size: 11px; letter-spacing: .08em; }
-  .page-btn { padding: 5px 10px; font-size: 10px; letter-spacing: .08em; }
+  .topnav-brand { font-size: 13px; letter-spacing: .08em; }
+  .page-btn { padding: 5px 10px; font-size: 12px; letter-spacing: .08em; }
 
   /* Hero */
   .hero { padding: 1.2rem 1rem; height: 100dvh; min-height: 480px; }
-  .hero-top { font-size: 10px; letter-spacing: .1em; }
-  .hero-title { font-size: clamp(2.8rem, 14vw, 5rem); }
+  .hero-top { font-size: 12px; letter-spacing: .1em; }
+  .hero-title { font-size: clamp(3.22rem, 14vw, 5.75rem); }
   .hero-sub { flex-direction: column; gap: 1rem; align-items: flex-start; }
   .hero-stats { display: none; }
-  .hero-meta { font-size: 12px; }
-  .hero-bottom { font-size: 10px; }
+  .hero-meta { font-size: 14px; }
+  .hero-bottom { font-size: 12px; }
 
   /* Route bar */
-  .route-bar { padding: .7rem 1rem; font-size: 10px; letter-spacing: .1em; }
+  .route-bar { padding: .7rem 1rem; font-size: 12px; letter-spacing: .1em; }
 
   /* Quick links */
   .quick-links { padding: .5rem 1rem !important; gap: .4rem !important; overflow-x: auto; flex-wrap: nowrap !important; }
@@ -1278,9 +1279,9 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   .tracker { padding: 1.2rem 1rem; }
   .tracker-heading { margin-bottom: 1rem; }
   .tracker-grid { grid-template-columns: repeat(2, 1fr); }
-  .tracker-city { font-size: 1.15rem; }
-  .tracker-dates { font-size: 9px; margin-bottom: .8rem; }
-  .tracker-row { font-size: 11px; }
+  .tracker-city { font-size: 1.32rem; }
+  .tracker-dates { font-size: 10px; margin-bottom: .8rem; }
+  .tracker-row { font-size: 13px; }
   .tracker-legend { flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
 
   /* Progress bar */
@@ -1303,14 +1304,14 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     border-bottom: 1px solid var(--line-strong);
     margin-bottom: 1.2rem;
   }
-  .leg-num { margin-bottom: 0; font-size: 9px; }
-  .leg-region { font-size: 1.6rem; margin-bottom: 0; line-height: 1; }
+  .leg-num { margin-bottom: 0; font-size: 10px; }
+  .leg-region { font-size: 1.84rem; margin-bottom: 0; line-height: 1; }
   .leg-date-range {
     margin-left: auto;
     border-top: none;
     padding-top: 0;
     margin-top: 0;
-    font-size: 12px;
+    font-size: 14px;
     text-align: right;
   }
 
@@ -1318,18 +1319,18 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   .stop { grid-template-columns: 1fr; gap: .8rem; padding: 1.5rem 0; }
   .stop-right { text-align: left; }
   .booking-status { align-items: flex-start; }
-  .stop-title { font-size: 1.3rem; flex-wrap: wrap; }
-  .stop-desc { font-size: 13px; max-width: 100%; }
+  .stop-title { font-size: 1.49rem; flex-wrap: wrap; }
+  .stop-desc { font-size: 15px; max-width: 100%; }
   .stop-toggle { width: 100%; justify-content: center; padding: 10px 18px; margin-top: 1rem; }
-  .time-tag { font-size: 13px; padding: 2px 8px; margin-left: 5px; }
+  .time-tag { font-size: 15px; padding: 2px 8px; margin-left: 5px; }
 
   /* Points / notices sections */
   .points-section { padding: 2rem 0; }
-  .section-title { font-size: 1.9rem; margin-bottom: 1.5rem; }
+  .section-title { font-size: 2.18rem; margin-bottom: 1.5rem; }
   .points-grid, .notices-grid { grid-template-columns: 1fr; }
   .points-card { padding: 1.2rem; }
-  .points-item { font-size: 12px; }
-  .points-val { font-size: 1rem; }
+  .points-item { font-size: 14px; }
+  .points-val { font-size: 1.15rem; }
 
   /* Confirmed cards */
   .confirmed-card {
@@ -1342,17 +1343,17 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     gap: .5rem;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 11px;
+    font-size: 13px;
     padding-top: 0;
   }
-  .cc-title { font-size: 1.2rem; }
-  .cc-detail { font-size: 12px; }
-  .cc-ref { font-size: 9px; }
+  .cc-title { font-size: 1.38rem; }
+  .cc-detail { font-size: 14px; }
+  .cc-ref { font-size: 10px; }
   .cc-badge { text-align: left; }
 
   /* Address buttons on mobile */
   .cc-address-row { gap: .4rem; }
-  .addr-btn { font-size: 9px; padding: 3px 7px; }
+  .addr-btn { font-size: 10px; padding: 3px 7px; }
 
   /* Expense ledger */
   .ledger-wrap { border-radius: 0; }
@@ -1363,17 +1364,17 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   .pending-grid { grid-template-columns: 1fr !important; }
 
   /* Final section */
-  .final-section-title { font-size: 1.8rem; margin-bottom: 1.2rem; }
+  .final-section-title { font-size: 2.07rem; margin-bottom: 1.2rem; }
   .final-section { padding: 2rem 0 !important; }
 
   /* Footer */
-  footer { flex-direction: column; gap: .4rem; padding: 1.2rem 1rem; font-size: 9px; }
+  footer { flex-direction: column; gap: .4rem; padding: 1.2rem 1rem; font-size: 10px; }
 }
 
 /* ── Tracker subsections ─────────────────────────────── */
 .tracker-section-label {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1403,14 +1404,14 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 }
 .fr-iata {
   font-family: var(--mono);
-  font-size: 18px;
+  font-size: 21px;
   letter-spacing: .05em;
   color: var(--ink);
   font-weight: 400;
   line-height: 1;
 }
 .fr-city {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   letter-spacing: .04em;
   white-space: nowrap;
@@ -1434,7 +1435,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   justify-content: center;
 }
 .fr-plane {
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   z-index: 1;
   background: var(--paper);
@@ -1451,21 +1452,21 @@ html.dark .fr-plane { background: var(--paper); }
 }
 .fr-duration {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .08em;
   color: var(--ink);
   white-space: nowrap;
 }
 .fr-distance {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .06em;
   color: var(--muted);
   white-space: nowrap;
 }
 .fr-stops {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .06em;
   color: var(--warm);
   white-space: nowrap;
@@ -1485,7 +1486,7 @@ html.dark .fr-plane { background: var(--paper); }
 }
 .cal-month-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
+  font-size: 2.53rem;
   font-weight: 300;
   color: var(--ink);
   margin-bottom: 1.5rem;
@@ -1503,7 +1504,7 @@ html.dark .fr-plane { background: var(--paper); }
   background: var(--surface);
   padding: .5rem;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1526,7 +1527,7 @@ html.dark .fr-plane { background: var(--paper); }
 .cal-day.cal-empty { background: var(--surface); opacity: .5; }
 .cal-day-num {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   margin-bottom: .4rem;
   line-height: 1;
@@ -1536,7 +1537,7 @@ html.dark .fr-plane { background: var(--paper); }
   font-weight: bold;
 }
 .cal-event {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.4;
   border-radius: 3px;
   padding: 2px 6px;
@@ -1566,7 +1567,7 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
   display: flex;
   align-items: center;
   gap: .35rem;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .cal-legend-dot {
@@ -1578,8 +1579,8 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
 @media (max-width: 767px) {
   .cal-grid-wrap { padding: 1.5rem 1rem 4rem; }
   .cal-day { min-height: 70px; padding: .4rem .4rem; }
-  .cal-event { font-size: 9px; padding: 1px 4px; }
-  .cal-day-num { font-size: 10px; }
+  .cal-event { font-size: 10px; padding: 1px 4px; }
+  .cal-day-num { font-size: 12px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1596,7 +1597,7 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
   gap: .6rem;
   margin-bottom: 1.25rem;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1635,21 +1636,21 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 .ic-airport { flex-shrink: 0; }
 .ic-iata {
   font-family: var(--mono);
-  font-size: 22px;
+  font-size: 25px;
   letter-spacing: .04em;
   color: var(--ink);
   line-height: 1;
 }
 .ic-time {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink);
   margin-top: 3px;
   letter-spacing: .03em;
 }
 .ic-tz {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .06em;
   color: var(--muted);
   margin-top: 2px;
@@ -1673,7 +1674,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   justify-content: center;
 }
 .ic-plane {
-  font-size: 13px;
+  font-size: 15px;
   background: var(--surface);
   padding: 0 3px;
   line-height: 1;
@@ -1681,7 +1682,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 }
 .ic-dur {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: .04em;
@@ -1689,7 +1690,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 }
 .ic-km {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   color: var(--muted);
   letter-spacing: .04em;
   text-align: center;
@@ -1703,13 +1704,13 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 }
 .ic-flight-date {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .ic-airline {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -1718,7 +1719,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   background: var(--surface);
   border-bottom: 1px solid var(--line);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   color: var(--muted);
   display: flex;
@@ -1737,7 +1738,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 }
 .ic-city {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.65rem;
+  font-size: 1.9rem;
   font-weight: 300;
   letter-spacing: -.01em;
   line-height: 1.15;
@@ -1746,7 +1747,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 .ic-city small {
   display: block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1755,7 +1756,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 }
 .ic-nights {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .06em;
   color: var(--muted);
   white-space: nowrap;
@@ -1769,23 +1770,60 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: .75rem;
-  align-items: center;
-  padding: .55rem 0;
+  align-items: start;
+  padding: .65rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 15px;
 }
 .ic-hotel:last-child { border-bottom: none; }
+.ic-hotel-info { display: flex; flex-direction: column; gap: 3px; }
 .ic-hotel-name { color: var(--ink); line-height: 1.35; }
-.ic-hotel-span {
+.ic-hotel-cancel {
   font-family: var(--mono);
   font-size: 10px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ic-hotel-cancel.cancel-warn { color: #c07020; }
+.ic-hotel-span {
+  font-family: var(--mono);
+  font-size: 12px;
   color: var(--muted);
   white-space: nowrap;
   text-align: right;
+  padding-top: 2px;
 }
+.ic-hotel-acts {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ic-act {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 4px;
+  border: 1px solid var(--line-strong);
+  background: var(--tracker-grid-bg);
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1;
+  transition: background .15s, color .15s, border-color .15s;
+  flex-shrink: 0;
+}
+.ic-act:hover { background: var(--surface); color: var(--ink); border-color: var(--muted); }
+.ic-act.copied { border-color: var(--green); color: var(--green); background: var(--green-bg); }
 .ic-badge {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .06em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -1805,7 +1843,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   border-top: 1px solid var(--line);
   background: var(--tracker-grid-bg);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1832,14 +1870,14 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 .ic-day:last-child { border-bottom: none; padding-bottom: 1.5rem; }
 .ic-day-title {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--warm);
   margin-bottom: .55rem;
 }
 .ic-day-body {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink);
   line-height: 1.8;
 }
@@ -1848,7 +1886,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   padding: .55rem 1rem;
   border-left: 2px solid var(--gold);
   background: var(--amber-bg);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.65;
   border-radius: 0 2px 2px 0;
@@ -1864,12 +1902,13 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   .ic-leg { padding: 1.5rem 1rem 0; }
   .ic-card { border-radius: 3px; }
   .ic-flight { padding: .9rem 1rem; }
-  .ic-iata { font-size: 17px; }
-  .ic-time { font-size: 11px; }
+  .ic-iata { font-size: 20px; }
+  .ic-time { font-size: 13px; }
   .ic-body { padding: 1rem 1rem .6rem; }
-  .ic-city { font-size: 1.35rem; }
+  .ic-city { font-size: 1.55rem; }
   .ic-toggle { padding: .55rem 1rem; }
   .ic-hotel { grid-template-columns: 1fr auto; gap: .4rem; }
+  .ic-hotel-acts { display: none; }
   .ic-badge { display: none; }
   .ic-plan { padding: 0 1rem; }
 }
@@ -1880,7 +1919,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 <!-- TOP NAV -->
 <nav class="topnav">
   <span class="topnav-brand">Yan &amp; Yun · Asia 2026</span>
-  <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">☀</button>
+  <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="ri-sun-line"></i></button>
   <div class="page-toggle">
     <button class="page-btn active" onclick="switchPage('planning')">Planning</button>
     <button class="page-btn" onclick="switchPage('expense')">Expense</button>
@@ -1953,14 +1992,14 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
   <!-- QUICK LINKS BAR -->
   <div class="quick-links" style="background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.65rem 3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-    <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:.5rem;">Book →</span>
+    <span style="font-size: 12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:.5rem;">Book →</span>
     <a href="https://www.marriott.com/default.mi" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink);text-decoration:none;padding:5px 14px;border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);letter-spacing:.04em;transition:border-color .15s,color .15s;">
-      🏨 Marriott Bonvoy ↗
+       style="display:inline-flex;align-items:center;gap:6px;font-size: 14px;color:var(--ink);text-decoration:none;padding:5px 14px;border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);letter-spacing:.04em;transition:border-color .15s,color .15s;">
+      <i class="ri-hotel-bed-line"></i> Marriott Bonvoy ↗
     </a>
     <a href="https://www.chasetravel.com" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink);text-decoration:none;padding:5px 14px;border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);letter-spacing:.04em;transition:border-color .15s,color .15s;">
-      💳 Chase Travel ↗
+       style="display:inline-flex;align-items:center;gap:6px;font-size: 14px;color:var(--ink);text-decoration:none;padding:5px 14px;border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);letter-spacing:.04em;transition:border-color .15s,color .15s;">
+      <i class="ri-bank-card-line"></i> Chase Travel ↗
     </a>
   </div>
 
@@ -1975,15 +2014,15 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="tracker-city">Calgary<br>Jasper · Banff</div>
         <div class="tracker-dates">Oct 1–5 · 4 nights</div>
         <div class="tracker-rows">
-          <span class="tracker-section-label">✈ Transport</span>
+          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yun: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: AC585 EWR→YYC ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Sixt CX-5 · Oct 2–5 ✓</div>
-          <span class="tracker-section-label">🏨 Stay</span>
+          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Residence Inn Calgary ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Miette Cabins · Jasper ✓</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Otter Hotel · Banff ✓</div>
-          <span class="tracker-section-label">🎿 Activities</span>
+          <span class="tracker-section-label"><i class="ri-compass-line"></i> Activities</span>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Moraine Lake shuttle ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Banff park pass</div>
         </div>
@@ -1994,12 +2033,12 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="tracker-city">Bangkok</div>
         <div class="tracker-dates">Oct 6–8 · 2 nights</div>
         <div class="tracker-rows">
-          <span class="tracker-section-label">✈ Transport</span>
+          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Flight YYC → BKK</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>BKK → USM (Oct 8)</div>
-          <span class="tracker-section-label">🏨 Stay</span>
+          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>W Bangkok · 2 nts (Bonvoy)</div>
-          <span class="tracker-section-label">🗺 Activities</span>
+          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
           <div class="tracker-row"><span class="status-dot s-na"></span>Grand Palace · Wat Arun</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>Floating market · Oct 7</div>
         </div>
@@ -2010,13 +2049,13 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="tracker-city">Koh Samui</div>
         <div class="tracker-dates">Oct 8–12 · 4 nights</div>
         <div class="tracker-rows">
-          <span class="tracker-section-label">✈ Transport</span>
+          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>BKK → USM flight</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>PG807 KSM→HKG ✓ FVZ2OD</div>
-          <span class="tracker-section-label">🏨 Stay</span>
+          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Oct 8 (pre-wedding)</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Wedding island Oct 9–12 ✓</div>
-          <span class="tracker-section-label">💍 Activities</span>
+          <span class="tracker-section-label"><i class="ri-heart-line"></i> Activities</span>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Wedding confirmed ✓</div>
         </div>
       </div>
@@ -2026,12 +2065,12 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="tracker-city">Hong Kong</div>
         <div class="tracker-dates">Oct 12–14 · 2 nights</div>
         <div class="tracker-rows">
-          <span class="tracker-section-label">✈ Transport</span>
+          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
           <div class="tracker-row"><span class="status-dot s-booked"></span>PG807 KSM→HKG ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>HKG → PVG flight</div>
-          <span class="tracker-section-label">🏨 Stay</span>
+          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Hong Kong · 2 nts</div>
-          <span class="tracker-section-label">🗺 Activities</span>
+          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>China visa × 2</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>Victoria Peak · Star Ferry</div>
         </div>
@@ -2042,14 +2081,14 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="tracker-city">Shanghai</div>
         <div class="tracker-dates">Oct 14–23 · (incl. family)</div>
         <div class="tracker-rows">
-          <span class="tracker-section-label">✈ Transport</span>
+          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yan: SHA → Shanxi (Oct 17)</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH (Oct 23)</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: PVG→ATH AZ5QGD ✓</div>
-          <span class="tracker-section-label">🏨 Stay</span>
+          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>2 rooms Oct 14–17 (incl. mom)</div>
           <div class="tracker-row"><span class="status-dot s-na"></span>Oct 17–23: w/ family</div>
-          <span class="tracker-section-label">🗺 Activities</span>
+          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
           <div class="tracker-row"><span class="status-dot s-na"></span>The Bund · Jing An Temple</div>
         </div>
       </div>
@@ -2059,16 +2098,16 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="tracker-city">Athens<br>+ Home</div>
         <div class="tracker-dates">Oct 23–30 · 7 nights</div>
         <div class="tracker-rows">
-          <span class="tracker-section-label">✈ Transport</span>
+          <span class="tracker-section-label"><i class="ri-plane-line"></i> Transport</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: SHA → ATH (A3 1900)</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: PVG→ATH AZLZGO ✓</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun: ATH → EWR (Oct 30)</div>
           <div class="tracker-row"><span class="status-dot s-booked"></span>Yan: ATH→EWR AZLZGO ✓</div>
-          <span class="tracker-section-label">🏨 Stay</span>
+          <span class="tracker-section-label"><i class="ri-hotel-bed-line"></i> Stay</span>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Hotel Oct 23–27 (both, 4 nts)</div>
           <div class="tracker-row"><span class="status-dot s-inflight"></span>Yan Oct 27–29 (company ✦)</div>
           <div class="tracker-row"><span class="status-dot s-needed"></span>Yun Oct 27–30 (self, 3 nts)</div>
-          <span class="tracker-section-label">🗺 Activities</span>
+          <span class="tracker-section-label"><i class="ri-map-line"></i> Activities</span>
           <div class="tracker-row"><span class="status-dot s-na"></span>Acropolis · Cape Sounion</div>
         </div>
       </div>
@@ -2107,7 +2146,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div class="ic-tz">EDT · Newark</div>
         </div>
         <div class="ic-track-wrap">
-          <div class="ic-track"><span class="ic-plane">✈</span></div>
+          <div class="ic-track"><span class="ic-plane"><i class="ri-plane-fill"></i></span></div>
           <div class="ic-dur">5h 05m</div>
           <div class="ic-km">3,501 km · nonstop</div>
         </div>
@@ -2130,30 +2169,58 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Residence Inn Calgary</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Residence Inn Calgary</span>
+            <span class="ic-hotel-cancel cancel-warn"><i class="ri-alert-line"></i> Non-refundable</span>
+          </div>
           <span class="ic-hotel-span">Oct 1 · 1 night</span>
-          <span class="ic-badge ib-ok">✓ Conf #2491461985</span>
+          <div class="ic-hotel-acts">
+            <a class="ic-act" href="confirmations/Gmail%20-%20Travel%20Reservation%20Center%20Trip%20ID%20%23%201019392378.pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
+            <a class="ic-act" href="https://maps.google.com/?q=610+10th+Avenue+SW,+Calgary,+AB" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'610 10th Avenue SW, Calgary, AB T2R 1M3')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+          </div>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏠 Miette Mountain Cabins, Jasper</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-home-4-line"></i> Miette Mountain Cabins, Jasper</span>
+            <span class="ic-hotel-cancel"><i class="ri-shield-check-line"></i> Free cancel until Sep 28</span>
+          </div>
           <span class="ic-hotel-span">Oct 2–3 · 1 night</span>
-          <span class="ic-badge ib-ok">✓ Conf #72075854441977</span>
+          <div class="ic-hotel-acts">
+            <a class="ic-act" href="confirmations/Gmail%20-%20Miette%20Mountain%20Cabins%2C%20Highway%2016%20East%2C%20Pocahontas%2C%20AB%2C%20T0E%201E0%20Canada%2C%20Fri%2C%20Oct%202%20-%20Sat%2C%20Oct%203(Itinerary%20%2372075854441977).pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
+            <a class="ic-act" href="https://maps.google.com/?q=Miette+Mountain+Cabins,+Highway+16+East,+Pocahontas,+AB" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'Highway 16 East, Pocahontas, AB T0E 1E0')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+          </div>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Otter Hotel, Banff</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Otter Hotel, Banff</span>
+            <span class="ic-hotel-cancel"><i class="ri-shield-check-line"></i> Free cancel until Sep 30</span>
+          </div>
           <span class="ic-hotel-span">Oct 3–5 · 2 nights</span>
-          <span class="ic-badge ib-ok">✓ Conf #72075854361589</span>
+          <div class="ic-hotel-acts">
+            <a class="ic-act" href="confirmations/Gmail%20-%20Otter%20Hotel%2C%201000%20600%20Banff%20Ave%2C%20Banff%2C%20AB%2C%20T1L1H8%20Canada%2C%20Sat%2C%20Oct%203%20-%20Mon%2C%20Oct%205(Itinerary%20%2372075854361589).pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
+            <a class="ic-act" href="https://maps.google.com/?q=600+Banff+Avenue,+Banff,+AB" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'600 Banff Avenue, Banff, AB T1L 1H8')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+          </div>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🚗 Sixt Mazda CX-5 (YYC pickup 7am)</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-car-line"></i> Sixt Mazda CX-5 · YYC pickup 7am</span>
+            <span class="ic-hotel-cancel"><i class="ri-shield-check-line"></i> Free cancel until Sep 29</span>
+          </div>
           <span class="ic-hotel-span">Oct 2–5 · 4 days</span>
-          <span class="ic-badge ib-ok">✓ CN961135523748</span>
+          <div class="ic-hotel-acts">
+            <a class="ic-act" href="confirmations/Gmail%20-%20Travel%20Reservation%20Center%20Trip%20ID%20%23%201019389645.pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
+            <a class="ic-act" href="https://maps.google.com/?q=Sixt+Car+Rental+Calgary+International+Airport" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'Sixt Car Rental, Calgary International Airport (YYC), 2000 Airport Rd NE, Calgary, AB')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+          </div>
         </div>
           </div>
         </div>
         <div class="ic-toggle">
           <span>Day plan &amp; recommendations</span>
-          <span class="ic-chev">▾</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
         </div>
         <div class="ic-plan">
       <div class="ic-day">
@@ -2171,7 +2238,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="ic-tip">The Icefields Parkway is one of the world's great drives — budget the full afternoon and stop at everything. The walk to the Athabasca Glacier toe is free and surreal: blue-green ice stretching for kilometres.</div>
       </div>
       <div class="ic-day">
-        <div class="ic-day-title">Oct 4 — 🌟 Moraine Lake (Confirmed)</div>
+        <div class="ic-day-title">Oct 4 — <i class="ri-star-line"></i> Moraine Lake (Confirmed)</div>
         <div class="ic-day-body"><strong>Shuttle confirmed: INPC26-13891950B1 · 7am Lake Louise slot.</strong><br><br>6:30am: Drive to Lake Louise shuttle hub. 7am bus → Moraine Lake. Hike <strong>Larch Valley trail</strong> (5.8 km up, +2 km to Sentinel Pass at 2,611m). Peak golden larch color in early October — electric yellow against blue-grey rock and snow. Best light before noon. Return shuttle afternoon.<br><br><strong>Evening:</strong> Upper Hot Springs ($10 pp, 5 min from Banff townsite) to soak tired legs.</div>
         <div class="ic-tip">Larch Valley in early October is the single best hike in the Canadian Rockies. The larches glow electric yellow-gold against the rock face — nothing else looks like it. Go as early as possible for the morning light and empty trails.</div>
       </div>
@@ -2193,7 +2260,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       </div>
       <div class="ic-card" id="ic2">
     <div class="ic-no-flight">
-      <span>✈ YYC → BKK — United / Star Alliance · 1 stop · ~20–22h · 11,654 km · Departs Oct 5 ~20:00 MDT</span>
+      <span><i class="ri-plane-line"></i> YYC → BKK — United / Star Alliance · 1 stop · ~20–22h · 11,654 km · Departs Oct 5 ~20:00 MDT</span>
       <span class="badge badge-needed">Not yet booked</span>
     </div>
         <div class="ic-body">
@@ -2203,15 +2270,17 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 W Bangkok — Sathorn</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> W Bangkok — Sathorn</span>
+          </div>
           <span class="ic-hotel-span">Oct 6–8 · 2 nights</span>
-          <span class="ic-badge ib-tbd">Use Bonvoy pts ~25K/nt</span>
+          <span class="ic-badge ib-tbd">Bonvoy ~25K/nt</span>
         </div>
           </div>
         </div>
         <div class="ic-toggle">
           <span>Day plan &amp; recommendations</span>
-          <span class="ic-chev">▾</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
         </div>
         <div class="ic-plan">
       <div class="ic-day">
@@ -2242,7 +2311,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       </div>
       <div class="ic-card" id="ic3">
     <div class="ic-no-flight">
-      <span>✈ BKK → USM — Bangkok Airways · ~1h 25m · 720 km · Morning flight Oct 8</span>
+      <span><i class="ri-plane-line"></i> BKK → USM — Bangkok Airways · ~1h 25m · 720 km · Morning flight Oct 8</span>
       <span class="badge badge-needed">Not yet booked</span>
     </div>
         <div class="ic-body">
@@ -2252,20 +2321,28 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Hotel pre-wedding (1 night)</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Hotel pre-wedding (1 night)</span>
+          </div>
           <span class="ic-hotel-span">Oct 8 · 1 night</span>
           <span class="ic-badge ib-tbd">To book</span>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">💍 Wedding — Private Island off Koh Samui</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-heart-line"></i> Wedding — Private Island off Koh Samui</span>
+            <span class="ic-hotel-cancel"><i class="ri-shield-check-line"></i> Both confirmed · Oct 9–12</span>
+          </div>
           <span class="ic-hotel-span">Oct 9–12 · 3 nights</span>
-          <span class="ic-badge ib-ok">✓ Both confirmed</span>
+          <div class="ic-hotel-acts">
+            <a class="ic-act" href="https://merylandmichaelforever.com" target="_blank" title="Wedding website"><i class="ri-global-line"></i></a>
+            <a class="ic-act" href="https://maps.google.com/?q=Koh+Phangan+Private+Island,+Koh+Samui,+Thailand" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+          </div>
         </div>
           </div>
         </div>
         <div class="ic-toggle">
           <span>Day plan &amp; recommendations</span>
-          <span class="ic-chev">▾</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
         </div>
         <div class="ic-plan">
       <div class="ic-day">
@@ -2307,7 +2384,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div class="ic-tz">ICT · Koh Samui</div>
         </div>
         <div class="ic-track-wrap">
-          <div class="ic-track"><span class="ic-plane">✈</span></div>
+          <div class="ic-track"><span class="ic-plane"><i class="ri-plane-fill"></i></span></div>
           <div class="ic-dur">3h 25m</div>
           <div class="ic-km">2,240 km · nonstop</div>
         </div>
@@ -2330,15 +2407,17 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Hotel Hong Kong (to book)</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Hotel Hong Kong (to book)</span>
+          </div>
           <span class="ic-hotel-span">Oct 12–14 · 2 nights</span>
-          <span class="ic-badge ib-tbd">The Murray (Bonvoy) recommended</span>
+          <span class="ic-badge ib-tbd">The Murray rec.</span>
         </div>
           </div>
         </div>
         <div class="ic-toggle">
           <span>Day plan &amp; recommendations</span>
-          <span class="ic-chev">▾</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
         </div>
         <div class="ic-plan">
       <div class="ic-day">
@@ -2369,7 +2448,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       </div>
       <div class="ic-card" id="ic5">
     <div class="ic-no-flight">
-      <span>✈ HKG → PVG — ~2h 30m · 1,452 km · Multiple carriers · Morning flight Oct 14</span>
+      <span><i class="ri-plane-line"></i> HKG → PVG — ~2h 30m · 1,452 km · Multiple carriers · Morning flight Oct 14</span>
       <span class="badge badge-needed">Not yet booked</span>
     </div>
         <div class="ic-body">
@@ -2379,12 +2458,16 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Hotel Shanghai (2 rooms — Yun+Yan + Yun's mom)</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Hotel Shanghai (2 rooms)</span>
+          </div>
           <span class="ic-hotel-span">Oct 14–17 · 3 nights</span>
-          <span class="ic-badge ib-tbd">The Middle House recommended</span>
+          <span class="ic-badge ib-tbd">The Middle House rec.</span>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏠 Staying with family (Yan → Shanxi, Yun stays in Shanghai)</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-home-4-line"></i> With family (Yan → Shanxi · Yun → Shanghai)</span>
+          </div>
           <span class="ic-hotel-span">Oct 17–23</span>
           <span class="ic-badge ib-ok">✓ With family</span>
         </div>
@@ -2392,7 +2475,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         </div>
         <div class="ic-toggle">
           <span>Day plan &amp; recommendations</span>
-          <span class="ic-chev">▾</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
         </div>
         <div class="ic-plan">
       <div class="ic-day">
@@ -2438,7 +2521,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div class="ic-tz">CST · Shanghai T2</div>
         </div>
         <div class="ic-track-wrap">
-          <div class="ic-track"><span class="ic-plane">✈</span></div>
+          <div class="ic-track"><span class="ic-plane"><i class="ri-plane-fill"></i></span></div>
           <div class="ic-dur">11h 45m</div>
           <div class="ic-km">8,298 km · nonstop</div>
         </div>
@@ -2461,17 +2544,23 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Hotel Athens (both)</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Hotel Athens (both)</span>
+          </div>
           <span class="ic-hotel-span">Oct 23–27 · 4 nights</span>
           <span class="ic-badge ib-tbd">To book</span>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Yan: BHI Conference hotel</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Yan: BHI Conference hotel</span>
+          </div>
           <span class="ic-hotel-span">Oct 27–29 · 2 nights</span>
           <span class="ic-badge ib-co">✦ Company-covered</span>
         </div>
         <div class="ic-hotel">
-          <span class="ic-hotel-name">🏨 Yun: self-book hotel</span>
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Yun: self-book hotel</span>
+          </div>
           <span class="ic-hotel-span">Oct 27–30 · 3 nights</span>
           <span class="ic-badge ib-tbd">To book</span>
         </div>
@@ -2479,7 +2568,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         </div>
         <div class="ic-toggle">
           <span>Day plan &amp; recommendations</span>
-          <span class="ic-chev">▾</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
         </div>
         <div class="ic-plan">
       <div class="ic-day">
@@ -2502,7 +2591,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="ic-day-body"><strong>Yan:</strong> BHI Conference, company-covered hotel (2 nights).<br><strong>Yun:</strong> solo Athens time. Options: hydrofoil day trip to <strong>Aegina</strong> (pistachio island, ancient temple, 35 min from Piraeus port) or <strong>Hydra</strong> (no cars, car-free island, stunning, 2 hrs from Piraeus). Or: deeper Athens exploration — <strong>Kerameikos</strong> (ancient cemetery with no tourists), National Archaeological Museum, <strong>Benaki Museum</strong> (Greek design artifacts, excellent gift shop).</div>
       </div>
       <div class="ic-day">
-        <div class="ic-day-title">Oct 30 — Fly Home 🏠</div>
+        <div class="ic-day-title">Oct 30 — Fly Home <i class="ri-home-heart-line"></i></div>
         <div class="ic-day-body"><strong>A3 3415: ATH 16:20 → EWR 21:20 EDT</strong>, ~10h. Yan confirmed, ref AZLZGO — Business class. Yun: book same Aegean flight (check availability) or Delta ATH→JFK (departs ~10:25, nonstop ~10 hrs). Both arrive Newark same evening if on Aegean together.<br><br>Terminal B at Newark for Aegean. Priority Pass lounge in Athens: <strong>Goldair CIP Lounge</strong> (accessible with CSR).</div>
         <div class="ic-tip">If Yun books A3 3415 — you land together at Newark Terminal B at 21:20. Easiest end to a 30-day trip.</div>
       </div>
@@ -2513,54 +2602,54 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
     <!-- HOTEL PICKS -->
     <section class="points-section" id="p-hotels" style="border-top:1px solid var(--line-strong);">
       <h2 class="section-title">Hotel Picks — Design &amp; Points</h2>
-      <div style="font-size: 13px;color:var(--muted);margin-bottom:2rem;line-height:1.7;">Design-forward properties in the Shinola Detroit / Nobu Chicago vein — ranked by vibe and points match. <strong style="color:var(--ink);font-weight:400;">Bold</strong> = top pick per city.</div>
+      <div style="font-size: 15px;color:var(--muted);margin-bottom:2rem;line-height:1.7;">Design-forward properties in the Shinola Detroit / Nobu Chicago vein — ranked by vibe and points match. <strong style="color:var(--ink);font-weight:400;">Bold</strong> = top pick per city.</div>
 
       <div class="points-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:2px;">
         <div class="points-card">
           <div class="points-card-header">Canmore / Banff · 5 nights</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Malcolm Hotel, Canmore</strong></div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Design boutique · mountain-modern · no chain · CSR 3× earn · ~$300/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Malcolm Hotel, Canmore</strong></div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Design boutique · mountain-modern · no chain · CSR 3× earn · ~$300/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Basecamp Resorts, Canmore</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Boutique mountain suites · contemporary · no chain · ~$180/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">Basecamp Resorts, Canmore</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Boutique mountain suites · contemporary · no chain · ~$180/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Buffalo Mountain Lodge (Bonvoy)</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Heritage timber lodge · Marriott Autograph · use Bonvoy pts · ~$250/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">Buffalo Mountain Lodge (Bonvoy)</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Heritage timber lodge · Marriott Autograph · use Bonvoy pts · ~$250/nt</div>
           </div>
         </div>
 
         <div class="points-card">
           <div class="points-card-header">Bangkok · 10 nights (consider split stay)</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">W Bangkok (Marriott Bonvoy)</strong></div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Sathorn · very design-forward · rooftop bar · 25K Bonvoy/nt → 4 nts free with 103K pts</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">W Bangkok (Marriott Bonvoy)</strong></div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Sathorn · very design-forward · rooftop bar · 25K Bonvoy/nt → 4 nts free with 103K pts</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Rosewood Bangkok</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Design masterpiece · Ploenchit · CSR Luxury Hotels perks (upgrade + $100 F&amp;B) · ~$350/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">Rosewood Bangkok</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Design masterpiece · Ploenchit · CSR Luxury Hotels perks (upgrade + $100 F&amp;B) · ~$350/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">SO/ Bangkok</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Christian Lacroix interiors · Sathorn · wild design · CSR 3× · ~$200/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">SO/ Bangkok</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Christian Lacroix interiors · Sathorn · wild design · CSR 3× · ~$200/nt</div>
           </div>
         </div>
 
         <div class="points-card">
           <div class="points-card-header">Koh Samui · 2 nights pre-wedding</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Conrad Koh Samui (Hilton)</strong></div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Cliff pool villas · private beach · ultra-designed · ~$400/nt or Hilton pts</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Conrad Koh Samui (Hilton)</strong></div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Cliff pool villas · private beach · ultra-designed · ~$400/nt or Hilton pts</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">W Koh Samui (Marriott Bonvoy)</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Beach villas · design-forward W brand · Bonvoy pts eligible · ~$300/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">W Koh Samui (Marriott Bonvoy)</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Beach villas · design-forward W brand · Bonvoy pts eligible · ~$300/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Samui Buri Beach Resort</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Boutique · Thai garden design · Chaweng · ~$150/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">Samui Buri Beach Resort</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Boutique · Thai garden design · Chaweng · ~$150/nt</div>
           </div>
         </div>
       </div>
@@ -2569,32 +2658,32 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="points-card">
           <div class="points-card-header">Hong Kong · 2 nights</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Murray Hong Kong (Bonvoy)</strong></div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Foster+Partners heritage redesign · Central · Autograph Collection · use Bonvoy pts · most on-brand</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Murray Hong Kong (Bonvoy)</strong></div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Foster+Partners heritage redesign · Central · Autograph Collection · use Bonvoy pts · most on-brand</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Rosewood Hong Kong</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Victoria Dockside · design icon · CSR Luxury Hotels perks · ~$400/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">Rosewood Hong Kong</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Victoria Dockside · design icon · CSR Luxury Hotels perks · ~$400/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">The Upper House (Swire)</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Boutique · Pacific Place Admiralty · understated luxury · ~$350/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">The Upper House (Swire)</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Boutique · Pacific Place Admiralty · understated luxury · ~$350/nt</div>
           </div>
         </div>
 
         <div class="points-card">
           <div class="points-card-header">Shanghai · 3 nights Oct 14–17</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Middle House (SLH)</strong></div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Neri&amp;Hu designed · Jing An · most Shinola-like in Shanghai · CSR 3× · ~$280/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Middle House (SLH)</strong></div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Neri&amp;Hu designed · Jing An · most Shinola-like in Shanghai · CSR 3× · ~$280/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Andaz Shanghai (Hyatt)</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Bund area · transfer Yan's Chase UR → Hyatt · boutique Hyatt brand · ~25K pts/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">Andaz Shanghai (Hyatt)</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">Bund area · transfer Yan's Chase UR → Hyatt · boutique Hyatt brand · ~25K pts/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">URBN Hotel Shanghai</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">French Concession · eco-boutique · converted warehouse · ~$180/nt</div>
+            <div style="font-size: 15px;color:var(--ink);margin-bottom:3px;">URBN Hotel Shanghai</div>
+            <div style="font-size: 14px;color:var(--muted);line-height:1.6;">French Concession · eco-boutique · converted warehouse · ~$180/nt</div>
           </div>
         </div>
 
@@ -2681,12 +2770,12 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <h2 class="section-title">Before You Go</h2>
       <div class="notices-grid">
         <div class="notice-card">
-          <div class="notice-icon">📋</div>
+          <div class="notice-icon"><i class="ri-file-list-line"></i></div>
           <div class="notice-title">China Visa</div>
           <div class="notice-text">US citizens require a tourist visa for Guangzhou and Shanghai. Apply at the Chinese Consulate — allow 4–6 weeks. One visa covers both cities.</div>
         </div>
         <div class="notice-card">
-          <div class="notice-icon">🏔</div>
+          <div class="notice-icon"><i class="ri-mountain-line"></i></div>
           <div class="notice-title">Banff — Book Now</div>
           <div class="notice-text">Moraine Lake shuttle books out months ahead via Parks Canada. Accommodation in Canmore and Banff during late September larch season fills up fast.</div>
         </div>
@@ -2708,9 +2797,9 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 <div class="page" id="page-expense">
 
   <div style="background:var(--surface);border-bottom:1px solid var(--line-strong);padding:2.5rem 3rem 2rem;">
-    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);margin-bottom:.75rem;">Oct 1–30 · 2026</p>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--ink);">Expense<br><em style="color:var(--hero-title-em);">Ledger</em></h1>
-    <p style="font-size:13px;color:var(--muted);margin-top:1rem;line-height:1.6;">Personal spend · still to confirm · travel insurance coverage</p>
+    <p style="font-family:var(--mono);font-size: 13px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);margin-bottom:.75rem;">Oct 1–30 · 2026</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size: clamp(2.88rem,6vw,5.17rem);font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--ink);">Expense<br><em style="color:var(--hero-title-em);">Ledger</em></h1>
+    <p style="font-size: 15px;color:var(--muted);margin-top:1rem;line-height:1.6;">Personal spend · still to confirm · travel insurance coverage</p>
   </div>
 
   <main style="max-width:1200px;margin:0 auto;padding:0 3rem 6rem;">
@@ -2719,7 +2808,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
     <section class="points-section" id="p-points">
       <h2 class="section-title">Points &amp; Miles Planner</h2>
 
-      <div style="font-size: 10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
+      <div style="font-size: 12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
       <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
         <div class="points-card">
           <div class="points-card-header">Yun Yang</div>
@@ -2802,12 +2891,12 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <div class="ledger-wrap">
       <!-- Header row -->
       <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
-        <div style="background:var(--surface);padding:.7rem 1.2rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Item</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center;">Paid by</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Card</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Amount</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Currency</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">USD equiv.</div>
+        <div style="background:var(--surface);padding:.7rem 1.2rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Item</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center;">Paid by</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Card</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Amount</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Currency</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">USD equiv.</div>
       </div>
 
       <!-- Rows -->
@@ -2815,109 +2904,109 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
         <!-- EWR→YYC Yun -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">EWR → YYC (Yun) <span style="color:var(--muted);font-size:12px">BCFAML · AC585</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Aeroplan ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">34,190 pts</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">Points</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">—</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">EWR → YYC (Yun) <span style="color:var(--muted);font-size: 14px">BCFAML · AC585</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Aeroplan ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">34,190 pts</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">Points</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">—</div>
         </div>
 
         <!-- EWR→YYC Yan -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">EWR → YYC (Yan) <span style="color:var(--muted);font-size:12px">BCFEFG · AC585</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yan</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Aeroplan ••••1922</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size:12px;color:var(--muted)">+ CAD $279.80</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$197.63</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">EWR → YYC (Yan) <span style="color:var(--muted);font-size: 14px">BCFEFG · AC585</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yan</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Aeroplan ••••1922</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size: 14px;color:var(--muted)">+ CAD $279.80</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$197.63</div>
         </div>
 
         <!-- KSM→HKG -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">KSM → HKG (both) <span style="color:var(--muted);font-size:12px">FVZ2OD · PG807</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">—</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Unknown</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">฿18,090</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">THB</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$549.94</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">KSM → HKG (both) <span style="color:var(--muted);font-size: 14px">FVZ2OD · PG807</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">—</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Unknown</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">฿18,090</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">THB</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$549.94</div>
         </div>
 
         <!-- Moraine Lake Shuttle -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size:12px">INPC26-13891950B1</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">—</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Unknown</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">CAD $29.00</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$20.48</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size: 14px">INPC26-13891950B1</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">—</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Unknown</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $29.00</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$20.48</div>
         </div>
 
         <!-- Miette Mountain Cabins -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Miette Mountain Cabins · Jasper <span style="color:var(--muted);font-size:12px">#72075854441977</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Expedia ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">CAD $931.96</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$658.08</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Miette Mountain Cabins · Jasper <span style="color:var(--muted);font-size: 14px">#72075854441977</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Expedia ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $931.96</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$658.08</div>
         </div>
 
         <!-- Otter Hotel Banff -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Otter Hotel · Banff <span style="color:var(--muted);font-size:12px">#72075854361589</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Expedia ••••1431</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$1,049.24</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Otter Hotel · Banff <span style="color:var(--muted);font-size: 14px">#72075854361589</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Expedia ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$1,049.24</div>
         </div>
 
         <!-- Yan company flights (BCG-covered, shown for reference) -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);opacity:.6;">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--muted);font-style:italic;">Yan: PVG→ATH + ATH→EWR (BCG company ✦)</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:center;">BCG</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Lodge card</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">$6,526.53</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">Not yours</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--muted);font-style:italic;">Yan: PVG→ATH + ATH→EWR (BCG company ✦)</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:center;">BCG</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Lodge card</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">$6,526.53</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">Not yours</div>
         </div>
 
         <!-- Residence Inn Calgary -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Residence Inn Calgary · 1 nt <span style="color:var(--muted);font-size:12px">#2491461985</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">$211.16</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$211.16</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Residence Inn Calgary · 1 nt <span style="color:var(--muted);font-size: 14px">#2491461985</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">CSR ••••7559</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">$211.16</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$211.16</div>
         </div>
 
         <!-- Sixt Car Rental -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
-          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Sixt rental car · YYC Oct 2–5 <span style="color:var(--muted);font-size:12px">CN961135523748</span></div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
-          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">CSR ••••7559</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">$454.25</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$454.25</div>
+          <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Sixt rental car · YYC Oct 2–5 <span style="color:var(--muted);font-size: 14px">CN961135523748</span></div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">CSR ••••7559</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">$454.25</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$454.25</div>
         </div>
 
         <!-- Total row -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;background:var(--surface);">
-          <div style="padding:.85rem 1.2rem;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
+          <div style="padding:.85rem 1.2rem;font-size: 14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
           <div></div><div></div><div></div><div></div>
-          <div style="padding:.85rem 1rem;font-size:14px;font-weight:500;color:var(--ink);text-align:right;">$3,140.78</div>
+          <div style="padding:.85rem 1rem;font-size: 16px;font-weight:500;color:var(--ink);text-align:right;">$3,140.78</div>
         </div>
 
       </div>
       </div><!-- /ledger-wrap -->
 
       <!-- FX note -->
-      <div style="font-size:11px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
+      <div style="font-size: 13px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
         FX rates as of 2026-06-22: 1 CAD = $0.7062 USD · 1 THB = $0.0304 USD (via frankfurter.dev). Points redemptions shown separately. Yan's BCG-covered flights ($6,526.53) excluded from personal total.
       </div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem;letter-spacing:.04em;">
+      <div style="font-size: 13px;color:var(--muted);margin-top:.3rem;letter-spacing:.04em;">
         Cards: Yun ••••1431 = Canadian Visa Aeroplan · Yun ••••7559 = Chase Sapphire Reserve (USD) · Yan ••••1922 = Aeroplan
       </div>
     </section>
@@ -2928,8 +3017,8 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
       <div class="pending-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
-          <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
-          <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
+          <div style="font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
+          <div style="font-size: 15px;color:var(--ink);line-height:2.2;">
             YYC → BKK &nbsp;·&nbsp; Oct 5 (depart)<br>
             BKK → USM &nbsp;·&nbsp; Oct 8<br>
             HKG → PVG &nbsp;·&nbsp; Oct 14<br>
@@ -2940,8 +3029,8 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           </div>
         </div>
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
-          <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
-          <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
+          <div style="font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
+          <div style="font-size: 15px;color:var(--ink);line-height:2.2;">
             <span style="color:var(--green)">Car rental · YYC pickup Oct 1, drop Oct 5 ✓</span><br>
             <span style="color:var(--green)">Residence Inn · Calgary ✓ (Oct 1, non-refundable)</span><br>
             <span style="color:var(--green)">Miette Mountain Cabins · Jasper ✓ (Oct 2–3)</span><br>
@@ -2967,72 +3056,72 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
         <!-- TD Aeroplan Visa Infinite -->
         <div style="background:var(--paper); padding:1.8rem 2rem;">
-          <div style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; padding-bottom:.6rem; border-bottom:1px solid var(--line-strong);">
+          <div style="font-size: 12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; padding-bottom:.6rem; border-bottom:1px solid var(--line-strong);">
             TD Aeroplan Visa Infinite &nbsp;·&nbsp; ••••1431
           </div>
           <div style="display:flex; flex-direction:column; gap:.55rem;">
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Emergency medical</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$2M / person</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$2M / person</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Coverage duration</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--accent); font-weight:500;">⚠ 21 days max</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--accent); font-weight:500;">⚠ 21 days max</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Trip cancellation / interruption</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$1,500 / person</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$1,500 / person</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Flight delay (4 hrs+)</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$500 / person</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$500 / person</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Delayed / lost baggage</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$1,000 / person</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$1,000 / person</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0;">
               <span style="color:var(--ink);">Rental car collision</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">Up to MSRP $65K CAD</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">Up to MSRP $65K CAD</span>
             </div>
           </div>
-          <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--accent); background:rgba(160,48,32,.07); font-size:12px; color:var(--accent); line-height:1.65; letter-spacing:.03em;">
+          <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--accent); background:rgba(160,48,32,.07); font-size: 14px; color:var(--accent); line-height:1.65; letter-spacing:.03em;">
             ⚠ <strong style="font-weight:500">Gap: trip is 30 days, coverage ends Day 21.</strong> Days 22–30 (Oct 22–30, Athens) have no medical coverage under this card. Buy a top-up policy for the final 9 days.
           </div>
         </div>
 
         <!-- Chase Sapphire Reserve -->
         <div style="background:var(--paper); padding:1.8rem 2rem;">
-          <div style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; padding-bottom:.6rem; border-bottom:1px solid var(--line-strong);">
+          <div style="font-size: 12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; padding-bottom:.6rem; border-bottom:1px solid var(--line-strong);">
             Chase Sapphire Reserve &nbsp;·&nbsp; ••••7559
           </div>
           <div style="display:flex; flex-direction:column; gap:.55rem;">
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Trip delay (6 hrs+)</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$500 / ticket</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$500 / ticket</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Trip cancellation / interruption</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$10,000 / person</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$10,000 / person</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Baggage delay (6 hrs+)</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$100 / day, 5 days max</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$100 / day, 5 days max</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Rental car — Primary CDW</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--green);">✓ Primary (Banff leg)</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--green);">✓ Primary (Banff leg)</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0; border-bottom:1px solid var(--line);">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0; border-bottom:1px solid var(--line);">
               <span style="color:var(--ink);">Emergency evacuation</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted);">$100,000</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--muted);">$100,000</span>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:13px; padding:.4rem 0;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; font-size: 15px; padding:.4rem 0;">
               <span style="color:var(--ink);">Priority Pass airport lounges</span>
-              <span style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--green);">✓ Unlimited</span>
+              <span style="font-family:'Cormorant Garamond',serif; font-size: 1.21rem; color:var(--green);">✓ Unlimited</span>
             </div>
           </div>
-          <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--gold); background:rgba(160,120,48,.07); font-size:12px; color:var(--warm); line-height:1.65; letter-spacing:.03em;">
+          <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--gold); background:rgba(160,120,48,.07); font-size: 14px; color:var(--warm); line-height:1.65; letter-spacing:.03em;">
             Tip: CSR covers trip cancellation up to $10K — make sure flights charged to ••••7559 are eligible. Emergency medical <em>not</em> included in CSR. Use Aeroplan card (••••1431) for medical days 1–21; buy top-up for days 22–30.
           </div>
         </div>
@@ -3049,9 +3138,9 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 <div class="page" id="page-calendar">
 
   <div class="cal-page-header">
-    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);margin-bottom:.75rem;">Oct 1–30 · 2026</p>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--ink);">Trip<br><em style="color:var(--hero-title-em);">Calendar</em></h1>
-    <p style="font-size:13px;color:var(--muted);margin-top:1rem;line-height:1.6;">Yan &amp; Yun · New York → Calgary → Bangkok → Koh Samui → Hong Kong → Shanghai → Athens → New York</p>
+    <p style="font-family:var(--mono);font-size: 13px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);margin-bottom:.75rem;">Oct 1–30 · 2026</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size: clamp(2.88rem,6vw,5.17rem);font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--ink);">Trip<br><em style="color:var(--hero-title-em);">Calendar</em></h1>
+    <p style="font-size: 15px;color:var(--muted);margin-top:1rem;line-height:1.6;">Yan &amp; Yun · New York → Calgary → Bangkok → Koh Samui → Hong Kong → Shanghai → Athens → New York</p>
   </div>
 
   <div class="cal-grid-wrap">
@@ -3077,32 +3166,32 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <!-- Oct 1 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">1</div>
-        <span class="cal-event ce-flight">✈ EWR→YYC · AC585 · 14:25–17:30</span>
-        <span class="cal-event ce-hotel">🏨 Residence Inn Calgary</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> EWR→YYC · AC585 · 14:25–17:30</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Residence Inn Calgary</span>
       </div>
 
       <!-- Oct 2 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">2</div>
-        <span class="cal-event ce-travel">🚗 Sixt pickup 7am · YYC</span>
+        <span class="cal-event ce-travel"><i class="ri-car-line"></i> Sixt pickup 7am · YYC</span>
         <span class="cal-event ce-travel">Drive Calgary → Jasper (~3.5h)</span>
-        <span class="cal-event ce-hotel">🏠 Miette Mountain Cabins</span>
+        <span class="cal-event ce-hotel"><i class="ri-home-4-line"></i> Miette Mountain Cabins</span>
       </div>
 
       <!-- Oct 3 Sat -->
       <div class="cal-day">
         <div class="cal-day-num">3</div>
-        <span class="cal-event ce-activity">🛣 Icefields Parkway drive</span>
+        <span class="cal-event ce-activity"><i class="ri-road-map-line"></i> Icefields Parkway drive</span>
         <span class="cal-event ce-activity">Athabasca Falls · Peyto Lake</span>
-        <span class="cal-event ce-hotel">🏨 Otter Hotel · Banff</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Otter Hotel · Banff</span>
       </div>
 
       <!-- Oct 4 Sun -->
       <div class="cal-day">
         <div class="cal-day-num">4</div>
-        <span class="cal-event ce-activity">🌿 Moraine Lake shuttle · 7am</span>
+        <span class="cal-event ce-activity"><i class="ri-leaf-line"></i> Moraine Lake shuttle · 7am</span>
         <span class="cal-event ce-activity">Larch Valley hike</span>
-        <span class="cal-event ce-hotel">🏨 Otter Hotel · Banff</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Otter Hotel · Banff</span>
       </div>
 
       <!-- Week 2 -->
@@ -3110,16 +3199,16 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <!-- Oct 5 Mon -->
       <div class="cal-day">
         <div class="cal-day-num">5</div>
-        <span class="cal-event ce-activity">🏔 Lake Louise morning</span>
-        <span class="cal-event ce-travel">🚗 Drive to YYC · drop Sixt</span>
-        <span class="cal-event ce-flight">✈ YYC→BKK (evening, ~20:00)</span>
+        <span class="cal-event ce-activity"><i class="ri-mountain-line"></i> Lake Louise morning</span>
+        <span class="cal-event ce-travel"><i class="ri-car-line"></i> Drive to YYC · drop Sixt</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> YYC→BKK (evening, ~20:00)</span>
       </div>
 
       <!-- Oct 6 Tue -->
       <div class="cal-day">
         <div class="cal-day-num">6</div>
-        <span class="cal-event ce-flight">✈ Arrive Bangkok ~08:00 ICT</span>
-        <span class="cal-event ce-hotel">🏨 W Bangkok · 2 nts (Bonvoy)</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> Arrive Bangkok ~08:00 ICT</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> W Bangkok · 2 nts (Bonvoy)</span>
       </div>
 
       <!-- Oct 7 Wed -->
@@ -3127,35 +3216,35 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="cal-day-num">7</div>
         <span class="cal-event ce-activity">🏛 Grand Palace · Wat Pho</span>
         <span class="cal-event ce-activity">🌊 Floating market</span>
-        <span class="cal-event ce-hotel">🏨 W Bangkok</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> W Bangkok</span>
       </div>
 
       <!-- Oct 8 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">8</div>
-        <span class="cal-event ce-flight">✈ BKK→USM · morning flight</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> BKK→USM · morning flight</span>
         <span class="cal-event ce-activity">Big Buddha · Fisherman's Village</span>
-        <span class="cal-event ce-hotel">🏨 Hotel · Koh Samui (1 nt)</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Hotel · Koh Samui (1 nt)</span>
       </div>
 
       <!-- Oct 9 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">9</div>
-        <span class="cal-event ce-wedding">💍 Wedding begins · Private island</span>
+        <span class="cal-event ce-wedding"><i class="ri-heart-line"></i> Wedding begins · Private island</span>
         <span class="cal-event ce-wedding">Check-in 15:00</span>
       </div>
 
       <!-- Oct 10 Sat -->
       <div class="cal-day">
         <div class="cal-day-num">10</div>
-        <span class="cal-event ce-wedding">💍 Wedding · Meryl &amp; Michael</span>
+        <span class="cal-event ce-wedding"><i class="ri-heart-line"></i> Wedding · Meryl &amp; Michael</span>
         <span class="cal-event ce-wedding">Private island · Koh Samui</span>
       </div>
 
       <!-- Oct 11 Sun -->
       <div class="cal-day">
         <div class="cal-day-num">11</div>
-        <span class="cal-event ce-wedding">💍 Wedding weekend · Day 3</span>
+        <span class="cal-event ce-wedding"><i class="ri-heart-line"></i> Wedding weekend · Day 3</span>
         <span class="cal-event ce-activity">Kayaking · sunset cruise</span>
       </div>
 
@@ -3165,8 +3254,8 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <div class="cal-day">
         <div class="cal-day-num">12</div>
         <span class="cal-event ce-wedding">Checkout · Private island</span>
-        <span class="cal-event ce-flight">✈ PG807 USM→HKG · 11:55–16:20</span>
-        <span class="cal-event ce-hotel">🏨 Hotel Hong Kong</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> PG807 USM→HKG · 11:55–16:20</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Hotel Hong Kong</span>
       </div>
 
       <!-- Oct 13 Tue -->
@@ -3174,34 +3263,34 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="cal-day-num">13</div>
         <span class="cal-event ce-activity">Victoria Peak · Star Ferry</span>
         <span class="cal-event ce-activity">Kowloon night market</span>
-        <span class="cal-event ce-hotel">🏨 Hotel Hong Kong</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Hotel Hong Kong</span>
       </div>
 
       <!-- Oct 14 Wed -->
       <div class="cal-day">
         <div class="cal-day-num">14</div>
-        <span class="cal-event ce-flight">✈ HKG→PVG · ~2.5h</span>
-        <span class="cal-event ce-hotel">🏨 Shanghai · 3 nts</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> HKG→PVG · ~2.5h</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai · 3 nts</span>
       </div>
 
       <!-- Oct 15 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">15</div>
         <span class="cal-event ce-activity">The Bund · Jing An Temple</span>
-        <span class="cal-event ce-hotel">🏨 Shanghai (2 rooms, incl. mom)</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai (2 rooms, incl. mom)</span>
       </div>
 
       <!-- Oct 16 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">16</div>
         <span class="cal-event ce-activity">Xintiandi · Yu Garden · Nanjing Rd</span>
-        <span class="cal-event ce-hotel">🏨 Shanghai</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai</span>
       </div>
 
       <!-- Oct 17 Sat -->
       <div class="cal-day">
         <div class="cal-day-num">17</div>
-        <span class="cal-event ce-hotel">🏨 Shanghai → checkout</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai → checkout</span>
         <span class="cal-event ce-travel">Yan: SHA → Shanxi (家)</span>
         <span class="cal-event ce-travel">Yun: with family in Shanghai</span>
       </div>
@@ -3242,9 +3331,9 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <!-- Oct 23 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">23</div>
-        <span class="cal-event ce-flight">✈ A3 1900 PVG→ATH · 01:10</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> A3 1900 PVG→ATH · 01:10</span>
         <span class="cal-event ce-flight">Arrive Athens 07:55 EEST</span>
-        <span class="cal-event ce-hotel">🏨 Athens · 4 nts (both)</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens · 4 nts (both)</span>
       </div>
 
       <!-- Oct 24 Sat -->
@@ -3252,7 +3341,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="cal-day-num">24</div>
         <span class="cal-event ce-activity">Acropolis · Parthenon</span>
         <span class="cal-event ce-activity">Plaka neighbourhood</span>
-        <span class="cal-event ce-hotel">🏨 Athens</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens</span>
       </div>
 
       <!-- Oct 25 Sun -->
@@ -3260,7 +3349,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div class="cal-day-num">25</div>
         <span class="cal-event ce-activity">Cape Sounion sunset</span>
         <span class="cal-event ce-activity">Monastiraki flea market</span>
-        <span class="cal-event ce-hotel">🏨 Athens</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens</span>
       </div>
 
       <!-- Week 5 -->
@@ -3269,35 +3358,35 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <div class="cal-day">
         <div class="cal-day-num">26</div>
         <span class="cal-event ce-activity">Athenian Riviera day (Glyfada)</span>
-        <span class="cal-event ce-hotel">🏨 Athens</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens</span>
       </div>
 
       <!-- Oct 27 Tue -->
       <div class="cal-day">
         <div class="cal-day-num">27</div>
         <span class="cal-event ce-activity" style="color:var(--warm)">Yan: BHI Conference begins ✦</span>
-        <span class="cal-event ce-hotel">🏨 Yan: company hotel · Yun: self</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Yan: company hotel · Yun: self</span>
       </div>
 
       <!-- Oct 28 Wed -->
       <div class="cal-day">
         <div class="cal-day-num">28</div>
         <span class="cal-event ce-activity" style="color:var(--warm)">Yan: BHI Conference ✦</span>
-        <span class="cal-event ce-hotel">🏨 Yan: company hotel · Yun: self</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Yan: company hotel · Yun: self</span>
       </div>
 
       <!-- Oct 29 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">29</div>
         <span class="cal-event ce-activity" style="color:var(--warm)">Yan: BHI Conference ends ✦</span>
-        <span class="cal-event ce-hotel">🏨 Athens (both, 1 nt)</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens (both, 1 nt)</span>
       </div>
 
       <!-- Oct 30 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">30</div>
-        <span class="cal-event ce-flight">✈ A3 3415 ATH→EWR · 16:20</span>
-        <span class="cal-event ce-flight">Arrive Newark 21:20 EDT 🏠</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> A3 3415 ATH→EWR · 16:20</span>
+        <span class="cal-event ce-flight">Arrive Newark 21:20 EDT <i class="ri-home-heart-line"></i></span>
       </div>
 
       <!-- Empty days after Oct 30 -->
@@ -3313,7 +3402,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
       <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#fce7f3;"></div>Wedding</div>
       <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#fef9c3;"></div>Activities</div>
       <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--amber-bg);"></div>Ground travel / family time</div>
-      <div class="cal-legend-item" style="margin-left:auto;color:var(--muted);font-size:11px;">✦ Company-covered (BCG)</div>
+      <div class="cal-legend-item" style="margin-left:auto;color:var(--muted);font-size: 13px;">✦ Company-covered (BCG)</div>
     </div>
 
   </div>
@@ -3329,7 +3418,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 // ── Theme ──────────────────────────────────────────
 function toggleTheme() {
   const dark = document.documentElement.classList.toggle('dark');
-  document.getElementById('theme-toggle').textContent = dark ? '☾' : '☀';
+  document.getElementById('theme-toggle').innerHTML = dark ? '<i class="ri-moon-line"></i>' : '<i class="ri-sun-line"></i>';
   localStorage.setItem('theme', dark ? 'dark' : 'light');
 }
 
@@ -3339,7 +3428,7 @@ function toggleTheme() {
     document.documentElement.classList.add('dark');
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('theme-toggle');
-      if (btn) btn.textContent = '☾';
+      if (btn) btn.innerHTML = '<i class="ri-moon-line"></i>';
     });
   }
 })();
