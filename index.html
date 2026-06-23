@@ -2888,6 +2888,17 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
     <section class="final-section" id="f-spend">
       <div class="final-section-title">Expense ledger</div>
 
+      <!-- Currency selector -->
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:.6rem;margin-bottom:.85rem;">
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Display in</span>
+        <div style="display:flex;background:var(--nav-toggle-bg);border-radius:3px;padding:2px;gap:1px;">
+          <button class="curr-btn" onclick="setCurr('USD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:var(--ink);color:var(--paper);transition:all .18s;">USD</button>
+          <button class="curr-btn" onclick="setCurr('CAD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CAD</button>
+          <button class="curr-btn" onclick="setCurr('CNY',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CNY</button>
+        </div>
+        <span id="fx-live-status" style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.05em;"></span>
+      </div>
+
       <div class="ledger-wrap">
       <!-- Header row -->
       <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
@@ -2896,7 +2907,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
         <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Card</div>
         <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Amount</div>
         <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Currency</div>
-        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">USD equiv.</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size: 12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;" id="ledger-curr-hdr">USD equiv.</div>
       </div>
 
       <!-- Rows -->
@@ -2919,27 +2930,27 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Aeroplan ••••1922</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size: 14px;color:var(--muted)">+ CAD $279.80</span></div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$197.63</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="197.63">$197.63</div>
         </div>
 
         <!-- KSM→HKG -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
           <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">KSM → HKG (both) <span style="color:var(--muted);font-size: 14px">FVZ2OD · PG807</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">—</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Unknown</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">••••1431</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">฿18,090</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">THB</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$549.94</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="549.94">$549.94</div>
         </div>
 
         <!-- Moraine Lake Shuttle -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
           <div style="padding:.85rem 1.2rem;font-size: 15px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size: 14px">INPC26-13891950B1</span></div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">—</div>
-          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Unknown</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">••••1431</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $29.00</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$20.48</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="20.48">$20.48</div>
         </div>
 
         <!-- Miette Mountain Cabins -->
@@ -2949,7 +2960,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Expedia ••••1431</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $931.96</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$658.08</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="658.08">$658.08</div>
         </div>
 
         <!-- Otter Hotel Banff -->
@@ -2959,7 +2970,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">Expedia ••••1431</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">CAD $1,485.67</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">CAD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$1,049.24</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="1049.24">$1,049.24</div>
         </div>
 
         <!-- Yan company flights (BCG-covered, shown for reference) -->
@@ -2979,7 +2990,7 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">CSR ••••7559</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">$211.16</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$211.16</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="211.16">$211.16</div>
         </div>
 
         <!-- Sixt Car Rental -->
@@ -2989,14 +3000,14 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
           <div style="padding:.85rem 1rem;font-size: 14px;color:var(--muted);">CSR ••••7559</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--ink);text-align:right;">$454.25</div>
           <div style="padding:.85rem 1rem;font-size: 15px;color:var(--muted);text-align:right;">USD</div>
-          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;">$454.25</div>
+          <div style="padding:.85rem 1rem;font-size: 15px;color:var(--green);text-align:right;" data-usd="454.25">$454.25</div>
         </div>
 
         <!-- Total row -->
         <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;background:var(--surface);">
           <div style="padding:.85rem 1.2rem;font-size: 14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total personal cash (USD equiv.)</div>
           <div></div><div></div><div></div><div></div>
-          <div style="padding:.85rem 1rem;font-size: 16px;font-weight:500;color:var(--ink);text-align:right;">$3,140.78</div>
+          <div style="padding:.85rem 1rem;font-size: 16px;font-weight:500;color:var(--ink);text-align:right;" id="ledger-total-val">$3,140.78</div>
         </div>
 
       </div>
@@ -3004,10 +3015,79 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 
       <!-- FX note -->
       <div style="font-size: 13px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
-        FX rates as of 2026-06-22: 1 CAD = $0.7062 USD · 1 THB = $0.0304 USD (via frankfurter.dev). Points redemptions shown separately. Yan's BCG-covered flights ($6,526.53) excluded from personal total.
+        <span id="fx-rate-note"></span>Rates auto-fetched live via frankfurter.app. Points shown separately. Yan's BCG-covered flights ($6,526.53) excluded from personal total.
       </div>
       <div style="font-size: 13px;color:var(--muted);margin-top:.3rem;letter-spacing:.04em;">
-        Cards: Yun ••••1431 = Canadian Visa Aeroplan · Yun ••••7559 = Chase Sapphire Reserve (USD) · Yan ••••1922 = Aeroplan
+        Cards: Yun ••••1431 = TD Aeroplan Visa Infinite (CAD) — used for KSM→HKG + Moraine Lake + Miette + Otter · Yun ••••7559 = Chase Sapphire Reserve (USD) · Yan ••••1922 = Aeroplan
+      </div>
+    </section>
+
+
+    <!-- SPLIT CALCULATOR -->
+    <section class="final-section" id="f-split">
+      <div class="final-section-title">Split Calculator</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-bottom:.75rem;">
+
+        <!-- Scenario A: Individual expenses -->
+        <div style="background:var(--paper);padding:1.5rem 2rem;">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;">Scenario A — Individual expenses</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1.2rem;">Each covers their own flight. All shared accommodation, car &amp; activities split 50/50.</div>
+          <div style="margin-bottom:1.2rem;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.45rem 0;border-bottom:1px solid var(--line);">
+              <span style="color:var(--muted);">Shared items — paid by Yun</span>
+              <span style="color:var(--ink);" id="split-a-shared">$2,943.15</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.45rem 0;border-bottom:1px solid var(--line);">
+              <span style="color:var(--muted);">Yan's half of shared (÷ 2)</span>
+              <span style="color:var(--ink);" id="split-a-yan-half">$1,471.58</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:12px;padding:.35rem 0;color:var(--muted);border-bottom:1px solid var(--line);">
+              <span>Yan's own flight (already paid by Yan)</span>
+              <span id="split-a-yan-own">$197.63</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:12px;padding:.35rem 0;color:var(--muted);">
+              <span>Yun's own flight (Aeroplan pts · $0 cash)</span>
+              <span>$0</span>
+            </div>
+          </div>
+          <div style="background:var(--green-bg);border:1px solid var(--green);padding:.85rem 1.4rem;border-radius:3px;display:flex;justify-content:space-between;align-items:baseline;">
+            <span style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);">Yan owes Yun</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--green);" id="split-a-result">$1,471.58</span>
+          </div>
+        </div>
+
+        <!-- Scenario B: 50/50 split -->
+        <div style="background:var(--paper);padding:1.5rem 2rem;">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;">Scenario B — Equal 50/50 split</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1.2rem;">All cash expenses split equally regardless of who paid or whose ticket it was.</div>
+          <div style="margin-bottom:1.2rem;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.45rem 0;border-bottom:1px solid var(--line);">
+              <span style="color:var(--muted);">Total cash spend</span>
+              <span style="color:var(--ink);" id="split-b-total">$3,140.78</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.45rem 0;border-bottom:1px solid var(--line);">
+              <span style="color:var(--muted);">Each person's fair share</span>
+              <span style="color:var(--ink);" id="split-b-each">$1,570.39</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.45rem 0;border-bottom:1px solid var(--line);">
+              <span style="color:var(--muted);">Yun actually paid</span>
+              <span style="color:var(--ink);" id="split-b-yun-paid">$2,943.15</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.45rem 0;">
+              <span style="color:var(--muted);">Yan actually paid</span>
+              <span style="color:var(--ink);" id="split-b-yan-paid">$197.63</span>
+            </div>
+          </div>
+          <div style="background:var(--green-bg);border:1px solid var(--green);padding:.85rem 1.4rem;border-radius:3px;display:flex;justify-content:space-between;align-items:baseline;">
+            <span style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);">Yan owes Yun</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--green);" id="split-b-result">$1,372.76</span>
+          </div>
+        </div>
+
+      </div>
+      <div style="font-size:12px;color:var(--muted);letter-spacing:.04em;">
+        Excludes Yan's BCG-covered flights ($6,526.53 not your money). Yun's EWR→YYC via Aeroplan points ($0 cash). Shared items = KSM→HKG + Moraine Lake + Miette Cabins + Otter Hotel + Residence Inn + Sixt. Amounts convert with the currency selector above.
       </div>
     </section>
 
@@ -3500,6 +3580,82 @@ document.querySelectorAll('.ic-card').forEach(card => {
     this.classList.toggle('open');
   });
 });
+
+// ── Currency conversion & split calculator ──────────────
+let fxRates = { USD: 1, CAD: 1.38, CNY: 7.25 }; // fallback rates
+let activeCurr = 'USD';
+
+function fmtCurr(usdVal, curr) {
+  const rate = fxRates[curr] || 1;
+  const abs = Math.abs(usdVal * rate);
+  const formatted = abs.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const sym = { USD: '$', CAD: 'CA$', CNY: '¥' }[curr] || '$';
+  return sym + formatted;
+}
+
+function setCurr(curr, btn) {
+  activeCurr = curr;
+  document.querySelectorAll('.curr-btn').forEach(b => {
+    b.style.background = 'transparent';
+    b.style.color = 'var(--muted)';
+  });
+  btn.style.background = 'var(--ink)';
+  btn.style.color = 'var(--paper)';
+  renderCurr(curr);
+}
+
+function renderCurr(curr) {
+  // Update all data-usd cells in ledger
+  document.querySelectorAll('[data-usd]').forEach(el => {
+    const v = parseFloat(el.dataset.usd);
+    if (!isNaN(v)) el.textContent = fmtCurr(v, curr);
+  });
+  // Column header label
+  const hdr = document.getElementById('ledger-curr-hdr');
+  if (hdr) hdr.textContent = curr + ' equiv.';
+  // Ledger total
+  const tot = document.getElementById('ledger-total-val');
+  if (tot) tot.textContent = fmtCurr(3140.78, curr);
+  // Split amounts
+  const vals = {
+    'split-a-shared': 2943.15, 'split-a-yan-half': 1471.58,
+    'split-a-yan-own': 197.63,  'split-a-result': 1471.58,
+    'split-b-total': 3140.78,   'split-b-each': 1570.39,
+    'split-b-yun-paid': 2943.15,'split-b-yan-paid': 197.63,
+    'split-b-result': 1372.76,
+  };
+  for (const [id, v] of Object.entries(vals)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = fmtCurr(v, curr);
+  }
+  // FX note
+  const noteEl = document.getElementById('fx-rate-note');
+  if (noteEl && curr !== 'USD') {
+    noteEl.textContent = `Rate: 1 USD = ${(fxRates[curr]||1).toFixed(4)} ${curr} · `;
+  } else if (noteEl) {
+    noteEl.textContent = '';
+  }
+}
+
+async function loadFxRates() {
+  const statusEl = document.getElementById('fx-live-status');
+  try {
+    const r = await fetch('https://api.frankfurter.app/latest?from=USD&to=CAD,CNY');
+    if (!r.ok) throw new Error('bad response');
+    const d = await r.json();
+    fxRates.CAD = d.rates.CAD;
+    fxRates.CNY = d.rates.CNY;
+    if (statusEl) {
+      statusEl.textContent = '● live · ' + new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      statusEl.style.color = 'var(--green)';
+    }
+    renderCurr(activeCurr);
+  } catch(e) {
+    if (statusEl) { statusEl.textContent = '○ offline · using est. rates'; statusEl.style.color = 'var(--muted)'; }
+  }
+}
+loadFxRates();
+
 </script>
 
 </body>
