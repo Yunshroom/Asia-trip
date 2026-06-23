@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asia Trip 2026 — Yan & Yun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -47,6 +47,8 @@
   --route-bg: #e8dfd0;
   --route-text: rgba(15,13,11,0.4);
   --route-active: #0f0d0b;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
 
 html.dark {
@@ -87,6 +89,8 @@ html.dark {
   --route-bg: #1a1714;
   --route-text: rgba(240,236,226,0.35);
   --route-active: #f0ece2;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
 
 html { transition: background .25s, color .25s; }
@@ -95,12 +99,49 @@ body { transition: background .25s, color .25s; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--sans);
   background: var(--paper);
   color: var(--ink);
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+
+/* ── Label & UI elements: keep monospace ──────────── */
+.topnav-brand, .page-btn,
+.route-bar, .route-stop, .route-arrow,
+.tracker-heading, .tracker-dates, .tracker-row, .tracker-legend, .legend-item,
+.leg-num, .leg-date-range,
+.stop-type, .stop-dates, .stop-toggle,
+.badge, .bk-row, .time-tag,
+.cc-ref, .cc-date, .addr-btn,
+.points-card-header,
+.hero-label, .hero-top, .hero-bottom, .h-stat-l,
+footer { font-family: var(--mono); }
+
+/* ── stop-hotel: address chip visible in collapsed state ── */
+.stop-hotel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .55rem 0 1rem;
+  padding: .5rem .9rem;
+  background: var(--tracker-grid-bg);
+  border-left: 2px solid var(--line-strong);
+  border-radius: 0 3px 3px 0;
+}
+.stop-hotel-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  margin-right: .3rem;
+}
+.stop-hotel .cc-address-row { margin: 0; flex-wrap: wrap; }
+.stop-hotel .cc-address { font-size: 12px; }
 
 /* ─── PAGE SWITCH ─── */
 .page { display: none; }
@@ -156,7 +197,8 @@ body {
 
 /* ─── HERO ─── */
 .hero {
-  min-height: 88vh;
+  height: 100dvh;
+  min-height: 560px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 3rem;
@@ -1218,7 +1260,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   .page-btn { padding: 5px 10px; font-size: 10px; letter-spacing: .08em; }
 
   /* Hero */
-  .hero { padding: 1.2rem 1rem; min-height: 60vh; }
+  .hero { padding: 1.2rem 1rem; height: 100dvh; min-height: 480px; }
   .hero-top { font-size: 10px; letter-spacing: .1em; }
   .hero-title { font-size: clamp(2.8rem, 14vw, 5rem); }
   .hero-sub { flex-direction: column; gap: 1rem; align-items: flex-start; }
@@ -1540,6 +1582,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div>
             <div class="stop-type st-flight">✈ Flight</div>
             <div class="stop-title">New York → Calgary <span class="time-tag time-day">Arr 17:30 MDT</span></div>
+            <div class="stop-hotel"><span class="stop-hotel-label">🏨 Tonight — Residence Inn</span><div class="cc-address-row" style="margin:0"><span class="cc-address">Residence Inn Calgary — 610 10th Ave SW</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'Residence Inn Calgary — 610 10th Ave SW')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=610+10th+Avenue+SW,+Calgary,+AB+T2R+1M3" target="_blank" rel="noopener">⌖ Map ↗</a></span></div></div>
             <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5h 05m. Departs <strong style="font-weight:500">14:25 EDT</strong> (Newark) · arrives <strong style="font-weight:500">17:30 MDT</strong> (Calgary). Both confirmed on Aeroplan Flex Reward. Yun: 34,190 pts, seat 16A, ref BCFAML. Yan: 18,400 pts + CAD $279.80, ref BCFEFG.<br><br><strong style="font-weight:500">Tonight: Calgary — Residence Inn Beltline</strong><br>
               Bag pickup → rideshare/taxi to Residence Inn (610 10th Ave SW, ~15 min). Check-in 4pm. No car tonight — Sixt pickup is tomorrow 7am at YYC. Good dinner on 17th Ave nearby: Model Milk or Saltlik. Confirmation: 2491461985 (non-refundable · Visa ••••7559).</div>
           </div>
@@ -1557,6 +1600,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div>
             <div class="stop-type st-explore">🏔 Itinerary</div>
             <div class="stop-title">Jasper — Miette Hot Springs &amp; Dark Skies</div>
+            <div class="stop-hotel"><span class="stop-hotel-label">🏠 Miette Mountain Cabins</span><div class="cc-address-row" style="margin:0"><span class="cc-address">Highway 16 East, Pocahontas, AB T0E 1E0</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'Highway 16 East, Pocahontas, AB T0E 1E0')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=Miette+Mountain+Cabins+Pocahontas+AB" target="_blank" rel="noopener">⌖ Map ↗</a></span></div></div>
             <div class="stop-desc">
               <strong style="font-weight:500">Oct 2 (Fri) — Drive YYC → Jasper</strong><br>
               7:00am: Pick up <strong style="font-weight:500">Sixt Mazda CX-5</strong> at YYC airport (counter conf 9735700791). Drive Hwy 2N → Hwy 16W to Jasper (~3.5 hrs, ~360km). Arrive Miette Mountain Cabins ~10:30–11am. Drop bags, quick lunch in Jasper town.<br><br>
@@ -1583,6 +1627,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           <div>
             <div class="stop-type st-explore">⛰ Itinerary</div>
             <div class="stop-title">Banff — Larch Season &amp; Moraine Lake</div>
+            <div class="stop-hotel"><span class="stop-hotel-label">🏨 Otter Hotel, Banff</span><div class="cc-address-row" style="margin:0"><span class="cc-address">600 Banff Ave, Banff, AB T1L 1H8</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'600 Banff Ave, Banff, AB T1L 1H8')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=600+Banff+Ave,+Banff,+AB+T1L+1H8" target="_blank" rel="noopener">⌖ Map ↗</a></span></div></div>
             <div class="stop-desc">
               <strong style="font-weight:500">Oct 3 (Thu) — Arrive via Icefields Parkway</strong><br>
               Arrives Otter Hotel Banff ~5–6pm after Icefields Parkway drive from Jasper. Dinner on Banff Ave: Saltlik Steakhouse or Park Distillery. Check in: 4pm, Superior King room.<br><br>
@@ -2684,38 +2729,38 @@ const routeObserver = new IntersectionObserver((entries) => {
 
 planLegs.forEach(el => routeObserver.observe(el));
 
-// Expandable stops
+// Expandable stops — entire stop row is the click target
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('#planning-main .stop').forEach(stop => {
     const hasContent = stop.querySelector('.stop-desc, .tip-box');
     if (!hasContent) return;
 
     stop.classList.add('collapsed');
+    stop.style.cursor = 'pointer';
     const leftDiv = stop.querySelector('div:first-child');
 
-    // Build toggle button
-    const btn = document.createElement('button');
-    btn.className = 'stop-toggle';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span class="stop-toggle-icon">\u25be</span><span class="stop-toggle-label">\u2002Details</span>';
+    // Small indicator pill (replaces old button — no longer the primary click target)
+    const pill = document.createElement('div');
+    pill.className = 'stop-toggle';
+    pill.setAttribute('role', 'button');
+    pill.setAttribute('aria-expanded', 'false');
+    pill.innerHTML = '<span class="stop-toggle-icon">\u25be</span><span class="stop-toggle-label">\u2002Details</span>';
+    leftDiv.appendChild(pill);
 
     function toggleStop() {
       const isNowCollapsed = stop.classList.toggle('collapsed');
-      btn.setAttribute('aria-expanded', String(!isNowCollapsed));
-      btn.querySelector('.stop-toggle-label').textContent =
+      pill.setAttribute('aria-expanded', String(!isNowCollapsed));
+      pill.querySelector('.stop-toggle-label').textContent =
         isNowCollapsed ? '\u2002Details' : '\u2002Collapse';
     }
 
-    btn.addEventListener('click', toggleStop);
-
-    // Also toggle on stop-title click
-    const title = leftDiv.querySelector('.stop-title');
-    if (title) {
-      title.style.cursor = 'pointer';
-      title.addEventListener('click', toggleStop);
-    }
-
-    leftDiv.appendChild(btn);
+    // Entire stop is clickable — exclude links and action buttons (addr-btn etc.)
+    stop.addEventListener('click', function(e) {
+      const tgt = e.target;
+      if (tgt.closest('a[href]')) return;           // real links open normally
+      if (tgt.closest('button.addr-btn')) return;   // copy button keeps its own handler
+      toggleStop();
+    });
   });
 });
 </script>
