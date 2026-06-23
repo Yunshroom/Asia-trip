@@ -1581,6 +1581,298 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
   .cal-event { font-size: 9px; padding: 1px 4px; }
   .cal-day-num { font-size: 10px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ITINERARY CARDS — new card-per-leg layout
+══════════════════════════════════════════════════════════════ */
+.ic-leg {
+  padding: 2.5rem 3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.ic-leg:last-of-type { border-bottom: none; }
+.ic-leg-label {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ic-leg-sep { color: var(--line-strong); }
+
+/* Card container */
+.ic-card {
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  transition: box-shadow .15s;
+  background: var(--paper);
+}
+.ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.06); }
+html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
+
+/* ── Flight strip (top, always visible) ── */
+.ic-flight {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.ic-flight-route {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: 0;
+}
+.ic-airport { flex-shrink: 0; }
+.ic-iata {
+  font-family: var(--mono);
+  font-size: 22px;
+  letter-spacing: .04em;
+  color: var(--ink);
+  line-height: 1;
+}
+.ic-time {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  margin-top: 3px;
+  letter-spacing: .03em;
+}
+.ic-tz {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+.ic-track-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 0 .5rem;
+  min-width: 60px;
+}
+.ic-track {
+  width: 100%;
+  height: 1px;
+  background: var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ic-plane {
+  font-size: 13px;
+  background: var(--surface);
+  padding: 0 3px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.ic-dur {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: .04em;
+  text-align: center;
+}
+.ic-km {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: .04em;
+  text-align: center;
+}
+.ic-flight-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .3rem;
+  flex-shrink: 0;
+}
+.ic-flight-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ic-airline {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ic-no-flight {
+  padding: .6rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Body: city + hotels ── */
+.ic-body { padding: 1.25rem 1.5rem .75rem; }
+.ic-dest-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.ic-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 300;
+  letter-spacing: -.01em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.ic-city small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
+  font-style: normal;
+}
+.ic-nights {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: right;
+  padding-top: .25rem;
+}
+
+/* Hotels list */
+.ic-hotels { border-top: 1px solid var(--line); }
+.ic-hotel {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: .75rem;
+  align-items: center;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.ic-hotel:last-child { border-bottom: none; }
+.ic-hotel-name { color: var(--ink); line-height: 1.35; }
+.ic-hotel-span {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: right;
+}
+.ic-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.ib-ok  { color: var(--green); background: var(--green-bg); }
+.ib-tbd { color: var(--muted); background: var(--tracker-grid-bg); }
+.ib-co  { color: var(--warm);  background: var(--amber-bg); }
+
+/* ── Expand toggle ── */
+.ic-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .6rem 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--tracker-grid-bg);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  user-select: none;
+}
+.ic-chev {
+  display: inline-block;
+  transition: transform .22s ease;
+}
+.ic-card.open .ic-chev { transform: rotate(180deg); }
+
+/* ── Day plan ── */
+.ic-plan {
+  display: none;
+  padding: 0 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+.ic-card.open .ic-plan { display: block; }
+.ic-day {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.ic-day:last-child { border-bottom: none; padding-bottom: 1.5rem; }
+.ic-day-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: .55rem;
+}
+.ic-day-body {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.8;
+}
+.ic-tip {
+  margin-top: .65rem;
+  padding: .55rem 1rem;
+  border-left: 2px solid var(--gold);
+  background: var(--amber-bg);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .ic-leg { padding: 2rem 1.5rem 0; }
+  .ic-flight { grid-template-columns: 1fr; gap: .75rem; }
+  .ic-flight-meta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: .5rem; }
+}
+@media (max-width: 767px) {
+  .ic-leg { padding: 1.5rem 1rem 0; }
+  .ic-card { border-radius: 3px; }
+  .ic-flight { padding: .9rem 1rem; }
+  .ic-iata { font-size: 17px; }
+  .ic-time { font-size: 11px; }
+  .ic-body { padding: 1rem 1rem .6rem; }
+  .ic-city { font-size: 1.35rem; }
+  .ic-toggle { padding: .55rem 1rem; }
+  .ic-hotel { grid-template-columns: 1fr auto; gap: .4rem; }
+  .ic-badge { display: none; }
+  .ic-plan { padding: 0 1rem; }
+}
 </style>
 </head>
 <body>
@@ -1798,529 +2090,422 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
   <!-- MAIN -->
   <main id="planning-main">
 
-    <!-- LEG 1 -->
-    <section class="leg" id="p-leg1">
-      <div class="leg-sidebar">
-        <div class="leg-num">Leg 01 / 06</div>
-        <div class="leg-region"><span class="leg-dot dot-canada"></span>Canada</div>
-        <div class="leg-date-range">Oct 1–5</div>
+    <!-- LEG 1: CANADA -->
+    <section class="ic-leg" id="p-leg1">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-canada"></span>
+        <span>Canada</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 1–5</span>
       </div>
-      <div class="stops">
-        <div class="stop">
-          <div>
-            <div class="stop-type st-flight">✈ Flight</div>
-            <div class="stop-title">New York → Calgary <span class="time-tag time-day">Arr 17:30 MDT</span></div>
-            <div class="flight-route">
-            <div class="fr-airport">
-              <div class="fr-iata">EWR</div>
-              <div class="fr-city">Newark</div>
-            </div>
-            <div class="fr-line">
-              <div class="fr-track"><span class="fr-plane">✈</span></div>
-              <div class="fr-meta">
-                <span class="fr-duration">5h 05m</span>
-                <span class="fr-distance">2,175 mi · 3,501 km</span>
-              </div>
-            </div>
-            <div class="fr-airport">
-              <div class="fr-iata">YYC</div>
-              <div class="fr-city">Calgary</div>
-            </div>
+      <div class="ic-card" id="ic1">
+    <div class="ic-flight">
+      <div class="ic-flight-route">
+        <div class="ic-airport">
+          <div class="ic-iata">EWR</div>
+          <div class="ic-time">14:25</div>
+          <div class="ic-tz">EDT · Newark</div>
+        </div>
+        <div class="ic-track-wrap">
+          <div class="ic-track"><span class="ic-plane">✈</span></div>
+          <div class="ic-dur">5h 05m</div>
+          <div class="ic-km">3,501 km · nonstop</div>
+        </div>
+        <div class="ic-airport" style="text-align:right">
+          <div class="ic-iata">YYC</div>
+          <div class="ic-time">17:30</div>
+          <div class="ic-tz">MDT · Calgary</div>
+        </div>
+      </div>
+      <div class="ic-flight-meta">
+        <div class="ic-flight-date">Oct 1</div>
+        <div class="ic-airline">AC585 · Air Canada</div>
+        <span class="badge badge-booked">Both confirmed ✓</span>
+      </div>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Canada<small>Calgary · Jasper · Banff</small></div>
+            <div class="ic-nights">Oct 1–5 · 4 nights</div>
           </div>
-            <div class="stop-hotel"><span class="stop-hotel-label">🏨 Tonight — Residence Inn</span><div class="cc-address-row" style="margin:0"><span class="cc-address">Residence Inn Calgary — 610 10th Ave SW</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'Residence Inn Calgary — 610 10th Ave SW')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=610+10th+Avenue+SW,+Calgary,+AB+T2R+1M3" target="_blank" rel="noopener">⌖ Map ↗</a></span></div></div>
-            <div class="stop-desc">Air Canada AC585 EWR → YYC, nonstop 5h 05m. Departs <strong style="font-weight:500">14:25 EDT</strong> (Newark) · arrives <strong style="font-weight:500">17:30 MDT</strong> (Calgary). Both confirmed on Aeroplan Flex Reward. Yun: 34,190 pts, seat 16A, ref BCFAML. Yan: 18,400 pts + CAD $279.80, ref BCFEFG.<br><br><strong style="font-weight:500">Tonight: Calgary — Residence Inn Beltline</strong><br>
-              Bag pickup → rideshare/taxi to Residence Inn (610 10th Ave SW, ~15 min). Check-in 4pm. No car tonight — Sixt pickup is tomorrow 7am at YYC. Good dinner on 17th Ave nearby: Model Milk or Saltlik. Confirmation: 2491461985 (non-refundable · Visa ••••7559).</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 1</div>
-            <span class="badge badge-booked">Both confirmed ✓</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yun: AC585 · Ref BCFAML</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yan: AC585 · Ref BCFEFG</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Residence Inn Calgary · #2491461985 ✓</div>
-            </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Residence Inn Calgary</span>
+          <span class="ic-hotel-span">Oct 1 · 1 night</span>
+          <span class="ic-badge ib-ok">✓ Conf #2491461985</span>
+        </div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏠 Miette Mountain Cabins, Jasper</span>
+          <span class="ic-hotel-span">Oct 2–3 · 1 night</span>
+          <span class="ic-badge ib-ok">✓ Conf #72075854441977</span>
+        </div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Otter Hotel, Banff</span>
+          <span class="ic-hotel-span">Oct 3–5 · 2 nights</span>
+          <span class="ic-badge ib-ok">✓ Conf #72075854361589</span>
+        </div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🚗 Sixt Mazda CX-5 (YYC pickup 7am)</span>
+          <span class="ic-hotel-span">Oct 2–5 · 4 days</span>
+          <span class="ic-badge ib-ok">✓ CN961135523748</span>
+        </div>
           </div>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-explore">🏔 Itinerary</div>
-            <div class="stop-title">Jasper — Miette Hot Springs &amp; Dark Skies</div>
-            <div class="stop-hotel"><span class="stop-hotel-label">🏠 Miette Mountain Cabins</span><div class="cc-address-row" style="margin:0"><span class="cc-address">Highway 16 East, Pocahontas, AB T0E 1E0</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'Highway 16 East, Pocahontas, AB T0E 1E0')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=Miette+Mountain+Cabins+Pocahontas+AB" target="_blank" rel="noopener">⌖ Map ↗</a></span></div></div>
-            <div class="stop-desc">
-              <strong style="font-weight:500">Oct 2 (Fri) — Drive YYC → Jasper</strong><br>
-              7:00am: Pick up <strong style="font-weight:500">Sixt Mazda CX-5</strong> at YYC airport (counter conf 9735700791). Drive Hwy 2N → Hwy 16W to Jasper (~3.5 hrs, ~360km). Arrive Miette Mountain Cabins ~10:30–11am. Drop bags, quick lunch in Jasper town.<br><br>
-              <strong style="font-weight:500">Oct 2 (Fri) — Jasper day</strong><br>
-              Afternoon: <strong style="font-weight:500">Miette Hot Springs</strong> (5 min from cabins, opens 8:30am) — hottest natural springs in the Rockies, 54°C source, cooled to 40°C. Then: <strong style="font-weight:500">Maligne Canyon</strong> — 48m limestone slot canyon with walkway bridges. Late afternoon: <strong style="font-weight:500">Valley of the Five Lakes</strong> (4.4km, turquoise glacial lakes, peak fall color). Evening: Jasper is a UNESCO Dark Sky Preserve — Milky Way visible after 9pm from the cabins' yard.<br><br>
-              <strong style="font-weight:500">Oct 3 (Sat) — Morning, then Icefields Parkway to Banff</strong><br>
-              6:30am: <strong style="font-weight:500">Pyramid Lake</strong> (30 min from Miette) — elk at dawn, mirror reflection. Quick Old Fort Point hike (3.5km, panoramic valley views). 8:30am: <strong style="font-weight:500">Maligne Lake</strong> (45 min) — Spirit Island boat tour if available (season ends ~Oct 11, book at experiencejasper.com) or Mary Schaffer Loop (3.2km). Check out by 11am. <strong style="font-weight:500">Drive south on Hwy 93 (Icefields Parkway)</strong>:<br>
-              · Athabasca Falls · Sunwapta Falls · Columbia Icefield / Athabasca Glacier (walk to the glacier toe) · Peyto Lake lookout · Bow Lake<br>
-              Arrive Otter Hotel Banff ~5–6pm.
-            </div>
-            <div class="tip-box">Miette Hot Springs: first soak of the morning (opens 8:30am) — empty, mist rising, elk wandering the road. Worth setting the alarm. Spirit Island boat tour: book at experiencejasper.com · limited Oct spots. Dark skies: ask the cabins about best stargazing spots — they're in the preserve.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 2–3<br>1 night</div>
-            <span class="badge badge-booked">Confirmed ✓</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Miette Mountain Cabins #72075854441977 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Sixt CX-5 · CN961135523748 · Oct 2–5 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Maligne Lake boat tour</div>
-            </div>
-          </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev">▾</span>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-explore">⛰ Itinerary</div>
-            <div class="stop-title">Banff — Larch Season &amp; Moraine Lake</div>
-            <div class="stop-hotel"><span class="stop-hotel-label">🏨 Otter Hotel, Banff</span><div class="cc-address-row" style="margin:0"><span class="cc-address">600 Banff Ave, Banff, AB T1L 1H8</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'600 Banff Ave, Banff, AB T1L 1H8')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=600+Banff+Ave,+Banff,+AB+T1L+1H8" target="_blank" rel="noopener">⌖ Map ↗</a></span></div></div>
-            <div class="stop-desc">
-              <strong style="font-weight:500">Oct 3 (Thu) — Arrive via Icefields Parkway</strong><br>
-              Arrives Otter Hotel Banff ~5–6pm after Icefields Parkway drive from Jasper. Dinner on Banff Ave: Saltlik Steakhouse or Park Distillery. Check in: 4pm, Superior King room.<br><br>
-              <strong style="font-weight:500">Oct 4 (Fri) — 🌟 Moraine Lake &amp; Larch Valley</strong><br>
-              <em>Moraine Lake shuttle confirmed — INPC26-13891950B1 · 7am Lake Louise slot</em><br>
-              6:30am: Drive to Lake Louise shuttle hub. 7am: Bus to Moraine Lake. Hike Larch Valley trail (5.8km to valley, +2km to Sentinel Pass at 2611m). Peak golden larch color in early October — electric yellow against blue rock and snow. Best light: morning before noon. Return shuttle afternoon. Evening: Upper Hot Springs ($10pp, 5 min from Banff townsite) to soak tired legs.<br><br>
-              <strong style="font-weight:500">Oct 5 (Sat) — Lake Louise, then fly to Bangkok</strong><br>
-              7am start at <strong style="font-weight:500">Lake Louise</strong> — golden morning light on the glacier. Hike Plain of Six Glaciers trail (14km return) or shorter Lake Agnes Tea House (7km). Check out Otter Hotel by 11am. <strong style="font-weight:500">Drive YYC ~1.5 hrs · drop car · Priority Pass lounge (CSR)</strong>. Evening flight to Bangkok.
-            </div>
-            <div class="tip-box">Otter Hotel (600 Banff Ave) · Superior King · free cancellation until Sept 30 at 6pm. Banff park pass: buy at the park gate — $25/person/day or $72 annual Discovery Pass (worth it for 5+ days in national parks). Annual pass also covers Lake Louise and Jasper fees.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 3–5<br>2 nights</div>
-            <span class="badge badge-booked">Confirmed ✓</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Otter Hotel #72075854361589 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Shuttle: INPC26-13891950B1 ✓</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Banff/Jasper park pass</div>
-            </div>
-          </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 1 — Arrive Calgary</div>
+        <div class="ic-day-body">Arrive YYC 17:30 MDT. Bag pickup → rideshare/taxi to <strong>Residence Inn</strong> (610 10th Ave SW, ~15 min). Check-in from 4pm. No car tonight — Sixt pickup is tomorrow 7am at YYC airport. <strong>Dinner:</strong> Model Milk or Saltlik Steakhouse on 17th Ave SW, both within easy walking distance.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 2 — Drive Calgary → Jasper</div>
+        <div class="ic-day-body"><strong>7:00am:</strong> Pick up Sixt Mazda CX-5 at YYC airport (Sixt counter, conf CN961135523748). Drive Hwy 2N → Hwy 16W to Jasper (~3.5 hrs, 360 km). Drop bags at Miette Mountain Cabins ~10:30am, quick lunch in Jasper town.<br><br><strong>Afternoon:</strong> <strong>Miette Hot Springs</strong> (5 min from cabins, 40°C pool — hottest natural springs in the Rockies) → <strong>Maligne Canyon</strong> (48m limestone slot canyon with bridge walkways) → <strong>Valley of the Five Lakes</strong> (4.4 km, turquoise glacial lakes, peak fall color). <strong>Evening:</strong> Jasper UNESCO Dark Sky Preserve — Milky Way visible after 9pm from the cabins' yard.</div>
+        <div class="ic-tip">Miette Hot Springs: go first thing the next morning (Oct 3) before checkout — fog rising off the water, zero crowds, elk wandering the road. Worth setting the alarm.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 3 — Icefields Parkway → Banff</div>
+        <div class="ic-day-body"><strong>6:30am:</strong> Pyramid Lake (elk at dawn, mirror reflections on still water) → Old Fort Point hike (3.5 km, panoramic valley views). <strong>8:30am:</strong> Maligne Lake — Spirit Island boat tour if available (season ends ~Oct 11, book at experiencejasper.com) or Mary Schaffer Loop (3.2 km). Checkout by 11am.<br><br><strong>Drive Icefields Parkway (Hwy 93):</strong> Athabasca Falls → Sunwapta Falls → Columbia Icefield / Athabasca Glacier (walk to the glacier toe — free) → Peyto Lake lookout → Bow Lake. Arrive Otter Hotel Banff ~5–6pm.</div>
+        <div class="ic-tip">The Icefields Parkway is one of the world's great drives — budget the full afternoon and stop at everything. The walk to the Athabasca Glacier toe is free and surreal: blue-green ice stretching for kilometres.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 4 — 🌟 Moraine Lake (Confirmed)</div>
+        <div class="ic-day-body"><strong>Shuttle confirmed: INPC26-13891950B1 · 7am Lake Louise slot.</strong><br><br>6:30am: Drive to Lake Louise shuttle hub. 7am bus → Moraine Lake. Hike <strong>Larch Valley trail</strong> (5.8 km up, +2 km to Sentinel Pass at 2,611m). Peak golden larch color in early October — electric yellow against blue-grey rock and snow. Best light before noon. Return shuttle afternoon.<br><br><strong>Evening:</strong> Upper Hot Springs ($10 pp, 5 min from Banff townsite) to soak tired legs.</div>
+        <div class="ic-tip">Larch Valley in early October is the single best hike in the Canadian Rockies. The larches glow electric yellow-gold against the rock face — nothing else looks like it. Go as early as possible for the morning light and empty trails.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 5 — Lake Louise + Fly Bangkok</div>
+        <div class="ic-day-body"><strong>7am:</strong> Lake Louise — golden morning light on the Victoria Glacier. Hike Plain of Six Glaciers (14 km return) or shorter Lake Agnes Tea House (7 km, historic log cabin). Checkout Otter Hotel by 11am.<br><br><strong>Drive YYC ~1.5 hrs</strong> → drop Sixt at airport → Priority Pass lounge (CSR) → evening flight to Bangkok (departs ~20:00 MDT).</div>
+      </div>
         </div>
       </div>
     </section>
 
-    <!-- LEG 2 -->
-    <section class="leg" id="p-leg2">
-      <div class="leg-sidebar">
-        <div class="leg-num">Leg 02 / 06</div>
-        <div class="leg-region"><span class="leg-dot dot-bkk"></span>Thailand</div>
-        <div class="leg-date-range">Oct 6–8</div>
+    <!-- LEG 2: BANGKOK -->
+    <section class="ic-leg" id="p-leg2">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-bkk"></span>
+        <span>Thailand</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 6–8</span>
       </div>
-      <div class="stops">
-        <div class="stop">
-          <div>
-            <div class="stop-type st-flight">✈ Flight</div>
-            <div class="stop-title">Calgary → Bangkok (BKK) <span class="time-tag time-day">Arr ~08:00 ICT +1</span></div>
-            <div class="flight-route">
-            <div class="fr-airport">
-              <div class="fr-iata">YYC</div>
-              <div class="fr-city">Calgary</div>
-            </div>
-            <div class="fr-line">
-              <div class="fr-track"><span class="fr-plane">✈</span></div>
-              <div class="fr-meta">
-                <span class="fr-duration">~20–22h</span>
-                <span class="fr-distance">7,241 mi · 11,654 km</span>
-              </div>
-          <div class="fr-stops">1 stop via SFO/LAX</div>
-            </div>
-            <div class="fr-airport">
-              <div class="fr-iata">BKK</div>
-              <div class="fr-city">Bangkok</div>
-            </div>
+      <div class="ic-card" id="ic2">
+    <div class="ic-no-flight">
+      <span>✈ YYC → BKK — United / Star Alliance · 1 stop · ~20–22h · 11,654 km · Departs Oct 5 ~20:00 MDT</span>
+      <span class="badge badge-needed">Not yet booked</span>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Bangkok<small>Thailand</small></div>
+            <div class="ic-nights">Oct 6–8 · 2 nights</div>
           </div>
-            <div class="stop-desc">Best routing: YYC → SFO/LAX → BKK on United/Star Alliance. United award pricing ~35K miles economy per person. Depart Calgary evening <strong style="font-weight:500">Oct 5 ~20:00 MDT</strong> after dropping car at YYC, arrives Bangkok <strong style="font-weight:500">~08:00 ICT Oct 6</strong> with one stop (~20–22 hrs total). Use Yun's 100K Chase UR → United (70K for both).</div>
-            <div class="tip-box">United Excursionist Perk: one stopover free on a round-trip award. HKG on the outbound costs nothing extra.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 5 (depart)<br>Oct 6 (arrive)</div>
-            <span class="badge badge-points">United pts</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Flight not yet booked</div>
-            </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 W Bangkok — Sathorn</span>
+          <span class="ic-hotel-span">Oct 6–8 · 2 nights</span>
+          <span class="ic-badge ib-tbd">Use Bonvoy pts ~25K/nt</span>
+        </div>
           </div>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-explore">🏙 Explore</div>
-            <div class="stop-title">Bangkok — 2 Nights</div>
-            <div class="stop-desc">Arrive Oct 6 morning. Two full days in BKK — Wat Pho, Wat Arun, Grand Palace and Rattanakosin old town at golden hour. Street food along Yaowarat (Chinatown) at night. Floating market on Oct 7 morning. Fly to Koh Samui Oct 8 morning. Use Yun's Bonvoy points for W Bangkok (design-forward, ~25K pts/nt).</div>
-            <div class="tip-box">W Bangkok is on Sathorn Rd — excellent design-forward Bonvoy property, walkable to BTS Chong Nonsi. Book the Wonderful room category for points redemption.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 6–8<br>2 nights</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel (W Bangkok, Bonvoy pts)</div>
-            </div>
-          </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev">▾</span>
+        </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 6 — Arrive Bangkok</div>
+        <div class="ic-day-body">Arrive BKK ~08:00 ICT after overnight flight (~20-22 hrs total). Check into <strong>W Bangkok</strong> (Sathorn Rd, BTS Chong Nonsi). Rest. Afternoon walk: Lumpini Park or river boat along the Chao Phraya. Easy evening in the Sathorn neighbourhood — rooftop bars along Silom.</div>
+        <div class="ic-tip">W Bangkok is design-forward and on-brand: rooftop pool, striking interiors. Book the "Wonderful" room category for Bonvoy points. Yun's 103K pts covers ~4 nights free.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 7 — Bangkok Full Day</div>
+        <div class="ic-day-body"><strong>Morning:</strong> <strong>Wat Pho</strong> (Reclining Buddha, 46m long) → <strong>Wat Arun</strong> (Temple of Dawn, across the river by ferry, ฿3) → <strong>Grand Palace &amp; Wat Phra Kaew</strong> (Emerald Buddha — arrive before noon heat). Lunch on Khao San Rd area or riverside.<br><br><strong>Evening:</strong> <strong>Yaowarat (Chinatown)</strong> — street food paradise: char-grilled oysters, roasted duck, mango sticky rice. Golden hour view from the Wat Arun side of the river is unmissable.</div>
+        <div class="ic-tip">Skip the tuk-tuks outside Grand Palace (tourist trap). Use the river ferry (฿15-30) or Grab app. Wear covered shoulders &amp; knees for temples — or buy a sarong at the gate.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 8 — Morning in Bangkok + Fly Koh Samui</div>
+        <div class="ic-day-body"><strong>7am:</strong> Damnoen Saduak floating market (1.5 hrs from Bangkok by taxi/tour, best before 9am when crowds arrive) or Chatuchak Weekend Market (BTS Mo Chit, 15,000 stalls, opens 6am Sat-Sun).<br><br>Return to hotel → checkout → BKK airport → morning flight to Koh Samui (USM).</div>
+      </div>
         </div>
       </div>
     </section>
 
-    <!-- LEG 3 -->
-    <section class="leg" id="p-leg3">
-      <div class="leg-sidebar">
-        <div class="leg-num">Leg 03 / 06</div>
-        <div class="leg-region"><span class="leg-dot dot-wedding"></span>Koh Samui</div>
-        <div class="leg-date-range">Oct 8–12</div>
+    <!-- LEG 3: KOH SAMUI -->
+    <section class="ic-leg" id="p-leg3">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-wedding"></span>
+        <span>Koh Samui</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 8–12</span>
       </div>
-      <div class="stops">
-        <div class="stop">
-          <div>
-            <div class="stop-type st-flight">✈ Flight</div>
-            <div class="stop-title">Bangkok → Koh Samui <span class="time-tag time-day">Arr ~09:30 ICT</span></div>
-            <div class="flight-route">
-            <div class="fr-airport">
-              <div class="fr-iata">BKK</div>
-              <div class="fr-city">Bangkok</div>
-            </div>
-            <div class="fr-line">
-              <div class="fr-track"><span class="fr-plane">✈</span></div>
-              <div class="fr-meta">
-                <span class="fr-duration">~1h 25m</span>
-                <span class="fr-distance">447 mi · 720 km</span>
-              </div>
-            </div>
-            <div class="fr-airport">
-              <div class="fr-iata">USM</div>
-              <div class="fr-city">Koh Samui</div>
-            </div>
+      <div class="ic-card" id="ic3">
+    <div class="ic-no-flight">
+      <span>✈ BKK → USM — Bangkok Airways · ~1h 25m · 720 km · Morning flight Oct 8</span>
+      <span class="badge badge-needed">Not yet booked</span>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Koh Samui<small>Thailand · Wedding</small></div>
+            <div class="ic-nights">Oct 8–12 · 4 nights</div>
           </div>
-            <div class="stop-desc">Bangkok Airways BKK → USM, multiple daily, ~1.5 hrs. Morning flight on <strong style="font-weight:500">Oct 8</strong> — departs <strong style="font-weight:500">~08:00 ICT</strong>, arrives Koh Samui <strong style="font-weight:500">~09:30 ICT</strong>. Wedding island check-in is Oct 9 at 15:00 — a full free day Oct 8 to explore Koh Samui (Big Buddha, Fisherman's Village, Chaweng Beach). Bangkok Airways runs their own boutique lounge at Samui Airport.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 8</div>
-            <span class="badge badge-needed">To book</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>BKK → USM flight needed</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 8 (pre-wedding)</div>
-            </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Hotel pre-wedding (1 night)</span>
+          <span class="ic-hotel-span">Oct 8 · 1 night</span>
+          <span class="ic-badge ib-tbd">To book</span>
+        </div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">💍 Wedding — Private Island off Koh Samui</span>
+          <span class="ic-hotel-span">Oct 9–12 · 3 nights</span>
+          <span class="ic-badge ib-ok">✓ Both confirmed</span>
+        </div>
           </div>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-wedding">💍 Wedding — Meryl &amp; Michael</div>
-            <div class="stop-title">Private Island, Koh Samui</div>
-            <div class="stop-desc">Private island a short swim from Chaweng Mon Beach — luxury 5-star boutique hotel with beach, pool, gym and spa. Private villa for each guest. All meals included from arrival dinner Friday through breakfast Monday.<br><br>
-              <strong style="font-weight:500">Fri Oct 9</strong> — Check-in from 3:00 PM · Arrival dinner on the beach at 7:00 PM<br>
-              <strong style="font-weight:500">Sat Oct 10</strong> — Ceremony at 4:00 PM followed by reception<br>
-              <strong style="font-weight:500">Sun Oct 11</strong> — Group activities: kayaking, cooking class, Muay Thai, elephant sanctuary, sunset cruise<br>
-              <strong style="font-weight:500">Mon Oct 12</strong> — Final breakfast · Checkout 12:00 PM · PG807 departs 11:55
-            </div>
-            <div class="tip-box">Attire: tropical comfortable — button-up shirts fine, sandals ok. Warm &amp; humid all weekend. Vaccinations recommended: Hep A + Typhoid (get at least 2 weeks before). No registry — hồng bao welcome. <a href="https://merylandmichaelforever.com" target="_blank" rel="noopener" style="color:var(--accent)">merylandmichaelforever.com</a> · pw: <code style="font-size: 12px;background:var(--tracker-grid-bg);padding:1px 5px;border-radius:3px">weloveyou</code></div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 9–12</div>
-            <span class="badge badge-booked">Confirmed ✓</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>KSM → HKG confirmed · FVZ2OD</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Pre-wedding hotel needed</div>
-            </div>
-          </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev">▾</span>
+        </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 8 — Arrive Koh Samui (free day)</div>
+        <div class="ic-day-body">Arrive USM ~09:30 ICT. Check into hotel (pre-wedding, 1 night). Free day to explore the island: <strong>Big Buddha</strong> (Wat Phra Yai) → <strong>Fisherman's Village</strong> (walking street, boutiques, cafés on the beach) → <strong>Chaweng Beach</strong> for sunset. Bangkok Airways runs their own boutique lounge at Samui Airport — both ways.</div>
+        <div class="ic-tip">Book a hotel on the north side of the island (Bophut or Maenam) — quieter, more design-forward, closer to the wedding location than Chaweng.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 9 — Wedding Day 1 — Check In</div>
+        <div class="ic-day-body">Check in to the wedding island at 15:00. Private island a short swim from Chaweng Mon Beach — luxury boutique property, private villas, all meals included from arrival dinner through breakfast Monday.<br><br><strong>Attire:</strong> tropical comfortable — button-up shirts, sandals fine. Warm &amp; humid. No registry — hồng bao welcome.</div>
+        <div class="ic-tip"><a href="https://merylandmichaelforever.com" target="_blank" rel="noopener" style="color:var(--accent)">merylandmichaelforever.com</a> · vaccinations recommended: Hep A + Typhoid (get at least 2 weeks before departure).</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 10–11 — Wedding Weekend</div>
+        <div class="ic-day-body"><strong>Group activities:</strong> kayaking around the island · cooking class · Muay Thai session · elephant sanctuary visit · sunset cruise.<br><br>All meals included at the island resort. Evenings: beach bonfire, wedding reception.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 12 — Checkout + Fly Hong Kong</div>
+        <div class="ic-day-body">Final breakfast. Checkout 12:00 PM. <strong>PG807 departs 11:55</strong> — transfers from island to USM airport at ~10:30. Arrives HKG Terminal 2 at <strong>16:20 HKT</strong>.</div>
+      </div>
         </div>
       </div>
     </section>
 
-    <!-- LEG 4 -->
-    <section class="leg" id="p-leg4">
-      <div class="leg-sidebar">
-        <div class="leg-num">Leg 04 / 06</div>
-        <div class="leg-region"><span class="leg-dot dot-hk"></span>Hong Kong</div>
-        <div class="leg-date-range">Oct 12–14</div>
+    <!-- LEG 4: HONG KONG -->
+    <section class="ic-leg" id="p-leg4">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-hk"></span>
+        <span>Hong Kong</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 12–14</span>
       </div>
-      <div class="stops">
-        <div class="stop">
-          <div>
-            <div class="stop-type st-explore">🏙 Explore</div>
-            <div class="stop-title">Hong Kong — 2 Nights <span class="time-tag time-day">Arr 16:20 HKT</span></div>
-            <div class="stop-desc">Arrive HKG Terminal 2 at <strong style="font-weight:500">16:20 HKT</strong> on Oct 12 (from PG807). October is one of HK's finest months — typhoon season over, skies clear, mid-20s. Kowloon night markets, dim sum in Central, Victoria Peak at dusk, ferry to Lantau Island. Fly HKG → PVG on Oct 14 — typical departures <strong style="font-weight:500">~08:00–13:00 HKT</strong>, arrive Shanghai <strong style="font-weight:500">~10:30–15:30 CST</strong> (~2.5 hrs).</div>
-            <div class="tip-box">China tourist visa required for the mainland — covers Shanghai and Beijing. Apply 4–6 weeks in advance.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 12–14<br>2 nights</div>
-            <span class="badge badge-booked">Arrival confirmed ✓</span>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Arrival flight booked</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel needed</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>HKG → PVG flight needed</div>
-            </div>
-          </div>
+      <div class="ic-card" id="ic4">
+    <div class="ic-flight">
+      <div class="ic-flight-route">
+        <div class="ic-airport">
+          <div class="ic-iata">USM</div>
+          <div class="ic-time">11:55</div>
+          <div class="ic-tz">ICT · Koh Samui</div>
+        </div>
+        <div class="ic-track-wrap">
+          <div class="ic-track"><span class="ic-plane">✈</span></div>
+          <div class="ic-dur">3h 25m</div>
+          <div class="ic-km">2,240 km · nonstop</div>
+        </div>
+        <div class="ic-airport" style="text-align:right">
+          <div class="ic-iata">HKG</div>
+          <div class="ic-time">16:20</div>
+          <div class="ic-tz">HKT · Hong Kong T2</div>
         </div>
       </div>
-    </section>
-
-    <!-- LEG 5 -->
-    <section class="leg" id="p-leg5">
-      <div class="leg-sidebar">
-        <div class="leg-num">Leg 05 / 06</div>
-        <div class="leg-region"><span class="leg-dot dot-home"></span>Shanghai</div>
-        <div class="leg-date-range">Oct 14–17</div>
+      <div class="ic-flight-meta">
+        <div class="ic-flight-date">Oct 12</div>
+        <div class="ic-airline">PG807 · Bangkok Airways</div>
+        <span class="badge badge-booked">Both confirmed ✓</span>
       </div>
-      <div class="stops">
-        <div class="stop">
-          <div>
-            <div class="stop-type st-flight">✈ Flight</div>
-            <div class="stop-title">Hong Kong → Shanghai <span class="time-tag time-day">Arr ~13:00 CST</span></div>
-            <div class="flight-route">
-            <div class="fr-airport">
-              <div class="fr-iata">HKG</div>
-              <div class="fr-city">Hong Kong</div>
-            </div>
-            <div class="fr-line">
-              <div class="fr-track"><span class="fr-plane">✈</span></div>
-              <div class="fr-meta">
-                <span class="fr-duration">~2h 30m</span>
-                <span class="fr-distance">902 mi · 1,452 km</span>
-              </div>
-            </div>
-            <div class="fr-airport">
-              <div class="fr-iata">PVG</div>
-              <div class="fr-city">Shanghai</div>
-            </div>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Hong Kong<small>Hong Kong SAR</small></div>
+            <div class="ic-nights">Oct 12–14 · 2 nights</div>
           </div>
-            <div class="stop-desc">Fly HKG → PVG on Oct 14, ~2.5 hrs nonstop. Typical departures <strong style="font-weight:500">08:00–13:00 HKT</strong>, arrivals <strong style="font-weight:500">10:30–15:30 CST</strong>. Multiple carriers: Air China, China Eastern, Cathay Pacific. Book with China tourist visa (same visa covers HKG→PVG mainlaind entry for SHA and PEK).</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 14</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>HKG → PVG flight needed</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>China visa × 2</div>
-            </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Hotel Hong Kong (to book)</span>
+          <span class="ic-hotel-span">Oct 12–14 · 2 nights</span>
+          <span class="ic-badge ib-tbd">The Murray (Bonvoy) recommended</span>
+        </div>
           </div>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-explore">🏙 Explore</div>
-            <div class="stop-title">Shanghai — Together</div>
-            <div class="stop-desc">Three nights in Shanghai — The Bund at night, French Concession for coffee and bookshops, Yu Garden, Shanghai Tower observation deck. Neri&amp;Hu architecture woven into the city fabric. Yun's mom joins for the Shanghai leg — <strong style="font-weight:500">2 hotel rooms needed</strong>: one for Yun + Yan, one for Yun's mom.</div>
-            <div class="tip-box">The Middle House (Jing An) — Neri&Hu designed, SLH · best design-forward choice. Or Andaz Shanghai on Yan's 46K Chase UR → Hyatt. Book 2 rooms same hotel for ease.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 14–17<br>3 nights</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Room 1: Yun + Yan (Oct 14–17)</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Room 2: Yun's mom (Oct 14–17)</div>
-            </div>
-          </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev">▾</span>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-split">↕ Split — Oct 17</div>
-            <div class="stop-title">Yan → Shanxi · Yun stays in Shanghai</div>
-            <div class="stop-desc">On Oct 17 the trip splits. Yan heads to Shanxi (flight or high-speed rail, ~2.5 hrs from SHA) to visit family — no accommodation needed, staying with family Oct 17–23. Yun also stays with family in Shanghai Oct 17–24, then books a flight to Athens. Both reunite in Athens Oct 24 — see Leg 06.</div>
-            <div class="tip-box">Shanxi highlights (day trips from family home): Pingyao Ancient City (UNESCO), Yungang Grottoes, hanging temples at Xuankong Si.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 17<br>split day</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yan: SHA → Shanxi transport</div>
-              <div class="bk-row" style="color:var(--muted)"><span class="bk-dot s-na" style="background:transparent;border:1.5px solid var(--muted);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan: staying with family ✓</div>
-              <div class="bk-row" style="color:var(--muted)"><span class="bk-dot s-na" style="background:transparent;border:1.5px solid var(--muted);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yun: staying with family ✓</div>
-            </div>
-          </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 12 — Arrive Hong Kong</div>
+        <div class="ic-day-body">Arrive HKG Terminal 2 at 16:20 HKT. Check in. October is HK's finest month — typhoon season over, skies clear, mid-20s. <strong>Evening:</strong> Victoria Harbour waterfront walk (Tsim Sha Tsui promenade) → <strong>Symphony of Lights</strong> laser show at 8pm (free, from the Kowloon side). Dinner: rooftop restaurant with harbour view.</div>
+        <div class="ic-tip">Top pick: <strong>The Murray Hong Kong</strong> (Bonvoy Autograph Collection) — Foster+Partners heritage redesign of a 1960s government tower. Use Yun's Bonvoy pts: ~15–20K/nt. Central location, walking distance to everything.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 13 — Hong Kong Full Day</div>
+        <div class="ic-day-body"><strong>Morning:</strong> <strong>Star Ferry</strong> (Central ↔ Tsim Sha Tsui, HK$3.4 — the best cheap view in Asia) → <strong>Central district</strong> & IFC galleries → <strong>Sheung Wan</strong> PMQ for design shops.<br><br><strong>Afternoon:</strong> <strong>Victoria Peak Tram</strong> (book ahead) — 360° city + harbour view at golden hour is unmissable. <strong>Evening:</strong> Kowloon side — <strong>Temple Street Night Market</strong> or <strong>dim sum</strong> in Mong Kok.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 14 — Lantau + Fly Shanghai</div>
+        <div class="ic-day-body">Early: ferry to <strong>Lantau Island</strong> — Ngong Ping 360 cable car, Tian Tan Buddha (Big Buddha), Po Lin Monastery. Return by lunchtime → HKG airport → morning flight to Shanghai Pudong (PVG). Arrive Shanghai ~early afternoon.</div>
+        <div class="ic-tip">China tourist visa required for both — apply at the Chinese Consulate (US office). Allow 4–6 weeks. One visa covers HK entry via PVG and all mainland cities.</div>
+      </div>
         </div>
       </div>
     </section>
 
-    <!-- LEG 6 -->
-    <section class="leg" id="p-leg6">
-      <div class="leg-sidebar">
-        <div class="leg-num">Leg 06 / 06</div>
-        <div class="leg-region"><span class="leg-dot dot-home"></span>Athens + Home</div>
-        <div class="leg-date-range">Oct 23–30</div>
+    <!-- LEG 5: SHANGHAI -->
+    <section class="ic-leg" id="p-leg5">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-home"></span>
+        <span>Shanghai</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 14–23</span>
       </div>
-      <div class="stops">
-        <div class="stop">
-          <div>
-            <div class="stop-type st-flight">✈ Flights to Athens</div>
-            <div class="stop-title">Shanghai → Athens (ATH) <span class="time-tag time-night">Dep 01:10 CST · Arr 07:55 EEST</span></div>
-            <div class="flight-route">
-            <div class="fr-airport">
-              <div class="fr-iata">PVG</div>
-              <div class="fr-city">Shanghai</div>
-            </div>
-            <div class="fr-line">
-              <div class="fr-track"><span class="fr-plane">✈</span></div>
-              <div class="fr-meta">
-                <span class="fr-duration">11h 45m</span>
-                <span class="fr-distance">5,156 mi · 8,298 km</span>
-              </div>
-            </div>
-            <div class="fr-airport">
-              <div class="fr-iata">ATH</div>
-              <div class="fr-city">Athens</div>
-            </div>
+      <div class="ic-card" id="ic5">
+    <div class="ic-no-flight">
+      <span>✈ HKG → PVG — ~2h 30m · 1,452 km · Multiple carriers · Morning flight Oct 14</span>
+      <span class="badge badge-needed">Not yet booked</span>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Shanghai<small>Hotel Oct 14–17 · Family Oct 17–23</small></div>
+            <div class="ic-nights">Oct 14–23 · 9 nights</div>
           </div>
-            <div class="stop-desc">Yan departs Shanghai Pudong (PVG T2) on <strong style="font-weight:500">Oct 23 at 01:10 CST</strong> on Aegean Airlines A3 1900 → arrives Athens at <strong style="font-weight:500">07:55 EEST</strong>. Business class, company-covered (BCG lodge card, ref AZ5QGD). Leave for airport night of Oct 22 ~22:00. Yun aims to book the same flight (Aegean A3 1900 PVG→ATH, self-expense) — book directly on Aegean or via Chase UR → Flying Blue.</div>
-            <div class="tip-box">Aegean A3 1900: PVG dep 01:10 → ATH arr 07:55, ~11h45m. Business class has lie-flat seats — arrive well-rested. Yun's best booking option: direct Aegean booking (aegeanair.com) or Flying Blue miles (~60-80K for business). Cash fare typically $800-1200.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 22 night<br>Oct 23 arrive</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: Aegean A3 1900 (self-book)</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yan: A3 1900 · AZ5QGD ✓</div>
-            </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Hotel Shanghai (2 rooms — Yun+Yan + Yun's mom)</span>
+          <span class="ic-hotel-span">Oct 14–17 · 3 nights</span>
+          <span class="ic-badge ib-tbd">The Middle House recommended</span>
+        </div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏠 Staying with family (Yan → Shanxi, Yun stays in Shanghai)</span>
+          <span class="ic-hotel-span">Oct 17–23</span>
+          <span class="ic-badge ib-ok">✓ With family</span>
+        </div>
           </div>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-explore">🏛 Explore</div>
-            <div class="stop-title">Athens — 7 Nights</div>
-            <div class="stop-desc">Oct 23–30. Acropolis and Parthenon, Plaka neighbourhood, Monastiraki flea market, Cape Sounion at sunset. The Athenian Riviera for a beach day (Glyfada or Vouliagmeni lake). Greek food: souvlaki, fresh mezze, rooftop dinners with Acropolis views.<br><br>
-              <strong style="font-weight:500">Oct 23–27</strong> — Leisure · hotel for both to book (4 nights)<br>
-              <strong style="font-weight:500">Oct 27–29</strong> — Yan: BHI Conference · hotel company-covered ✦ (2 nights) · Yun: self-book<br>
-              <strong style="font-weight:500">Oct 29–30</strong> — Post-conference night · hotel for both to book
-            </div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 24–30<br>6 nights</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 23–27 (both, 4 nts)</div>
-              <div class="bk-row" style="color:var(--warm)"><span class="bk-dot" style="background:var(--warm);border-radius:50%;display:inline-block;width:6px;height:6px;margin-right:6px;"></span>Yan hotel Oct 27–29 · 2 nts (company ✦)</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: hotel Oct 27–30 (self, 3 nts)</div>
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Oct 29–30 (both)</div>
-            </div>
-          </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev">▾</span>
         </div>
-        <div class="stop">
-          <div>
-            <div class="stop-type st-flight">✈ Flight Home</div>
-            <div class="stop-title">Athens → New York — Oct 30 <span class="time-tag time-day">Arr 21:20 EDT</span></div>
-            <div class="flight-route">
-            <div class="fr-airport">
-              <div class="fr-iata">ATH</div>
-              <div class="fr-city">Athens</div>
-            </div>
-            <div class="fr-line">
-              <div class="fr-track"><span class="fr-plane">✈</span></div>
-              <div class="fr-meta">
-                <span class="fr-duration">10h 00m</span>
-                <span class="fr-distance">4,924 mi · 7,924 km</span>
-              </div>
-            </div>
-            <div class="fr-airport">
-              <div class="fr-iata">EWR</div>
-              <div class="fr-city">Newark</div>
-            </div>
-          </div>
-            <div class="stop-desc">Both fly home Oct 30. Yan: Aegean Airlines A3 3415 ATH → EWR, departs <strong style="font-weight:500">16:20 EEST</strong>, arrives <strong style="font-weight:500">21:20 EDT</strong> at Newark Terminal B. Business class, company-covered, ref AZLZGO. Yun books separately — consider Aegean A3 3415 same flight (check availability) or Delta ATH→JFK (departs ~10:25 EEST, nonstop ~10 hrs). Best points option: Chase UR → Flying Blue ~25K for Air France business.</div>
-            <div class="tip-box">Aegean A3 3415: ATH 16:20 → EWR 21:20, ~10h. If Yun books same Aegean flight, you land together at Newark — much easier than separate airports. Check aegeanair.com · Yun's CSR earns 3× points on airfare.</div>
-          </div>
-          <div class="stop-right">
-            <div class="stop-dates">Oct 30<br>depart 16:20 EEST</div>
-            <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Yun: ATH → EWR (self-book, A3 3415?)</div>
-              <div class="bk-row"><span class="bk-dot bk-confirmed"></span>Yan: A3 3415 · AZLZGO ✓</div>
-            </div>
-          </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 14 — Arrive Shanghai</div>
+        <div class="ic-day-body">Arrive PVG Pudong. Check in — book 2 rooms in same hotel (Yun + Yan in one, Yun's mom in adjacent). <strong>The Bund</strong> at night: walk the waterfront promenade facing the Pudong skyline — best lit from dusk onwards. Dinner in Xintiandi or Jing An.</div>
+        <div class="ic-tip"><strong>Top pick: The Middle House</strong> (Jing An) — Neri&amp;Hu designed, Small Luxury Hotels, the most Shinola-like property in Shanghai. ~$280/nt. Or Andaz Shanghai (Yan's Chase UR → Hyatt, ~25K pts/nt) in the Bund area.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 15 — The Bund + French Concession</div>
+        <div class="ic-day-body"><strong>Morning:</strong> <strong>The Bund</strong> at dawn (empty, misty, beautiful) → Huangpu River ferry across to Pudong → <strong>Shanghai Tower</strong> observation deck (119F, 632m, 2nd tallest in world). <strong>Afternoon:</strong> <strong>French Concession</strong> — Fuxing Road, Tianzifang (art galleries, coffee, design shops in a 1930s lilong), <strong>Xintiandi</strong> for dinner.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 16 — Yu Garden + Jing An + Family</div>
+        <div class="ic-day-body"><strong>Morning:</strong> <strong>Jing An Temple</strong> (Buddhist temple in the middle of the city — always interesting at 8am before tourists). <strong>Yu Garden &amp; Bazaar</strong> (classical Chinese garden + tea house). <strong>Afternoon:</strong> Nanjing Road East pedestrian street (architecture more than shopping). <strong>Evening:</strong> Family dinner together — Yun's mom picks the restaurant.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 17 — Split Day</div>
+        <div class="ic-day-body">Checkout. <strong>Yan</strong> departs for Shanxi (flight or high-speed rail ~2.5 hrs from Hongqiao station) to visit family — stays through Oct 23. <strong>Yun</strong> remains in Shanghai with family.<br><br>Day trip options from Shanghai (Oct 18–22): <strong>Zhujiajiao water town</strong> (40 min, ancient canals) · <strong>Suzhou</strong> (30 min by G-train, classical gardens UNESCO) · <strong>Zhouzhuang</strong> (Venice of the East).</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 22 — Depart for Athens</div>
+        <div class="ic-day-body"><strong>Both</strong> make way to PVG Pudong T2. Yan arrives from Shanxi by ~20:00. <strong>Depart airport ~22:00</strong> for the midnight flight.</div>
+        <div class="ic-tip">Aegean A3 1900 departs PVG at <strong>01:10 on Oct 23</strong> (so leave for airport the night of Oct 22). Yan: confirmed, ref AZ5QGD. Yun: self-book same flight on aegeanair.com or via Chase UR → Flying Blue (~60-80K Business).</div>
+      </div>
         </div>
       </div>
     </section>
 
-    <!-- POINTS -->
-    <section class="points-section" id="p-points">
-      <h2 class="section-title">Points &amp; Miles Planner</h2>
-
-      <div style="font-size: 10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
-      <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
-        <div class="points-card">
-          <div class="points-card-header">Yun Yang</div>
-          <div class="points-item"><span class="points-route">Chase UR — opening bonus</span><span class="points-val" style="color:var(--green)">100,000 ✦</span></div>
-          <div class="points-item"><span class="points-route">Chase Sapphire Reserve</span><span class="points-val" style="color:var(--green)">Earning 3× ↑</span></div>
-          <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">33,000</span></div>
-          <div class="points-item"><span class="points-route">Marriott Bonvoy</span><span class="points-val">103,000</span></div>
-          <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">16,393</span></div>
-          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val">7,000</span></div>
-          <div class="points-item"><span class="points-route">Air Canada Aeroplan</span><span class="points-val" style="color:var(--muted)">5,810 ← used</span></div>
+    <!-- LEG 6: ATHENS -->
+    <section class="ic-leg" id="p-leg6">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-home"></span>
+        <span>Athens + Home</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 23–30</span>
+      </div>
+      <div class="ic-card" id="ic6">
+    <div class="ic-flight">
+      <div class="ic-flight-route">
+        <div class="ic-airport">
+          <div class="ic-iata">PVG</div>
+          <div class="ic-time">01:10</div>
+          <div class="ic-tz">CST · Shanghai T2</div>
         </div>
-        <div class="points-card">
-          <div class="points-card-header">Yan Liu</div>
-          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val" style="color:var(--green)">180,000</span></div>
-          <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">155,000</span></div>
-          <div class="points-item"><span class="points-route">Chase Ultimate Rewards</span><span class="points-val">46,000</span></div>
-          <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">16,000</span></div>
+        <div class="ic-track-wrap">
+          <div class="ic-track"><span class="ic-plane">✈</span></div>
+          <div class="ic-dur">11h 45m</div>
+          <div class="ic-km">8,298 km · nonstop</div>
         </div>
-        <div class="points-card">
-          <div class="points-card-header">Award Flight Plan</div>
-          <div class="points-item"><span class="points-route">YYC → BKK economy × 2</span><span class="points-val">70K United</span></div>
-          <div class="points-item"><span class="points-route">Yun: SHA → ATH</span><span class="points-val">Chase → Flying Blue ~25K</span></div>
-          <div class="points-item"><span class="points-route">Yun: ATH → EWR Oct 30</span><span class="points-val">Delta 16K or Flying Blue</span></div>
-          <div class="points-item"><span class="points-route" style="color:var(--warm)">Yan: SHA→ATH + ATH→NY</span><span class="points-val" style="color:var(--warm)">Company ✦</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Yun 100K Chase → United (70K) + Flying Blue (30K)</span><span class="points-val" style="color:var(--green)">Covers all ✓</span></div>
-          <div class="points-item"><span class="points-route">Yan 180K Amex MR — now freed up</span><span class="points-val" style="color:var(--green)">Hotels / flex</span></div>
-        </div>
-        <div class="points-card">
-          <div class="points-card-header">Hotel Points Strategy</div>
-          <div class="points-item"><span class="points-route">Yun Bonvoy 103K → W Bangkok</span><span class="points-val">~4 nts free</span></div>
-          <div class="points-item"><span class="points-route">Yun Bonvoy → Murray HKG</span><span class="points-val">~2 nts free</span></div>
-          <div class="points-item"><span class="points-route">Yan Chase → Hyatt (1:1)</span><span class="points-val">BKK / SHA</span></div>
-          <div class="points-item"><span class="points-route">CSR 3× earn on all hotels</span><span class="points-val" style="color:var(--green)">Use for rest</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Bonvoy 103K hotel value</span><span class="points-val" style="color:var(--green)">~$600 saved</span></div>
-          <div class="points-item"><span class="points-route">Yan flex (226K Amex + Chase)</span><span class="points-val" style="color:var(--green)">Biz upgrade</span></div>
+        <div class="ic-airport" style="text-align:right">
+          <div class="ic-iata">ATH</div>
+          <div class="ic-time">07:55</div>
+          <div class="ic-tz">EEST · Athens</div>
         </div>
       </div>
-      <div class="tip-box">Strategy: Yun's 100K Chase UR covers YYC→BKK economy (70K United) + Yun's SHA→ATH via Flying Blue (~25K) + ATH→EWR (~5K left over). Yan's return flights are company-covered (BHI conference), freeing Yan's 180K Amex MR for hotels or future trips. Keep Yun's Bonvoy 103K for W Bangkok + Murray HKG ≈ 5–6 nights (~$600 value). Use CSR everywhere for 3× points and trip protections.</div>
-    </section>
-
-    <!-- JAPAN CONSIDERATION -->
-    <section class="points-section" id="p-japan" style="border-top:1px solid var(--line-strong);">
-      <h2 class="section-title">Japan — Should You Add It?</h2>
-      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="points-card">
-          <div class="points-card-header">The Case For</div>
-          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size: 13px;color:var(--muted);line-height:1.75;">Early October in Tokyo is near-perfect — low 20s, clear skies, first hints of fall color before peak foliage crowds. 2–3 nights slots naturally after Banff (Oct 5–7) before arriving Bangkok Oct 8, wedding Oct 9. The routing YYC → NRT → BKK is a clean westward arc.</div>
-          <div class="points-item"><span class="points-route">Weather (Oct 5–8 Tokyo)</span><span class="points-val" style="color:var(--green)">Ideal</span></div>
-          <div class="points-item"><span class="points-route">Routing fit YYC → NRT → BKK</span><span class="points-val" style="color:var(--green)">Natural</span></div>
-          <div class="points-item"><span class="points-route">Yan's Amex MR 180K coverage</span><span class="points-val" style="color:var(--green)">Strong</span></div>
-        </div>
-        <div class="points-card">
-          <div class="points-card-header">The Trade-offs</div>
-          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size: 13px;color:var(--muted);line-height:1.75;">Bangkok shrinks from 10 to ~7 nights. Another hotel booking and flight segment to arrange. Japan rewards a full week — 3 days is a taste, not a stay. Adds ~$150–300 in award fees and one more hotel to book during already busy larch season planning.</div>
-          <div class="points-item"><span class="points-route">Bangkok reduced</span><span class="points-val" style="color:var(--warm)">10 → 7 nts</span></div>
-          <div class="points-item"><span class="points-route">Extra leg to book</span><span class="points-val" style="color:var(--warm)">+1 flight, +1 hotel</span></div>
-          <div class="points-item"><span class="points-route">Japan rewards a full week</span><span class="points-val" style="color:var(--warm)">Short dip</span></div>
-        </div>
-        <div class="points-card">
-          <div class="points-card-header">If You Go — How to Book</div>
-          <div class="points-item"><span class="points-route">Yan Amex MR → ANA via Aeroplan</span><span class="points-val">Biz option</span></div>
-          <div class="points-item"><span class="points-route">United Excursionist Perk + NRT</span><span class="points-val">Free stopover</span></div>
-          <div class="points-item"><span class="points-route">Yan Delta 155K → JL codeshare</span><span class="points-val">~35K econ</span></div>
-          <div class="points-item"><span class="points-route">Andaz Tokyo (Chase → Hyatt)</span><span class="points-val">~20K pts/nt</span></div>
-          <div class="points-item"><span class="points-route">Park Hyatt Tokyo (Chase → Hyatt)</span><span class="points-val">~25K pts/nt</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route" style="color:var(--muted)">Verdict: save Japan for a dedicated trip. Add it here only if Bangkok can flex shorter.</span><span class="points-val"></span></div>
-        </div>
+      <div class="ic-flight-meta">
+        <div class="ic-flight-date">Oct 23</div>
+        <div class="ic-airline">A3 1900 · Aegean Airlines</div>
+        <span class="badge badge-booked">Yan confirmed ✓ · AZ5QGD</span>
       </div>
-    </section>
-
-    <!-- CHASE SAPPHIRE RESERVE -->
-    <section class="points-section" id="p-csr" style="border-top:1px solid var(--line-strong);">
-      <h2 class="section-title">Chase Sapphire Reserve — This Trip</h2>
-      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="points-card">
-          <div class="points-card-header">Earning — Use CSR for Everything</div>
-          <div class="points-item"><span class="points-route">Hotels &amp; flights (cash purchases)</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
-          <div class="points-item"><span class="points-route">All restaurants &amp; dining</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
-          <div class="points-item"><span class="points-route">Ride-share, taxis, tuk-tuks</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
-          <div class="points-item"><span class="points-route">No foreign transaction fee</span><span class="points-val" style="color:var(--green)">$0</span></div>
-          <div class="points-item"><span class="points-route">$300 annual travel credit</span><span class="points-val" style="color:var(--green)">Auto-applies</span></div>
-          <div class="points-item"><span class="points-route">Global Entry / TSA PreCheck</span><span class="points-val">$100 credit</span></div>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Athens<small>Greece · BHI Conference Oct 27–29</small></div>
+            <div class="ic-nights">Oct 23–30 · 7 nights</div>
+          </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Hotel Athens (both)</span>
+          <span class="ic-hotel-span">Oct 23–27 · 4 nights</span>
+          <span class="ic-badge ib-tbd">To book</span>
         </div>
-        <div class="points-card">
-          <div class="points-card-header">Protection — Book All Travel on CSR</div>
-          <div class="points-item"><span class="points-route">Trip delay insurance (6 hrs+)</span><span class="points-val">$500/ticket</span></div>
-          <div class="points-item"><span class="points-route">Trip cancellation / interruption</span><span class="points-val">$10K/trip</span></div>
-          <div class="points-item"><span class="points-route">Baggage delay (6 hrs+)</span><span class="points-val">$100/day × 5</span></div>
-          <div class="points-item"><span class="points-route">Primary rental car insurance</span><span class="points-val" style="color:var(--green)">Banff leg ✓</span></div>
-          <div class="points-item"><span class="points-route">Emergency medical evacuation</span><span class="points-val">Unlimited</span></div>
-          <div class="points-item"><span class="points-route">Lost luggage reimbursement</span><span class="points-val">$3K</span></div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Yan: BHI Conference hotel</span>
+          <span class="ic-hotel-span">Oct 27–29 · 2 nights</span>
+          <span class="ic-badge ib-co">✦ Company-covered</span>
         </div>
-        <div class="points-card">
-          <div class="points-card-header">Priority Pass Lounges on Route</div>
-          <div class="points-item"><span class="points-route">EWR Newark</span><span class="points-val" style="color:var(--green)">✓ United Polaris</span></div>
-          <div class="points-item"><span class="points-route">YYC Calgary</span><span class="points-val" style="color:var(--green)">✓ Air Canada Maple Leaf</span></div>
-          <div class="points-item"><span class="points-route">BKK Suvarnabhumi</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
-          <div class="points-item"><span class="points-route">HKG Hong Kong</span><span class="points-val" style="color:var(--green)">✓ Plaza Premium</span></div>
-          <div class="points-item"><span class="points-route">PVG Shanghai</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
-          <div class="points-item"><span class="points-route">ATH Athens</span><span class="points-val" style="color:var(--green)">✓ Goldair CIP lounge</span></div>
-          <div class="points-item"><span class="points-route">USM Koh Samui</span><span class="points-val">Bangkok Air Boutique</span></div>
+        <div class="ic-hotel">
+          <span class="ic-hotel-name">🏨 Yun: self-book hotel</span>
+          <span class="ic-hotel-span">Oct 27–30 · 3 nights</span>
+          <span class="ic-badge ib-tbd">To book</span>
+        </div>
+          </div>
+        </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev">▾</span>
+        </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 23 — Arrive Athens</div>
+        <div class="ic-day-body">Land ATH 07:55 EEST after overnight flight. Check in. <strong>Rest — it's a lie-flat business class overnight, but still.</strong> Afternoon: gentle walk through <strong>Plaka neighbourhood</strong> (winding marble lanes below the Acropolis, tavernas, bookshops). Dinner: rooftop restaurant with Acropolis lit up at night — unmissable in Athens.</div>
+        <div class="ic-tip">Top pick: <strong>Hotel Grande Bretagne</strong> (Syntagma, iconic 5-star), <strong>New Hotel Athens</strong> (Campana brothers interiors), or <strong>Hotel Electra Metropolis</strong> (rooftop pool facing the Acropolis).</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 24 — Acropolis + Old Town</div>
+        <div class="ic-day-body"><strong>Morning:</strong> <strong>Acropolis &amp; Parthenon</strong> — go at opening (8am) before heat and crowds. Buy combined ticket (€30) covering Acropolis + Ancient Agora + other sites. <strong>Acropolis Museum</strong> below (modern, world-class). <strong>Afternoon:</strong> <strong>Monastiraki flea market</strong> — antiques, street food, vintage finds. Gyros lunch in a side alley.</div>
+        <div class="ic-tip">The Acropolis in early morning light with no crowds is one of the great sights in the world. Wear good walking shoes — the marble is steep and polished smooth.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 25–26 — Cape Sounion + Riviera</div>
+        <div class="ic-day-body"><strong>Oct 25 — Cape Sounion:</strong> 70 km from Athens, Temple of Poseidon perched on a sea cliff — arrive at sunset (leaves Athens ~15:00). The cliff temple at golden hour against the Aegean Sea is the single best moment in this leg.<br><br><strong>Oct 26 — Athenian Riviera:</strong> <strong>Vouliagmeni Lake</strong> (thermal lake spring, $15 entry, best for a float and wine) or Glyfada beach (20 min from centre by tram). Easy day.</div>
+        <div class="ic-tip">Cape Sounion: drive yourself (car rental ~€40) or take the KTEL bus from Pedion Areos park (€7, ~2 hrs). Vouliagmeni lake is a geothermal lagoon where the water stays warm year-round.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 27–29 — BHI Conference (Yan) · Athens (Yun)</div>
+        <div class="ic-day-body"><strong>Yan:</strong> BHI Conference, company-covered hotel (2 nights).<br><strong>Yun:</strong> solo Athens time. Options: hydrofoil day trip to <strong>Aegina</strong> (pistachio island, ancient temple, 35 min from Piraeus port) or <strong>Hydra</strong> (no cars, car-free island, stunning, 2 hrs from Piraeus). Or: deeper Athens exploration — <strong>Kerameikos</strong> (ancient cemetery with no tourists), National Archaeological Museum, <strong>Benaki Museum</strong> (Greek design artifacts, excellent gift shop).</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 30 — Fly Home 🏠</div>
+        <div class="ic-day-body"><strong>A3 3415: ATH 16:20 → EWR 21:20 EDT</strong>, ~10h. Yan confirmed, ref AZLZGO — Business class. Yun: book same Aegean flight (check availability) or Delta ATH→JFK (departs ~10:25, nonstop ~10 hrs). Both arrive Newark same evening if on Aegean together.<br><br>Terminal B at Newark for Aegean. Priority Pass lounge in Athens: <strong>Goldair CIP Lounge</strong> (accessible with CSR).</div>
+        <div class="ic-tip">If Yun books A3 3415 — you land together at Newark Terminal B at 21:20. Easiest end to a 30-day trip.</div>
+      </div>
         </div>
       </div>
     </section>
@@ -2413,21 +2598,6 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
           </div>
         </div>
 
-        <div class="points-card" style="border:1px dashed var(--line-strong);opacity:.7;">
-          <div class="points-card-header">Tokyo (if Japan added) · 2–3 nights</div>
-          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Andaz Tokyo (Chase → Hyatt)</strong></div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Toranomon Hills · skyline views · most on-brand for Yun · ~20K Hyatt pts/nt</div>
-          </div>
-          <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Park Hyatt Tokyo (Chase → Hyatt)</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Shinjuku · iconic · Lost in Translation · ~25K Hyatt pts/nt</div>
-          </div>
-          <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">The Trunk Hotel, Shibuya</div>
-            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Design boutique · most Shinola-like in Tokyo · cash only · ~$300/nt</div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -2544,6 +2714,86 @@ html.dark .cal-event.ce-travel   { background: rgba(160,120,48,.2); color: #c9a9
   </div>
 
   <main style="max-width:1200px;margin:0 auto;padding:0 3rem 6rem;">
+
+<!-- POINTS -->
+    <section class="points-section" id="p-points">
+      <h2 class="section-title">Points &amp; Miles Planner</h2>
+
+      <div style="font-size: 10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
+      <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
+        <div class="points-card">
+          <div class="points-card-header">Yun Yang</div>
+          <div class="points-item"><span class="points-route">Chase UR — opening bonus</span><span class="points-val" style="color:var(--green)">100,000 ✦</span></div>
+          <div class="points-item"><span class="points-route">Chase Sapphire Reserve</span><span class="points-val" style="color:var(--green)">Earning 3× ↑</span></div>
+          <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">33,000</span></div>
+          <div class="points-item"><span class="points-route">Marriott Bonvoy</span><span class="points-val">103,000</span></div>
+          <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">16,393</span></div>
+          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val">7,000</span></div>
+          <div class="points-item"><span class="points-route">Air Canada Aeroplan</span><span class="points-val" style="color:var(--muted)">5,810 ← used</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Yan Liu</div>
+          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val" style="color:var(--green)">180,000</span></div>
+          <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">155,000</span></div>
+          <div class="points-item"><span class="points-route">Chase Ultimate Rewards</span><span class="points-val">46,000</span></div>
+          <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">16,000</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Award Flight Plan</div>
+          <div class="points-item"><span class="points-route">YYC → BKK economy × 2</span><span class="points-val">70K United</span></div>
+          <div class="points-item"><span class="points-route">Yun: SHA → ATH</span><span class="points-val">Chase → Flying Blue ~25K</span></div>
+          <div class="points-item"><span class="points-route">Yun: ATH → EWR Oct 30</span><span class="points-val">Delta 16K or Flying Blue</span></div>
+          <div class="points-item"><span class="points-route" style="color:var(--warm)">Yan: SHA→ATH + ATH→NY</span><span class="points-val" style="color:var(--warm)">Company ✦</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Yun 100K Chase → United (70K) + Flying Blue (30K)</span><span class="points-val" style="color:var(--green)">Covers all ✓</span></div>
+          <div class="points-item"><span class="points-route">Yan 180K Amex MR — now freed up</span><span class="points-val" style="color:var(--green)">Hotels / flex</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Hotel Points Strategy</div>
+          <div class="points-item"><span class="points-route">Yun Bonvoy 103K → W Bangkok</span><span class="points-val">~4 nts free</span></div>
+          <div class="points-item"><span class="points-route">Yun Bonvoy → Murray HKG</span><span class="points-val">~2 nts free</span></div>
+          <div class="points-item"><span class="points-route">Yan Chase → Hyatt (1:1)</span><span class="points-val">BKK / SHA</span></div>
+          <div class="points-item"><span class="points-route">CSR 3× earn on all hotels</span><span class="points-val" style="color:var(--green)">Use for rest</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Bonvoy 103K hotel value</span><span class="points-val" style="color:var(--green)">~$600 saved</span></div>
+          <div class="points-item"><span class="points-route">Yan flex (226K Amex + Chase)</span><span class="points-val" style="color:var(--green)">Biz upgrade</span></div>
+        </div>
+      </div>
+      <div class="tip-box">Strategy: Yun's 100K Chase UR covers YYC→BKK economy (70K United) + Yun's SHA→ATH via Flying Blue (~25K) + ATH→EWR (~5K left over). Yan's return flights are company-covered (BHI conference), freeing Yan's 180K Amex MR for hotels or future trips. Keep Yun's Bonvoy 103K for W Bangkok + Murray HKG ≈ 5–6 nights (~$600 value). Use CSR everywhere for 3× points and trip protections.</div>
+    </section>
+
+<!-- CHASE SAPPHIRE RESERVE -->
+    <section class="points-section" id="p-csr" style="border-top:1px solid var(--line-strong);">
+      <h2 class="section-title">Chase Sapphire Reserve — This Trip</h2>
+      <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="points-card">
+          <div class="points-card-header">Earning — Use CSR for Everything</div>
+          <div class="points-item"><span class="points-route">Hotels &amp; flights (cash purchases)</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
+          <div class="points-item"><span class="points-route">All restaurants &amp; dining</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
+          <div class="points-item"><span class="points-route">Ride-share, taxis, tuk-tuks</span><span class="points-val" style="color:var(--green)">3× pts</span></div>
+          <div class="points-item"><span class="points-route">No foreign transaction fee</span><span class="points-val" style="color:var(--green)">$0</span></div>
+          <div class="points-item"><span class="points-route">$300 annual travel credit</span><span class="points-val" style="color:var(--green)">Auto-applies</span></div>
+          <div class="points-item"><span class="points-route">Global Entry / TSA PreCheck</span><span class="points-val">$100 credit</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Protection — Book All Travel on CSR</div>
+          <div class="points-item"><span class="points-route">Trip delay insurance (6 hrs+)</span><span class="points-val">$500/ticket</span></div>
+          <div class="points-item"><span class="points-route">Trip cancellation / interruption</span><span class="points-val">$10K/trip</span></div>
+          <div class="points-item"><span class="points-route">Baggage delay (6 hrs+)</span><span class="points-val">$100/day × 5</span></div>
+          <div class="points-item"><span class="points-route">Primary rental car insurance</span><span class="points-val" style="color:var(--green)">Banff leg ✓</span></div>
+          <div class="points-item"><span class="points-route">Emergency medical evacuation</span><span class="points-val">Unlimited</span></div>
+          <div class="points-item"><span class="points-route">Lost luggage reimbursement</span><span class="points-val">$3K</span></div>
+        </div>
+        <div class="points-card">
+          <div class="points-card-header">Priority Pass Lounges on Route</div>
+          <div class="points-item"><span class="points-route">EWR Newark</span><span class="points-val" style="color:var(--green)">✓ United Polaris</span></div>
+          <div class="points-item"><span class="points-route">YYC Calgary</span><span class="points-val" style="color:var(--green)">✓ Air Canada Maple Leaf</span></div>
+          <div class="points-item"><span class="points-route">BKK Suvarnabhumi</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
+          <div class="points-item"><span class="points-route">HKG Hong Kong</span><span class="points-val" style="color:var(--green)">✓ Plaza Premium</span></div>
+          <div class="points-item"><span class="points-route">PVG Shanghai</span><span class="points-val" style="color:var(--green)">✓ Multiple options</span></div>
+          <div class="points-item"><span class="points-route">ATH Athens</span><span class="points-val" style="color:var(--green)">✓ Goldair CIP lounge</span></div>
+          <div class="points-item"><span class="points-route">USM Koh Samui</span><span class="points-val">Bangkok Air Boutique</span></div>
+        </div>
+      </div>
+    </section>
 
     <!-- CONFIRMED SPEND -->
     <section class="final-section" id="f-spend">
@@ -3133,62 +3383,32 @@ function observeLegs() {
       if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.08 });
-
-  document.querySelectorAll('.leg, .final-section').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.ic-leg, .final-section').forEach(el => observer.observe(el));
 }
-
 observeLegs();
 
-// Route bar active highlight on scroll
-const planLegs = document.querySelectorAll('#page-planning .leg');
-const planStops = document.querySelectorAll('#page-planning .route-stop');
-const routeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const idx = Array.from(planLegs).indexOf(e.target);
-      const map = [0, 1, 2, 3, 5, 6];
-      planStops.forEach(s => s.classList.remove('active'));
-      if (planStops[map[idx]]) planStops[map[idx]].classList.add('active');
-    }
-  });
-}, { threshold: 0.35 });
-
-planLegs.forEach(el => routeObserver.observe(el));
-
-// Expandable stops — entire stop row is the click target
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('#planning-main .stop').forEach(stop => {
-    const hasContent = stop.querySelector('.stop-desc, .tip-box');
-    if (!hasContent) return;
-
-    stop.classList.add('collapsed');
-    stop.style.cursor = 'pointer';
-    const leftDiv = stop.querySelector('div:first-child');
-
-    // Small indicator pill (replaces old button — no longer the primary click target)
-    const pill = document.createElement('div');
-    pill.className = 'stop-toggle';
-    pill.setAttribute('role', 'button');
-    pill.setAttribute('aria-expanded', 'false');
-    pill.innerHTML = '<span class="stop-toggle-icon">\u25be</span><span class="stop-toggle-label">\u2002Details</span>';
-    leftDiv.appendChild(pill);
-
-    function toggleStop() {
-      const isNowCollapsed = stop.classList.toggle('collapsed');
-      pill.setAttribute('aria-expanded', String(!isNowCollapsed));
-      pill.querySelector('.stop-toggle-label').textContent =
-        isNowCollapsed ? '\u2002Details' : '\u2002Collapse';
-    }
-
-    // Entire stop is clickable — exclude links and action buttons (addr-btn etc.)
-    stop.addEventListener('click', function(e) {
-      const tgt = e.target;
-      if (tgt.closest('a[href]')) return;           // real links open normally
-      if (tgt.closest('button.addr-btn')) return;   // copy button keeps its own handler
-      toggleStop();
+// Route bar active highlight on scroll (updated for new .ic-leg structure)
+(function() {
+  const legs = document.querySelectorAll('#page-planning .ic-leg');
+  const stops = document.querySelectorAll('#page-planning .route-stop');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = Array.from(legs).indexOf(e.target);
+        stops.forEach(s => s.classList.remove('active'));
+        if (stops[idx]) stops[idx].classList.add('active');
+      }
     });
+  }, { threshold: 0.3 });
+  legs.forEach(el => obs.observe(el));
+})();
+
+// Itinerary card expand/collapse
+document.querySelectorAll('.ic-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('a[href]')) return;
+    if (e.target.closest('button.addr-btn')) return;
+    this.classList.toggle('open');
   });
 });
 </script>
