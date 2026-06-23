@@ -1156,20 +1156,176 @@ html.dark .notice-card { background: var(--surface); }
 html.dark .points-card { background: var(--surface); }
 html.dark .links-group { background: var(--surface); }
 html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--nav-btn-active-color); }
-@media (max-width: 800px) {
-  .hero, main { padding: 1.5rem; }
-  .topnav { padding: 0 1.5rem; }
-  .tracker { padding: 2rem 1.5rem; }
-  .tracker-grid { grid-template-columns: 1fr 1fr; }
+/* ── Address row & action buttons ───────────────────── */
+.cc-address-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: .45rem;
+}
+.cc-address {
+  font-size: 13px;
+  color: var(--ink);
+  letter-spacing: .02em;
+}
+.addr-actions {
+  display: inline-flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.addr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid var(--line-strong);
+  background: var(--tracker-grid-bg);
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s, color .15s, border-color .15s;
+  white-space: nowrap;
+  line-height: 1;
+}
+.addr-btn:hover { background: var(--surface); color: var(--ink); border-color: var(--muted); }
+.addr-btn.copied { border-color: var(--green); color: var(--green); background: var(--green-bg); }
+
+/* ── Ledger scroll wrapper ──────────────────────────── */
+.ledger-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.ledger-wrap > * { min-width: 680px; }
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+
+/* Tablet ≤ 1023px */
+@media (max-width: 1023px) {
+  .tracker-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-stats { gap: 1.5rem; }
+  main { padding: 0 2rem 5rem; }
+}
+
+/* Mobile ≤ 767px */
+@media (max-width: 767px) {
+
+  /* Nav */
+  .topnav { padding: 0 1rem; height: 48px; }
+  .topnav-brand { font-size: 11px; letter-spacing: .08em; }
+  .page-btn { padding: 5px 10px; font-size: 10px; letter-spacing: .08em; }
+
+  /* Hero */
+  .hero { padding: 1.2rem 1rem; min-height: 60vh; }
+  .hero-top { font-size: 10px; letter-spacing: .1em; }
+  .hero-title { font-size: clamp(2.8rem, 14vw, 5rem); }
+  .hero-sub { flex-direction: column; gap: 1rem; align-items: flex-start; }
   .hero-stats { display: none; }
-  .leg { grid-template-columns: 1fr; gap: 1.5rem; }
-  .stop { grid-template-columns: 1fr; }
+  .hero-meta { font-size: 12px; }
+  .hero-bottom { font-size: 10px; }
+
+  /* Route bar */
+  .route-bar { padding: .7rem 1rem; font-size: 10px; letter-spacing: .1em; }
+
+  /* Quick links */
+  .quick-links { padding: .5rem 1rem !important; gap: .4rem !important; overflow-x: auto; flex-wrap: nowrap !important; }
+
+  /* Tracker */
+  .tracker { padding: 1.2rem 1rem; }
+  .tracker-heading { margin-bottom: 1rem; }
+  .tracker-grid { grid-template-columns: repeat(2, 1fr); }
+  .tracker-city { font-size: 1.15rem; }
+  .tracker-dates { font-size: 9px; margin-bottom: .8rem; }
+  .tracker-row { font-size: 11px; }
+  .tracker-legend { flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+
+  /* Progress bar */
+  .progress-bar-wrap { margin-top: 1rem; }
+
+  /* Main */
+  main { padding: 0 1rem 4rem; }
+
+  /* Legs */
+  .leg {
+    padding: 2rem 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .leg-sidebar {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--line-strong);
+    margin-bottom: 1.2rem;
+  }
+  .leg-num { margin-bottom: 0; font-size: 9px; }
+  .leg-region { font-size: 1.6rem; margin-bottom: 0; line-height: 1; }
+  .leg-date-range {
+    margin-left: auto;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  /* Stops */
+  .stop { grid-template-columns: 1fr; gap: .8rem; padding: 1.5rem 0; }
   .stop-right { text-align: left; }
   .booking-status { align-items: flex-start; }
+  .stop-title { font-size: 1.3rem; flex-wrap: wrap; }
+  .stop-desc { font-size: 13px; max-width: 100%; }
+  .stop-toggle { width: 100%; justify-content: center; padding: 10px 18px; margin-top: 1rem; }
+  .time-tag { font-size: 13px; padding: 2px 8px; margin-left: 5px; }
+
+  /* Points / notices sections */
+  .points-section { padding: 2rem 0; }
+  .section-title { font-size: 1.9rem; margin-bottom: 1.5rem; }
   .points-grid, .notices-grid { grid-template-columns: 1fr; }
-  .confirmed-card { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: .5rem; }
-  .route-bar { padding: 1rem 1.5rem; }
+  .points-card { padding: 1.2rem; }
+  .points-item { font-size: 12px; }
+  .points-val { font-size: 1rem; }
+
+  /* Confirmed cards */
+  .confirmed-card {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+    padding: 1.4rem 0;
+  }
+  .cc-date {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 11px;
+    padding-top: 0;
+  }
+  .cc-title { font-size: 1.2rem; }
+  .cc-detail { font-size: 12px; }
+  .cc-ref { font-size: 9px; }
+  .cc-badge { text-align: left; }
+
+  /* Address buttons on mobile */
+  .cc-address-row { gap: .4rem; }
+  .addr-btn { font-size: 9px; padding: 3px 7px; }
+
+  /* Expense ledger */
+  .ledger-wrap { border-radius: 0; }
+  .ledger-wrap > * { min-width: 660px; }
+
+  /* Insurance & pending grids */
+  .insurance-grid { grid-template-columns: 1fr !important; }
+  .pending-grid { grid-template-columns: 1fr !important; }
+
+  /* Final section */
+  .final-section-title { font-size: 1.8rem; margin-bottom: 1.2rem; }
+  .final-section { padding: 2rem 0 !important; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: .4rem; padding: 1.2rem 1rem; font-size: 9px; }
 }
 </style>
 </head>
@@ -1249,7 +1405,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
   </nav>
 
   <!-- QUICK LINKS BAR -->
-  <div style="background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.65rem 3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+  <div class="quick-links" style="background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.65rem 3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
     <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:.5rem;">Book →</span>
     <a href="https://www.marriott.com/default.mi" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink);text-decoration:none;padding:5px 14px;border:1px solid var(--line-strong);border-radius:3px;background:var(--paper);letter-spacing:.04em;transition:border-color .15s,color .15s;">
@@ -2117,7 +2273,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="cc-date">Oct 1, 2026<br>1 night</div>
         <div>
           <div class="cc-title">Residence Inn by Marriott Calgary Downtown/Beltline District</div>
-          <div class="cc-detail">610 10th Avenue SW, Calgary, AB T2R 1M3 · Studio, 1 King Bed · 2 guests<br>Check-in Thu Oct 1 at 4:00pm · Check-out Fri Oct 2 at 12:00pm · Non-refundable</div>
+          <div class="cc-detail"><div class="cc-address-row"><span class="cc-address">610 10th Avenue SW, Calgary, AB T2R 1M3</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'610 10th Avenue SW, Calgary, AB T2R 1M3')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=610+10th+Avenue+SW,+Calgary,+AB+T2R+1M3" target="_blank" rel="noopener">⌖ Map ↗</a></span></div>Studio, 1 King Bed · 2 guests<br>Check-in Thu Oct 1 at 4:00pm · Check-out Fri Oct 2 at 12:00pm · Non-refundable</div>
           <div class="cc-ref">Chase Travel Trip #1019392378 · Conf: 2491461985 · USD $211.16 · Visa ••••7559 (CSR)</div>
         </div>
         <div class="cc-badge">
@@ -2129,7 +2285,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="cc-date">Oct 2–3<br>1 night</div>
         <div>
           <div class="cc-title">Miette Mountain Cabins — Jasper</div>
-          <div class="cc-detail">Highway 16 East, Pocahontas, AB · Panebode motel unit · 2 adults<br>Check-in Oct 2 (afternoon, after drive from Calgary) · Check-out Oct 3 at 11am<br>Free cancellation until Sept 28 at 6pm · Resort fee CAD $22.45/night incl. pool + in-room coffee</div>
+          <div class="cc-detail"><div class="cc-address-row"><span class="cc-address">Highway 16 East, Pocahontas, AB T0E 1E0</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'Highway 16 East, Pocahontas, AB T0E 1E0')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=Miette+Mountain+Cabins+Pocahontas+AB" target="_blank" rel="noopener">⌖ Map ↗</a></span></div>Panebode motel unit · 2 adults<br>Check-in Oct 2 (afternoon, after drive from Calgary) · Check-out Oct 3 at 11am<br>Free cancellation until Sept 28 at 6pm · Resort fee CAD $22.45/night incl. pool + in-room coffee</div>
           <div class="cc-ref">Expedia Itinerary: 72075854441977 · CAD $931.96 total (incl. locally collected fees)</div>
         </div>
         <div class="cc-badge">
@@ -2141,7 +2297,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="cc-date">Oct 3–5<br>2 nights</div>
         <div>
           <div class="cc-title">Otter Hotel — Banff</div>
-          <div class="cc-detail">600 Banff Ave, Banff, AB · Superior Room, 1 King Bed · 2 adults<br>Check-in Oct 3 at 4pm · Check-out Oct 5 at 11am<br>Free cancellation until Sept 30 at 6pm</div>
+          <div class="cc-detail"><div class="cc-address-row"><span class="cc-address">600 Banff Ave, Banff, AB T1L 1H8</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'600 Banff Ave, Banff, AB T1L 1H8')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=600+Banff+Ave,+Banff,+AB+T1L+1H8" target="_blank" rel="noopener">⌖ Map ↗</a></span></div>Superior Room, 1 King Bed · 2 adults<br>Check-in Oct 3 at 4pm · Check-out Oct 5 at 11am<br>Free cancellation until Sept 30 at 6pm</div>
           <div class="cc-ref">Expedia Itinerary: 72075854361589 · CAD $1,485.67 total</div>
         </div>
         <div class="cc-badge">
@@ -2153,7 +2309,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="cc-date">Oct 2–5<br>4 days</div>
         <div>
           <div class="cc-title">Sixt Car Rental — Mazda CX-5 (Intermediate)</div>
-          <div class="cc-detail">Calgary Int'l Airport, 119 Aero Way NE · Pick-up Fri Oct 2 at 7:00am · Drop-off Mon Oct 5 at 8:00pm<br>Driver: Yun Yang · Unlimited mileage · Full-to-full fuel · Free cancel until Sep 29, 2026<br>Sixt counter: 1-888-749-8227 · Note: no CDW included in rate — CSR card (••••7559) provides primary CDW</div>
+          <div class="cc-detail"><div class="cc-address-row"><span class="cc-address">119 Aero Way NE, Calgary, AB T2E 6K2</span><span class="addr-actions"><button class="addr-btn" onclick="copyAddr(this,'119 Aero Way NE, Calgary, AB T2E 6K2')">⎘ Copy</button><a class="addr-btn" href="https://maps.google.com/?q=Sixt+Car+Rental+Calgary+Airport+119+Aero+Way+NE" target="_blank" rel="noopener">⌖ Map ↗</a></span></div>Pick-up Fri Oct 2 at 7:00am · Drop-off Mon Oct 5 at 8:00pm<br>Driver: Yun Yang · Unlimited mileage · Full-to-full fuel · Free cancel until Sep 29, 2026<br>Sixt counter: 1-888-749-8227 · CSR card (••••7559) provides primary CDW</div>
           <div class="cc-ref">Chase Travel Trip #1019389645 · Car conf: CN961135523748 · Sixt counter: 9735700791 · USD $454.25 · Visa ••••7559 (CSR)</div>
         </div>
         <div class="cc-badge">
@@ -2196,6 +2352,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <section class="final-section" id="f-spend">
       <div class="final-section-title">Expense ledger</div>
 
+      <div class="ledger-wrap">
       <!-- Header row -->
       <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
         <div style="background:var(--surface);padding:.7rem 1.2rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Item</div>
@@ -2307,6 +2464,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
 
       </div>
+      </div><!-- /ledger-wrap -->
 
       <!-- FX note -->
       <div style="font-size:11px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
@@ -2321,7 +2479,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <section class="final-section" id="f-pending">
       <div class="final-section-title">Still to confirm</div>
 
-      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
+      <div class="pending-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
           <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
           <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
@@ -2358,7 +2516,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <section class="final-section" id="f-insurance">
       <div class="final-section-title">Travel Insurance</div>
 
-      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
+      <div class="insurance-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
 
         <!-- TD Aeroplan Visa Infinite -->
         <div style="background:var(--paper); padding:1.8rem 2rem;">
@@ -2475,6 +2633,25 @@ function switchPage(name) {
 
 function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyAddr(btn, addr) {
+  navigator.clipboard.writeText(addr).then(() => {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    // fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = addr; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓ Copied'; btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+  });
 }
 
 function observeLegs() {
