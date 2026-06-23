@@ -121,7 +121,7 @@ body {
 }
 
 .topnav-brand {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--nav-text);
@@ -137,7 +137,7 @@ body {
 
 .page-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   padding: 6px 16px;
@@ -180,7 +180,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .14em;
   color: var(--hero-muted);
   text-transform: uppercase;
@@ -196,7 +196,7 @@ body {
 }
 
 .hero-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--hero-label-color);
@@ -226,7 +226,7 @@ body {
 }
 
 .hero-meta {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .06em;
   color: var(--hero-muted);
   line-height: 1.9;
@@ -254,7 +254,7 @@ body {
 }
 
 .h-stat-l {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--hero-muted);
@@ -263,7 +263,7 @@ body {
 }
 
 .hero-bottom {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .13em;
   color: var(--hero-muted);
   text-transform: uppercase;
@@ -300,7 +300,7 @@ body {
   display: flex;
   align-items: center;
   overflow-x: auto;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .13em;
   text-transform: uppercase;
   background: var(--route-bg);
@@ -333,7 +333,7 @@ body {
 }
 
 .tracker-heading {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -363,7 +363,7 @@ body {
 }
 
 .tracker-dates {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .1em;
   color: var(--muted);
   margin-bottom: 1.2rem;
@@ -376,7 +376,7 @@ body {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .04em;
   color: var(--tracker-row-text);
 }
@@ -398,7 +398,7 @@ body {
   display: flex;
   gap: 1.5rem;
   margin-top: 1.5rem;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -446,7 +446,7 @@ main {
 .leg-sidebar { padding-top: 4px; }
 
 .leg-num {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -463,7 +463,7 @@ main {
 }
 
 .leg-date-range {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   letter-spacing: .05em;
   border-top: 1px solid var(--line-strong);
@@ -502,7 +502,7 @@ main {
 .time-tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .04em;
   padding: 2px 8px;
   border-radius: 3px;
@@ -524,24 +524,40 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 .stop-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin-top: .9rem;
-  font-size: 9px;
-  letter-spacing: .12em;
+  gap: 8px;
+  margin-top: 1.1rem;
+  font-size: 11px;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: var(--sans);
+  background: var(--tracker-grid-bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  padding: 8px 18px;
+  font-family: 'DM Mono', monospace;
+  transition: background .15s, color .15s, border-color .15s;
+  min-width: 130px;
+  justify-content: center;
+  user-select: none;
 }
-.stop-toggle:hover { color: var(--ink); }
-.stop-toggle-icon { display: inline-block; transition: transform .18s; font-style: normal; }
+.stop-toggle:hover {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--muted);
+}
+.stop-toggle:active { opacity: .75; }
+.stop-toggle-icon {
+  display: inline-block;
+  transition: transform .22s cubic-bezier(.4,0,.2,1);
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1;
+}
 .stop.collapsed .stop-toggle-icon { transform: rotate(-90deg); }
 
 .stop-type {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -558,7 +574,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .stop-desc {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.85;
   color: var(--muted);
   max-width: 520px;
@@ -570,7 +586,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .stop-dates {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   color: var(--muted);
   text-transform: uppercase;
@@ -580,7 +596,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 
 .badge {
   display: inline-block;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .12em;
   text-transform: uppercase;
   padding: 4px 10px;
@@ -599,7 +615,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   margin-top: .9rem;
   padding: .75rem 1rem;
   border-left: 2px solid var(--gold);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--warm);
   letter-spacing: .03em;
   line-height: 1.65;
@@ -619,7 +635,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -660,7 +676,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .points-card-header {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -675,7 +691,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   align-items: baseline;
   padding: .65rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: 11px;
+  font-size: 13px;
   gap: 1rem;
 }
 .points-item:last-child { border-bottom: none; }
@@ -707,7 +723,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 .notice-icon { font-size: 1.3rem; margin-bottom: .75rem; }
 
 .notice-title {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--ink);
@@ -715,7 +731,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .notice-text {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.75;
   color: var(--muted);
 }
@@ -727,7 +743,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
   border: 1px solid var(--nav-border);
   border-radius: 3px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -765,7 +781,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .links-group-title {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -787,7 +803,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 .link-item:hover .link-desc { color: var(--ink); }
 
 .link-name {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink);
   letter-spacing: .03em;
   margin-bottom: 2px;
@@ -797,7 +813,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 .link-arrow {
   display: inline-block;
   margin-left: 4px;
-  font-size: 10px;
+  font-size: 12px;
   opacity: 0;
   transform: translateX(-4px);
   transition: all .15s;
@@ -808,7 +824,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .link-desc {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   line-height: 1.5;
   transition: color .15s;
@@ -828,7 +844,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .budget-total-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--muted);
@@ -843,7 +859,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 }
 
 .budget-total-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 2px;
 }
@@ -865,7 +881,7 @@ html.dark .time-night{ background: rgba(147,197,253,.1);  color: #93c5fd; }
 html.dark .budget-cat { background: var(--surface); }
 
 .budget-cat-title {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -891,7 +907,7 @@ html.dark .budget-cat { background: var(--surface); }
   align-items: baseline;
   padding: .5rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: 11px;
+  font-size: 13px;
   gap: 1rem;
 }
 
@@ -900,14 +916,14 @@ html.dark .budget-cat { background: var(--surface); }
 .budget-line-label { color: var(--muted); flex: 1; }
 
 .budget-line-ref {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .08em;
   color: var(--green);
   text-transform: uppercase;
   margin-left: 6px;
 }
 
-.budget-line-est { font-size: 9px; color: var(--muted); font-style: italic; margin-left: 4px; }
+.budget-line-est { font-size: 10px; color: var(--muted); font-style: italic; margin-left: 4px; }
 
 .budget-line-amt {
   font-family: 'Cormorant Garamond', serif;
@@ -932,7 +948,7 @@ html.dark .budget-cat { background: var(--surface); }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -958,7 +974,7 @@ html.dark .budget-bar-container { background: var(--surface); }
 .budget-bar-row:last-child { margin-bottom: 0; }
 
 .budget-bar-label {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .06em;
   color: var(--muted);
   text-transform: uppercase;
@@ -982,7 +998,7 @@ html.dark .budget-bar-container { background: var(--surface); }
 .bar-zero      { background: var(--line); }
 
 .budget-bar-val {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--ink);
   text-align: right;
   font-family: 'Cormorant Garamond', serif;
@@ -1007,7 +1023,7 @@ html.dark .budget-bar-container { background: var(--surface); }
 html.dark .budget-summary-cell { background: var(--surface); }
 
 .bsc-label {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1068,7 +1084,7 @@ html.dark .budget-summary-cell { background: var(--surface); }
 .confirmed-card:last-child { border-bottom: none; }
 
 .cc-date {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1086,13 +1102,13 @@ html.dark .budget-summary-cell { background: var(--surface); }
 }
 
 .cc-detail {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
 }
 
 .cc-ref {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--accent);
@@ -1110,7 +1126,7 @@ footer {
   border-top: 1px solid var(--line-strong);
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .12em;
   color: var(--muted);
   text-transform: uppercase;
@@ -1338,10 +1354,22 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">⛰ Explore</div>
+            <div class="stop-type">⛰ Itinerary</div>
             <div class="stop-title">Banff / Canmore — Larch Season</div>
-            <div class="stop-desc">Peak golden larch color runs Sept 20–Oct 5 — Sept 25 is the statistical sweet spot. Hike Larch Valley from Moraine Lake up to Sentinel Pass. Also: Pocaterra Cirque in Kananaskis (less crowded, equally stunning). Moraine Lake road is closed to private cars at peak season — pre-book the Parks Canada shuttle. Car rental from YYC — CSR covers primary rental car insurance.</div>
-            <div class="tip-box">7am light on the larches is exceptional. Worth the early alarm. Oct 4: Moraine Lake shuttle at 7am (Lake Louise slot) — confirmed INPC26-13891950B1.</div>
+            <div class="stop-desc">
+              <strong style="font-weight:500">Oct 1 (Tue) — Arrival</strong><br>
+              Land 17:30 MDT · collect car · drive Canmore/Banff ~1.5 hrs · arrive ~19:30. Dinner in Banff: Saltlik Steakhouse or Park Distillery. Early night — big days ahead.<br><br>
+              <strong style="font-weight:500">Oct 2 (Wed) — Icefields Parkway Sampler</strong><br>
+              Drive north on Hwy 93 toward Lake Louise. Stop at Bow Lake (mirror reflection, easy 20-min walk), Peyto Lake lookout (10-min walk, unmissable), and Mistaya Canyon. Return through Banff townsite — wander Banff Ave, Johnston Canyon afternoon walk. Banff Gondola at sunset for Bow Valley panorama.<br><br>
+              <strong style="font-weight:500">Oct 3 (Thu) — Lake Louise</strong><br>
+              Early start at Lake Louise (7am to beat crowds, golden morning light). Hike Plain of Six Glaciers trail (14km round trip, passes teahouse open mid-June to mid-Oct). Or shorter: Lake Agnes Tea House trail (7km). Afternoon: Fairview Lookout for aerial Lake Louise view. Drive back via Johnston Canyon lower falls (30-min return).<br><br>
+              <strong style="font-weight:500">Oct 4 (Fri) — 🌟 Moraine Lake &amp; Larch Valley</strong><br>
+              <em>Moraine Lake shuttle confirmed — INPC26-13891950B1 · 7am slot</em><br>
+              6:30am: Drive to Lake Louise shuttle hub. 7am: Bus to Moraine Lake. Hike Larch Valley trail (5.8km to valley, +2km to Sentinel Pass at 2611m). Peak golden larch color in early October — electric yellow against blue rock and snow. Best light: morning before noon. Return shuttle afternoon. Evening: Upper Hot Springs ($10pp) to rest sore legs.<br><br>
+              <strong style="font-weight:500">Oct 5 (Sat) — Drive to Jasper via Icefields Parkway</strong><br>
+              Depart Canmore 9am · drive north on Hwy 93 (230km, 3–4 hrs with stops). Key stops en route to Jasper →
+            </div>
+            <div class="tip-box">Car rental: book on Chase Sapphire Reserve (card ••••7559) — primary coverage means you skip the ~$30/day CDW. Get an AWD SUV — Jasper elevation gets early October snow. Confirm unlimited mileage (total loop is ~900km).</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 1–5<br>4 nights</div>
@@ -1355,15 +1383,29 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         </div>
         <div class="stop">
           <div>
-            <div class="stop-type">🏔 Explore</div>
-            <div class="stop-title">Jasper — Athabasca &amp; Columbia Icefield</div>
-            <div class="stop-desc">Drive the Icefields Parkway north from Lake Louise to Jasper (~3 hrs) — one of the world's most spectacular drives. Stop at Peyto Lake, Bow Lake, Athabasca Falls, and the Columbia Icefield. In Jasper town: Maligne Lake, Spirit Island, hiking in Jasper National Park. October brings rutting elk and early snow on the peaks.</div>
-            <div class="tip-box">Drive Icefields Parkway in the morning light heading north. Jasper Dark Sky Preserve — one of the world's largest. Book Maligne Lake boat tour in advance.</div>
+            <div class="stop-type">🏔 Itinerary</div>
+            <div class="stop-title">Jasper — Icefields Parkway &amp; Dark Skies</div>
+            <div class="stop-desc">
+              <strong style="font-weight:500">Oct 5 (Sat) — Icefields Parkway Drive</strong><br>
+              Depart Banff/Lake Louise 9am. Drive Hwy 93N (the Icefields Parkway — often called the world's most scenic drive). Stops:<br>
+              · <strong style="font-weight:500">Crowfoot Glacier</strong> — quick pullout, dramatic hanging glacier<br>
+              · <strong style="font-weight:500">Bow Lake</strong> — if not visited Oct 2<br>
+              · <strong style="font-weight:500">Parker Ridge</strong> (optional 5.6km return) — views down the Saskatchewan Glacier tongue<br>
+              · <strong style="font-weight:500">Columbia Icefield / Athabasca Glacier</strong> — walk to the toe of the glacier on foot. One of the few accessible glaciers in the world. Skywalk glass floor walkway nearby.<br>
+              · <strong style="font-weight:500">Athabasca Falls</strong> — powerful canyon waterfall, 30-min stop<br>
+              Arrive Jasper town ~5–6pm. Dinner: Treeline Restaurant or Sunhouse Café.<br><br>
+              <strong style="font-weight:500">Oct 6 (Sun) — Full Jasper Day</strong><br>
+              Morning: <strong style="font-weight:500">Maligne Lake</strong> (45 min from Jasper). Spirit Island boat tour if running (typically Oct 11 is last day — check ahead). Or hike the lake's eastern shore (Mary Schaffer Loop, 3.2km). Midday: <strong style="font-weight:500">Maligne Canyon</strong> — 48m deep limestone slot canyon, walkway bridges across. Afternoon: <strong style="font-weight:500">Valley of the Five Lakes</strong> (4.4km easy loop, turquoise glacial lakes with fall color reflections). Evening: Jasper is a UNESCO Dark Sky Preserve — clearest skies in North America. Milky Way visible on clear October nights after 9pm.<br><br>
+              <strong style="font-weight:500">Oct 7 (Mon) — Morning hike, drive to YYC</strong><br>
+              7am: <strong style="font-weight:500">Pyramid Lake</strong> (10-min drive from Jasper) — elk and mountain reflection at dawn. Quick hike: Old Fort Point (3.5km, panoramic Athabasca Valley views). <strong style="font-weight:500">Depart Jasper by 11:30am</strong> → drive Hwy 16 → Hwy 2 to Calgary (~3.5 hrs). Drop car at YYC airport by 3:30pm · Priority Pass lounge at YYC (CSR) · Evening flight ~21:00 MDT.
+            </div>
+            <div class="tip-box">Maligne Lake Spirit Island boat tour ends ~Oct 11 — book online as soon as possible if you want it Oct 6. Jasper is colder than Banff (higher elevation) — pack a down layer. Elk rut peaks mid-Sept–Oct, common in Jasper townsite at dawn.</div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 5–7<br>2 nights</div>
             <div class="booking-status">
-              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Jasper needed</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Hotel Jasper (Oct 5–7)</div>
+              <div class="bk-row"><span class="bk-dot bk-needed"></span>Maligne Lake boat tour</div>
             </div>
           </div>
         </div>
@@ -1442,7 +1484,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
               <strong style="font-weight:500">Sun Oct 11</strong> — Group activities: kayaking, cooking class, Muay Thai, elephant sanctuary, sunset cruise<br>
               <strong style="font-weight:500">Mon Oct 12</strong> — Final breakfast · Checkout 12:00 PM · PG807 departs 11:55
             </div>
-            <div class="tip-box">Attire: tropical comfortable — button-up shirts fine, sandals ok. Warm &amp; humid all weekend. Vaccinations recommended: Hep A + Typhoid (get at least 2 weeks before). No registry — hồng bao welcome. <a href="https://merylandmichaelforever.com" target="_blank" rel="noopener" style="color:var(--accent)">merylandmichaelforever.com</a> · pw: <code style="font-size:10px;background:var(--tracker-grid-bg);padding:1px 5px;border-radius:3px">weloveyou</code></div>
+            <div class="tip-box">Attire: tropical comfortable — button-up shirts fine, sandals ok. Warm &amp; humid all weekend. Vaccinations recommended: Hep A + Typhoid (get at least 2 weeks before). No registry — hồng bao welcome. <a href="https://merylandmichaelforever.com" target="_blank" rel="noopener" style="color:var(--accent)">merylandmichaelforever.com</a> · pw: <code style="font-size: 12px;background:var(--tracker-grid-bg);padding:1px 5px;border-radius:3px">weloveyou</code></div>
           </div>
           <div class="stop-right">
             <div class="stop-dates">Oct 9–12</div>
@@ -1605,7 +1647,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <section class="points-section" id="p-points">
       <h2 class="section-title">Points &amp; Miles Planner</h2>
 
-      <div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
+      <div style="font-size: 10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
       <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
         <div class="points-card">
           <div class="points-card-header">Yun Yang</div>
@@ -1652,14 +1694,14 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
       <div class="points-grid" style="grid-template-columns:repeat(3,1fr);">
         <div class="points-card">
           <div class="points-card-header">The Case For</div>
-          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.75;">Early October in Tokyo is near-perfect — low 20s, clear skies, first hints of fall color before peak foliage crowds. 2–3 nights slots naturally after Banff (Oct 5–7) before arriving Bangkok Oct 8, wedding Oct 9. The routing YYC → NRT → BKK is a clean westward arc.</div>
+          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size: 13px;color:var(--muted);line-height:1.75;">Early October in Tokyo is near-perfect — low 20s, clear skies, first hints of fall color before peak foliage crowds. 2–3 nights slots naturally after Banff (Oct 5–7) before arriving Bangkok Oct 8, wedding Oct 9. The routing YYC → NRT → BKK is a clean westward arc.</div>
           <div class="points-item"><span class="points-route">Weather (Oct 5–8 Tokyo)</span><span class="points-val" style="color:var(--green)">Ideal</span></div>
           <div class="points-item"><span class="points-route">Routing fit YYC → NRT → BKK</span><span class="points-val" style="color:var(--green)">Natural</span></div>
           <div class="points-item"><span class="points-route">Yan's Amex MR 180K coverage</span><span class="points-val" style="color:var(--green)">Strong</span></div>
         </div>
         <div class="points-card">
           <div class="points-card-header">The Trade-offs</div>
-          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.75;">Bangkok shrinks from 10 to ~7 nights. Another hotel booking and flight segment to arrange. Japan rewards a full week — 3 days is a taste, not a stay. Adds ~$150–300 in award fees and one more hotel to book during already busy larch season planning.</div>
+          <div class="points-item" style="display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size: 13px;color:var(--muted);line-height:1.75;">Bangkok shrinks from 10 to ~7 nights. Another hotel booking and flight segment to arrange. Japan rewards a full week — 3 days is a taste, not a stay. Adds ~$150–300 in award fees and one more hotel to book during already busy larch season planning.</div>
           <div class="points-item"><span class="points-route">Bangkok reduced</span><span class="points-val" style="color:var(--warm)">10 → 7 nts</span></div>
           <div class="points-item"><span class="points-route">Extra leg to book</span><span class="points-val" style="color:var(--warm)">+1 flight, +1 hotel</span></div>
           <div class="points-item"><span class="points-route">Japan rewards a full week</span><span class="points-val" style="color:var(--warm)">Short dip</span></div>
@@ -1714,54 +1756,54 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <!-- HOTEL PICKS -->
     <section class="points-section" id="p-hotels" style="border-top:1px solid var(--line-strong);">
       <h2 class="section-title">Hotel Picks — Design &amp; Points</h2>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:2rem;line-height:1.7;">Design-forward properties in the Shinola Detroit / Nobu Chicago vein — ranked by vibe and points match. <strong style="color:var(--ink);font-weight:400;">Bold</strong> = top pick per city.</div>
+      <div style="font-size: 13px;color:var(--muted);margin-bottom:2rem;line-height:1.7;">Design-forward properties in the Shinola Detroit / Nobu Chicago vein — ranked by vibe and points match. <strong style="color:var(--ink);font-weight:400;">Bold</strong> = top pick per city.</div>
 
       <div class="points-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:2px;">
         <div class="points-card">
           <div class="points-card-header">Canmore / Banff · 5 nights</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Malcolm Hotel, Canmore</strong></div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Design boutique · mountain-modern · no chain · CSR 3× earn · ~$300/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Malcolm Hotel, Canmore</strong></div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Design boutique · mountain-modern · no chain · CSR 3× earn · ~$300/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Basecamp Resorts, Canmore</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Boutique mountain suites · contemporary · no chain · ~$180/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Basecamp Resorts, Canmore</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Boutique mountain suites · contemporary · no chain · ~$180/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Buffalo Mountain Lodge (Bonvoy)</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Heritage timber lodge · Marriott Autograph · use Bonvoy pts · ~$250/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Buffalo Mountain Lodge (Bonvoy)</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Heritage timber lodge · Marriott Autograph · use Bonvoy pts · ~$250/nt</div>
           </div>
         </div>
 
         <div class="points-card">
           <div class="points-card-header">Bangkok · 10 nights (consider split stay)</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">W Bangkok (Marriott Bonvoy)</strong></div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Sathorn · very design-forward · rooftop bar · 25K Bonvoy/nt → 4 nts free with 103K pts</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">W Bangkok (Marriott Bonvoy)</strong></div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Sathorn · very design-forward · rooftop bar · 25K Bonvoy/nt → 4 nts free with 103K pts</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Rosewood Bangkok</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Design masterpiece · Ploenchit · CSR Luxury Hotels perks (upgrade + $100 F&amp;B) · ~$350/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Rosewood Bangkok</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Design masterpiece · Ploenchit · CSR Luxury Hotels perks (upgrade + $100 F&amp;B) · ~$350/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">SO/ Bangkok</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Christian Lacroix interiors · Sathorn · wild design · CSR 3× · ~$200/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">SO/ Bangkok</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Christian Lacroix interiors · Sathorn · wild design · CSR 3× · ~$200/nt</div>
           </div>
         </div>
 
         <div class="points-card">
           <div class="points-card-header">Koh Samui · 2 nights pre-wedding</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Conrad Koh Samui (Hilton)</strong></div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Cliff pool villas · private beach · ultra-designed · ~$400/nt or Hilton pts</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Conrad Koh Samui (Hilton)</strong></div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Cliff pool villas · private beach · ultra-designed · ~$400/nt or Hilton pts</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">W Koh Samui (Marriott Bonvoy)</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Beach villas · design-forward W brand · Bonvoy pts eligible · ~$300/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">W Koh Samui (Marriott Bonvoy)</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Beach villas · design-forward W brand · Bonvoy pts eligible · ~$300/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Samui Buri Beach Resort</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Boutique · Thai garden design · Chaweng · ~$150/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Samui Buri Beach Resort</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Boutique · Thai garden design · Chaweng · ~$150/nt</div>
           </div>
         </div>
       </div>
@@ -1770,48 +1812,48 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
         <div class="points-card">
           <div class="points-card-header">Hong Kong · 2 nights</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Murray Hong Kong (Bonvoy)</strong></div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Foster+Partners heritage redesign · Central · Autograph Collection · use Bonvoy pts · most on-brand</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Murray Hong Kong (Bonvoy)</strong></div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Foster+Partners heritage redesign · Central · Autograph Collection · use Bonvoy pts · most on-brand</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Rosewood Hong Kong</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Victoria Dockside · design icon · CSR Luxury Hotels perks · ~$400/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Rosewood Hong Kong</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Victoria Dockside · design icon · CSR Luxury Hotels perks · ~$400/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">The Upper House (Swire)</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Boutique · Pacific Place Admiralty · understated luxury · ~$350/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">The Upper House (Swire)</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Boutique · Pacific Place Admiralty · understated luxury · ~$350/nt</div>
           </div>
         </div>
 
         <div class="points-card">
           <div class="points-card-header">Shanghai · 3 nights Oct 14–17</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Middle House (SLH)</strong></div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Neri&amp;Hu designed · Jing An · most Shinola-like in Shanghai · CSR 3× · ~$280/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">The Middle House (SLH)</strong></div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Neri&amp;Hu designed · Jing An · most Shinola-like in Shanghai · CSR 3× · ~$280/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Andaz Shanghai (Hyatt)</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Bund area · transfer Yan's Chase UR → Hyatt · boutique Hyatt brand · ~25K pts/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Andaz Shanghai (Hyatt)</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Bund area · transfer Yan's Chase UR → Hyatt · boutique Hyatt brand · ~25K pts/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">URBN Hotel Shanghai</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">French Concession · eco-boutique · converted warehouse · ~$180/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">URBN Hotel Shanghai</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">French Concession · eco-boutique · converted warehouse · ~$180/nt</div>
           </div>
         </div>
 
         <div class="points-card" style="border:1px dashed var(--line-strong);opacity:.7;">
           <div class="points-card-header">Tokyo (if Japan added) · 2–3 nights</div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Andaz Tokyo (Chase → Hyatt)</strong></div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Toranomon Hills · skyline views · most on-brand for Yun · ~20K Hyatt pts/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;"><strong style="font-weight:400;">Andaz Tokyo (Chase → Hyatt)</strong></div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Toranomon Hills · skyline views · most on-brand for Yun · ~20K Hyatt pts/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;border-bottom:1px solid var(--line);">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">Park Hyatt Tokyo (Chase → Hyatt)</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Shinjuku · iconic · Lost in Translation · ~25K Hyatt pts/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">Park Hyatt Tokyo (Chase → Hyatt)</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Shinjuku · iconic · Lost in Translation · ~25K Hyatt pts/nt</div>
           </div>
           <div class="points-item" style="display:block;padding:.7rem 0;">
-            <div style="font-size:11px;color:var(--ink);margin-bottom:3px;">The Trunk Hotel, Shibuya</div>
-            <div style="font-size:10px;color:var(--muted);line-height:1.6;">Design boutique · most Shinola-like in Tokyo · cash only · ~$300/nt</div>
+            <div style="font-size: 13px;color:var(--ink);margin-bottom:3px;">The Trunk Hotel, Shibuya</div>
+            <div style="font-size: 12px;color:var(--muted);line-height:1.6;">Design boutique · most Shinola-like in Tokyo · cash only · ~$300/nt</div>
           </div>
         </div>
       </div>
@@ -2007,7 +2049,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
     <section class="final-section" id="f-hotels">
       <div class="final-section-title">Confirmed accommodation</div>
 
-      <div style="padding: 3rem 0; text-align:center; color:var(--muted); font-size:12px; letter-spacing:.08em;">
+      <div style="padding: 3rem 0; text-align:center; color:var(--muted); font-size: 14px; letter-spacing:.08em;">
         No hotels confirmed yet — add them here as you book.
       </div>
     </section>
@@ -2043,35 +2085,76 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
     <!-- CONFIRMED SPEND -->
     <section class="final-section" id="f-spend">
-      <div class="final-section-title">Confirmed spend</div>
+      <div class="final-section-title">Expense ledger</div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-bottom:1px;">
+      <!-- Header row -->
+      <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;gap:0;background:var(--line-strong);border:1px solid var(--line-strong);">
+        <div style="background:var(--surface);padding:.7rem 1.2rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Item</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:center;">Paid by</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">Card</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Amount</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">Currency</div>
+        <div style="background:var(--surface);padding:.7rem 1rem;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-align:right;">USD equiv.</div>
+      </div>
 
-        <div style="background:var(--paper);padding:1.4rem 1.6rem;">
-          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Flights — confirmed</div>
-          <div style="font-size:11px;color:var(--ink);line-height:2.4;">
-            <div style="display:flex;justify-content:space-between;"><span>EWR → YYC · Yun <span style="color:var(--muted);font-size:10px">BCFAML</span></span><span style="color:var(--green)">34,190 pts + $40</span></div>
-            <div style="display:flex;justify-content:space-between;"><span>EWR → YYC · Yan <span style="color:var(--muted);font-size:10px">BCFEFG</span></span><span style="color:var(--green)">18,400 pts + CAD $279.80</span></div>
-            <div style="display:flex;justify-content:space-between;"><span>KSM → HKG · both <span style="color:var(--muted);font-size:10px">FVZ2OD</span></span><span style="color:var(--green)">THB 18,090 (~$504)</span></div>
-          </div>
+      <!-- Rows -->
+      <div style="border:1px solid var(--line-strong);border-top:none;">
+
+        <!-- EWR→YYC Yun -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">EWR → YYC (Yun) <span style="color:var(--muted);font-size:12px">BCFAML · AC585</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yun</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Aeroplan ••••1431</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">34,190 pts</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">Points</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">—</div>
         </div>
 
-        <div style="background:var(--paper);padding:1.4rem 1.6rem;">
-          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Activities — confirmed</div>
-          <div style="font-size:11px;color:var(--ink);line-height:2.4;">
-            <div style="display:flex;justify-content:space-between;"><span>Moraine Lake Shuttle · both <span style="color:var(--muted);font-size:10px">INPC26-13891950B1</span></span><span style="color:var(--green)">$29.00</span></div>
-          </div>
+        <!-- EWR→YYC Yan -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">EWR → YYC (Yan) <span style="color:var(--muted);font-size:12px">BCFEFG · AC585</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">Yan</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Aeroplan ••••1922</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">18,400 pts<br><span style="font-size:12px;color:var(--muted)">+ CAD $279.80</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$197.63</div>
         </div>
 
-        <div style="background:var(--paper);padding:1.4rem 1.6rem;">
-          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Running total</div>
-          <div style="font-size:11px;color:var(--ink);line-height:2.4;">
-            <div style="display:flex;justify-content:space-between;"><span>Cash spent (USD equiv.)</span><span style="color:var(--ink);font-weight:500">~$777</span></div>
-            <div style="display:flex;justify-content:space-between;"><span>Aeroplan pts used</span><span style="color:var(--muted)">52,590 pts</span></div>
-            <div style="display:flex;justify-content:space-between;margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--line-strong);"><span style="color:var(--muted)">Wedding &amp; island stay</span><span style="color:var(--green)">Hosted ✓</span></div>
-          </div>
+        <!-- KSM→HKG -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">KSM → HKG (both) <span style="color:var(--muted);font-size:12px">FVZ2OD · PG807</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">—</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Unknown</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">฿18,090</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">THB</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$549.94</div>
         </div>
 
+        <!-- Moraine Lake Shuttle -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;border-bottom:1px solid var(--line);">
+          <div style="padding:.85rem 1.2rem;font-size:13px;color:var(--ink);">Moraine Lake Shuttle <span style="color:var(--muted);font-size:12px">INPC26-13891950B1</span></div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:center;">—</div>
+          <div style="padding:.85rem 1rem;font-size:12px;color:var(--muted);">Unknown</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--ink);text-align:right;">CAD $29.00</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--muted);text-align:right;">CAD</div>
+          <div style="padding:.85rem 1rem;font-size:13px;color:var(--green);text-align:right;">$20.48</div>
+        </div>
+
+        <!-- Total row -->
+        <div style="display:grid;grid-template-columns:1fr 80px 120px 110px 100px 100px;background:var(--surface);">
+          <div style="padding:.85rem 1.2rem;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total cash (USD equiv.)</div>
+          <div></div><div></div><div></div><div></div>
+          <div style="padding:.85rem 1rem;font-size:14px;font-weight:500;color:var(--ink);text-align:right;">$768.05</div>
+        </div>
+
+      </div>
+
+      <!-- FX note -->
+      <div style="font-size:11px;color:var(--muted);margin-top:.75rem;letter-spacing:.04em;">
+        FX rates as of 2026-06-22: 1 CAD = $0.7062 USD · 1 THB = $0.0304 USD (via frankfurter.dev). Points redemptions shown separately — not counted as cash.
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem;letter-spacing:.04em;">
+        Cards: Yun ••••1431 = Canadian Visa Aeroplan · Yun ••••7559 = Chase Sapphire Reserve (USD) · Yan ••••1922 = Aeroplan
       </div>
     </section>
 
@@ -2081,8 +2164,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);">
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
-          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
-          <div style="font-size:11px;color:var(--ink);line-height:2.2;">
+          <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Flights needed</div>
+          <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
             YYC → BKK &nbsp;·&nbsp; Oct 7 (depart)<br>
             BKK → USM &nbsp;·&nbsp; Oct 9<br>
             HKG → PVG &nbsp;·&nbsp; Oct 14<br>
@@ -2093,8 +2176,8 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
           </div>
         </div>
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
-          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
-          <div style="font-size:11px;color:var(--ink);line-height:2.2;">
+          <div style="font-size: 10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;">Hotels &amp; ground needed</div>
+          <div style="font-size: 13px;color:var(--ink);line-height:2.2;">
             Car rental · YYC pickup Oct 1, drop Oct 7<br>
             Canmore / Banff hotel &nbsp;·&nbsp; 4 nights (Oct 1–5)<br>
             Jasper hotel &nbsp;·&nbsp; 2 nights (Oct 5–7)<br>
@@ -2188,16 +2271,32 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('#planning-main .stop').forEach(stop => {
     const hasContent = stop.querySelector('.stop-desc, .tip-box');
     if (!hasContent) return;
+
     stop.classList.add('collapsed');
     const leftDiv = stop.querySelector('div:first-child');
+
+    // Build toggle button
     const btn = document.createElement('button');
     btn.className = 'stop-toggle';
-    btn.innerHTML = '<span class="stop-toggle-icon">▾</span> Details';
-    btn.addEventListener('click', () => {
-      stop.classList.toggle('collapsed');
-      btn.childNodes[1].textContent = stop.classList.contains('collapsed')
-        ? ' Details' : ' Collapse';
-    });
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="stop-toggle-icon">\u25be</span><span class="stop-toggle-label">\u2002Details</span>';
+
+    function toggleStop() {
+      const isNowCollapsed = stop.classList.toggle('collapsed');
+      btn.setAttribute('aria-expanded', String(!isNowCollapsed));
+      btn.querySelector('.stop-toggle-label').textContent =
+        isNowCollapsed ? '\u2002Details' : '\u2002Collapse';
+    }
+
+    btn.addEventListener('click', toggleStop);
+
+    // Also toggle on stop-title click
+    const title = leftDiv.querySelector('.stop-title');
+    if (title) {
+      title.style.cursor = 'pointer';
+      title.addEventListener('click', toggleStop);
+    }
+
     leftDiv.appendChild(btn);
   });
 });
