@@ -429,6 +429,8 @@ footer { font-family: var(--mono); }
   height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
+  margin-top: 4px;
+  align-self: flex-start;
 }
 
 .s-confirmed { background: var(--green); }
@@ -2328,6 +2330,142 @@ html.dark .tr-band-w {
 .tr-wx-hot  .tr-wx-temps { color: #d97840; }
 html.dark .tr-wx-cold .tr-wx-temps { color: #82b8f5; }
 html.dark .tr-wx-hot  .tr-wx-temps { color: #f5a060; }
+
+/* ── Destination Cards (friendly view) ─────────────────── */
+.tcard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-bottom: 1.5rem;
+}
+@media (max-width: 1023px) { .tcard-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 639px)  { .tcard-grid { grid-template-columns: 1fr; } }
+
+.tcard {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,.09);
+  background: #fff;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.tcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.13);
+}
+html.dark .tcard { background: var(--surface); box-shadow: 0 2px 16px rgba(0,0,0,.3); }
+
+/* Card hero headers */
+.tcard-hero {
+  padding: 1.2rem 1.25rem 1rem;
+  position: relative;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.tcard-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,.28);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.tcard-hero-emoji { font-size: 34px; line-height: 1; margin-bottom: 5px; }
+.tcard-hero-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 5px rgba(0,0,0,.25);
+  line-height: 1.1;
+}
+.tcard-hero-city span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: .88;
+}
+
+/* City gradient themes */
+.tcard-calgary  { background: linear-gradient(145deg, #1a5c3c 0%, #2d9e6b 50%, #66c9a0 100%); }
+.tcard-bangkok  { background: linear-gradient(145deg, #b86e20 0%, #e09030 50%, #f5c060 100%); }
+.tcard-samui    { background: linear-gradient(145deg, #0b5d8c 0%, #1a8ecf 50%, #56b8ef 100%); }
+.tcard-hongkong { background: linear-gradient(145deg, #5b1b8a 0%, #9c3fcf 50%, #c880f0 100%); }
+.tcard-shanghai { background: linear-gradient(145deg, #a81818 0%, #d93c3c 50%, #f08080 100%); }
+.tcard-athens   { background: linear-gradient(145deg, #c05800 0%, #e07818 50%, #f5ad5a 100%); }
+
+/* Card body */
+.tcard-body {
+  padding: 14px 15px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.tc-sec { display: flex; flex-direction: column; gap: 2px; }
+.tc-sec-head {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+.tc-t { background: rgba(79,100,200,.10); color: #5565c0; }
+.tc-s { background: rgba(185,125,25,.10);  color: #9e6e18; }
+.tc-a { background: rgba(45,155,80,.10);   color: #2d8a4c; }
+html.dark .tc-t { background: rgba(100,130,255,.1); color: #8fa0ef; }
+html.dark .tc-s { background: rgba(220,160,40,.1);  color: #d4a040; }
+html.dark .tc-a { background: rgba(80,200,110,.1);  color: #50c870; }
+
+.tc-item {
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 0 2px;
+}
+.tc-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.tc-ok::before   { background: var(--green); }
+.tc-need::before { background: transparent; border: 1.5px solid var(--muted); }
+.tc-co::before   { background: #c88020; }
+.tc-na::before   { background: var(--line-strong); }
+.tc-co { color: var(--muted); font-style: italic; }
+.tc-na { color: var(--muted); }
+
+.tc-weather {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.5;
+  border: 1px solid var(--line);
+}
+html.dark .tc-weather { background: rgba(255,255,255,.04); }
+
 </style>
 </head>
 <body>
@@ -2423,13 +2561,19 @@ html.dark .tr-wx-hot  .tr-wx-temps { color: #f5a060; }
   <div class="tracker">
     <div class="tracker-heading" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
       <span>Booking tracker — 6 destinations</span>
-      <div class="view-toggle" id="tracker-view-toggle">
-        <button class="view-toggle-btn active" onclick="setTrackerMode('detail',this)">Detail</button>
-        <button class="view-toggle-btn" onclick="setTrackerMode('concise',this)">Concise</button>
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <div class="view-toggle" id="tracker-view-toggle">
+          <button class="view-toggle-btn active" onclick="setTrackerMode('concise',this)">Concise</button>
+          <button class="view-toggle-btn" onclick="setTrackerMode('detail',this)">Detail</button>
+        </div>
+        <div class="view-toggle" id="tracker-layout-toggle">
+          <button class="view-toggle-btn active" onclick="setTrackerLayout('classic',this)">Classic</button>
+          <button class="view-toggle-btn" onclick="setTrackerLayout('cards',this)">Cards ✦</button>
+        </div>
       </div>
     </div>
 
-    <div class="tracker-grid">
+    <div class="tracker-grid tr-concise">
 
       <!-- ── CITY HEADERS (row 1) ── -->
       <div class="tr-city" onclick="scrollToId('p-leg1')">
@@ -2642,6 +2786,175 @@ html.dark .tr-wx-hot  .tr-wx-temps { color: #f5a060; }
       </div>
 
     </div>
+
+    <!-- ── CARD VIEW ── (toggled via "Cards ✦" button) ──────── -->
+    <div id="tracker-cards" style="display:none;">
+      <div class="tcard-grid">
+
+        <!-- ─ Calgary ─ -->
+        <div class="tcard">
+          <div class="tcard-hero tcard-calgary">
+            <div class="tcard-badge">Oct 1–5 · 4 nights</div>
+            <div class="tcard-hero-emoji">🏔️</div>
+            <div class="tcard-hero-city">Calgary <span>Jasper · Banff</span></div>
+          </div>
+          <div class="tcard-body">
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
+              <div class="tc-item tc-ok">AC585 EWR→YYC · Both · Oct 1 14:25</div>
+              <div class="tc-item tc-ok">Sixt Mazda CX-5 · YYC · Oct 2–5</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
+              <div class="tc-item tc-ok">Residence Inn Calgary · 1 night</div>
+              <div class="tc-item tc-ok">Miette Mountain Cabins · Jasper · 1 night</div>
+              <div class="tc-item tc-ok">Otter Hotel · Banff · 2 nights</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
+              <div class="tc-item tc-ok">Moraine Lake shuttle · Oct 4 07:00</div>
+              <div class="tc-item tc-need">Banff park pass · purchase at gate</div>
+            </div>
+            <div class="tc-weather">❄️ <strong>8° / 1°C</strong> · Crisp · larch season · 20% precip</div>
+          </div>
+        </div>
+
+        <!-- ─ Bangkok ─ -->
+        <div class="tcard">
+          <div class="tcard-hero tcard-bangkok">
+            <div class="tcard-badge">Oct 7–9 · 2 nights</div>
+            <div class="tcard-hero-emoji">🛺</div>
+            <div class="tcard-hero-city">Bangkok</div>
+          </div>
+          <div class="tcard-body">
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
+              <div class="tc-item tc-ok">WS80+WS5930 · KXOXGQ · Oct 6 14:50</div>
+              <div class="tc-item tc-need">BKK→USM · Oct 9 · Bangkok Air PG</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
+              <div class="tc-item tc-ok">Public House Bangkok · 2 nts · 55K Bonvoy</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
+              <div class="tc-item tc-na">Grand Palace · Wat Arun · Oct 8</div>
+              <div class="tc-item tc-na">Floating market · Damnoen Saduak</div>
+            </div>
+            <div class="tc-weather">🌦 <strong>32° / 24°C</strong> · Hot · rainy season easing · 55%</div>
+          </div>
+        </div>
+
+        <!-- ─ Koh Samui ─ -->
+        <div class="tcard">
+          <div class="tcard-hero tcard-samui">
+            <div class="tcard-badge">Oct 9–12 · 3 nights</div>
+            <div class="tcard-hero-emoji">💒</div>
+            <div class="tcard-hero-city">Koh Samui</div>
+          </div>
+          <div class="tcard-body">
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
+              <div class="tc-item tc-need">BKK→USM · Oct 9 · not yet booked</div>
+              <div class="tc-item tc-ok">PG807 USM→HKG · Oct 12 · FVZ2OD</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
+              <div class="tc-item tc-ok">Wedding island · Oct 9–12 · confirmed</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-a"><i class="ri-heart-fill"></i> Wedding</div>
+              <div class="tc-item tc-ok">Wedding · Oct 9 · Meryl &amp; Michael</div>
+              <div class="tc-item tc-na">Kayaking · sunset cruise</div>
+            </div>
+            <div class="tc-weather">🌧 <strong>30° / 25°C</strong> · Hot · peak rain season · 75%</div>
+          </div>
+        </div>
+
+        <!-- ─ Hong Kong ─ -->
+        <div class="tcard">
+          <div class="tcard-hero tcard-hongkong">
+            <div class="tcard-badge">Oct 12–14 · 2 nights</div>
+            <div class="tcard-hero-emoji">🌆</div>
+            <div class="tcard-hero-city">Hong Kong</div>
+          </div>
+          <div class="tcard-body">
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
+              <div class="tc-item tc-ok">PG807 USM→HKG · Oct 12 · FVZ2OD</div>
+              <div class="tc-item tc-need">HKG→PVG · Oct 14 · not yet booked</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
+              <div class="tc-item tc-need">Hotel Hong Kong · 2 nts · TBD (Murray?)</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
+              <div class="tc-item tc-need">China visa × 2 · required for Shanghai</div>
+              <div class="tc-item tc-na">Victoria Peak · Star Ferry</div>
+            </div>
+            <div class="tc-weather">⛅ <strong>27° / 22°C</strong> · Warm · low humidity · 30%</div>
+          </div>
+        </div>
+
+        <!-- ─ Shanghai ─ -->
+        <div class="tcard">
+          <div class="tcard-hero tcard-shanghai">
+            <div class="tcard-badge">Oct 14–23 · family</div>
+            <div class="tcard-hero-emoji">🏙️</div>
+            <div class="tcard-hero-city">Shanghai</div>
+          </div>
+          <div class="tcard-body">
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
+              <div class="tc-item tc-need">Yan: SHA→Shanxi · Oct 17 domestic</div>
+              <div class="tc-item tc-need">Yun: SHA→ATH · Oct 23 01:10 · Aegean</div>
+              <div class="tc-item tc-co">Yan: PVG→ATH · AZ5QGD · company ✦</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
+              <div class="tc-item tc-need">2 rooms · Oct 14–17 · incl. Yun's mom</div>
+              <div class="tc-item tc-na">Oct 17–23 · with Yan's family</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
+              <div class="tc-item tc-na">The Bund · Jing An Temple</div>
+            </div>
+            <div class="tc-weather">🌤 <strong>22° / 14°C</strong> · Pleasant · clear skies · 15%</div>
+          </div>
+        </div>
+
+        <!-- ─ Athens ─ -->
+        <div class="tcard">
+          <div class="tcard-hero tcard-athens">
+            <div class="tcard-badge">Oct 23–30 · 7 nights</div>
+            <div class="tcard-hero-emoji">🏛️</div>
+            <div class="tcard-hero-city">Athens <span>+ Home</span></div>
+          </div>
+          <div class="tcard-body">
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
+              <div class="tc-item tc-need">Yun: SHA→ATH · Oct 23 · A3 1900</div>
+              <div class="tc-item tc-co">Yan: PVG→ATH · AZ5QGD · company ✦</div>
+              <div class="tc-item tc-need">Yun: ATH→EWR · Oct 30</div>
+              <div class="tc-item tc-co">Yan: ATH→EWR · AZLZGO · company ✦</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
+              <div class="tc-item tc-need">Hotel · Oct 23–27 · both · TBD</div>
+              <div class="tc-item tc-co">Yan: Oct 27–29 · company hotel ✦</div>
+              <div class="tc-item tc-need">Yun: Oct 27–30 · 3 nts · TBD</div>
+            </div>
+            <div class="tc-sec">
+              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
+              <div class="tc-item tc-na">Acropolis · Cape Sounion</div>
+            </div>
+            <div class="tc-weather">☀️ <strong>22° / 14°C</strong> · Warm · mostly sunny · 12%</div>
+          </div>
+        </div>
+
+      </div><!-- /tcard-grid -->
+    </div><!-- /tracker-cards -->
 
     <!-- LEGEND + PROGRESS -->
     <div class="tracker-legend">
@@ -3360,8 +3673,8 @@ html.dark .tr-wx-hot  .tr-wx-temps { color: #f5a060; }
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
           <div style="font-size:12px;color:var(--muted);letter-spacing:.04em;">Click any row to expand &nbsp;·&nbsp; <span id="fx-rate-note"></span></div>
           <div class="view-toggle" id="ledger-view-toggle">
-            <button class="view-toggle-btn active" onclick="setLedgerMode('detail',this)">Detail</button>
-            <button class="view-toggle-btn" onclick="setLedgerMode('concise',this)">Concise</button>
+            <button class="view-toggle-btn active" onclick="setLedgerMode('concise',this)">Concise</button>
+            <button class="view-toggle-btn" onclick="setLedgerMode('detail',this)">Detail</button>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;">
@@ -3375,7 +3688,7 @@ html.dark .tr-wx-hot  .tr-wx-temps { color: #f5a060; }
         </div>
       </div>
 
-      <div class="ldg-wrap">
+      <div class="ldg-wrap ldg-concise">
 
         <!-- Header -->
         <div class="ldg-hdr">
@@ -4442,6 +4755,25 @@ async function loadWeather() {
   }
 }
 loadWeather();
+
+// ── Tracker layout: Classic ↔ Cards ──────────────────────────
+function setTrackerLayout(mode, btn) {
+  const grid    = document.querySelector('.tracker-grid');
+  const legend  = document.querySelector('.tracker-legend');
+  const pbar    = document.querySelector('.progress-bar-wrap');
+  const cards   = document.getElementById('tracker-cards');
+  const modeTog = document.getElementById('tracker-view-toggle');
+
+  const isCards = mode === 'cards';
+  if (grid)    grid.style.display    = isCards ? 'none' : '';
+  if (legend)  legend.style.display  = isCards ? 'none' : '';
+  if (pbar)    pbar.style.display    = isCards ? 'none' : '';
+  if (cards)   cards.style.display   = isCards ? 'block' : 'none';
+  if (modeTog) modeTog.style.display = isCards ? 'none' : '';
+
+  btn.closest('.view-toggle').querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
 
 </script>
 
