@@ -1948,19 +1948,26 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 }
 .tr-band {
   grid-column: 1/-1;
-  background: var(--surface);
   border-top: 1px solid var(--tracker-grid-border);
   border-bottom: 1px solid var(--tracker-grid-border);
-  padding: .3rem 1rem;
+  padding: .32rem 1rem;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--muted);
   display: flex;
   align-items: center;
   gap: .45rem;
+  font-weight: 600;
 }
+/* Band color variants — mirror ldg-cat colors */
+.tr-band-t { background: rgba(79,100,200,.07); color: #5565c0; border-color: rgba(79,100,200,.18); }
+.tr-band-s { background: rgba(185,125,25,.07);  color: #9e6e18; border-color: rgba(185,125,25,.18); }
+.tr-band-a { background: rgba(45,155,80,.07);   color: #2d8a4c; border-color: rgba(45,155,80,.18); }
+html.dark .tr-band-t { background: rgba(100,130,255,.08); color: #8fa0ef; border-color: rgba(100,130,255,.2); }
+html.dark .tr-band-s { background: rgba(220,160,40,.08);  color: #d4a040; border-color: rgba(220,160,40,.2); }
+html.dark .tr-band-a { background: rgba(80,200,110,.08);  color: #50c870; border-color: rgba(80,200,110,.2); }
+
 .tr-section {
   padding: .6rem .85rem .75rem;
   background: var(--tracker-col-bg);
@@ -1969,8 +1976,20 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   flex-direction: column;
   gap: 1px;
   vertical-align: top;
+  border-top: 2px solid transparent;
 }
 .tr-section:last-of-type { border-right: none; }
+/* Section left-edge color dot matching band */
+.tr-sec-t .status-dot.s-booked { background: #5565c0; }
+.tr-sec-t .status-dot.s-needed { border-color: #5565c0; }
+.tr-sec-s .status-dot.s-booked { background: #9e6e18; }
+.tr-sec-s .status-dot.s-needed { border-color: #9e6e18; }
+.tr-sec-a .status-dot.s-booked { background: #2d8a4c; }
+.tr-sec-a .status-dot.s-needed { border-color: #2d8a4c; }
+/* Keep transport using green for confirmed flights */
+.tr-sec-t .status-dot.s-booked { background: var(--green); }
+.tr-sec-s .status-dot.s-booked { background: var(--green); }
+.tr-sec-a .status-dot.s-booked { background: var(--green); }
 .tracker-row {
   display: flex;
   align-items: flex-start;
@@ -2331,117 +2350,117 @@ html.dark .ldg-detail-no { color: #f08070; }
       </div>
 
       <!-- ── TRANSPORT BAND ── -->
-      <div class="tr-band"><i class="ri-plane-line"></i> Transport</div>
+      <div class="tr-band tr-band-t"><i class="ri-plane-fill"></i> Transport</div>
 
       <!-- Calgary transport -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun · AC585 EWR→YYC<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan · AC585 EWR→YYC<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Sixt CX-5 · YYC<span class="tr-detail">Oct 2 07:00 pickup → Oct 5 drop-off · Free cancel before pickup</span></span></div>
       </div>
 
       <!-- Bangkok transport -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>WS80+WS5930 · KXOXGQ<span class="tr-detail">Oct 6 dep 14:50 YYC → Oct 7 arr 23:00 BKK · 19h 10m via NRT</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>BKK → USM · Oct 9<span class="tr-detail">Not yet booked · Bangkok Air PG recommended</span></span></div>
       </div>
 
       <!-- Koh Samui transport -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>BKK → USM · Oct 9<span class="tr-detail">Not yet booked</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>PG807 USM→HKG · FVZ2OD<span class="tr-detail">Oct 12 dep 11:55 → arr 16:20 HKG T2 · 1h 25m</span></span></div>
       </div>
 
       <!-- Hong Kong transport -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>PG807 USM→HKG · FVZ2OD<span class="tr-detail">Oct 12 dep 11:55 → arr 16:20 HKG T2</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>HKG → PVG · Oct 14<span class="tr-detail">Not yet booked</span></span></div>
       </div>
 
       <!-- Shanghai transport -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan: SHA → Shanxi<span class="tr-detail">Oct 17 · domestic · TBD</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun: SHA → ATH (A3 1900)<span class="tr-detail">Oct 23 · dep 01:10 · 11h 50m</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: PVG→ATH · AZ5QGD ✓<span class="tr-detail">Oct 23 · company-covered</span></span></div>
       </div>
 
       <!-- Athens transport -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun: ATH → EWR · Oct 30<span class="tr-detail">Not yet booked · Flying Blue or Delta</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: ATH→EWR · AZLZGO ✓<span class="tr-detail">Oct 27 · company-covered</span></span></div>
       </div>
 
       <!-- ── STAY BAND ── -->
-      <div class="tr-band"><i class="ri-hotel-bed-line"></i> Stay</div>
+      <div class="tr-band tr-band-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
 
       <!-- Calgary stay -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-s">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Residence Inn Calgary<span class="tr-detail">Oct 1–2 · 1 nt · $211/nt · Free cancel 24h</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Miette Cabins · Jasper<span class="tr-detail">Oct 2–3 · 1 nt · CA$364/nt · Free cancel Sep 29</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Otter Hotel · Banff<span class="tr-detail">Oct 3–5 · 2 nts · CA$656/nt · Free cancel Sep 30</span></span></div>
       </div>
 
       <!-- Bangkok stay -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-s">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Public House Bangkok<span class="tr-detail">Oct 7–9 · 2 nts · 55K Bonvoy · Free cancel Oct 4</span></span></div>
       </div>
 
       <!-- Koh Samui stay -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-s">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Wedding island<span class="tr-detail">Oct 9–12 · 3 nts · confirmed ✓</span></span></div>
       </div>
 
       <!-- Hong Kong stay -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-s">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel Hong Kong<span class="tr-detail">Oct 12–14 · 2 nts · TBD · Murray HKG (Bonvoy)?</span></span></div>
       </div>
 
       <!-- Shanghai stay -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-s">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>2 rooms · Oct 14–17<span class="tr-detail">Incl. Yun's mom · TBD</span></span></div>
         <div class="tracker-row"><span class="status-dot s-na"></span><span>Oct 17–23: w/ family<span class="tr-detail">Staying with Yan's family</span></span></div>
       </div>
 
       <!-- Athens stay -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-s">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel · Oct 23–27<span class="tr-detail">Both · 4 nts · TBD</span></span></div>
         <div class="tracker-row"><span class="status-dot s-inflight"></span><span>Yan · Oct 27–29 ✦<span class="tr-detail">Company-covered · 2 nts</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun · Oct 27–30<span class="tr-detail">Self · 3 nts · TBD</span></span></div>
       </div>
 
       <!-- ── ACTIVITIES BAND ── -->
-      <div class="tr-band"><i class="ri-compass-line"></i> Activities</div>
+      <div class="tr-band tr-band-a"><i class="ri-compass-3-fill"></i> Activities</div>
 
       <!-- Calgary activities -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-a">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Moraine Lake shuttle ✓<span class="tr-detail">INPC26-13891950B1 · Oct 4 07:00</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Banff park pass<span class="tr-detail">Parks Canada · purchase at gate</span></span></div>
       </div>
 
       <!-- Bangkok activities -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-a">
         <div class="tracker-row"><span class="status-dot s-na"></span><span>Grand Palace · Wat Arun<span class="tr-detail">Oct 8</span></span></div>
         <div class="tracker-row"><span class="status-dot s-na"></span><span>Floating market<span class="tr-detail">Oct 8 · Damnoen Saduak</span></span></div>
       </div>
 
       <!-- Koh Samui activities -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-a">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Wedding ✓<span class="tr-detail">Oct 9 · Meryl & Michael</span></span></div>
       </div>
 
       <!-- Hong Kong activities -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-a">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>China visa × 2<span class="tr-detail">Required for Shanghai leg</span></span></div>
         <div class="tracker-row"><span class="status-dot s-na"></span><span>Victoria Peak · Star Ferry</span></div>
       </div>
 
       <!-- Shanghai activities -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-a">
         <div class="tracker-row"><span class="status-dot s-na"></span><span>The Bund · Jing An Temple</span></div>
       </div>
 
       <!-- Athens activities -->
-      <div class="tr-section">
+      <div class="tr-section tr-sec-a">
         <div class="tracker-row"><span class="status-dot s-na"></span><span>Acropolis · Cape Sounion</span></div>
       </div>
 
@@ -3199,7 +3218,7 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">Aeroplan<br>••••1431</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—<span class="ldg-amount-orig">34,190 pts</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—</div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
@@ -3220,7 +3239,7 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yan</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">Aeroplan<br>••••1922</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="197.63">$197.63</span><span class="ldg-amount-orig">CAD $279.80</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="197.63">$197.63</span></div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
@@ -3263,12 +3282,13 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">TD Aeroplan<br>••••1431</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="549.94">$549.94</span><span class="ldg-amount-orig">฿18,090</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="549.94">$549.94</span></div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
               <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">FVZ2OD</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Aircraft</div><div class="ldg-detail-val">Bangkok Airways A319</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">฿18,090 THB</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-no"><i class="ri-error-warning-line"></i> Non-endorsable · change-restricted · no refund</div></div>
             </div>
           </div>
@@ -3284,7 +3304,7 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer" style="color:var(--muted)">BCG</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">Lodge card</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—<span class="ldg-amount-orig">$6,526.53</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—</div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
@@ -3360,12 +3380,13 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">Expedia<br>••••1431</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="310.92">$310.92</span><span class="ldg-amount-orig">CA $440.27</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="310.92">$310.92</span></div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
               <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">#72075854441977 · Expedia</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Rate detail</div><div class="ldg-detail-val">CA $363.60/nt base + CA $24.55 resort fee at property</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">CA $440.27 (CA $415.72 Expedia + CA $24.55 at property)</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel until Sep 29, 18:00 local · After: 100% charged, no refund</div></div>
             </div>
           </div>
@@ -3381,12 +3402,13 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">Expedia<br>••••1431</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="1049.24">$1,049.24</span><span class="ldg-amount-orig">CA $1,485.67</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="1049.24">$1,049.24</span></div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
               <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">#72075854361589 · Expedia</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Rate detail</div><div class="ldg-detail-val">CA $656.10/nt avg · Superior Room King</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">CA $1,485.67 (2 nights)</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel until Sep 30, 18:00 local · After: 1st night + taxes · No-show: 100%</div></div>
             </div>
           </div>
@@ -3436,12 +3458,13 @@ html.dark .ldg-detail-no { color: #f08070; }
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
             <div class="ldg-card-cell"><div class="ldg-card-short">TD Aeroplan<br>••••1431</div></div>
-            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="20.48">$20.48</span><span class="ldg-amount-orig">CA $29.00</span></div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="20.48">$20.48</span></div></div>
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
               <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">INPC26-13891950B1 · Parks Canada</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Route</div><div class="ldg-detail-val">Lake Louise shuttle hub → Moraine Lake · 07:00 AM slot</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">CA $29.00</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-no"><i class="ri-error-warning-line"></i> Non-refundable — Parks Canada policy</div></div>
             </div>
           </div>
@@ -3456,7 +3479,10 @@ html.dark .ldg-detail-no { color: #f08070; }
 
         <!-- Grand total -->
         <div class="ldg-total-row">
-          <div class="ldg-total-label">Total personal cash</div>
+          <div>
+            <div class="ldg-total-label">Total personal cash</div>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:.25rem;letter-spacing:.04em;">Yun's CAD spend: CA $1,954.94 · Miette CA $440.27 + Otter CA $1,485.67 + Moraine CA $29.00</div>
+          </div>
           <div style="font-family:var(--mono);font-size:1.45rem;font-weight:700;color:var(--ink);letter-spacing:.02em;" id="ledger-total-val">$5,002.82</div>
         </div>
 
