@@ -2466,6 +2466,85 @@ html.dark .tc-a { background: rgba(80,200,110,.1);  color: #50c870; }
 }
 html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
+
+/* ── Art hero background ────────────────────────────── */
+.hero-art-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  transition: opacity .8s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-art-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.28) 0%,
+    rgba(0,0,0,.08) 45%,
+    rgba(0,0,0,.55) 100%
+  );
+  transition: opacity .8s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero > * { position: relative; z-index: 2; }
+.hero.art-active { border-bottom-color: transparent; }
+.hero.art-active .hero-label  { color: rgba(255,255,255,.82); text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+.hero.art-active .hero-title  { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
+.hero.art-active .hero-title em { color: rgba(255,255,255,.6); }
+.hero.art-active .hero-meta,
+.hero.art-active .hero-top,
+.hero.art-active .hero-bottom { color: rgba(255,255,255,.65); }
+.hero.art-active .h-stat-n   { color: #fff; }
+.hero.art-active .h-stat-l   { color: rgba(255,255,255,.6); }
+.hero.art-active .scroll-line { background: rgba(255,255,255,.4); }
+
+/* Art style toggle (lives inside hero, bottom-right) */
+.art-style-toggle {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .4rem;
+  z-index: 10;
+}
+.art-style-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+.art-style-btns {
+  display: flex;
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 4px;
+  padding: 2px;
+  gap: 1px;
+}
+.art-style-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  padding: 4px 13px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255,255,255,.65);
+  transition: all .18s;
+}
+.art-style-btn.active {
+  background: rgba(255,255,255,.22);
+  color: #fff;
+}
 </style>
 </head>
 <body>
@@ -2488,6 +2567,10 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Art background crossfade layers -->
+    <div class="hero-art-layer" id="hero-layer-a" style="opacity:0;"></div>
+    <div class="hero-art-layer" id="hero-layer-b" style="opacity:0;"></div>
+    <div class="hero-art-overlay" id="hero-art-overlay" style="opacity:0;"></div>
     <div class="hero-top">
       <span>Oct 1 — Oct 30, 2026</span>
       <span>Planning mode</span>
@@ -2524,6 +2607,14 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <div class="hero-bottom">
       <span>EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR</span>
       <span>Scroll <span class="scroll-line"></span></span>
+    </div>
+    <!-- Art style toggle -->
+    <div class="art-style-toggle" id="art-style-toggle">
+      <div class="art-style-label">Art style</div>
+      <div class="art-style-btns">
+        <button class="art-style-btn active" onclick="setArtStyle('hammershoi',this)">Hammershøi</button>
+        <button class="art-style-btn" onclick="setArtStyle('pissarro',this)">Pissarro</button>
+      </div>
     </div>
   </section>
 
@@ -2566,42 +2657,39 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <button class="view-toggle-btn active" onclick="setTrackerMode('concise',this)">Concise</button>
           <button class="view-toggle-btn" onclick="setTrackerMode('detail',this)">Detail</button>
         </div>
-        <div class="view-toggle" id="tracker-layout-toggle">
-          <button class="view-toggle-btn active" onclick="setTrackerLayout('classic',this)">Classic</button>
-          <button class="view-toggle-btn" onclick="setTrackerLayout('cards',this)">Cards ✦</button>
-        </div>
+
       </div>
     </div>
 
-    <div class="tracker-grid tr-concise">
+    <div class="tracker-grid tr-concise" onmouseleave="heroArtReset()">
 
       <!-- ── CITY HEADERS (row 1) ── -->
-      <div class="tr-city" onclick="scrollToId('p-leg1')">
+      <div class="tr-city" onclick="scrollToId('p-leg1')" onmouseenter="heroArt('calgary')">
         <div class="tracker-city">Calgary<br><span style="font-size:1.05rem">Jasper · Banff</span></div>
         <div class="tracker-dates">Oct 1–5 · 4 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg2')">
+      <div class="tr-city" onclick="scrollToId('p-leg2')" onmouseenter="heroArt('bangkok')">
         <div class="tracker-city">Bangkok</div>
         <div class="tracker-dates">Oct 7–9 · 2 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg3')">
+      <div class="tr-city" onclick="scrollToId('p-leg3')" onmouseenter="heroArt('samui')">
         <div class="tracker-city">Koh Samui</div>
         <div class="tracker-dates">Oct 9–12 · 3 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg4')">
+      <div class="tr-city" onclick="scrollToId('p-leg4')" onmouseenter="heroArt('hongkong')">
         <div class="tracker-city">Hong Kong</div>
         <div class="tracker-dates">Oct 12–14 · 2 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg5')">
+      <div class="tr-city" onclick="scrollToId('p-leg5')" onmouseenter="heroArt('shanghai')">
         <div class="tracker-city">Shanghai</div>
         <div class="tracker-dates">Oct 14–23 · family</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg6')">
+      <div class="tr-city" onclick="scrollToId('p-leg6')" onmouseenter="heroArt('athens')">
         <div class="tracker-city">Athens<br><span style="font-size:1.05rem">+ Home</span></div>
         <div class="tracker-dates">Oct 23–30 · 7 nights</div>
         <span class="tr-nav-hint">View plan →</span>
@@ -2786,175 +2874,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
 
     </div>
-
-    <!-- ── CARD VIEW ── (toggled via "Cards ✦" button) ──────── -->
-    <div id="tracker-cards" style="display:none;">
-      <div class="tcard-grid">
-
-        <!-- ─ Calgary ─ -->
-        <div class="tcard">
-          <div class="tcard-hero tcard-calgary">
-            <div class="tcard-badge">Oct 1–5 · 4 nights</div>
-            <div class="tcard-hero-emoji">🏔️</div>
-            <div class="tcard-hero-city">Calgary <span>Jasper · Banff</span></div>
-          </div>
-          <div class="tcard-body">
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
-              <div class="tc-item tc-ok">AC585 EWR→YYC · Both · Oct 1 14:25</div>
-              <div class="tc-item tc-ok">Sixt Mazda CX-5 · YYC · Oct 2–5</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
-              <div class="tc-item tc-ok">Residence Inn Calgary · 1 night</div>
-              <div class="tc-item tc-ok">Miette Mountain Cabins · Jasper · 1 night</div>
-              <div class="tc-item tc-ok">Otter Hotel · Banff · 2 nights</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
-              <div class="tc-item tc-ok">Moraine Lake shuttle · Oct 4 07:00</div>
-              <div class="tc-item tc-need">Banff park pass · purchase at gate</div>
-            </div>
-            <div class="tc-weather">❄️ <strong>8° / 1°C</strong> · Crisp · larch season · 20% precip</div>
-          </div>
-        </div>
-
-        <!-- ─ Bangkok ─ -->
-        <div class="tcard">
-          <div class="tcard-hero tcard-bangkok">
-            <div class="tcard-badge">Oct 7–9 · 2 nights</div>
-            <div class="tcard-hero-emoji">🛺</div>
-            <div class="tcard-hero-city">Bangkok</div>
-          </div>
-          <div class="tcard-body">
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
-              <div class="tc-item tc-ok">WS80+WS5930 · KXOXGQ · Oct 6 14:50</div>
-              <div class="tc-item tc-need">BKK→USM · Oct 9 · Bangkok Air PG</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
-              <div class="tc-item tc-ok">Public House Bangkok · 2 nts · 55K Bonvoy</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
-              <div class="tc-item tc-na">Grand Palace · Wat Arun · Oct 8</div>
-              <div class="tc-item tc-na">Floating market · Damnoen Saduak</div>
-            </div>
-            <div class="tc-weather">🌦 <strong>32° / 24°C</strong> · Hot · rainy season easing · 55%</div>
-          </div>
-        </div>
-
-        <!-- ─ Koh Samui ─ -->
-        <div class="tcard">
-          <div class="tcard-hero tcard-samui">
-            <div class="tcard-badge">Oct 9–12 · 3 nights</div>
-            <div class="tcard-hero-emoji">💒</div>
-            <div class="tcard-hero-city">Koh Samui</div>
-          </div>
-          <div class="tcard-body">
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
-              <div class="tc-item tc-need">BKK→USM · Oct 9 · not yet booked</div>
-              <div class="tc-item tc-ok">PG807 USM→HKG · Oct 12 · FVZ2OD</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
-              <div class="tc-item tc-ok">Wedding island · Oct 9–12 · confirmed</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-a"><i class="ri-heart-fill"></i> Wedding</div>
-              <div class="tc-item tc-ok">Wedding · Oct 9 · Meryl &amp; Michael</div>
-              <div class="tc-item tc-na">Kayaking · sunset cruise</div>
-            </div>
-            <div class="tc-weather">🌧 <strong>30° / 25°C</strong> · Hot · peak rain season · 75%</div>
-          </div>
-        </div>
-
-        <!-- ─ Hong Kong ─ -->
-        <div class="tcard">
-          <div class="tcard-hero tcard-hongkong">
-            <div class="tcard-badge">Oct 12–14 · 2 nights</div>
-            <div class="tcard-hero-emoji">🌆</div>
-            <div class="tcard-hero-city">Hong Kong</div>
-          </div>
-          <div class="tcard-body">
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
-              <div class="tc-item tc-ok">PG807 USM→HKG · Oct 12 · FVZ2OD</div>
-              <div class="tc-item tc-need">HKG→PVG · Oct 14 · not yet booked</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
-              <div class="tc-item tc-need">Hotel Hong Kong · 2 nts · TBD (Murray?)</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
-              <div class="tc-item tc-need">China visa × 2 · required for Shanghai</div>
-              <div class="tc-item tc-na">Victoria Peak · Star Ferry</div>
-            </div>
-            <div class="tc-weather">⛅ <strong>27° / 22°C</strong> · Warm · low humidity · 30%</div>
-          </div>
-        </div>
-
-        <!-- ─ Shanghai ─ -->
-        <div class="tcard">
-          <div class="tcard-hero tcard-shanghai">
-            <div class="tcard-badge">Oct 14–23 · family</div>
-            <div class="tcard-hero-emoji">🏙️</div>
-            <div class="tcard-hero-city">Shanghai</div>
-          </div>
-          <div class="tcard-body">
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
-              <div class="tc-item tc-need">Yan: SHA→Shanxi · Oct 17 domestic</div>
-              <div class="tc-item tc-need">Yun: SHA→ATH · Oct 23 01:10 · Aegean</div>
-              <div class="tc-item tc-co">Yan: PVG→ATH · AZ5QGD · company ✦</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
-              <div class="tc-item tc-need">2 rooms · Oct 14–17 · incl. Yun's mom</div>
-              <div class="tc-item tc-na">Oct 17–23 · with Yan's family</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
-              <div class="tc-item tc-na">The Bund · Jing An Temple</div>
-            </div>
-            <div class="tc-weather">🌤 <strong>22° / 14°C</strong> · Pleasant · clear skies · 15%</div>
-          </div>
-        </div>
-
-        <!-- ─ Athens ─ -->
-        <div class="tcard">
-          <div class="tcard-hero tcard-athens">
-            <div class="tcard-badge">Oct 23–30 · 7 nights</div>
-            <div class="tcard-hero-emoji">🏛️</div>
-            <div class="tcard-hero-city">Athens <span>+ Home</span></div>
-          </div>
-          <div class="tcard-body">
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-t"><i class="ri-plane-fill"></i> Transport</div>
-              <div class="tc-item tc-need">Yun: SHA→ATH · Oct 23 · A3 1900</div>
-              <div class="tc-item tc-co">Yan: PVG→ATH · AZ5QGD · company ✦</div>
-              <div class="tc-item tc-need">Yun: ATH→EWR · Oct 30</div>
-              <div class="tc-item tc-co">Yan: ATH→EWR · AZLZGO · company ✦</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-s"><i class="ri-hotel-bed-fill"></i> Stay</div>
-              <div class="tc-item tc-need">Hotel · Oct 23–27 · both · TBD</div>
-              <div class="tc-item tc-co">Yan: Oct 27–29 · company hotel ✦</div>
-              <div class="tc-item tc-need">Yun: Oct 27–30 · 3 nts · TBD</div>
-            </div>
-            <div class="tc-sec">
-              <div class="tc-sec-head tc-a"><i class="ri-compass-3-fill"></i> Activities</div>
-              <div class="tc-item tc-na">Acropolis · Cape Sounion</div>
-            </div>
-            <div class="tc-weather">☀️ <strong>22° / 14°C</strong> · Warm · mostly sunny · 12%</div>
-          </div>
-        </div>
-
-      </div><!-- /tcard-grid -->
-    </div><!-- /tracker-cards -->
 
     <!-- LEGEND + PROGRESS -->
     <div class="tracker-legend">
@@ -4756,23 +4675,79 @@ async function loadWeather() {
 }
 loadWeather();
 
-// ── Tracker layout: Classic ↔ Cards ──────────────────────────
-function setTrackerLayout(mode, btn) {
-  const grid    = document.querySelector('.tracker-grid');
-  const legend  = document.querySelector('.tracker-legend');
-  const pbar    = document.querySelector('.progress-bar-wrap');
-  const cards   = document.getElementById('tracker-cards');
-  const modeTog = document.getElementById('tracker-view-toggle');
 
-  const isCards = mode === 'cards';
-  if (grid)    grid.style.display    = isCards ? 'none' : '';
-  if (legend)  legend.style.display  = isCards ? 'none' : '';
-  if (pbar)    pbar.style.display    = isCards ? 'none' : '';
-  if (cards)   cards.style.display   = isCards ? 'block' : 'none';
-  if (modeTog) modeTog.style.display = isCards ? 'none' : '';
+// ── Hero art system ───────────────────────────────────────────
+const ART = {
+  hammershoi: {
+    calgary:  'images/calgary_h.png',
+    bangkok:  'images/bangkok_h.png',
+    samui:    'images/samui_h.png',
+    hongkong: 'images/hongkong_h.png',
+    shanghai: 'images/shanghai_h.png',
+    athens:   'images/athens_h.png',
+  },
+  pissarro: {
+    calgary:  'images/calgary_p.png',
+    bangkok:  'images/bangkok_p.png',
+    samui:    'images/samui_p.png',
+    hongkong: 'images/hongkong_p.png',
+    shanghai: 'images/shanghai_p.png',
+    athens:   'images/athens_p.png',
+  }
+};
 
-  btn.closest('.view-toggle').querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
+let _artStyle  = 'hammershoi';
+let _artCity   = null;
+let _artActive = 'a'; // which layer is currently showing
+
+function setArtStyle(style, btn) {
+  _artStyle = style;
+  btn.closest('.art-style-btns').querySelectorAll('.art-style-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  if (_artCity) _showArt(_artCity); // refresh
+}
+
+function heroArt(city) {
+  _artCity = city;
+  _showArt(city);
+}
+
+function _showArt(city) {
+  const src = ART[_artStyle][city];
+  if (!src) return;
+
+  const la  = document.getElementById('hero-layer-a');
+  const lb  = document.getElementById('hero-layer-b');
+  const ovl = document.getElementById('hero-art-overlay');
+  const tog = document.getElementById('art-style-toggle');
+  const hero = document.querySelector('.hero');
+
+  const incoming = _artActive === 'a' ? lb : la;
+  const outgoing = _artActive === 'a' ? la : lb;
+
+  incoming.style.backgroundImage = `url('${src}')`;
+  incoming.style.opacity = '1';
+  outgoing.style.opacity = '0';
+  ovl.style.opacity = '1';
+
+  hero.classList.add('art-active');
+  if (tog) tog.style.display = 'flex';
+  _artActive = _artActive === 'a' ? 'b' : 'a';
+}
+
+function heroArtReset() {
+  _artCity = null;
+  const la  = document.getElementById('hero-layer-a');
+  const lb  = document.getElementById('hero-layer-b');
+  const ovl = document.getElementById('hero-art-overlay');
+  const tog = document.getElementById('art-style-toggle');
+  const hero = document.querySelector('.hero');
+
+  la.style.opacity  = '0';
+  lb.style.opacity  = '0';
+  ovl.style.opacity = '0';
+  hero.classList.remove('art-active');
+  if (tog) tog.style.display = 'none';
 }
 
 </script>
