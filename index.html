@@ -2670,6 +2670,181 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 .hero .route-stop { color: rgba(255,255,255,.5); }
 .hero .route-stop:hover, .hero .route-stop.active { color: #fff; }
 .hero .route-arrow { color: rgba(255,255,255,.2); }
+
+/* ─── BOTTOM NAV (mobile only) ─────────────────────────── */
+.bottom-nav { display: none; }
+
+.bn-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  min-width: 68px;
+  min-height: 52px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(15,13,11,0.42);
+  transition: all .18s;
+  -webkit-tap-highlight-color: transparent;
+}
+.bn-btn i { font-size: 20px; line-height: 1; }
+.bn-btn.active { background: #0f0d0b; color: #F9F6F1; }
+.bn-btn:active { opacity: .72; }
+
+/* ─── GLOBE TAP-TO-INTERACT OVERLAY ─── */
+#globe-interact-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: none; /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  background: rgba(4,8,16,0.55);
+  transition: opacity .4s ease;
+  pointer-events: all;
+}
+@media (pointer: coarse) {
+  #globe-interact-overlay { display: flex; }
+}
+#globe-interact-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.globe-overlay-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 8px;
+  padding: 12px 22px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── EXPENSE LEDGER — mobile card layout ─── */
+@media (max-width: 640px) {
+  .ldg-hdr { display: none; }
+
+  .ldg-row-top {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: auto auto !important;
+    gap: .35rem .5rem !important;
+    padding: .75rem 1rem .6rem 1.1rem !important;
+  }
+  .ldg-row-main    { grid-column: 1; grid-row: 1; }
+  .ldg-amount-cell { grid-column: 2; grid-row: 1; align-self: start; padding-top: 2px; }
+  .ldg-amount      { font-size: 14px !important; }
+  .ldg-payer-cell  { grid-column: 1; grid-row: 2; text-align: left; }
+  .ldg-card-cell   { grid-column: 2; grid-row: 2; text-align: right; }
+  .ldg-card-short  { font-size: 10px !important; }
+
+  .ldg-subtotal-row {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+  }
+  .ldg-subtotal-row > div:nth-child(2),
+  .ldg-subtotal-row > div:nth-child(3) { display: none; }
+
+  /* Category banners */
+  .ldg-cat { padding: .55rem 1rem; }
+
+  /* Detail grid full-width */
+  .ldg-detail-grid { grid-template-columns: 1fr !important; }
+
+  /* Currency select */
+  .curr-select {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    padding: 6px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236E6256'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 24px;
+  }
+
+  /* Split scenarios stack */
+  #split-scenarios { display: flex !important; flex-direction: column !important; }
+  #split-scenarios > div { min-width: 0 !important; }
+
+  /* Calendar horizontal scroll on mobile */
+  .cal-grid-wrap { padding: 1rem .5rem 6rem !important; }
+  .cal-dow-row, .cal-grid {
+    min-width: 560px;
+  }
+  .cal-grid-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .cal-day { min-height: 80px !important; padding: .4rem .35rem !important; }
+  .cal-event { font-size: 9px !important; padding: 1px 4px !important; }
+  .cal-dow { font-size: 9px !important; padding: .35rem .2rem !important; }
+
+  /* Hero clamp tighter on very small screens */
+  .hero-title { font-size: clamp(2.9rem, 12vw, 5.5rem) !important; }
+  .hero { padding: 1.2rem 1.25rem 5rem !important; }
+
+  /* ic-hotel action buttons grow to 44px tap target */
+  .ic-act { width: 36px !important; height: 36px !important; font-size: 16px !important; }
+
+  /* stop-toggle min tap target */
+  .stop-toggle { min-height: 44px !important; }
+
+  /* ic-toggle tap target */
+  .ic-toggle { min-height: 44px !important; padding: .7rem 1rem !important; }
+}
+
+@media (max-width: 640px) {
+  /* Split scenarios stack vertically */
+  #split-scenarios {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Show bottom nav, hide desktop page-toggle */
+  .topnav .page-toggle { display: none; }
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    background: rgba(249,246,241,0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(15,13,11,0.13);
+    border-radius: 20px;
+    padding: 5px;
+    padding-bottom: calc(5px + env(safe-area-inset-bottom, 0px));
+    gap: 2px;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  /* Body padding so content clears the fixed bottom nav */
+  body { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+
+  /* Map page doesn't need padding */
+  #page-map { padding-bottom: 0; }
+}
 </style>
 </head>
 <body>
@@ -2677,12 +2852,11 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 <!-- TOP NAV -->
 <nav class="topnav">
   <span class="topnav-brand">Yan &amp; Yun · Asia 2026</span>
-  <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="ri-sun-line"></i></button>
   <div class="page-toggle">
-    <button class="page-btn active" onclick="switchPage('planning')">Planning</button>
-    <button class="page-btn" onclick="switchPage('expense')">Expense</button>
-    <button class="page-btn" onclick="switchPage('calendar')">Calendar</button>
-    <button class="page-btn" onclick="switchPage('map')">Map</button>
+    <button class="page-btn active" data-page="planning" onclick="switchPage('planning')">Planning</button>
+    <button class="page-btn" data-page="expense" onclick="switchPage('expense')">Expense</button>
+    <button class="page-btn" data-page="calendar" onclick="switchPage('calendar')">Calendar</button>
+    <button class="page-btn" data-page="map" onclick="switchPage('map')">Map</button>
   </div>
 </nav>
 
@@ -2743,14 +2917,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <span class="route-arrow">→</span>
       <span class="route-stop" onmouseenter="heroArt('newyork')">Home</span>
     </nav>
-    <!-- Art style toggle -->
-    <div class="art-style-toggle" id="art-style-toggle">
-      <div class="art-style-label">Art style</div>
-      <div class="art-style-btns">
-        <button class="art-style-btn" onclick="setArtStyle('hammershoi',this)">Hammershøi</button>
-        <button class="art-style-btn active" onclick="setArtStyle('pissarro',this)">Pissarro</button>
-      </div>
-    </div>
   </section>
 
   <!-- QUICK LINKS BAR -->
@@ -3054,7 +3220,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
           <span class="ic-hotel-span">Oct 1 · 1 night</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act" href="confirmations/Gmail%20-%20Travel%20Reservation%20Center%20Trip%20ID%20%23%201019392378.pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
             <a class="ic-act" href="https://maps.google.com/?q=610+10th+Avenue+SW,+Calgary,+AB" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
             <button class="ic-act addr-btn" onclick="copyAddr(this,'610 10th Avenue SW, Calgary, AB T2R 1M3')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
@@ -3066,7 +3231,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
           <span class="ic-hotel-span">Oct 2–3 · 1 night</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act" href="confirmations/Gmail%20-%20Miette%20Mountain%20Cabins%2C%20Highway%2016%20East%2C%20Pocahontas%2C%20AB%2C%20T0E%201E0%20Canada%2C%20Fri%2C%20Oct%202%20-%20Sat%2C%20Oct%203(Itinerary%20%2372075854441977).pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
             <a class="ic-act" href="https://maps.google.com/?q=Miette+Mountain+Cabins,+Highway+16+East,+Pocahontas,+AB" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
             <button class="ic-act addr-btn" onclick="copyAddr(this,'Highway 16 East, Pocahontas, AB T0E 1E0')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
@@ -3078,7 +3242,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
           <span class="ic-hotel-span">Oct 3–5 · 2 nights</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act" href="confirmations/Gmail%20-%20Otter%20Hotel%2C%201000%20600%20Banff%20Ave%2C%20Banff%2C%20AB%2C%20T1L1H8%20Canada%2C%20Sat%2C%20Oct%203%20-%20Mon%2C%20Oct%205(Itinerary%20%2372075854361589).pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
             <a class="ic-act" href="https://maps.google.com/?q=600+Banff+Avenue,+Banff,+AB" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
             <button class="ic-act addr-btn" onclick="copyAddr(this,'600 Banff Avenue, Banff, AB T1L 1H8')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
@@ -3090,7 +3253,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
           <span class="ic-hotel-span">Oct 2–5 · 4 days</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act" href="confirmations/Gmail%20-%20Travel%20Reservation%20Center%20Trip%20ID%20%23%201019389645.pdf" target="_blank" title="Open confirmation PDF"><i class="ri-file-pdf-line"></i></a>
             <a class="ic-act" href="https://maps.google.com/?q=Sixt+Car+Rental+Calgary+International+Airport" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
             <button class="ic-act addr-btn" onclick="copyAddr(this,'Sixt Car Rental, Calgary International Airport (YYC), 2000 Airport Rd NE, Calgary, AB')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
@@ -3180,7 +3342,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-hotel-span">Oct 7–9 · 2 nights</span>
           <span class="ic-badge ib-ok">55K Bonvoy ✓</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act" href="confirmations/Reservation Confirmation _ Marriott Bonvoy.pdf" target="_blank" title="View confirmation PDF"><i class="ri-file-pdf-line"></i></a>
             <a class="ic-act" href="https://maps.google.com/?q=249+Soi+Sukhumvit+31,+Khlong+Tan+Nuea,+Bangkok,+Thailand+10110" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
             <button class="ic-act" onclick="navigator.clipboard.writeText('249 Soi Sukhumvit 31, Khlong Tan Nuea, Bangkok, Thailand 10110')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
@@ -3716,11 +3877,11 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;">
           <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Show in</span>
-          <div style="display:flex;background:var(--nav-toggle-bg);border-radius:3px;padding:2px;gap:1px;">
-            <button class="curr-btn" onclick="setCurr('USD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:var(--ink);color:var(--paper);transition:all .18s;">USD</button>
-            <button class="curr-btn" onclick="setCurr('CAD',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CAD</button>
-            <button class="curr-btn" onclick="setCurr('CNY',this)" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 11px;border:none;border-radius:2px;cursor:pointer;background:transparent;color:var(--muted);transition:all .18s;">CNY</button>
-          </div>
+          <select class="curr-select" id="curr-select" onchange="setCurrSelect(this)" style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:5px 28px 5px 10px;border:1px solid var(--line-strong);border-radius:4px;background:var(--paper);color:var(--ink);cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236E6256'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 8px center;min-height:34px;">
+            <option value="USD" selected>USD</option>
+            <option value="CAD">CAD</option>
+            <option value="CNY">CNY</option>
+          </select>
           <span id="fx-live-status" style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.05em;"></span>
         </div>
       </div>
@@ -4033,7 +4194,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line-strong);">
         <div style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;"><i class="ri-scales-line"></i> Split summary</div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-bottom:.75rem;">
+        <div id="split-scenarios" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-bottom:.75rem;">
 
           <!-- Scenario A -->
           <div style="background:var(--paper);padding:1.5rem 2rem;">
@@ -4314,6 +4475,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   <div class="cal-grid-wrap">
     <div class="cal-month-title">October 2026</div>
 
+    <div class="cal-grid-scroll">
     <div class="cal-dow-row">
       <div class="cal-dow">Mon</div>
       <div class="cal-dow">Tue</div>
@@ -4560,6 +4722,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
     </div>
 
+    </div><!-- /cal-grid-scroll -->
+
     <!-- Legend -->
     <div class="cal-legend">
       <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#dbeafe;"></div>Flight</div>
@@ -4580,7 +4744,10 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   <div class="map-wrap">
     <div id="globe-mount"></div>
     <div id="globe-tooltip"></div>
-    <div class="globe-legend">EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR &nbsp;—&nbsp; Drag to rotate · Scroll to zoom</div>
+    <div class="globe-legend">EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR &nbsp;—&nbsp; Drag to rotate · Pinch to zoom</div>
+    <div id="globe-interact-overlay">
+      <div class="globe-overlay-hint"><i class="ri-cursor-fill"></i>&nbsp; Tap to interact</div>
+    </div>
   </div>
 </div>
 
@@ -4590,33 +4757,34 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   <span>EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR</span>
 </footer>
 
-<script>
-// ── Theme ──────────────────────────────────────────
-function toggleTheme() {
-  const dark = document.documentElement.classList.toggle('dark');
-  document.getElementById('theme-toggle').innerHTML = dark ? '<i class="ri-moon-line"></i>' : '<i class="ri-sun-line"></i>';
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-}
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav" id="bottom-nav">
+  <button class="bn-btn active" data-page="planning" onclick="switchPage('planning')">
+    <i class="ri-map-2-line"></i><span>Planning</span>
+  </button>
+  <button class="bn-btn" data-page="expense" onclick="switchPage('expense')">
+    <i class="ri-coins-line"></i><span>Expense</span>
+  </button>
+  <button class="bn-btn" data-page="calendar" onclick="switchPage('calendar')">
+    <i class="ri-calendar-event-line"></i><span>Calendar</span>
+  </button>
+  <button class="bn-btn" data-page="map" onclick="switchPage('map')">
+    <i class="ri-global-line"></i><span>Map</span>
+  </button>
+</nav>
 
-// Default light — restore preference only if user previously chose dark
-(function() {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.add('dark');
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('theme-toggle');
-      if (btn) btn.innerHTML = '<i class="ri-moon-line"></i>';
-    });
-  }
-})();
+<script>
+// Light theme only — no dark mode toggle
 
 function switchPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.page-btn, .bn-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
-  event.target.classList.add('active');
+  // Sync active state on both top nav and bottom nav
+  document.querySelectorAll(`[data-page="${name}"]`).forEach(b => b.classList.add('active'));
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (name === 'planning') setTimeout(observeLegs, 100);
-  if (name === 'map') setTimeout(initMap, 60); // let layout settle
+  if (name === 'map') setTimeout(initMap, 60);
 }
 
 function scrollToId(id) {
@@ -4699,9 +4867,15 @@ function setCurr(curr, btn) {
     b.style.background = 'transparent';
     b.style.color = 'var(--muted)';
   });
-  btn.style.background = 'var(--ink)';
-  btn.style.color = 'var(--paper)';
+  if (btn) { btn.style.background = 'var(--ink)'; btn.style.color = 'var(--paper)'; }
+  const sel = document.getElementById('curr-select');
+  if (sel) sel.value = curr;
   renderCurr(curr);
+}
+
+function setCurrSelect(sel) {
+  activeCurr = sel.value;
+  renderCurr(sel.value);
 }
 
 function renderCurr(curr) {
@@ -4829,13 +5003,6 @@ const ART = {
 let _artStyle  = 'pissarro';
 let _artCity   = null;
 let _artActive = 'a'; // which layer is currently showing
-
-function setArtStyle(style, btn) {
-  _artStyle = style;
-  btn.closest('.art-style-btns').querySelectorAll('.art-style-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  if (_artCity) _showArt(_artCity); // refresh
-}
 
 function heroArt(city) {
   _artCity = city;
@@ -4979,8 +5146,10 @@ function _buildArcs(group, R) {
     const SEGS = 96;
     const v1 = _ll2v(lat1, lng1, 1).normalize();
     const v2 = _ll2v(lat2, lng2, 1).normalize();
-    const mid = v1.clone().add(v2).normalize();
-    const lift = 1.0 + 0.42 * (1 - Math.abs(v1.dot(v2)));
+    const mid  = v1.clone().add(v2).normalize();
+    // cos(θ/2) = sqrt((1+dot)/2); lift must exceed (2−cos(θ/2)) to clear globe surface
+    const cos2 = Math.sqrt(Math.max(0, (1 + v1.dot(v2)) / 2));
+    const lift  = (2 - cos2) + 0.22;  // safe clearance + visual margin
     const pos = new Float32Array((SEGS+1)*3);
     const aT  = new Float32Array(SEGS+1);
     for (let i = 0; i <= SEGS; i++) {
@@ -5213,19 +5382,63 @@ function _buildGlobe() {
     hideTip(); el.style.cursor='';
   });
 
+  /* Tap-to-interact overlay — dismiss on first touch */
+  const interactOverlay = document.getElementById('globe-interact-overlay');
+  let overlayDismissed = false;
+  function dismissOverlay() {
+    if (!overlayDismissed) {
+      overlayDismissed = true;
+      if (interactOverlay) interactOverlay.classList.add('hidden');
+    }
+  }
+
+  /* Pinch-to-zoom state */
+  let pinchDist0 = 0;
+
   el.addEventListener('touchstart', e => {
-    if(e.touches.length===1){ dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; velX=velY=0; pauseAuto(); }
+    dismissOverlay();
+    if (e.touches.length === 2) {
+      // Start pinch
+      pinchDist0 = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      dragging = false; pauseAuto();
+    } else if (e.touches.length === 1) {
+      dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; velX=velY=0; pauseAuto();
+    }
   }, {passive:true});
-  el.addEventListener('touchend',   ()=>{ dragging=false; resumeAuto(); });
-  el.addEventListener('touchmove',  e => {
-    if(!dragging||e.touches.length!==1) return;
+
+  el.addEventListener('touchend', e => {
+    if (e.touches.length < 2) pinchDist0 = 0;
+    if (e.touches.length === 0) { dragging=false; resumeAuto(); }
+  }, {passive:true});
+
+  el.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      // Pinch zoom
+      const newDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      if (pinchDist0 > 0) {
+        const delta = (pinchDist0 - newDist) * 0.9;
+        camera.position.z = Math.max(145, Math.min(500, camera.position.z + delta));
+      }
+      pinchDist0 = newDist;
+      dragging = false;
+      return;
+    }
+    if (!dragging || e.touches.length !== 1) return;
     const dx=e.touches[0].clientX-lastX, dy=e.touches[0].clientY-lastY;
     lastX=e.touches[0].clientX; lastY=e.touches[0].clientY;
     globe.rotation.y += dx*0.005;
     globe.rotation.x  = Math.max(-1.2, Math.min(1.2, globe.rotation.x + dy*0.005));
   }, {passive:true});
 
+  // Wheel zoom only on non-touch (desktop); disabled on touch devices
   el.addEventListener('wheel', e => {
+    if (window.matchMedia('(pointer: coarse)').matches) return; // skip on touch
     camera.position.z = Math.max(145, Math.min(500, camera.position.z + e.deltaY*0.28));
   }, {passive:true});
 
