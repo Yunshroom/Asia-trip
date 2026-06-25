@@ -2630,6 +2630,26 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   color: #fff;
 }
 .arc-btn:hover:not(.active) { color: rgba(255,255,255,.8); }
+/* Globe tooltip */
+#globe-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+  display: none;
+  background: rgba(6,9,20,0.88);
+  color: rgba(255,255,255,.9);
+  padding: 9px 13px;
+  border-radius: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.65;
+  border: 1px solid rgba(255,255,255,.13);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  max-width: 200px;
+  white-space: nowrap;
+}
+#globe-tooltip b { font-size: 12px; letter-spacing: .04em; }
 /* ─── MAP PAGE END ─── */
 
 /* Route bar pinned inside hero */
@@ -4559,13 +4579,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 <div class="page" id="page-map">
   <div class="map-wrap">
     <div id="globe-mount"></div>
+    <div id="globe-tooltip"></div>
     <div class="globe-legend">EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR &nbsp;—&nbsp; Drag to rotate · Scroll to zoom</div>
-    <div class="arc-controls">
-      <span class="arc-controls-label">Arc style</span>
-      <button class="arc-btn active" data-style="pulse">Pulse</button>
-      <button class="arc-btn" data-style="comet">Comet</button>
-      <button class="arc-btn" data-style="trace">Trace</button>
-    </div>
   </div>
 </div>
 
@@ -4877,20 +4892,10 @@ function heroArtReset() {
 }
 
 // ── Globe / Map — pure Three.js implementation ───────────────
-let _globeInited = false;
-let _globeStyle  = 'pulse';
+let _globeInited  = false;
 let _arcMaterials = [];
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.arc-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      _globeStyle = btn.dataset.style;
-      document.querySelectorAll('.arc-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      _arcMaterials.forEach(m => { m.fragmentShader = _ARC_FRAGS[_globeStyle]; m.needsUpdate = true; });
-    });
-  });
-});
+let _cityMeshes   = [];
+let _arcLines     = [];
 
 function initMap() {
   if (_globeInited) return;
@@ -4898,35 +4903,42 @@ function initMap() {
   requestAnimationFrame(() => requestAnimationFrame(_buildGlobe));
 }
 
-/* ── constants ── */
+/* ── route data with trip info ── */
 const _CITIES = [
-  { name:'New York',  code:'EWR', lat:40.6895, lng:-74.1745  },
-  { name:'Calgary',   code:'YYC', lat:51.1215, lng:-114.0076 },
-  { name:'Bangkok',   code:'BKK', lat:13.6900, lng:100.7501  },
-  { name:'Koh Samui', code:'USM', lat: 9.5479, lng:100.0626  },
-  { name:'Hong Kong', code:'HKG', lat:22.3080, lng:113.9185  },
-  { name:'Shanghai',  code:'PVG', lat:31.1443, lng:121.8083  },
-  { name:'Athens',    code:'ATH', lat:37.9364, lng: 23.9445  },
+  { name:'New York',  code:'EWR', lat:40.6895, lng:-74.1745,  type:'city',
+    arrive:'Oct 30 · 9:15 PM', stay:'Home 🏠' },
+  { name:'Calgary',   code:'YYC', lat:51.1215, lng:-114.0076, type:'city',
+    arrive:'Oct 1 · 5:30 PM',  stay:'4 nights — Banff + Jasper' },
+  { name:'Bangkok',   code:'BKK', lat:13.6900, lng:100.7501,  type:'city',
+    arrive:'Oct 8 · 6:45 AM',  stay:'1 night' },
+  { name:'Koh Samui', code:'USM', lat: 9.5479, lng:100.0626,  type:'nature',
+    arrive:'Oct 9 · noon',      stay:'3 nights · Wedding 🎊' },
+  { name:'Hong Kong', code:'HKG', lat:22.3080, lng:113.9185,  type:'city',
+    arrive:'Oct 12 · 4:20 PM', stay:'2 nights' },
+  { name:'Shanghai',  code:'PVG', lat:31.1443, lng:121.8083,  type:'city',
+    arrive:'Oct 14 · 3:30 PM', stay:'3 nights' },
+  { name:'Athens',    code:'ATH', lat:37.9364, lng: 23.9445,  type:'city',
+    arrive:'Oct 24 · 7:00 PM', stay:'6 nights' },
 ];
 
 const _ROUTE = [
-  [40.6895,-74.1745,  51.1215,-114.0076],
-  [51.1215,-114.0076, 13.6900, 100.7501],
-  [13.6900, 100.7501,  9.5479, 100.0626],
-  [ 9.5479, 100.0626, 22.3080, 113.9185],
-  [22.3080, 113.9185, 31.1443, 121.8083],
-  [31.1443, 121.8083, 37.9364,  23.9445],
-  [37.9364,  23.9445, 40.6895, -74.1745],
+  { lat1:40.6895,lng1:-74.1745,  lat2:51.1215,lng2:-114.0076, from:'EWR',to:'YYC', flight:'5h 5m'  },
+  { lat1:51.1215,lng1:-114.0076, lat2:13.6900,lng2: 100.7501, from:'YYC',to:'BKK', flight:'~18h'   },
+  { lat1:13.6900,lng1: 100.7501, lat2: 9.5479,lng2: 100.0626, from:'BKK',to:'USM', flight:'1h 20m' },
+  { lat1: 9.5479,lng1: 100.0626, lat2:22.3080,lng2: 113.9185, from:'USM',to:'HKG', flight:'4h 25m' },
+  { lat1:22.3080,lng1: 113.9185, lat2:31.1443,lng2: 121.8083, from:'HKG',to:'PVG', flight:'2h 30m' },
+  { lat1:31.1443,lng1: 121.8083, lat2:37.9364,lng2:  23.9445, from:'PVG',to:'ATH', flight:'~11h'   },
+  { lat1:37.9364,lng1:  23.9445, lat2:40.6895,lng2: -74.1745, from:'ATH',to:'EWR', flight:'~11h'   },
 ];
 
 /* ── helpers ── */
 function _ll2v(lat, lng, r) {
-  const phi = (90 - lat) * Math.PI / 180;
-  const the = (lng + 180) * Math.PI / 180;
+  const phi = (90 - lat) * Math.PI / 180;   // polar angle (0 = N pole)
+  const the = (lng + 180) * Math.PI / 180;  // azimuthal (matches SphereGeometry UV)
   return new THREE.Vector3(
-    r * Math.sin(phi) * Math.cos(the),
-    r * Math.cos(phi),
-    r * Math.sin(phi) * Math.sin(the)
+    -r * Math.sin(phi) * Math.cos(the),      // negated to match Three.js UV origin
+     r * Math.cos(phi),
+     r * Math.sin(phi) * Math.sin(the)
   );
 }
 
@@ -4938,71 +4950,79 @@ function _sunVec() {
   return new THREE.Vector3(Math.cos(decl)*Math.sin(-ha), Math.sin(decl), Math.cos(decl)*Math.cos(-ha));
 }
 
-/* ── arc shaders ── */
+/* ── arc shader — trace base + pulse overlay ── */
 const _ARC_VERT = `
-  attribute float aT;
-  varying float vT;
-  void main() { vT = aT; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }
+  attribute float aT; varying float vT;
+  void main() { vT=aT; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }
 `;
-const _ARC_FRAGS = {
-  pulse: `
-    uniform float uTime; varying float vT;
-    void main() {
-      float phase = mod(vT - uTime * 0.38, 1.0);
-      float p = smoothstep(0.0,0.12,phase) * smoothstep(0.45,0.12,phase);
-      gl_FragColor = vec4(1.0, 0.82, 0.25, p * 0.95);
-    }`,
-  comet: `
-    uniform float uTime; varying float vT;
-    void main() {
-      float head = mod(uTime * 0.52, 1.0);
-      float d = vT - head; if(d < 0.0) d += 1.0;
-      float tail = exp(-d * 26.0);
-      gl_FragColor = vec4(0.62, 0.92, 1.0, tail * 0.95);
-    }`,
-  trace: `
-    uniform float uTime; varying float vT;
-    void main() {
-      gl_FragColor = vec4(1.0, 1.0, 1.0, 0.07 + vT * 0.65);
-    }`,
-};
+const _ARC_FRAG = `
+  uniform float uTime; varying float vT;
+  void main() {
+    // Soft white-blue trace (static)
+    float trace = 0.04 + vT * 0.36;
+    vec3  tCol  = vec3(0.78, 0.86, 1.0);
+    // Orange-gold pulse (animated)
+    float phase = mod(vT - uTime * 0.42, 1.0);
+    float pulse = smoothstep(0.0,0.10,phase) * smoothstep(0.36,0.10,phase);
+    vec3  pCol  = vec3(1.0, 0.84, 0.28);
+    vec3  col   = mix(tCol, pCol, pulse * 0.95);
+    float alpha = trace + pulse * 0.88;
+    gl_FragColor = vec4(col, min(alpha, 0.97));
+  }
+`;
 
 function _buildArcs(group, R) {
   _arcMaterials = [];
-  _ROUTE.forEach(([lat1,lng1,lat2,lng2]) => {
+  _arcLines     = [];
+  _ROUTE.forEach(seg => {
+    const {lat1,lng1,lat2,lng2,from,to,flight} = seg;
     const SEGS = 96;
     const v1 = _ll2v(lat1, lng1, 1).normalize();
     const v2 = _ll2v(lat2, lng2, 1).normalize();
     const mid = v1.clone().add(v2).normalize();
     const lift = 1.0 + 0.42 * (1 - Math.abs(v1.dot(v2)));
-
     const pos = new Float32Array((SEGS+1)*3);
     const aT  = new Float32Array(SEGS+1);
     for (let i = 0; i <= SEGS; i++) {
-      const t  = i / SEGS;
-      const p0 = v1.clone().multiplyScalar(R);
-      const p1 = mid.clone().multiplyScalar(lift * R);
-      const p2 = v2.clone().multiplyScalar(R);
-      // Quadratic Bézier
-      const x = (1-t)*(1-t)*p0.x + 2*(1-t)*t*p1.x + t*t*p2.x;
-      const y = (1-t)*(1-t)*p0.y + 2*(1-t)*t*p1.y + t*t*p2.y;
-      const z = (1-t)*(1-t)*p0.z + 2*(1-t)*t*p1.z + t*t*p2.z;
-      pos[i*3]=x; pos[i*3+1]=y; pos[i*3+2]=z;
-      aT[i] = t;
+      const t = i/SEGS;
+      const p0=v1.clone().multiplyScalar(R), p1=mid.clone().multiplyScalar(lift*R), p2=v2.clone().multiplyScalar(R);
+      pos[i*3]  =(1-t)*(1-t)*p0.x+2*(1-t)*t*p1.x+t*t*p2.x;
+      pos[i*3+1]=(1-t)*(1-t)*p0.y+2*(1-t)*t*p1.y+t*t*p2.y;
+      pos[i*3+2]=(1-t)*(1-t)*p0.z+2*(1-t)*t*p1.z+t*t*p2.z;
+      aT[i]=t;
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     geo.setAttribute('aT',       new THREE.BufferAttribute(aT,  1));
     const mat = new THREE.ShaderMaterial({
-      vertexShader:   _ARC_VERT,
-      fragmentShader: _ARC_FRAGS[_globeStyle],
-      uniforms: { uTime: { value: 0 } },
-      transparent: true, depthWrite: false,
-      blending: THREE.AdditiveBlending,
+      vertexShader: _ARC_VERT, fragmentShader: _ARC_FRAG,
+      uniforms: { uTime:{ value:0 } },
+      transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
     });
     _arcMaterials.push(mat);
-    group.add(new THREE.Line(geo, mat));
+    const line = new THREE.Line(geo, mat);
+    line.userData = { label:`${from} → ${to}`, flight };
+    group.add(line);
+    _arcLines.push(line);
   });
+}
+
+/* ── star field ── */
+function _buildStarfield(scene, T) {
+  // Use PointsMaterial with sizeAttenuation:false for crisp pixel-sized stars
+  const mkLayer = (n, r0, dr, color, size, opacity) => {
+    const pos = new Float32Array(n*3);
+    for (let i=0; i<n; i++) {
+      const theta=Math.random()*Math.PI*2, phi=Math.acos(2*Math.random()-1);
+      const r=r0+Math.random()*dr;
+      pos[i*3]=r*Math.sin(phi)*Math.cos(theta); pos[i*3+1]=r*Math.cos(phi); pos[i*3+2]=r*Math.sin(phi)*Math.sin(theta);
+    }
+    const g=new T.BufferGeometry(); g.setAttribute('position',new T.BufferAttribute(pos,3));
+    scene.add(new T.Points(g,new T.PointsMaterial({color,size,sizeAttenuation:false,transparent:true,opacity,depthWrite:false})));
+  };
+  mkLayer(10000, 650, 350, 0xffffff, 1.2, 0.80);  // dense white field
+  mkLayer(  900, 660, 320, 0x99ccff, 2.5, 0.65);  // blue-white bright stars
+  mkLayer(  450, 670, 300, 0xffd080, 2.0, 0.55);  // warm gold accent stars
 }
 
 function _buildGlobe() {
@@ -5013,6 +5033,7 @@ function _buildGlobe() {
     el.innerHTML = '<p style="color:rgba(255,255,255,.4);text-align:center;padding-top:45vh;font-family:monospace;font-size:13px;">Three.js not loaded — check vendor/three.min.js</p>';
     return;
   }
+  _cityMeshes = [];
 
   const R  = 100;
   const W  = el.clientWidth  || window.innerWidth;
@@ -5022,7 +5043,7 @@ function _buildGlobe() {
   const renderer = new T.WebGLRenderer({ antialias:true, alpha:true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.setSize(W, H);
-  renderer.setClearColor(0x060912, 1);
+  renderer.setClearColor(0x040810, 1);
   el.appendChild(renderer.domElement);
 
   /* scene + camera */
@@ -5030,9 +5051,12 @@ function _buildGlobe() {
   const camera = new T.PerspectiveCamera(45, W/H, 1, 2000);
   camera.position.z = 280;
 
-  /* globe group — rotate this for drag/auto-spin */
+  /* deep space starfield */
+  _buildStarfield(scene, T);
+
+  /* globe group */
   const globe = new T.Group();
-  globe.rotation.y = -0.4; // start showing Atlantic + both Americas
+  globe.rotation.y = -0.4;
   scene.add(globe);
 
   /* Earth (Blue Marble) */
@@ -5041,17 +5065,16 @@ function _buildGlobe() {
   globe.add(new T.Mesh(earthGeo, earthMat));
   new T.TextureLoader().load(
     'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
-    tex => { earthMat.map = tex; earthMat.color.set(0xffffff); earthMat.needsUpdate = true; }
+    tex => { earthMat.map=tex; earthMat.color.set(0xffffff); earthMat.needsUpdate=true; }
   );
 
   /* Night-side overlay */
   const nightMat = new T.ShaderMaterial({
-    uniforms: { nightMap:{ value:null }, sunDir:{ value:_sunVec() } },
+    uniforms: { nightMap:{value:null}, sunDir:{value:_sunVec()} },
     vertexShader:`
       varying vec2 vUv; varying vec3 vWN;
       void main(){
-        vUv=uv;
-        vWN=normalize((modelMatrix*vec4(normal,0.0)).xyz);
+        vUv=uv; vWN=normalize((modelMatrix*vec4(normal,0.0)).xyz);
         gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
       }`,
     fragmentShader:`
@@ -5068,53 +5091,87 @@ function _buildGlobe() {
   globe.add(new T.Mesh(new T.SphereGeometry(R+0.4, 64, 64), nightMat));
   new T.TextureLoader().load(
     'https://unpkg.com/three-globe/example/img/earth-night.jpg',
-    tex => { nightMat.uniforms.nightMap.value = tex; nightMat.needsUpdate = true; }
+    tex => { nightMat.uniforms.nightMap.value=tex; nightMat.needsUpdate=true; }
   );
 
   /* Atmosphere glow */
-  const atmosMat = new T.ShaderMaterial({
-    side: T.BackSide, transparent:true, depthWrite:false,
-    blending: T.AdditiveBlending,
-    vertexShader:`
-      varying vec3 vN;
-      void main(){ vN=normalize(normalMatrix*normal); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
-    fragmentShader:`
-      varying vec3 vN;
-      void main(){
-        float i=pow(0.7-dot(vN,vec3(0,0,1)),3.0);
-        gl_FragColor=vec4(0.25,0.45,0.72,i*0.85);
-      }`,
-  });
-  scene.add(new T.Mesh(new T.SphereGeometry(R*1.15, 48, 48), atmosMat));
+  scene.add(new T.Mesh(new T.SphereGeometry(R*1.15, 48, 48), new T.ShaderMaterial({
+    side:T.BackSide, transparent:true, depthWrite:false, blending:T.AdditiveBlending,
+    vertexShader:`varying vec3 vN; void main(){ vN=normalize(normalMatrix*normal); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+    fragmentShader:`varying vec3 vN; void main(){ float i=pow(0.7-dot(vN,vec3(0,0,1)),3.0); gl_FragColor=vec4(0.25,0.45,0.72,i*0.85); }`,
+  })));
 
   /* Lights */
   scene.add(new T.AmbientLight(0xffffff, 0.45));
   const sunLight = new T.DirectionalLight(0xffffff, 0.85);
-  const sv = _sunVec();
-  sunLight.position.set(sv.x*400, sv.y*400, sv.z*400);
+  const sv = _sunVec(); sunLight.position.set(sv.x*400, sv.y*400, sv.z*400);
   scene.add(sunLight);
 
-  /* City dots */
+  /* City markers — diamond octahedron for cities, smooth sphere for nature */
   _CITIES.forEach(c => {
-    const dot = new T.Mesh(
-      new T.SphereGeometry(1.5, 8, 8),
-      new T.MeshBasicMaterial({ color:0xf5c842 })
-    );
-    dot.position.copy(_ll2v(c.lat, c.lng, R+1.0));
+    const isNature = c.type === 'nature';
+    const geo   = isNature ? new T.SphereGeometry(1.1, 12, 12) : new T.OctahedronGeometry(0.95, 0);
+    const color = isNature ? 0x3ecfb4 : 0xf5c842;
+    const dot   = new T.Mesh(geo, new T.MeshBasicMaterial({ color }));
+    dot.position.copy(_ll2v(c.lat, c.lng, R + 1.0));
+    dot.userData = c;
     globe.add(dot);
+    _cityMeshes.push(dot);
   });
 
   /* Flight arcs */
   _buildArcs(globe, R);
 
+  /* ── Tooltip + raycasting ── */
+  const tooltip   = document.getElementById('globe-tooltip');
+  const raycaster = new T.Raycaster();
+  raycaster.params.Line = { threshold: 2.5 };
+  const mouse2D   = new T.Vector2();
+
+  function showTip(px, py, html) {
+    tooltip.innerHTML = html;
+    tooltip.style.display = 'block';
+    const rect = el.getBoundingClientRect();
+    let tx = px - rect.left + 15, ty = py - rect.top - 12;
+    if (tx + 210 > rect.width) tx = px - rect.left - 215;
+    tooltip.style.left = tx + 'px';
+    tooltip.style.top  = ty + 'px';
+  }
+  const hideTip = () => { tooltip.style.display = 'none'; };
+
+  /* ── Rotation speed (lerped) ─────────────────────────────
+     0.0012 = normal auto-spin
+     0.0003 = slow drift when mouse is inside globe
+     0      = paused when hovering city or arc             */
+  let rotSpeed = 0.0012, targetRotSpeed = 0.0012;
+  let mouseInGlobe = false;
+
   /* ── Interaction ── */
   let dragging=false, lastX=0, lastY=0, velX=0, velY=0;
   let autoRotate=true, _autoTimer;
   const pauseAuto  = () => { autoRotate=false; clearTimeout(_autoTimer); };
-  const resumeAuto = () => { _autoTimer=setTimeout(()=>autoRotate=true, 3000); };
+  const resumeAuto = () => {
+    _autoTimer = setTimeout(() => {
+      autoRotate = true;
+      targetRotSpeed = mouseInGlobe ? 0.0003 : 0.0012;
+    }, 3000);
+  };
 
-  el.addEventListener('mousedown', e => { dragging=true; lastX=e.clientX; lastY=e.clientY; velX=velY=0; pauseAuto(); });
+  /* slow on enter, restore on leave */
+  el.addEventListener('mouseenter', () => {
+    mouseInGlobe = true;
+    if (!dragging) targetRotSpeed = 0.0003;
+  });
+  el.addEventListener('mouseleave', () => {
+    mouseInGlobe = false;
+    if (!dragging) targetRotSpeed = 0.0012;
+    hideTip(); el.style.cursor = '';
+  });
+
+  el.addEventListener('mousedown', e => { dragging=true; lastX=e.clientX; lastY=e.clientY; velX=velY=0; pauseAuto(); hideTip(); });
   window.addEventListener('mouseup', () => { dragging=false; resumeAuto(); });
+
+  /* drag on window for smooth capture */
   window.addEventListener('mousemove', e => {
     if (!dragging) return;
     const dx=e.clientX-lastX, dy=e.clientY-lastY;
@@ -5122,6 +5179,38 @@ function _buildGlobe() {
     globe.rotation.y += dx*0.005;
     globe.rotation.x  = Math.max(-1.2, Math.min(1.2, globe.rotation.x + dy*0.005));
     velX=dx*0.005; velY=dy*0.005;
+  });
+
+  /* hover within el — stop rotation over interactive elements */
+  el.addEventListener('mousemove', e => {
+    if (dragging) return;
+    const rect = el.getBoundingClientRect();
+    mouse2D.x = ((e.clientX-rect.left)/rect.width)*2-1;
+    mouse2D.y = -((e.clientY-rect.top)/rect.height)*2+1;
+    raycaster.setFromCamera(mouse2D, camera);
+
+    const cityHits = raycaster.intersectObjects(_cityMeshes);
+    if (cityHits.length > 0) {
+      targetRotSpeed = 0;
+      const d = cityHits[0].object.userData;
+      const icon = d.type==='nature' ? '🌿' : '🏙';
+      showTip(e.clientX, e.clientY,
+        `<span style="opacity:.5;font-size:9px;letter-spacing:.14em">${icon} ${d.type.toUpperCase()}</span><br>
+         <b>${d.name}</b>&nbsp;<span style="opacity:.45">${d.code}</span><br>
+         <span style="color:#f5c842">Arrive</span>&nbsp;${d.arrive}<br>
+         <span style="opacity:.6">${d.stay}</span>`);
+      el.style.cursor='pointer'; return;
+    }
+    const arcHits = raycaster.intersectObjects(_arcLines);
+    if (arcHits.length > 0) {
+      targetRotSpeed = 0;
+      const d = arcHits[0].object.userData;
+      showTip(e.clientX, e.clientY,
+        `<b>${d.label}</b><br><span style="color:#f5c842">✈</span>&nbsp;${d.flight}`);
+      el.style.cursor='crosshair'; return;
+    }
+    targetRotSpeed = 0.0003;
+    hideTip(); el.style.cursor='';
   });
 
   el.addEventListener('touchstart', e => {
@@ -5153,9 +5242,12 @@ function _buildGlobe() {
     if (!document.getElementById('globe-mount')) return;
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
+    // Smoothly ease rotation speed toward target (factor 0.04 ≈ 1s transition)
+    rotSpeed += (targetRotSpeed - rotSpeed) * 0.04;
     if (autoRotate) {
-      globe.rotation.y += 0.0012;
+      globe.rotation.y += rotSpeed;
     } else if (!dragging) {
+      // Momentum decay after drag release
       velX*=0.92; velY*=0.92;
       globe.rotation.y += velX;
       globe.rotation.x  = Math.max(-1.2, Math.min(1.2, globe.rotation.x + velY));
