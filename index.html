@@ -2469,16 +2469,16 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
 /* ── Art hero background ────────────────────────────── */
 .hero-art-layer {
-  position: absolute;
+  position: absolute !important;
   inset: 0;
   background-size: cover;
   background-position: center 30%;
   transition: opacity .8s cubic-bezier(.4,0,.2,1);
   pointer-events: none;
-  z-index: 0;
+  z-index: 0 !important;
 }
 .hero-art-overlay {
-  position: absolute;
+  position: absolute !important;
   inset: 0;
   background: linear-gradient(
     to bottom,
@@ -2488,9 +2488,10 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   );
   transition: opacity .8s ease;
   pointer-events: none;
-  z-index: 1;
+  z-index: 1 !important;
 }
-.hero > * { position: relative; z-index: 2; }
+/* Push all OTHER hero children above art layers */
+.hero-top, .hero-center, .hero-bottom, .art-style-toggle { position: relative; z-index: 2; }
 .hero.art-active { border-bottom-color: transparent; }
 .hero.art-active .hero-label  { color: rgba(255,255,255,.82); text-shadow: 0 1px 8px rgba(0,0,0,.4); }
 .hero.art-active .hero-title  { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
@@ -4734,6 +4735,11 @@ function _showArt(city) {
   if (tog) tog.style.display = 'flex';
   _artActive = _artActive === 'a' ? 'b' : 'a';
 }
+
+// Show default art when planning page is opened
+document.addEventListener('DOMContentLoaded', () => {
+  heroArt('calgary');
+});
 
 function heroArtReset() {
   _artCity = null;
