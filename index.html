@@ -4791,6 +4791,43 @@ function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// ── Horizontal swipe to navigate between pages ───────────────
+(function() {
+  const PAGE_ORDER = ['planning', 'expense', 'calendar', 'map'];
+  let _sx = 0, _sy = 0, _sTarget = null;
+
+  function getCurrentIdx() {
+    const a = document.querySelector('.page.active');
+    return a ? PAGE_ORDER.indexOf(a.id.replace('page-', '')) : 0;
+  }
+
+  document.addEventListener('touchstart', e => {
+    _sx = e.touches[0].clientX;
+    _sy = e.touches[0].clientY;
+    _sTarget = e.target;
+  }, {passive: true});
+
+  document.addEventListener('touchend', e => {
+    if (!_sx) return;
+    const dx = e.changedTouches[0].clientX - _sx;
+    const dy = e.changedTouches[0].clientY - _sy;
+    // Must be mostly horizontal, at least 55px
+    if (Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+    // Don't trigger from inside the globe or horizontal-scroll areas
+    if (_sTarget && (
+      _sTarget.closest('#globe-mount') ||
+      _sTarget.closest('.cal-grid-scroll') ||
+      _sTarget.closest('.route-bar') ||
+      _sTarget.closest('#globe-interact-overlay')
+    )) return;
+
+    const idx = getCurrentIdx();
+    if (dx < 0 && idx < PAGE_ORDER.length - 1) switchPage(PAGE_ORDER[idx + 1]);  // swipe left → next
+    else if (dx > 0 && idx > 0)                switchPage(PAGE_ORDER[idx - 1]);  // swipe right → prev
+    _sx = 0;
+  }, {passive: true});
+})();
+
 function toggleLdgRow(el) {
   el.classList.toggle('open');
 }
@@ -5382,21 +5419,32 @@ function _buildGlobe() {
     hideTip(); el.style.cursor='';
   });
 
-  /* Tap-to-interact overlay — dismiss on first touch */
+  /* Tap-to-interact overlay — dismiss on first touch anywhere on the overlay */
   const interactOverlay = document.getElementById('globe-interact-overlay');
   let overlayDismissed = false;
   function dismissOverlay() {
     if (!overlayDismissed) {
       overlayDismissed = true;
-      if (interactOverlay) interactOverlay.classList.add('hidden');
+      if (interactOverlay) {
+        interactOverlay.classList.add('hidden');
+        // Fully remove from event flow after transition
+        setTimeout(() => { if (interactOverlay) interactOverlay.style.display = 'none'; }, 450);
+      }
     }
+  }
+  // Overlay intercepts the FIRST tap — listen directly on it
+  if (interactOverlay) {
+    interactOverlay.addEventListener('touchstart', e => {
+      e.stopPropagation();
+      dismissOverlay();
+    }, {passive: true});
+    interactOverlay.addEventListener('click', dismissOverlay);
   }
 
   /* Pinch-to-zoom state */
   let pinchDist0 = 0;
 
   el.addEventListener('touchstart', e => {
-    dismissOverlay();
     if (e.touches.length === 2) {
       // Start pinch
       pinchDist0 = Math.hypot(
