@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+<!-- Three.js — local copy, no CDN required -->
+<script src="vendor/three.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -150,17 +152,31 @@ footer { font-family: var(--mono); }
 
 /* ─── TOP NAV ─── */
 .topnav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: var(--nav-bg);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
   height: 52px;
+  border-bottom: 1px solid transparent;
+  transition: background .35s ease, border-color .35s ease;
+}
+.topnav.scrolled {
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--nav-border);
 }
+/* White elements when floating over hero art */
+.topnav:not(.scrolled) .topnav-brand { color: rgba(255,255,255,.75); }
+.topnav:not(.scrolled) .page-btn { color: rgba(255,255,255,.6); }
+.topnav:not(.scrolled) .page-btn.active { background: rgba(255,255,255,.2); color: #fff; }
+.topnav:not(.scrolled) .page-btn:hover { color: #fff; }
+.topnav:not(.scrolled) .theme-btn { color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.25); }
+.topnav:not(.scrolled) .theme-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
 
 .topnav-brand {
   font-size: 15px;
@@ -202,7 +218,7 @@ footer { font-family: var(--mono); }
   min-height: 560px;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding: 3rem;
+  padding: 5rem 3rem 5rem;
   position: relative;
   border-bottom: 1px solid var(--line-strong);
   background: var(--hero-bg);
@@ -2506,9 +2522,9 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 /* Art style toggle (lives inside hero, bottom-right) */
 .art-style-toggle {
   position: absolute;
-  bottom: 2rem;
+  top: 4.5rem;
   right: 3rem;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: .4rem;
@@ -2546,6 +2562,94 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   background: rgba(255,255,255,.22);
   color: #fff;
 }
+/* ─── MAP PAGE ─── */
+.map-wrap {
+  width: 100%;
+  height: 100vh;
+  background: #060912;
+  position: relative;
+  overflow: hidden;
+}
+#globe-mount {
+  width: 100%;
+  height: 100%;
+}
+.globe-legend {
+  position: absolute;
+  top: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.arc-controls {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 5px;
+  padding: 3px;
+  z-index: 10;
+  pointer-events: all;
+}
+.arc-controls-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  padding: 0 10px 0 6px;
+}
+.arc-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255,255,255,.5);
+  transition: all .18s;
+}
+.arc-btn.active {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+}
+.arc-btn:hover:not(.active) { color: rgba(255,255,255,.8); }
+/* ─── MAP PAGE END ─── */
+
+/* Route bar pinned inside hero */
+.hero .route-bar {
+  position: absolute !important;
+  bottom: 2rem;
+  left: 3rem;
+  right: 13rem;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+.hero .route-stop { color: rgba(255,255,255,.5); }
+.hero .route-stop:hover, .hero .route-stop.active { color: #fff; }
+.hero .route-arrow { color: rgba(255,255,255,.2); }
 </style>
 </head>
 <body>
@@ -2558,6 +2662,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <button class="page-btn active" onclick="switchPage('planning')">Planning</button>
     <button class="page-btn" onclick="switchPage('expense')">Expense</button>
     <button class="page-btn" onclick="switchPage('calendar')">Calendar</button>
+    <button class="page-btn" onclick="switchPage('map')">Map</button>
   </div>
 </nav>
 
@@ -2574,7 +2679,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <div class="hero-art-overlay" id="hero-art-overlay" style="opacity:0;"></div>
     <div class="hero-top">
       <span>Oct 1 — Oct 30, 2026</span>
-      <span>Planning mode</span>
     </div>
     <div class="hero-center">
       <p class="hero-label">A journey through Asia</p>
@@ -2603,32 +2707,31 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <div class="hero-bottom">
       <span>Scroll <span class="scroll-line"></span></span>
     </div>
+    <!-- Route bar inside hero -->
+    <nav class="route-bar">
+      <span class="route-stop active" onclick="scrollToId('p-leg1')" onmouseenter="heroArt('calgary')">Calgary / Banff</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop" onclick="scrollToId('p-leg2')" onmouseenter="heroArt('bangkok')">Bangkok</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop" onclick="scrollToId('p-leg3')" onmouseenter="heroArt('samui')">Koh Samui</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop" onclick="scrollToId('p-leg4')" onmouseenter="heroArt('hongkong')">Hong Kong</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop" onclick="scrollToId('p-leg5')" onmouseenter="heroArt('shanghai')">Shanghai</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop" onclick="scrollToId('p-leg6')" onmouseenter="heroArt('athens')">Athens</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop" onmouseenter="heroArt('newyork')">Home</span>
+    </nav>
     <!-- Art style toggle -->
     <div class="art-style-toggle" id="art-style-toggle">
       <div class="art-style-label">Art style</div>
       <div class="art-style-btns">
-        <button class="art-style-btn active" onclick="setArtStyle('hammershoi',this)">Hammershøi</button>
-        <button class="art-style-btn" onclick="setArtStyle('pissarro',this)">Pissarro</button>
+        <button class="art-style-btn" onclick="setArtStyle('hammershoi',this)">Hammershøi</button>
+        <button class="art-style-btn active" onclick="setArtStyle('pissarro',this)">Pissarro</button>
       </div>
     </div>
   </section>
-
-  <!-- ROUTE BAR -->
-  <nav class="route-bar">
-    <span class="route-stop active" onclick="scrollToId('p-leg1')">Calgary / Banff</span>
-    <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg2')">Bangkok</span>
-    <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg3')">Koh Samui</span>
-    <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg4')">Hong Kong</span>
-    <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg5')">Shanghai</span>
-    <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg6')">Athens</span>
-    <span class="route-arrow">→</span>
-    <span class="route-stop" onclick="scrollToId('p-leg6')">Home</span>
-  </nav>
 
   <!-- QUICK LINKS BAR -->
   <div class="quick-links" style="background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.65rem 3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
@@ -2656,35 +2759,35 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
     </div>
 
-    <div class="tracker-grid tr-concise" onmouseleave="heroArtReset()">
+    <div class="tracker-grid tr-concise">
 
       <!-- ── CITY HEADERS (row 1) ── -->
-      <div class="tr-city" onclick="scrollToId('p-leg1')" onmouseenter="heroArt('calgary')">
+      <div class="tr-city" onclick="scrollToId('p-leg1')">
         <div class="tracker-city">Calgary<br><span style="font-size:1.05rem">Jasper · Banff</span></div>
         <div class="tracker-dates">Oct 1–5 · 4 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg2')" onmouseenter="heroArt('bangkok')">
+      <div class="tr-city" onclick="scrollToId('p-leg2')">
         <div class="tracker-city">Bangkok</div>
         <div class="tracker-dates">Oct 7–9 · 2 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg3')" onmouseenter="heroArt('samui')">
+      <div class="tr-city" onclick="scrollToId('p-leg3')">
         <div class="tracker-city">Koh Samui</div>
         <div class="tracker-dates">Oct 9–12 · 3 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg4')" onmouseenter="heroArt('hongkong')">
+      <div class="tr-city" onclick="scrollToId('p-leg4')">
         <div class="tracker-city">Hong Kong</div>
         <div class="tracker-dates">Oct 12–14 · 2 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg5')" onmouseenter="heroArt('shanghai')">
+      <div class="tr-city" onclick="scrollToId('p-leg5')">
         <div class="tracker-city">Shanghai</div>
         <div class="tracker-dates">Oct 14–23 · family</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
-      <div class="tr-city" onclick="scrollToId('p-leg6')" onmouseenter="heroArt('athens')">
+      <div class="tr-city" onclick="scrollToId('p-leg6')">
         <div class="tracker-city">Athens<br><span style="font-size:1.05rem">+ Home</span></div>
         <div class="tracker-dates">Oct 23–30 · 7 nights</div>
         <span class="tr-nav-hint">View plan →</span>
@@ -4450,6 +4553,22 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════
+     PAGE: MAP
+════════════════════════════════════════════════ -->
+<div class="page" id="page-map">
+  <div class="map-wrap">
+    <div id="globe-mount"></div>
+    <div class="globe-legend">EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR &nbsp;—&nbsp; Drag to rotate · Scroll to zoom</div>
+    <div class="arc-controls">
+      <span class="arc-controls-label">Arc style</span>
+      <button class="arc-btn active" data-style="pulse">Pulse</button>
+      <button class="arc-btn" data-style="comet">Comet</button>
+      <button class="arc-btn" data-style="trace">Trace</button>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <span>Yan Liu &amp; Yun Yang · Oct 2026</span>
@@ -4481,8 +4600,8 @@ function switchPage(name) {
   document.getElementById('page-' + name).classList.add('active');
   event.target.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Re-trigger scroll animations for the new page
   if (name === 'planning') setTimeout(observeLegs, 100);
+  if (name === 'map') setTimeout(initMap, 60); // let layout settle
 }
 
 function scrollToId(id) {
@@ -4688,10 +4807,11 @@ const ART = {
     hongkong: 'images/hongkong_p.png',
     shanghai: 'images/shanghai_p.png',
     athens:   'images/athens_p.png',
+    newyork:  'images/newyork_p.png',
   }
 };
 
-let _artStyle  = 'hammershoi';
+let _artStyle  = 'pissarro';
 let _artCity   = null;
 let _artActive = 'a'; // which layer is currently showing
 
@@ -4714,7 +4834,6 @@ function _showArt(city) {
   const la  = document.getElementById('hero-layer-a');
   const lb  = document.getElementById('hero-layer-b');
   const ovl = document.getElementById('hero-art-overlay');
-  const tog = document.getElementById('art-style-toggle');
   const hero = document.querySelector('.hero');
 
   const incoming = _artActive === 'a' ? lb : la;
@@ -4726,7 +4845,6 @@ function _showArt(city) {
   ovl.style.opacity = '1';
 
   hero.classList.add('art-active');
-  if (tog) tog.style.display = 'flex';
   _artActive = _artActive === 'a' ? 'b' : 'a';
 }
 
@@ -4735,19 +4853,316 @@ document.addEventListener('DOMContentLoaded', () => {
   heroArt('calgary');
 });
 
+// Transparent → solid nav on scroll
+(function() {
+  const nav = document.querySelector('.topnav');
+  function updateNav() {
+    nav.classList.toggle('scrolled', window.scrollY > window.innerHeight * 0.85);
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+})();
+
 function heroArtReset() {
   _artCity = null;
   const la  = document.getElementById('hero-layer-a');
   const lb  = document.getElementById('hero-layer-b');
   const ovl = document.getElementById('hero-art-overlay');
-  const tog = document.getElementById('art-style-toggle');
   const hero = document.querySelector('.hero');
 
   la.style.opacity  = '0';
   lb.style.opacity  = '0';
   ovl.style.opacity = '0';
   hero.classList.remove('art-active');
-  if (tog) tog.style.display = 'none';
+}
+
+// ── Globe / Map — pure Three.js implementation ───────────────
+let _globeInited = false;
+let _globeStyle  = 'pulse';
+let _arcMaterials = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.arc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      _globeStyle = btn.dataset.style;
+      document.querySelectorAll('.arc-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      _arcMaterials.forEach(m => { m.fragmentShader = _ARC_FRAGS[_globeStyle]; m.needsUpdate = true; });
+    });
+  });
+});
+
+function initMap() {
+  if (_globeInited) return;
+  _globeInited = true;
+  requestAnimationFrame(() => requestAnimationFrame(_buildGlobe));
+}
+
+/* ── constants ── */
+const _CITIES = [
+  { name:'New York',  code:'EWR', lat:40.6895, lng:-74.1745  },
+  { name:'Calgary',   code:'YYC', lat:51.1215, lng:-114.0076 },
+  { name:'Bangkok',   code:'BKK', lat:13.6900, lng:100.7501  },
+  { name:'Koh Samui', code:'USM', lat: 9.5479, lng:100.0626  },
+  { name:'Hong Kong', code:'HKG', lat:22.3080, lng:113.9185  },
+  { name:'Shanghai',  code:'PVG', lat:31.1443, lng:121.8083  },
+  { name:'Athens',    code:'ATH', lat:37.9364, lng: 23.9445  },
+];
+
+const _ROUTE = [
+  [40.6895,-74.1745,  51.1215,-114.0076],
+  [51.1215,-114.0076, 13.6900, 100.7501],
+  [13.6900, 100.7501,  9.5479, 100.0626],
+  [ 9.5479, 100.0626, 22.3080, 113.9185],
+  [22.3080, 113.9185, 31.1443, 121.8083],
+  [31.1443, 121.8083, 37.9364,  23.9445],
+  [37.9364,  23.9445, 40.6895, -74.1745],
+];
+
+/* ── helpers ── */
+function _ll2v(lat, lng, r) {
+  const phi = (90 - lat) * Math.PI / 180;
+  const the = (lng + 180) * Math.PI / 180;
+  return new THREE.Vector3(
+    r * Math.sin(phi) * Math.cos(the),
+    r * Math.cos(phi),
+    r * Math.sin(phi) * Math.sin(the)
+  );
+}
+
+function _sunVec() {
+  const now  = new Date();
+  const day  = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+  const decl = 23.45 * Math.sin(2 * Math.PI * (day - 81) / 365) * Math.PI / 180;
+  const ha   = ((now.getUTCHours() + now.getUTCMinutes() / 60) / 24 - 0.5) * 2 * Math.PI;
+  return new THREE.Vector3(Math.cos(decl)*Math.sin(-ha), Math.sin(decl), Math.cos(decl)*Math.cos(-ha));
+}
+
+/* ── arc shaders ── */
+const _ARC_VERT = `
+  attribute float aT;
+  varying float vT;
+  void main() { vT = aT; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }
+`;
+const _ARC_FRAGS = {
+  pulse: `
+    uniform float uTime; varying float vT;
+    void main() {
+      float phase = mod(vT - uTime * 0.38, 1.0);
+      float p = smoothstep(0.0,0.12,phase) * smoothstep(0.45,0.12,phase);
+      gl_FragColor = vec4(1.0, 0.82, 0.25, p * 0.95);
+    }`,
+  comet: `
+    uniform float uTime; varying float vT;
+    void main() {
+      float head = mod(uTime * 0.52, 1.0);
+      float d = vT - head; if(d < 0.0) d += 1.0;
+      float tail = exp(-d * 26.0);
+      gl_FragColor = vec4(0.62, 0.92, 1.0, tail * 0.95);
+    }`,
+  trace: `
+    uniform float uTime; varying float vT;
+    void main() {
+      gl_FragColor = vec4(1.0, 1.0, 1.0, 0.07 + vT * 0.65);
+    }`,
+};
+
+function _buildArcs(group, R) {
+  _arcMaterials = [];
+  _ROUTE.forEach(([lat1,lng1,lat2,lng2]) => {
+    const SEGS = 96;
+    const v1 = _ll2v(lat1, lng1, 1).normalize();
+    const v2 = _ll2v(lat2, lng2, 1).normalize();
+    const mid = v1.clone().add(v2).normalize();
+    const lift = 1.0 + 0.42 * (1 - Math.abs(v1.dot(v2)));
+
+    const pos = new Float32Array((SEGS+1)*3);
+    const aT  = new Float32Array(SEGS+1);
+    for (let i = 0; i <= SEGS; i++) {
+      const t  = i / SEGS;
+      const p0 = v1.clone().multiplyScalar(R);
+      const p1 = mid.clone().multiplyScalar(lift * R);
+      const p2 = v2.clone().multiplyScalar(R);
+      // Quadratic Bézier
+      const x = (1-t)*(1-t)*p0.x + 2*(1-t)*t*p1.x + t*t*p2.x;
+      const y = (1-t)*(1-t)*p0.y + 2*(1-t)*t*p1.y + t*t*p2.y;
+      const z = (1-t)*(1-t)*p0.z + 2*(1-t)*t*p1.z + t*t*p2.z;
+      pos[i*3]=x; pos[i*3+1]=y; pos[i*3+2]=z;
+      aT[i] = t;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    geo.setAttribute('aT',       new THREE.BufferAttribute(aT,  1));
+    const mat = new THREE.ShaderMaterial({
+      vertexShader:   _ARC_VERT,
+      fragmentShader: _ARC_FRAGS[_globeStyle],
+      uniforms: { uTime: { value: 0 } },
+      transparent: true, depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    _arcMaterials.push(mat);
+    group.add(new THREE.Line(geo, mat));
+  });
+}
+
+function _buildGlobe() {
+  const el = document.getElementById('globe-mount');
+  if (!el) return;
+  const T = window.THREE;
+  if (!T) {
+    el.innerHTML = '<p style="color:rgba(255,255,255,.4);text-align:center;padding-top:45vh;font-family:monospace;font-size:13px;">Three.js not loaded — check vendor/three.min.js</p>';
+    return;
+  }
+
+  const R  = 100;
+  const W  = el.clientWidth  || window.innerWidth;
+  const H  = el.clientHeight || (window.innerHeight - 64);
+
+  /* renderer */
+  const renderer = new T.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(W, H);
+  renderer.setClearColor(0x060912, 1);
+  el.appendChild(renderer.domElement);
+
+  /* scene + camera */
+  const scene  = new T.Scene();
+  const camera = new T.PerspectiveCamera(45, W/H, 1, 2000);
+  camera.position.z = 280;
+
+  /* globe group — rotate this for drag/auto-spin */
+  const globe = new T.Group();
+  globe.rotation.y = -0.4; // start showing Atlantic + both Americas
+  scene.add(globe);
+
+  /* Earth (Blue Marble) */
+  const earthGeo = new T.SphereGeometry(R, 64, 64);
+  const earthMat = new T.MeshPhongMaterial({ color:0x2255aa, specular:0x111111, shininess:10 });
+  globe.add(new T.Mesh(earthGeo, earthMat));
+  new T.TextureLoader().load(
+    'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
+    tex => { earthMat.map = tex; earthMat.color.set(0xffffff); earthMat.needsUpdate = true; }
+  );
+
+  /* Night-side overlay */
+  const nightMat = new T.ShaderMaterial({
+    uniforms: { nightMap:{ value:null }, sunDir:{ value:_sunVec() } },
+    vertexShader:`
+      varying vec2 vUv; varying vec3 vWN;
+      void main(){
+        vUv=uv;
+        vWN=normalize((modelMatrix*vec4(normal,0.0)).xyz);
+        gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
+      }`,
+    fragmentShader:`
+      uniform sampler2D nightMap; uniform vec3 sunDir;
+      varying vec2 vUv; varying vec3 vWN;
+      void main(){
+        float d=dot(vWN,normalize(sunDir));
+        float a=smoothstep(0.07,-0.08,d);
+        vec3 c=texture2D(nightMap,vUv).rgb;
+        gl_FragColor=vec4(c*1.4, a*0.88);
+      }`,
+    transparent:true, depthWrite:false,
+  });
+  globe.add(new T.Mesh(new T.SphereGeometry(R+0.4, 64, 64), nightMat));
+  new T.TextureLoader().load(
+    'https://unpkg.com/three-globe/example/img/earth-night.jpg',
+    tex => { nightMat.uniforms.nightMap.value = tex; nightMat.needsUpdate = true; }
+  );
+
+  /* Atmosphere glow */
+  const atmosMat = new T.ShaderMaterial({
+    side: T.BackSide, transparent:true, depthWrite:false,
+    blending: T.AdditiveBlending,
+    vertexShader:`
+      varying vec3 vN;
+      void main(){ vN=normalize(normalMatrix*normal); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+    fragmentShader:`
+      varying vec3 vN;
+      void main(){
+        float i=pow(0.7-dot(vN,vec3(0,0,1)),3.0);
+        gl_FragColor=vec4(0.25,0.45,0.72,i*0.85);
+      }`,
+  });
+  scene.add(new T.Mesh(new T.SphereGeometry(R*1.15, 48, 48), atmosMat));
+
+  /* Lights */
+  scene.add(new T.AmbientLight(0xffffff, 0.45));
+  const sunLight = new T.DirectionalLight(0xffffff, 0.85);
+  const sv = _sunVec();
+  sunLight.position.set(sv.x*400, sv.y*400, sv.z*400);
+  scene.add(sunLight);
+
+  /* City dots */
+  _CITIES.forEach(c => {
+    const dot = new T.Mesh(
+      new T.SphereGeometry(1.5, 8, 8),
+      new T.MeshBasicMaterial({ color:0xf5c842 })
+    );
+    dot.position.copy(_ll2v(c.lat, c.lng, R+1.0));
+    globe.add(dot);
+  });
+
+  /* Flight arcs */
+  _buildArcs(globe, R);
+
+  /* ── Interaction ── */
+  let dragging=false, lastX=0, lastY=0, velX=0, velY=0;
+  let autoRotate=true, _autoTimer;
+  const pauseAuto  = () => { autoRotate=false; clearTimeout(_autoTimer); };
+  const resumeAuto = () => { _autoTimer=setTimeout(()=>autoRotate=true, 3000); };
+
+  el.addEventListener('mousedown', e => { dragging=true; lastX=e.clientX; lastY=e.clientY; velX=velY=0; pauseAuto(); });
+  window.addEventListener('mouseup', () => { dragging=false; resumeAuto(); });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const dx=e.clientX-lastX, dy=e.clientY-lastY;
+    lastX=e.clientX; lastY=e.clientY;
+    globe.rotation.y += dx*0.005;
+    globe.rotation.x  = Math.max(-1.2, Math.min(1.2, globe.rotation.x + dy*0.005));
+    velX=dx*0.005; velY=dy*0.005;
+  });
+
+  el.addEventListener('touchstart', e => {
+    if(e.touches.length===1){ dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; velX=velY=0; pauseAuto(); }
+  }, {passive:true});
+  el.addEventListener('touchend',   ()=>{ dragging=false; resumeAuto(); });
+  el.addEventListener('touchmove',  e => {
+    if(!dragging||e.touches.length!==1) return;
+    const dx=e.touches[0].clientX-lastX, dy=e.touches[0].clientY-lastY;
+    lastX=e.touches[0].clientX; lastY=e.touches[0].clientY;
+    globe.rotation.y += dx*0.005;
+    globe.rotation.x  = Math.max(-1.2, Math.min(1.2, globe.rotation.x + dy*0.005));
+  }, {passive:true});
+
+  el.addEventListener('wheel', e => {
+    camera.position.z = Math.max(145, Math.min(500, camera.position.z + e.deltaY*0.28));
+  }, {passive:true});
+
+  /* ── Resize ── */
+  new ResizeObserver(()=>{
+    const w=el.clientWidth, h=el.clientHeight;
+    camera.aspect=w/h; camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }).observe(el);
+
+  /* ── Render loop ── */
+  const clock = new T.Clock();
+  (function animate() {
+    if (!document.getElementById('globe-mount')) return;
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    if (autoRotate) {
+      globe.rotation.y += 0.0012;
+    } else if (!dragging) {
+      velX*=0.92; velY*=0.92;
+      globe.rotation.y += velX;
+      globe.rotation.x  = Math.max(-1.2, Math.min(1.2, globe.rotation.x + velY));
+    }
+    _arcMaterials.forEach(m => m.uniforms.uTime.value = t);
+    renderer.render(scene, camera);
+  })();
 }
 
 </script>
