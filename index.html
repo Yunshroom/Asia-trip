@@ -2178,6 +2178,11 @@ html.dark .ldg-cat-activities{ background: rgba(80,200,110,.07);  color: #50c870
   letter-spacing: .03em;
 }
 .ldg-badges { display: flex; gap: .3rem; flex-wrap: wrap; margin-top: .3rem; }
+.ldg-cancel { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; margin-top: .28rem; display: flex; align-items: center; gap: .3rem; }
+.ldg-cancel-ok  { color: var(--green); }
+.ldg-cancel-no  { color: #c03825; }
+html.dark .ldg-cancel-no { color: #f08070; }
+.ldg-cancel-pts { color: var(--muted); }
 .ldg-badge {
   font-family: var(--mono);
   font-size: 9px;
@@ -4089,6 +4094,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">EWR → YYC <span style="font-size:11px;font-weight:400;color:var(--muted)">Yun · AC585</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Air Canada · Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</div>
+              <div class="ldg-cancel ldg-cancel-pts"><i class="ri-loop-left-line"></i> Points award · cancel returns pts (Aeroplan fee applies)</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ Aeroplan award</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4110,6 +4116,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">EWR → YYC <span style="font-size:11px;font-weight:400;color:var(--muted)">Yan · AC585</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Air Canada · Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</div>
+              <div class="ldg-cancel ldg-cancel-pts"><i class="ri-loop-left-line"></i> Points + surcharge · cancel returns pts &amp; refunds surcharge (fee applies)</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ Aeroplan + surcharge</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yan</div></div>
@@ -4131,6 +4138,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">YYC → BKK <span style="font-size:11px;font-weight:400;color:var(--muted)">Both · KXOXGQ</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">WestJet/JAL · Oct 6 dep 14:50 → Oct 7 arr 23:00 · 19h 10m · 1 stop NRT</div>
+              <div class="ldg-cancel ldg-cancel-no"><i class="ri-error-warning-line"></i> Non-refundable · no changes allowed</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-no">⚠ Non-refundable</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4153,6 +4161,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">USM → HKG <span style="font-size:11px;font-weight:400;color:var(--muted)">Both · FVZ2OD</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Bangkok Airways PG807 · Oct 12 dep 11:55 → arr 16:20 HKG T2 · 1h 25m</div>
+              <div class="ldg-cancel ldg-cancel-no"><i class="ri-error-warning-line"></i> Non-endorsable · no refund</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-no">⚠ Non-refundable</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4195,6 +4204,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">Sixt · Mazda CX-5 · YYC <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Oct 2 07:00 pickup → Oct 5 drop-off YYC Airport · 4 days</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Free cancel before Oct 2, 07:00 pickup</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel before pickup</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4230,6 +4240,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">Residence Inn Calgary <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Check-in Oct 1 → Check-out Oct 2 · 1 night · $211.16/nt</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Free cancel until Oct 1 midnight · After: 1 night charged</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel 24h before</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4251,6 +4262,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">Miette Mountain Cabins · Jasper <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Check-in Oct 2 16:00 → Check-out Oct 3 11:00 · 1 night · Cedar Lodge · CA $363.60/nt</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Free cancel until Sep 29, 18:00 · After: 100% charged</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel Sep 29 18:00</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4273,6 +4285,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">Otter Hotel · Banff <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Check-in Oct 3 16:00 → Check-out Oct 5 11:00 · 2 nights · Superior Room King · CA $656/nt avg</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Free cancel until Sep 30, 18:00 · After: 1st night + taxes</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Free cancel Sep 30 18:00</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4295,6 +4308,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">Public House Bangkok · Design Hotels <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Check-in Oct 7 → Check-out Oct 9 · 2 nights · 27,500 pts/nt · Sukhumvit Soi 31</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Free cancel until Oct 4, 23:59 · Points returned in full</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ 55,000 Bonvoy pts</span><span class="ldg-badge ldg-badge-ok">✓ Free cancel Oct 4</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4316,6 +4330,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">The Shanghai EDITION <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Check-in Oct 14 → Check-out Oct 17 · 3 nights · Premium City View, 1 King · Nanjing Rd East</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Free cancel until Oct 13 midnight · After: ¥2,482 fee</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ 87,196 Chase UR pts</span><span class="ldg-badge ldg-badge-ok">✓ Free cancel Oct 13</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4351,6 +4366,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-row-main">
               <div class="ldg-route">Moraine Lake Shuttle <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
               <div class="ldg-route-sub">Parks Canada · Oct 4 · 07:00 AM slot · Lake Louise → Moraine Lake</div>
+              <div class="ldg-cancel ldg-cancel-no"><i class="ri-error-warning-line"></i> Non-refundable · Parks Canada policy</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-no">⚠ Non-refundable</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
@@ -4464,50 +4480,124 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
 <!-- POINTS -->
     <section class="points-section" id="p-points">
-      <h2 class="section-title">Points &amp; Miles Planner</h2>
+      <h2 class="section-title">Points &amp; Miles</h2>
 
-      <div style="font-size: 12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line-strong);">Current Balances — from tracker</div>
-      <div class="points-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:2.5rem;">
+      <!-- Summary stats -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-strong);overflow:hidden;border-radius:4px;margin-bottom:2.5rem;">
+        <div style="padding:1.2rem 1.8rem;background:var(--paper);border-right:1px solid var(--line-strong);">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem;">Total Redeemed</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--ink);line-height:1;">194,786</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:.3rem;">pts across 3 programs</div>
+        </div>
+        <div style="padding:1.2rem 1.8rem;background:var(--paper);border-right:1px solid var(--line-strong);">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem;">Est. Value Extracted</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--green);line-height:1;">~$2,397</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:.3rem;">in confirmed travel</div>
+        </div>
+        <div style="padding:1.2rem 1.8rem;background:var(--paper);">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem;">Avg CPP</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--gold);line-height:1;">1.23¢</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:.3rem;">cents per point, weighted</div>
+        </div>
+      </div>
+
+      <!-- Redemptions table -->
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--line-strong);display:flex;gap:.5rem;align-items:center;"><i class="ri-exchange-dollar-line"></i> Points Redeemed</div>
+
+      <div style="border:1px solid var(--line-strong);border-radius:4px;overflow:hidden;margin-bottom:2.5rem;">
+        <!-- Column headers -->
+        <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.5rem 1rem;gap:0;">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Redemption</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Program</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">Pts Used</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">CPP</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">Value</div>
+        </div>
+
+        <!-- Row 1: Yun Aeroplan EWR→YYC -->
+        <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;padding:.75rem 1rem;border-bottom:1px solid var(--line);align-items:center;gap:0;background:var(--paper);">
+          <div>
+            <div style="font-size:14px;color:var(--ink);font-weight:500;">EWR → YYC <span style="font-size:11px;font-weight:400;color:var(--muted);">Yun · Oct 1</span></div>
+            <div style="font-size:11px;color:var(--muted);">Economy · Air Canada AC585 · nonstop</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Aeroplan<br><span style="font-size:10px;">••••1431</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">34,190</div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~1.08¢</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">~$370</div>
+        </div>
+
+        <!-- Row 2: Yan Aeroplan EWR→YYC -->
+        <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;padding:.75rem 1rem;border-bottom:1px solid var(--line);align-items:center;gap:0;background:var(--paper);">
+          <div>
+            <div style="font-size:14px;color:var(--ink);font-weight:500;">EWR → YYC <span style="font-size:11px;font-weight:400;color:var(--muted);">Yan · Oct 1</span></div>
+            <div style="font-size:11px;color:var(--muted);">Pts portion only · + $197.63 cash surcharge paid separately</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Aeroplan<br><span style="font-size:10px;">••••1922</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">18,400</div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~0.99¢</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">~$182</div>
+        </div>
+
+        <!-- Row 3: Yun Bonvoy Bangkok -->
+        <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;padding:.75rem 1rem;border-bottom:1px solid var(--line);align-items:center;gap:0;background:var(--paper);">
+          <div>
+            <div style="font-size:14px;color:var(--ink);font-weight:500;">Public House Bangkok <span style="font-size:11px;font-weight:400;color:var(--muted);">Yun · Oct 7–9</span></div>
+            <div style="font-size:11px;color:var(--muted);">2 nights · Design Hotels · Sukhumvit Soi 31</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Marriott Bonvoy<br><span style="font-size:10px;">Yun's acct</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">55,000</div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~0.75¢</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">~$406</div>
+        </div>
+
+        <!-- Row 4: Yun Chase UR Shanghai EDITION -->
+        <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;padding:.75rem 1rem;align-items:center;gap:0;background:var(--paper);">
+          <div>
+            <div style="font-size:14px;color:var(--ink);font-weight:500;">Shanghai EDITION <span style="font-size:11px;font-weight:400;color:var(--muted);">Yun · Oct 14–17</span></div>
+            <div style="font-size:11px;color:var(--muted);">3 nights · 1.65× Points Boost · Premium City View</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Chase UR<br><span style="font-size:10px;">••••7559</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">87,196</div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;font-weight:600;">1.65¢ ✦</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">$1,439</div>
+        </div>
+
+        <!-- Total row -->
+        <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;padding:.65rem 1rem;background:var(--surface);border-top:2px solid var(--line-strong);align-items:center;gap:0;">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Total · 4 redemptions</div>
+          <div></div>
+          <div style="font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink);text-align:right;">194,786</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--warm);text-align:right;font-weight:600;">1.23¢ avg</div>
+          <div style="font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green);text-align:right;">~$2,397</div>
+        </div>
+      </div>
+
+      <!-- Remaining balances -->
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--line-strong);display:flex;gap:.5rem;align-items:center;"><i class="ri-coins-line"></i> Remaining Balances</div>
+
+      <div class="points-grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:2rem;">
         <div class="points-card">
           <div class="points-card-header">Yun Yang</div>
-          <div class="points-item"><span class="points-route">Chase Ultimate Rewards</span><span class="points-val" style="color:var(--green)">95,982 ✦</span></div>
-          <div class="points-item"><span class="points-route">Chase Sapphire Reserve</span><span class="points-val" style="color:var(--green)">Earning 3× ↑</span></div>
+          <div class="points-item"><span class="points-route">Chase Ultimate Rewards</span><span class="points-val" style="color:var(--green);">95,982 <span style="font-size:10px;color:var(--muted);">← 87K used for EDITION</span></span></div>
+          <div class="points-item"><span class="points-route">Marriott Bonvoy</span><span class="points-val">57,447 <span style="font-size:10px;color:var(--muted);">← 55K used for BKK</span></span></div>
           <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">33,000</span></div>
-          <div class="points-item"><span class="points-route">Marriott Bonvoy</span><span class="points-val">57,447 <span style="color:var(--muted);font-size:11px">← 55K used BKK</span></span></div>
           <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">16,393</span></div>
-          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val">7,000</span></div>
-          <div class="points-item"><span class="points-route">Air Canada Aeroplan</span><span class="points-val" style="color:var(--muted)">5,810 ← used</span></div>
-          <div class="points-item"><span class="points-route">Juneyao Air</span><span class="points-val" style="color:var(--muted);font-size:12px">ID 3295731891</span></div>
+          <div class="points-item"><span class="points-route">Amex MR</span><span class="points-val">7,000</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route" style="color:var(--ink);">95K Chase UR</span><span class="points-val" style="color:var(--muted);">ATH→BCN + BCN→EWR + hotel flex</span></div>
+          <div class="points-item"><span class="points-route" style="color:var(--ink);">57K Bonvoy</span><span class="points-val" style="color:var(--muted);">→ Murray HKG ~2 nts free</span></div>
         </div>
         <div class="points-card">
           <div class="points-card-header">Yan Liu</div>
-          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val" style="color:var(--green)">180,000</span></div>
+          <div class="points-item"><span class="points-route">Amex Membership Rewards</span><span class="points-val" style="color:var(--green);">180,000</span></div>
           <div class="points-item"><span class="points-route">Delta SkyMiles</span><span class="points-val">155,000</span></div>
           <div class="points-item"><span class="points-route">Chase Ultimate Rewards</span><span class="points-val">46,000</span></div>
           <div class="points-item"><span class="points-route">United MileagePlus</span><span class="points-val">16,000</span></div>
-        </div>
-        <div class="points-card">
-          <div class="points-card-header">Award Flight Plan</div>
-          <div class="points-item"><span class="points-route">YYC → BKK economy × 2 <span style="font-size:10px;color:var(--green)">✓ booked</span></span><span class="points-val" style="color:var(--green)">$2,209.20 CSR cash</span></div>
-          <div class="points-item"><span class="points-route">Yun: PVG → ATH · HO1657 <span style="font-size:10px;color:var(--green)">✓ booked</span></span><span class="points-val" style="color:var(--green)">PFM44G · Seat 39G</span></div>
-          <div class="points-item"><span class="points-route">ATH → BCN · Both · Oct 29</span><span class="points-val">TBD · ~€80–180</span></div>
-          <div class="points-item"><span class="points-route">BCN → EWR · Both · Nov 2</span><span class="points-val">United UR or cash</span></div>
-          <div class="points-item"><span class="points-route" style="color:var(--warm)">Yan: PVG→ATH + BCN→EWR</span><span class="points-val" style="color:var(--warm)">Company ✦ / TBD</span></div>
-          <div class="points-item"><span class="points-route">Yun Chase → Shanghai EDITION (Yun's room) <span style="font-size:10px;color:var(--green)">✓ used</span></span><span class="points-val" style="color:var(--muted)">87,196 pts spent</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Yun 95,982 Chase remaining → ATH→BCN + BCN→EWR + hotel flex</span><span class="points-val" style="color:var(--green)">Sufficient ✓</span></div>
-          <div class="points-item"><span class="points-route">Yan 180K Amex MR — now freed up</span><span class="points-val" style="color:var(--green)">Hotels / flex</span></div>
-        </div>
-        <div class="points-card">
-          <div class="points-card-header">Hotel Points Strategy</div>
-          <div class="points-item"><span class="points-route">Yun Bonvoy → Public House BKK ✓</span><span class="points-val" style="color:var(--green)">55K used · done</span></div>
-          <div class="points-item"><span class="points-route">Yun Bonvoy 57K → Murray HKG</span><span class="points-val">~2 nts free</span></div>
-          <div class="points-item"><span class="points-route">Yan Chase → Hyatt (1:1)</span><span class="points-val">BKK / SHA</span></div>
-          <div class="points-item"><span class="points-route">CSR 3× earn on all hotels</span><span class="points-val" style="color:var(--green)">Use for rest</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Bonvoy 57K remaining value</span><span class="points-val" style="color:var(--green)">~$350 saved</span></div>
-          <div class="points-item"><span class="points-route">Yan flex (226K Amex + Chase)</span><span class="points-val" style="color:var(--green)">Biz upgrade</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route" style="color:var(--ink);">180K Amex MR → Aeroplan</span><span class="points-val" style="color:var(--muted);">1:1 transfer · biz class BCN→EWR</span></div>
+          <div class="points-item"><span class="points-route" style="color:var(--ink);">46K Chase UR → Hyatt</span><span class="points-val" style="color:var(--muted);">BCN or SHA hotel</span></div>
         </div>
       </div>
-      <div class="tip-box">Strategy: YYC→BKK booked as cash on CSR ($2,209.20 · KXOXGQ · WestJet/JAL). Yun's PVG→ATH confirmed ✓ (Juneyao HO1657 · PFM44G · Oct 24, same flight as Yan) — 95,982 Chase UR remaining (87K used for Shanghai EDITION) — covers ATH→BCN (Oct 29) + BCN→EWR (Nov 2) + hotel flex. Yan's PVG→ATH company-covered (EHMJVO/AZ5QGD ✓); ATH return rebook for Barcelona extension — coordinate with BCG travel. Yun's Bonvoy: 55K redeemed for Public House Bangkok ✓ — 57,447 remaining for Murray HKG (~2 nts free). Use CSR everywhere for 3× points and trip protections.</div>
+
+      <div class="tip-box">194,786 pts redeemed across 3 programs at 1.23¢ avg → ~$2,397 extracted. Chase UR at 1.65× Points Boost (Shanghai EDITION) was the best single redemption. Remaining 95K Chase UR covers remaining flights + hotels. Yan's 180K Amex MR → Aeroplan 1:1 is the highest-leverage remaining opportunity for a business class BCN→EWR (~$2K+ value).</div>
     </section>
 
 <!-- CHASE SAPPHIRE RESERVE -->
