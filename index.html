@@ -4142,6 +4142,28 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
         </div>
 
+        <!-- The Shanghai EDITION -->
+        <div class="ldg-row ldg-stay" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">The Shanghai EDITION <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Check-in Oct 14 → Check-out Oct 17 · 3 nights · Premium City View, 1 King · Nanjing Rd East</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ 87,196 Chase UR pts</span><span class="ldg-badge ldg-badge-ok">✓ Free cancel Oct 13</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Chase UR<br>••••7559</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount" style="color:var(--muted)">—</div></div>
+          </div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">Conf 72389014 · Chase Travel Trip 1020733455</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Points</div><div class="ldg-detail-val">87,196 Chase UR at 1.65× Points Boost · saved 56,677 pts vs base rate · equiv. $1,438.74</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Benefits (The Edit)</div><div class="ldg-detail-val">Daily breakfast × 2 · $100 property credit · welcome amenity · Wi-Fi · upgrade if available</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Free cancel until Oct 13, 2026 midnight local · After: 2,482.20 CNY/room fee</div></div>
+            </div>
+          </div>
+        </div>
+
         <!-- Stay subtotal -->
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#9e6e18;"><i class="ri-hotel-bed-fill" style="margin-right:.35rem"></i>Stay total</div>
@@ -4565,7 +4587,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 8 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">8</div>
-        <span class="cal-event ce-activity">🌊 Floating market · Chinatown</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Public House Bangkok</span>
       </div>
 
@@ -4587,7 +4608,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="cal-day">
         <div class="cal-day-num">11</div>
         <span class="cal-event ce-wedding"><i class="ri-heart-line"></i> Wedding weekend · Day 3</span>
-        <span class="cal-event ce-activity">Kayaking · sunset cruise</span>
       </div>
 
       <!-- Week 3 -->
@@ -4603,8 +4623,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 13 Tue -->
       <div class="cal-day">
         <div class="cal-day-num">13</div>
-        <span class="cal-event ce-activity">Victoria Peak · Star Ferry</span>
-        <span class="cal-event ce-activity">Kowloon night market</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Hotel Hong Kong</span>
       </div>
 
@@ -4612,21 +4630,19 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="cal-day">
         <div class="cal-day-num">14</div>
         <span class="cal-event ce-flight"><i class="ri-plane-line"></i> HKG→PVG · ~2.5h</span>
-        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai · 3 nts</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai EDITION · check-in</span>
       </div>
 
       <!-- Oct 15 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">15</div>
-        <span class="cal-event ce-activity">The Bund · Jing An Temple</span>
-        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai (2 rooms, incl. mom)</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai EDITION</span>
       </div>
 
       <!-- Oct 16 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">16</div>
-        <span class="cal-event ce-activity">Xintiandi · Yu Garden · Nanjing Rd</span>
-        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai EDITION</span>
       </div>
 
       <!-- Oct 17 Sat -->
@@ -4666,31 +4682,30 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 22 Thu -->
       <div class="cal-day">
         <div class="cal-day-num">22</div>
-        <span class="cal-event ce-travel" style="opacity:.7">With family · eve depart ~22:00</span>
-        <span class="cal-event ce-flight">Yan: Head to PVG airport ~22:00</span>
+        <span class="cal-event ce-travel" style="opacity:.7">With family</span>
+        <span class="cal-event ce-flight">Yan: head to PVG ~22:00</span>
       </div>
 
       <!-- Oct 23 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">23</div>
-        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> A3 1900 PVG→ATH · 01:10</span>
-        <span class="cal-event ce-flight">Arrive Athens 07:55 EEST</span>
-        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens · 4 nts (both)</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> Yan: A3 1900 PVG→ATH · 01:10 · AZ5QGD ✦</span>
+        <span class="cal-event ce-flight">Yan: arrive Athens 07:55</span>
+        <span class="cal-event ce-travel">Yun: head to PVG ~22:00</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens hotel (Yan)</span>
       </div>
 
       <!-- Oct 24 Sat -->
       <div class="cal-day">
         <div class="cal-day-num">24</div>
-        <span class="cal-event ce-activity">Acropolis · Parthenon</span>
-        <span class="cal-event ce-activity">Plaka neighbourhood</span>
-        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> Yun: HO1657 PVG→ATH · 01:10 · PFM44G</span>
+        <span class="cal-event ce-flight">Yun: arrive Athens 07:55</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens hotel (both)</span>
       </div>
 
       <!-- Oct 25 Sun -->
       <div class="cal-day">
         <div class="cal-day-num">25</div>
-        <span class="cal-event ce-activity">Cape Sounion sunset</span>
-        <span class="cal-event ce-activity">Monastiraki flea market</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens</span>
       </div>
 
@@ -4699,7 +4714,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 26 Mon -->
       <div class="cal-day">
         <div class="cal-day-num">26</div>
-        <span class="cal-event ce-activity">Athenian Riviera day (Glyfada)</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens</span>
       </div>
 
