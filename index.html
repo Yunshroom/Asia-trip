@@ -401,7 +401,7 @@ footer { font-family: var(--mono); }
 
 .tracker-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 2px;
   background: var(--tracker-grid-bg);
   border: 1px solid var(--tracker-grid-border);
@@ -686,9 +686,10 @@ html.dark .st-split   { background: rgba(250,204,21,.14);  color: #fde68a; }
 }
 
 .badge-points  { border-color: var(--green); color: var(--green); }
-.badge-booked  { border-color: var(--green); color: var(--green); }
+.badge-booked  { border-color: var(--green); color: #fff; background: var(--green); }
 .badge-tip     { border-color: var(--gold); color: var(--gold); }
 .badge-needed  { border-color: rgba(15,13,11,0.3); color: var(--muted); }
+html.dark .badge-booked { color: #0f0d0b; }
 
 .tip-box {
   margin-top: .9rem;
@@ -1265,7 +1266,7 @@ html.dark .page-btn.active { background: var(--nav-btn-active-bg); color: var(--
 
 /* Tablet ≤ 1023px */
 @media (max-width: 1023px) {
-  .tracker-grid { grid-template-columns: repeat(3, 1fr); }
+  .tracker-grid { grid-template-columns: repeat(4, 1fr); }
   .hero-stats { gap: 1.5rem; }
   main { padding: 0 2rem 5rem; }
 }
@@ -1713,6 +1714,47 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   letter-spacing: .04em;
   text-align: center;
 }
+
+/* ── Transfer / connection bar ── */
+.ic-transfer {
+  margin-top: .55rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.ic-transfer-bar {
+  display: flex;
+  align-items: stretch;
+  height: 5px;
+  border-radius: 3px;
+  gap: 2px;
+  width: 100%;
+}
+.ic-seg-leg  { background: var(--ink); border-radius: 2px; opacity: .55; flex-shrink: 0; }
+.ic-seg-stop { background: var(--gold); border-radius: 2px; flex-shrink: 0; }
+.ic-transfer-labels {
+  display: flex;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  gap: 2px;
+}
+.ic-transfer-labels span { flex-shrink: 0; text-align: center; }
+.ic-stop-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--warm);
+  letter-spacing: .06em;
+  padding: 2px 6px;
+  background: var(--amber-bg);
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
 .ic-flight-meta {
   display: flex;
   flex-direction: column;
@@ -1848,9 +1890,10 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   padding: 2px 7px;
   border-radius: 2px;
 }
-.ib-ok  { color: var(--green); background: var(--green-bg); }
+.ib-ok  { color: #fff; background: var(--green); }
 .ib-tbd { color: var(--muted); background: var(--tracker-grid-bg); }
 .ib-co  { color: var(--warm);  background: var(--amber-bg); }
+html.dark .ib-ok { color: #0f0d0b; }
 
 /* ── Expand toggle ── */
 .ic-toggle {
@@ -2142,7 +2185,8 @@ html.dark .ldg-cat-activities{ background: rgba(80,200,110,.07);  color: #50c870
   border: 1px solid;
   white-space: nowrap;
 }
-.ldg-badge-ok { border-color: var(--green); color: var(--green); background: var(--green-bg); }
+.ldg-badge-ok { border-color: var(--green); color: #fff; background: var(--green); }
+html.dark .ldg-badge-ok { color: #0f0d0b; }
 .ldg-badge-no { border-color: rgba(210,60,40,.45); color: #c03825; background: rgba(210,60,40,.05); }
 .ldg-badge-pts{ border-color: var(--line-strong); color: var(--muted); background: transparent; }
 html.dark .ldg-badge-no { color: #f08070; background: rgba(210,60,40,.09); }
@@ -2872,7 +2916,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <div class="hero-art-layer" id="hero-layer-b" style="opacity:0;"></div>
     <div class="hero-art-overlay" id="hero-art-overlay" style="opacity:0;"></div>
     <div class="hero-top">
-      <span>Oct 1 — Oct 30, 2026</span>
+      <span>Oct 1 — Nov 1, 2026</span>
     </div>
     <div class="hero-center">
       <p class="hero-label">A journey through Asia</p>
@@ -2884,11 +2928,11 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="hero-sub">
 <div class="hero-stats">
           <div>
-            <div class="h-stat-n" style="text-align:right">~30</div>
+            <div class="h-stat-n" style="text-align:right">~32</div>
             <div class="h-stat-l">Days</div>
           </div>
           <div>
-            <div class="h-stat-n" style="text-align:right">8</div>
+            <div class="h-stat-n" style="text-align:right">9</div>
             <div class="h-stat-l">Cities</div>
           </div>
           <div>
@@ -2915,6 +2959,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <span class="route-arrow">→</span>
       <span class="route-stop" onclick="scrollToId('p-leg6')" onmouseenter="heroArt('athens')">Athens</span>
       <span class="route-arrow">→</span>
+      <span class="route-stop" onclick="scrollToId('p-leg7')" onmouseenter="heroArt('barcelona')">Barcelona</span>
+      <span class="route-arrow">→</span>
       <span class="route-stop" onmouseenter="heroArt('newyork')">Home</span>
     </nav>
   </section>
@@ -2935,7 +2981,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   <!-- TRACKER -->
   <div class="tracker">
     <div class="tracker-heading" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
-      <span>Booking tracker — 6 destinations</span>
+      <span>Booking tracker — 7 destinations</span>
       <div style="display:flex;align-items:center;gap:.75rem;">
         <div class="view-toggle" id="tracker-view-toggle">
           <button class="view-toggle-btn active" onclick="setTrackerMode('concise',this)">Concise</button>
@@ -2974,8 +3020,13 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <span class="tr-nav-hint">View plan →</span>
       </div>
       <div class="tr-city" onclick="scrollToId('p-leg6')">
-        <div class="tracker-city">Athens<br><span style="font-size:1.05rem">+ Home</span></div>
-        <div class="tracker-dates">Oct 23–30 · 7 nights</div>
+        <div class="tracker-city">Athens</div>
+        <div class="tracker-dates">Oct 24–30 · 6 nights</div>
+        <span class="tr-nav-hint">View plan →</span>
+      </div>
+      <div class="tr-city" onclick="scrollToId('p-leg7')">
+        <div class="tracker-city">Barcelona<br><span style="font-size:1.05rem">+ Home</span></div>
+        <div class="tracker-dates">Oct 30–Nov 1 · 2 nights</div>
         <span class="tr-nav-hint">View plan →</span>
       </div>
 
@@ -3042,6 +3093,16 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="tr-wx-tag">Oct avg</div>
       </div>
 
+      <!-- Barcelona -->
+      <div class="tr-wx" id="wx-barcelona">
+        <div class="tr-wx-icon">⛅</div>
+        <div class="tr-wx-temps">20° <span class="tr-wx-lo">/ 13°</span></div>
+        <div class="tr-wx-desc">Mild · occasional rain</div>
+        <div class="tr-wx-rain">💧 30% precip</div>
+        <div class="tr-wx-live" id="wx-barcelona-live"></div>
+        <div class="tr-wx-tag">Nov avg</div>
+      </div>
+
       <!-- ── TRANSPORT BAND ── -->
       <div class="tr-band tr-band-t"><i class="ri-plane-fill"></i> Transport</div>
 
@@ -3074,13 +3135,19 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan: SHA → Shanxi<span class="tr-detail">Oct 17 · domestic · TBD</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun: PVG → ATH · HO1657 · PFM44G ✓<span class="tr-detail">Oct 24 · dep 01:10 · Seat 39G · Juneyao Air</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: PVG→ATH · AZ5QGD ✓<span class="tr-detail">Oct 23 · company-covered</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: PVG→ATH · AZ5QGD ✓<span class="tr-detail">Oct 24 · same flight as Yun · A3 1900/HO1657 · EHMJVO</span></span></div>
       </div>
 
       <!-- Athens transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun: ATH → EWR · Oct 30<span class="tr-detail">Not yet booked · Flying Blue or Delta</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: ATH→EWR · AZLZGO ✓<span class="tr-detail">Oct 27 · company-covered</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>ATH → BCN · Oct 30<span class="tr-detail">Both · not yet booked · TBD</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan: ATH→EWR AZLZGO ⚠ rebook<span class="tr-detail">Original Oct 27 return may change for BCN leg</span></span></div>
+      </div>
+
+      <!-- Barcelona transport -->
+      <div class="tr-section tr-sec-t">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>ATH → BCN · Oct 30<span class="tr-detail">Both · not yet booked · TBD</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>BCN → EWR · Nov 1<span class="tr-detail">Both · not yet booked · TBD</span></span></div>
       </div>
 
       <!-- ── STAY BAND ── -->
@@ -3113,14 +3180,19 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun · Shanghai EDITION ✓<span class="tr-detail">Oct 14–17 · 1 King · Conf 72389014 · 87K UR pts</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun's mom · Shanghai room<span class="tr-detail">Oct 14–17 · TBD · same hotel?</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan · Shanghai room<span class="tr-detail">Oct 14–17 · TBD</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-na"></span><span>Oct 17–23: w/ family<span class="tr-detail">Staying with Yan's family</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-na"></span><span>Oct 17–24: w/ family<span class="tr-detail">Staying with family · depart for Athens Oct 24</span></span></div>
       </div>
 
       <!-- Athens stay -->
       <div class="tr-section tr-sec-s">
-        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel · Oct 23–27<span class="tr-detail">Yan Oct 23 · Yun Oct 24 · TBD</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel · Oct 24–27<span class="tr-detail">Both from Oct 24 · 3 nts · TBD</span></span></div>
         <div class="tracker-row"><span class="status-dot s-inflight"></span><span>Yan · Oct 27–29 ✦<span class="tr-detail">Company-covered · 2 nts</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yun · Oct 27–30<span class="tr-detail">Self · 3 nts · TBD</span></span></div>
+      </div>
+
+      <!-- Barcelona stay -->
+      <div class="tr-section tr-sec-s">
+        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Hotel BCN · Oct 30–Nov 1<span class="tr-detail">Both · 2 nts · TBD</span></span></div>
       </div>
 
       <!-- ── ACTIVITIES BAND ── -->
@@ -3151,6 +3223,10 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
 
       <!-- Athens activities -->
+      <div class="tr-section tr-sec-a">
+      </div>
+
+      <!-- Barcelona activities -->
       <div class="tr-section tr-sec-a">
       </div>
 
@@ -3311,7 +3387,20 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ic-track-wrap">
           <div class="ic-track"><span class="ic-plane"><i class="ri-plane-fill"></i></span></div>
           <div class="ic-dur">19h 10m</div>
-          <div class="ic-km">1 stop NRT (2h 5m)</div>
+          <div class="ic-km">2 flights · via NRT</div>
+          <div class="ic-transfer">
+            <span class="ic-stop-chip">1 stop · NRT · 2h 5m layover</span>
+            <div class="ic-transfer-bar">
+              <div class="ic-seg-leg"  style="flex-basis:49.6%"></div>
+              <div class="ic-seg-stop" style="flex-basis:10.9%"></div>
+              <div class="ic-seg-leg"  style="flex-basis:39.5%"></div>
+            </div>
+            <div class="ic-transfer-labels">
+              <span style="flex-basis:49.6%;text-align:left">YYC→NRT 9h 30m</span>
+              <span style="flex-basis:10.9%;text-align:center">NRT</span>
+              <span style="flex-basis:39.5%;text-align:right">7h 35m NRT→BKK</span>
+            </div>
+          </div>
         </div>
         <div class="ic-airport" style="text-align:right">
           <div class="ic-iata">BKK</div>
@@ -3538,7 +3627,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div class="ic-hotel-info">
             <span class="ic-hotel-name"><i class="ri-home-4-line"></i> With family (Yan → Shanxi · Yun → Shanghai)</span>
           </div>
-          <span class="ic-hotel-span">Oct 17–23</span>
+          <span class="ic-hotel-span">Oct 17–24</span>
           <span class="ic-badge ib-ok">✓ With family</span>
         </div>
           </div>
@@ -3566,9 +3655,9 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ic-day-body">Checkout. <strong>Yan</strong> departs for Shanxi (flight or high-speed rail ~2.5 hrs from Hongqiao station) to visit family — stays through Oct 23. <strong>Yun</strong> remains in Shanghai with family.<br><br>Day trip options from Shanghai (Oct 18–22): <strong>Zhujiajiao water town</strong> (40 min, ancient canals) · <strong>Suzhou</strong> (30 min by G-train, classical gardens UNESCO) · <strong>Zhouzhuang</strong> (Venice of the East).</div>
       </div>
       <div class="ic-day">
-        <div class="ic-day-title">Oct 22–23 — Depart for Athens</div>
-        <div class="ic-day-body"><strong>Yan</strong> arrives from Shanxi by ~20:00 Oct 22, departs PVG ~22:00 → arrives Athens Oct 23 07:55. <strong>Yun</strong> has one extra day — departs PVG Oct 23 ~22:00 → arrives Athens Oct 24 07:55.</div>
-        <div class="ic-tip">Yan: Aegean A3 1900 · AZ5QGD ✓ (Oct 23 01:10, company-covered). Yun: Juneyao HO1657 · PFM44G ✓ (Oct 24 01:10, Seat 39G, Boeing 787-9).</div>
+        <div class="ic-day-title">Oct 23 — Both Head to PVG · Depart Oct 24</div>
+        <div class="ic-day-body"><strong>Yan</strong> travels from Shanxi back to Shanghai by Oct 23 evening. <strong>Both Yan and Yun</strong> head to PVG ~22:00 → depart Oct 24 01:10 on the same aircraft → arrive Athens Oct 24 07:55.</div>
+        <div class="ic-tip">Both on HO1657 / A3 1900 (Juneyao Air, Aegean codeshare) · Oct 24 01:10 CST · Boeing 787-9. Yan: AZ5QGD / EHMJVO ✓ (company-covered). Yun: PFM44G ✓ Seat 39G.</div>
       </div>
         </div>
       </div>
@@ -3578,9 +3667,9 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <section class="ic-leg" id="p-leg6">
       <div class="ic-leg-label">
         <span class="leg-dot dot-home"></span>
-        <span>Athens + Home</span>
+        <span>Athens</span>
         <span class="ic-leg-sep">·</span>
-        <span>Oct 23–30</span>
+        <span>Oct 24–30</span>
       </div>
       <div class="ic-card" id="ic6">
     <div class="ic-flight">
@@ -3602,23 +3691,23 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         </div>
       </div>
       <div class="ic-flight-meta">
-        <div class="ic-flight-date">Oct 23 (Yan) · Oct 24 (Yun)</div>
-        <div class="ic-airline">A3 1900 · Aegean (Yan) &nbsp;·&nbsp; HO1657 · Juneyao (Yun)</div>
-        <span class="badge badge-booked">Yan · AZ5QGD ✓</span>
+        <div class="ic-flight-date">Oct 24 · Both</div>
+        <div class="ic-airline">HO1657 / A3 1900 · Juneyao Air / Aegean codeshare · Boeing 787-9</div>
+        <span class="badge badge-booked">Yan · AZ5QGD · EHMJVO ✓</span>
         <span class="badge badge-booked" style="margin-left:.4rem">Yun · PFM44G ✓ Seat 39G</span>
       </div>
     </div>
         <div class="ic-body">
           <div class="ic-dest-row">
             <div class="ic-city">Athens<small>Greece · BHI Conference Oct 27–29</small></div>
-            <div class="ic-nights">Oct 23–30 · 7 nights</div>
+            <div class="ic-nights">Oct 24–30 · 6 nights</div>
           </div>
           <div class="ic-hotels">
         <div class="ic-hotel">
           <div class="ic-hotel-info">
             <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Hotel Athens (both)</span>
           </div>
-          <span class="ic-hotel-span">Oct 23–27 · 4 nights</span>
+          <span class="ic-hotel-span">Oct 24–27 · 3 nights</span>
           <span class="ic-badge ib-tbd">To book</span>
         </div>
         <div class="ic-hotel">
@@ -3643,8 +3732,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         </div>
         <div class="ic-plan">
       <div class="ic-day">
-        <div class="ic-day-title">Oct 23 — Yan Arrives Athens · Oct 24 — Yun Arrives Athens</div>
-        <div class="ic-day-body"><strong>Yan</strong> lands ATH Oct 23 07:55 (Aegean A3 1900 · AZ5QGD). <strong>Yun</strong> lands ATH Oct 24 07:55 (Juneyao HO1657 · PFM44G · Seat 39G). Check in, rest up after the overnight flight.</div>
+        <div class="ic-day-title">Oct 24 — Both Arrive Athens</div>
+        <div class="ic-day-body"><strong>Both</strong> land ATH Oct 24 07:55 — same flight (HO1657 / A3 1900 · Juneyao/Aegean · Yan AZ5QGD / EHMJVO · Yun PFM44G Seat 39G). Check in together, rest up after the overnight flight.</div>
         <div class="ic-tip">Top pick: <strong>Hotel Grande Bretagne</strong> (Syntagma, iconic 5-star), <strong>New Hotel Athens</strong> (Campana brothers interiors), or <strong>Hotel Electra Metropolis</strong> (rooftop pool facing the Acropolis).</div>
       </div>
       <div class="ic-day">
@@ -3662,9 +3751,81 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ic-day-body"><strong>Yan:</strong> BHI Conference, company-covered hotel (2 nights).<br><strong>Yun:</strong> solo Athens time. Options: hydrofoil day trip to <strong>Aegina</strong> (pistachio island, ancient temple, 35 min from Piraeus port) or <strong>Hydra</strong> (no cars, car-free island, stunning, 2 hrs from Piraeus). Or: deeper Athens exploration — <strong>Kerameikos</strong> (ancient cemetery with no tourists), National Archaeological Museum, <strong>Benaki Museum</strong> (Greek design artifacts, excellent gift shop).</div>
       </div>
       <div class="ic-day">
-        <div class="ic-day-title">Oct 30 — Fly Home <i class="ri-home-heart-line"></i></div>
-        <div class="ic-day-body"><strong>A3 3415: ATH 16:20 → EWR 21:20 EDT</strong>, ~10h. Yan confirmed, ref AZLZGO — Business class. Yun: book same Aegean flight (check availability) or Delta ATH→JFK (departs ~10:25, nonstop ~10 hrs). Both arrive Newark same evening if on Aegean together.<br><br>Terminal B at Newark for Aegean. Priority Pass lounge in Athens: <strong>Goldair CIP Lounge</strong> (accessible with CSR).</div>
-        <div class="ic-tip">If Yun books A3 3415 — you land together at Newark Terminal B at 21:20. Easiest end to a 30-day trip.</div>
+        <div class="ic-day-title">Oct 30 — Fly Athens → Barcelona <i class="ri-plane-line"></i></div>
+        <div class="ic-day-body">Both fly <strong>ATH → BCN</strong> (TBD, ~3h 30m nonstop). Aegean, Vueling, or Ryanair typically operate this route. Arrive Barcelona late afternoon or evening — check in, first tapas.<br><br><em>Note: Yan's previous ATH→EWR ref AZLZGO (Oct 27, company) may need to be rebooked or confirmed with BCG travel to accommodate the Barcelona extension.</em></div>
+        <div class="ic-tip">Aegean flies ATH→BCN nonstop. Vueling and Ryanair also operate; easiest to book closer to the date. Budget ~€80–180/person nonstop.</div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEG 7: BARCELONA -->
+    <section class="ic-leg" id="p-leg7">
+      <div class="ic-leg-label">
+        <span class="leg-dot dot-home"></span>
+        <span>Barcelona + Home</span>
+        <span class="ic-leg-sep">·</span>
+        <span>Oct 30–Nov 1</span>
+      </div>
+      <div class="ic-card" id="ic7">
+    <div class="ic-flight">
+      <div class="ic-flight-route">
+        <div class="ic-airport">
+          <div class="ic-iata">ATH</div>
+          <div class="ic-time">TBD</div>
+          <div class="ic-tz">EET · Athens</div>
+        </div>
+        <div class="ic-track-wrap">
+          <div class="ic-track"><span class="ic-plane"><i class="ri-plane-fill"></i></span></div>
+          <div class="ic-dur">~3h 30m</div>
+          <div class="ic-km">2,111 km · nonstop</div>
+        </div>
+        <div class="ic-airport" style="text-align:right">
+          <div class="ic-iata">BCN</div>
+          <div class="ic-time">TBD</div>
+          <div class="ic-tz">CET · Barcelona</div>
+        </div>
+      </div>
+      <div class="ic-flight-meta">
+        <div class="ic-flight-date">Oct 30</div>
+        <div class="ic-airline">Aegean / Vueling / Ryanair · TBD</div>
+        <span class="badge" style="border-color:var(--muted);color:var(--muted)">Both · To book</span>
+      </div>
+    </div>
+        <div class="ic-body">
+          <div class="ic-dest-row">
+            <div class="ic-city">Barcelona<small>Spain · Catalonia</small></div>
+            <div class="ic-nights">Oct 30–Nov 1 · 2 nights</div>
+          </div>
+          <div class="ic-hotels">
+        <div class="ic-hotel">
+          <div class="ic-hotel-info">
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Hotel Barcelona (both)</span>
+          </div>
+          <span class="ic-hotel-span">Oct 30–Nov 1 · 2 nights</span>
+          <span class="ic-badge ib-tbd">To book</span>
+        </div>
+          </div>
+        </div>
+        <div class="ic-toggle">
+          <span>Day plan &amp; recommendations</span>
+          <span class="ic-chev"><i class="ri-arrow-down-s-line"></i></span>
+        </div>
+        <div class="ic-plan">
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 30 — Arrive Barcelona</div>
+        <div class="ic-day-body">Arrive BCN from ATH. Check in and explore <strong>El Born / Gothic Quarter</strong> in the evening — narrow medieval streets, tapas bars, and cava. Good first-night dinner at the Boqueria market area.</div>
+        <div class="ic-tip">El Born is the most design-forward neighborhood — independent boutiques, galleries, cocktail bars, and excellent Catalan food. Base camp for the weekend.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Oct 31 — Barcelona Full Day</div>
+        <div class="ic-day-body"><strong>Morning:</strong> <strong>Sagrada Família</strong> (book timed entry online, ~€26, arrive at opening) — Gaudí's unfinished masterpiece, the most extraordinary building in Europe. <strong>Afternoon:</strong> <strong>Park Güell</strong> (Gaudí mosaic terraces, book in advance, €10) → <strong>Passeig de Gràcia</strong> to see Casa Batlló and Casa Milà (La Pedrera) facades. <strong>Evening:</strong> Late dinner at <strong>La Barceloneta</strong> (beach neighborhood) — fresh seafood, paella, and sangria at a proper chiringuito.</div>
+        <div class="ic-tip">October 31 is Halloween in Europe — El Born and Barceloneta bars go all-out. If you want a quieter last evening, head to Gràcia neighborhood instead.</div>
+      </div>
+      <div class="ic-day">
+        <div class="ic-day-title">Nov 1 — Fly Home <i class="ri-home-heart-line"></i></div>
+        <div class="ic-day-body"><strong>BCN → EWR</strong> (TBD). United, American, and Iberia operate nonstop BCN→EWR/JFK. Typical departure 10:00–12:00, arrive Newark/JFK ~13:00–15:00 EDT (~8–9h nonstop). Good end to a 32-day trip.<br><br><em>Priority Pass lounge in Barcelona T1: Sala VIP Pau Casals (Iberia lounge — accessible via Priority Pass).</em></div>
+        <div class="ic-tip">United operates BCN→EWR nonstop (good with Chase UR/United miles). American operates BCN→JFK. Book early — Nov 1 is a public holiday in Spain (All Saints' Day), airport is busy.</div>
       </div>
         </div>
       </div>
@@ -4006,7 +4167,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div class="ldg-row-top">
             <div class="ldg-row-main">
               <div class="ldg-route" style="font-style:italic;color:var(--muted)">Yan: PVG→ATH + ATH→EWR <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
-              <div class="ldg-route-sub">BCG company ✦ · Oct 23 + Oct 27 · not your expense</div>
+              <div class="ldg-route-sub">BCG company ✦ · Oct 24 (PVG→ATH) · not your expense · ATH→EWR being rebooked for BCN leg</div>
               <div class="ldg-badges"><span class="ldg-badge ldg-badge-pts">✦ Company-covered</span></div>
             </div>
             <div class="ldg-payer-cell"><div class="ldg-payer" style="color:var(--muted)">BCG</div></div>
@@ -4015,7 +4176,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
           <div class="ldg-row-body">
             <div class="ldg-detail-grid">
-              <div class="ldg-detail-item"><div class="ldg-detail-label">Refs</div><div class="ldg-detail-val">Yan: PVG→ATH AZ5QGD · ATH→EWR AZLZGO</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Refs</div><div class="ldg-detail-val">Yan: PVG→ATH AZ5QGD / EHMJVO · ATH→EWR AZLZGO (⚠ may rebook for BCN leg)</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Note</div><div class="ldg-detail-val">Managed by BCG travel — excluded from personal total</div></div>
             </div>
           </div>
@@ -4322,10 +4483,11 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div class="points-card-header">Award Flight Plan</div>
           <div class="points-item"><span class="points-route">YYC → BKK economy × 2 <span style="font-size:10px;color:var(--green)">✓ booked</span></span><span class="points-val" style="color:var(--green)">$2,209.20 CSR cash</span></div>
           <div class="points-item"><span class="points-route">Yun: PVG → ATH · HO1657 <span style="font-size:10px;color:var(--green)">✓ booked</span></span><span class="points-val" style="color:var(--green)">PFM44G · Seat 39G</span></div>
-          <div class="points-item"><span class="points-route">Yun: ATH → EWR Oct 30</span><span class="points-val">Delta 16K or Flying Blue</span></div>
-          <div class="points-item"><span class="points-route" style="color:var(--warm)">Yan: SHA→ATH + ATH→NY</span><span class="points-val" style="color:var(--warm)">Company ✦</span></div>
+          <div class="points-item"><span class="points-route">ATH → BCN · Both · Oct 30</span><span class="points-val">TBD · ~€80–180</span></div>
+          <div class="points-item"><span class="points-route">BCN → EWR · Both · Nov 1</span><span class="points-val">United UR or cash</span></div>
+          <div class="points-item"><span class="points-route" style="color:var(--warm)">Yan: PVG→ATH + BCN→EWR</span><span class="points-val" style="color:var(--warm)">Company ✦ / TBD</span></div>
           <div class="points-item"><span class="points-route">Yun Chase → Shanghai EDITION (Yun's room) <span style="font-size:10px;color:var(--green)">✓ used</span></span><span class="points-val" style="color:var(--muted)">87,196 pts spent</span></div>
-          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Yun 95,982 Chase remaining → ATH→EWR + hotel flex</span><span class="points-val" style="color:var(--green)">Sufficient ✓</span></div>
+          <div class="points-item" style="border-top:1px solid var(--line-strong);padding-top:.6rem;margin-top:.2rem;"><span class="points-route">Yun 95,982 Chase remaining → ATH→BCN + BCN→EWR + hotel flex</span><span class="points-val" style="color:var(--green)">Sufficient ✓</span></div>
           <div class="points-item"><span class="points-route">Yan 180K Amex MR — now freed up</span><span class="points-val" style="color:var(--green)">Hotels / flex</span></div>
         </div>
         <div class="points-card">
@@ -4338,7 +4500,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div class="points-item"><span class="points-route">Yan flex (226K Amex + Chase)</span><span class="points-val" style="color:var(--green)">Biz upgrade</span></div>
         </div>
       </div>
-      <div class="tip-box">Strategy: YYC→BKK booked as cash on CSR ($2,209.20 · KXOXGQ · WestJet/JAL). Yun's PVG→ATH now confirmed ✓ (Juneyao HO1657 · PFM44G · Oct 24) — 95,982 Chase UR remaining (87K used for Shanghai EDITION) — covers ATH→EWR (~5K–25K via Flying Blue or Delta) + remaining hotel flex. Yan's return flights are company-covered (BHI conference), freeing Yan's 180K Amex MR for hotels or future trips. Yun's Bonvoy: 55K already redeemed for Public House Bangkok ✓ — 57,447 remaining for Murray HKG (~2 nts free). Use CSR everywhere for 3× points and trip protections.</div>
+      <div class="tip-box">Strategy: YYC→BKK booked as cash on CSR ($2,209.20 · KXOXGQ · WestJet/JAL). Yun's PVG→ATH confirmed ✓ (Juneyao HO1657 · PFM44G · Oct 24, same flight as Yan) — 95,982 Chase UR remaining (87K used for Shanghai EDITION) — covers ATH→BCN + BCN→EWR (~5K–25K via United/Flying Blue) + hotel flex. Yan's PVG→ATH company-covered (EHMJVO/AZ5QGD ✓); ATH→EWR AZLZGO may rebook for Barcelona extension — coordinate with BCG travel. Yun's Bonvoy: 55K redeemed for Public House Bangkok ✓ — 57,447 remaining for Murray HKG (~2 nts free). Use CSR everywhere for 3× points and trip protections.</div>
     </section>
 
 <!-- CHASE SAPPHIRE RESERVE -->
@@ -4389,9 +4551,10 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             BKK → USM &nbsp;·&nbsp; Oct 9<br>
             HKG → PVG &nbsp;·&nbsp; Oct 14<br>
             <span style="color:var(--green)">Yun: PVG→ATH · HO1657 · PFM44G ✓ · Oct 24 01:10 · Seat 39G (Juneyao Air)</span><br>
-            <span style="color:var(--green)">Yan: A3 1900 PVG→ATH · AZ5QGD ✓ (company)</span><br>
-            Yun: ATH → EWR &nbsp;·&nbsp; Oct 30<br>
-            <span style="color:var(--green)">Yan: A3 3415 ATH→EWR · AZLZGO ✓ (company)</span>
+            <span style="color:var(--green)">Yan: A3 1900/HO1657 PVG→ATH · AZ5QGD / EHMJVO ✓ (company) · Oct 24</span><br>
+            ATH → BCN · Oct 30 · both TBD<br>
+            BCN → EWR · Nov 1 · both TBD<br>
+            <span style="color:var(--warm)">Yan: ATH→EWR AZLZGO ⚠ rebook for BCN extension</span>
           </div>
         </div>
         <div style="background:var(--paper);padding:1.2rem 1.5rem;">
@@ -4405,10 +4568,10 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
             Hong Kong hotel &nbsp;·&nbsp; 2 nights (Oct 12–14)<br>
             Shanghai · 2 rooms &nbsp;·&nbsp; 3 nights (Oct 14–17, incl. Yun's mom)<br>
-            Athens hotel Oct 23–27 (both, 4 nts)<br>
+            Athens hotel Oct 24–27 (both, 3 nts)<br>
             <span style="color:var(--warm)">Yan hotel Oct 27–29 · 2 nts (company ✦)</span><br>
             Yun: Athens hotel Oct 27–30 · 3 nts (self)<br>
-            Athens hotel Oct 29–30 (both)
+            Barcelona hotel Oct 30–Nov 1 · 2 nts (both)
           </div>
         </div>
       </div>
@@ -4452,7 +4615,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             </div>
           </div>
           <div style="margin-top:1.1rem; padding:.75rem 1rem; border-left:2px solid var(--accent); background:rgba(160,48,32,.07); font-size: 14px; color:var(--accent); line-height:1.65; letter-spacing:.03em;">
-            ⚠ <strong style="font-weight:500">Gap: trip is 30 days, coverage ends Day 21.</strong> Days 22–30 (Oct 22–30, Athens) have no medical coverage under this card. Buy a top-up policy for the final 9 days.
+            ⚠ <strong style="font-weight:500">Gap: trip is 32 days, coverage ends Day 21.</strong> Days 22–32 (Oct 22–Nov 1, Athens + Barcelona) have no medical coverage under this card. Buy a top-up policy for the final 11 days.
           </div>
         </div>
 
@@ -4683,23 +4846,20 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="cal-day">
         <div class="cal-day-num">22</div>
         <span class="cal-event ce-travel" style="opacity:.7">With family</span>
-        <span class="cal-event ce-flight">Yan: head to PVG ~22:00</span>
       </div>
 
       <!-- Oct 23 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">23</div>
-        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> Yan: A3 1900 PVG→ATH · 01:10 · AZ5QGD ✦</span>
-        <span class="cal-event ce-flight">Yan: arrive Athens 07:55</span>
-        <span class="cal-event ce-travel">Yun: head to PVG ~22:00</span>
-        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens hotel (Yan)</span>
+        <span class="cal-event ce-travel" style="opacity:.7">With family</span>
+        <span class="cal-event ce-flight">Yan &amp; Yun: head to PVG ~22:00</span>
       </div>
 
       <!-- Oct 24 Sat -->
       <div class="cal-day">
         <div class="cal-day-num">24</div>
-        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> Yun: HO1657 PVG→ATH · 01:10 · PFM44G</span>
-        <span class="cal-event ce-flight">Yun: arrive Athens 07:55</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> HO1657/A3 1900 PVG→ATH · 01:10 · Both ✓</span>
+        <span class="cal-event ce-flight">Arrive Athens 07:55</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens hotel (both)</span>
       </div>
 
@@ -4741,13 +4901,23 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 30 Fri -->
       <div class="cal-day">
         <div class="cal-day-num">30</div>
-        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> A3 3415 ATH→EWR · 16:20</span>
-        <span class="cal-event ce-flight">Arrive Newark 21:20 EDT <i class="ri-home-heart-line"></i></span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> ATH → BCN · Both</span>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Barcelona hotel</span>
       </div>
 
-      <!-- Empty days after Oct 30 -->
-      <div class="cal-day cal-empty"><div class="cal-day-num"></div></div>
-      <div class="cal-day cal-empty"><div class="cal-day-num"></div></div>
+      <!-- Oct 31 Sat -->
+      <div class="cal-day">
+        <div class="cal-day-num">31</div>
+        <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Barcelona</span>
+        <span class="cal-event ce-activity">🎃 Halloween in El Born</span>
+      </div>
+
+      <!-- Nov 1 Sun (in October grid, last cell) -->
+      <div class="cal-day" style="border-top:2px solid var(--gold);position:relative;">
+        <div class="cal-day-num" style="font-size:10px;color:var(--muted)">Nov 1</div>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> BCN → EWR · Both</span>
+        <span class="cal-event ce-flight">Home <i class="ri-home-heart-line"></i></span>
+      </div>
 
     </div>
 
@@ -4773,7 +4943,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
   <div class="map-wrap">
     <div id="globe-mount"></div>
     <div id="globe-tooltip"></div>
-    <div class="globe-legend">EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR &nbsp;—&nbsp; Drag to rotate · Pinch to zoom</div>
+    <div class="globe-legend">EWR · YYC · BKK · USM · HKG · PVG · ATH · BCN · EWR &nbsp;—&nbsp; Drag to rotate · Pinch to zoom</div>
     <div id="globe-interact-overlay">
       <div class="globe-overlay-hint"><i class="ri-cursor-fill"></i>&nbsp; Tap to interact</div>
     </div>
@@ -4783,7 +4953,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 <!-- FOOTER -->
 <footer>
   <span>Yan Liu &amp; Yun Yang · Oct 2026</span>
-  <span>EWR · YYC · BKK · USM · HKG · PVG · ATH · EWR</span>
+  <span>EWR · YYC · BKK · USM · HKG · PVG · ATH · BCN · EWR</span>
 </footer>
 
 <!-- BOTTOM NAV (mobile) -->
@@ -5139,7 +5309,7 @@ function initMap() {
 /* ── route data with trip info ── */
 const _CITIES = [
   { name:'New York',  code:'EWR', lat:40.6895, lng:-74.1745,  type:'city',
-    arrive:'Oct 30 · 9:15 PM', stay:'Home 🏠' },
+    arrive:'Nov 1 · ~2:00 PM', stay:'Home 🏠' },
   { name:'Calgary',   code:'YYC', lat:51.1215, lng:-114.0076, type:'city',
     arrive:'Oct 1 · 5:30 PM',  stay:'4 nights — Banff + Jasper' },
   { name:'Bangkok',   code:'BKK', lat:13.6900, lng:100.7501,  type:'city',
@@ -5152,6 +5322,8 @@ const _CITIES = [
     arrive:'Oct 14 · 3:30 PM', stay:'3 nights' },
   { name:'Athens',    code:'ATH', lat:37.9364, lng: 23.9445,  type:'city',
     arrive:'Oct 24 · 7:00 PM', stay:'6 nights' },
+  { name:'Barcelona', code:'BCN', lat:41.2974, lng:  2.0833,  type:'city',
+    arrive:'Oct 30 · TBD',      stay:'2 nights' },
 ];
 
 const _ROUTE = [
@@ -5161,7 +5333,8 @@ const _ROUTE = [
   { lat1: 9.5479,lng1: 100.0626, lat2:22.3080,lng2: 113.9185, from:'USM',to:'HKG', flight:'4h 25m' },
   { lat1:22.3080,lng1: 113.9185, lat2:31.1443,lng2: 121.8083, from:'HKG',to:'PVG', flight:'2h 30m' },
   { lat1:31.1443,lng1: 121.8083, lat2:37.9364,lng2:  23.9445, from:'PVG',to:'ATH', flight:'~11h'   },
-  { lat1:37.9364,lng1:  23.9445, lat2:40.6895,lng2: -74.1745, from:'ATH',to:'EWR', flight:'~11h'   },
+  { lat1:37.9364,lng1:  23.9445, lat2:41.2974,lng2:   2.0833, from:'ATH',to:'BCN', flight:'~3h 30m'},
+  { lat1:41.2974,lng1:   2.0833, lat2:40.6895,lng2: -74.1745, from:'BCN',to:'EWR', flight:'~8h 30m'},
 ];
 
 /* ── helpers ── */
