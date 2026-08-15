@@ -1,6 +1,6 @@
 Key,Person,Activity Name,Type,City,Country,Date,Time,Duration,Platform,Confirmation #,Payer,Amount Paid,Amount Currency,Original Price,Original Currency,Cancel Policy,Cancel Deadline,Status,Notes,Data Source,Claude Generated
-moraine-yun,Yun,Moraine Lake Shuttle,Shuttle,Banff,Canada,Oct 4,07:00,Half day,Parks Canada,INPC26-13891950B1,Yun,29.00,CAD,29.00,CAD,—,—,Confirmed,"7am Lake Louise slot; Larch Valley trail (5.8 km); peak larch color early Oct",Partial,Yes - amount CAD $29.00 from prior notes (confirmation PDF is scanned image - unreadable)
-moraine-yan,Yan,Moraine Lake Shuttle,Shuttle,Banff,Canada,Oct 4,07:00,Half day,Parks Canada,INPC26-13891950B1,Yun,0,—,—,—,—,—,Confirmed,Same booking as moraine-yun; paid by Yun,Partial,Yes - same caveat as moraine-yun
-wedding-yun,Yun,Meryl & Michael Wedding,Wedding,Koh Samui,Thailand,Oct 9-12,—,3 nights,—,—,—,—,—,—,—,—,—,Confirmed,"Wedding of Meryl and Michael; staying USM Oct 9-12 for wedding; schedule PDF is scanned image",Partial,Yes - no financial data available (scanned PDF)
-wedding-yan,Yan,Meryl & Michael Wedding,Wedding,Koh Samui,Thailand,Oct 9-12,—,3 nights,—,—,—,—,—,—,—,—,—,Confirmed,Same as wedding-yun,Partial,Yes - no financial data available
-bhi-yan,Yan,BHI Conference,Conference,Athens,Greece,Oct 27-29,—,2 days,BCG,—,BCG,0,—,—,—,BCG policy,—,Confirmed,"BCG-covered conference; hotel also covered (see ath-yan in Stay)",—,No
+moraine-yun,Yun,Moraine Lake Shuttle,Shuttle,Banff,Canada,Oct 4,07:00,Half day,Parks Canada,INPC26-13891950B1,Yun,29.00,CAD,29.00,CAD,,,Confirmed,"7am Lake Louise slot; Larch Valley trail (5.8 km); peak larch color early Oct",Partial,Yes
+moraine-yan,Yan,Moraine Lake Shuttle,Shuttle,Banff,Canada,Oct 4,07:00,Half day,Parks Canada,INPC26-13891950B1,Yun,0,,,,,,,Confirmed,Same booking as moraine-yun; paid by Yun,Partial,Yes
+wedding-yun,Yun,Meryl & Michael Wedding,Wedding,Koh Samui,Thailand,Oct 9–12,,,,,,,,,,,,,Schedule PDF is scanned image,Partial,Yes
+wedding-yan,Yan,Meryl & Michael Wedding,Wedding,Koh Samui,Thailand,Oct 9–12,,,,,,,,,,,,,Same as wedding-yun,Partial,Yes
+bhi-yan,Yan,BHI Conference,Conference,Athens,Greece,Oct 27–29,,2 days,BCG,,BCG,0,,,,BCG policy,,Confirmed,BCG-covered; hotel also covered (see ath-yan in Stay),,No
