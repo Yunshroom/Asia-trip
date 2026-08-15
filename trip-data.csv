@@ -1,0 +1,90 @@
+key,value,notes
+f-ewr-yyc-dep,14:25,EWR→YYC departure time
+f-ewr-yyc-arr,17:30,EWR→YYC arrival time
+f-ewr-yyc-date,Oct 1,EWR→YYC date
+f-ewr-yyc-yun-ref,BCFAML,Yun booking ref
+f-ewr-yyc-yun-seat,16A,Yun seat
+f-ewr-yyc-yan-ref,BCFEFG,Yan booking ref
+f-ewr-yyc-yan-seat,TBA,Yan seat
+f-yyc-bkk-dep,14:50,YYC→BKK departure time
+f-yyc-bkk-arr,23:00 +1,YYC→BKK arrival time (next day)
+f-yyc-bkk-date,Oct 6–7,YYC→BKK travel dates
+f-yyc-bkk-ref,KXOXGQ,Booking ref
+f-yyc-bkk-price,$2209.20,Total price paid
+f-bkk-usm-date,Oct 9,BKK→USM date (not yet booked)
+f-usm-hkg-dep,11:55,USM→HKG departure time
+f-usm-hkg-arr,16:20,USM→HKG arrival time
+f-usm-hkg-date,Oct 12,USM→HKG date
+f-usm-hkg-ref,FVZ2OD,Booking ref (both)
+f-usm-hkg-yun-seat,16A,Yun seat
+f-usm-hkg-yan-seat,16B,Yan seat
+f-usm-hkg-price,"THB 18,090",Price paid
+f-hkg-pvg-date,Oct 14,HKG→PVG date (not yet booked)
+f-pvg-ath-dep,01:10,PVG→ATH departure time (CST)
+f-pvg-ath-arr,07:55,PVG→ATH arrival time (EEST)
+f-pvg-ath-date,Oct 24,PVG→ATH date
+f-pvg-ath-yun-ref,PFM44G,Yun booking ref
+f-pvg-ath-yun-seat,39G,Yun seat
+f-pvg-ath-yan-ref,AZ5QGD,Yan airline ref
+f-pvg-ath-yan-amex,EHMJVO,Yan Amex GBT ref
+f-ath-bcn-dep,16:40,ATH→BCN departure time
+f-ath-bcn-arr,18:50,ATH→BCN arrival time
+f-ath-bcn-date,Oct 29,ATH→BCN date
+f-ath-bcn-ref,76QQ85,Booking ref (both)
+f-bcn-jfk-dep,11:55,BCN→JFK departure time
+f-bcn-jfk-arr,15:25,BCN→JFK arrival time
+f-bcn-jfk-date,Nov 2,BCN→JFK date
+f-bcn-jfk-yun-ref,AM2LKL,Yun booking ref
+f-bcn-jfk-yan-ref,IHTZNM,Yan airline ref
+f-bcn-jfk-yan-amex,USXNZA,Yan Amex GBT ref
+f-bcn-jfk-yan-seat,3A,Yan seat (Business)
+s-calgary-conf,2491461985,Residence Inn Calgary conf
+s-calgary-checkin,Oct 1,Check-in date
+s-calgary-checkout,Oct 2,Check-out date
+s-calgary-price,$211.16,Price paid
+s-calgary-cancel,Non-refundable,Cancellation policy
+s-jasper-conf,72075854441977,Miette Mountain Cabins Expedia ref
+s-jasper-checkin,Oct 2,Check-in date
+s-jasper-checkout,Oct 3,Check-out date
+s-jasper-cancel,Free cancel until Sep 29,Cancellation policy
+s-banff-conf,72075854361589,Otter Hotel Banff Expedia ref
+s-banff-checkin,Oct 3,Check-in date
+s-banff-checkout,Oct 5,Check-out date
+s-banff-cancel,Free cancel until Sep 30,Cancellation policy
+s-bangkok-conf,88511655,Public House Bangkok Bonvoy conf
+s-bangkok-checkin,Oct 7,Check-in date
+s-bangkok-checkout,Oct 9,Check-out date
+s-bangkok-pts,"55,000",Bonvoy points used
+s-bangkok-cancel,Free cancel until Oct 4,Cancellation policy
+s-sha-yun-conf,72389014,Shanghai EDITION Yun conf
+s-sha-yun-trip,1020733455,Chase Travel trip ID
+s-sha-yun-checkin,Oct 14,Check-in date
+s-sha-yun-checkout,Oct 17,Check-out date
+s-sha-yun-pts,"87,196",Chase UR points used
+s-sha-yun-cancel,Free cancel until Oct 13,Cancellation policy
+s-sha-yan-conf,77732471,Shanghai EDITION Yan+Mom conf
+s-sha-yan-trip,1020790091,Chase Travel trip ID
+s-sha-yan-checkin,Oct 14,Check-in date
+s-sha-yan-checkout,Oct 17,Check-out date
+s-sha-yan-price,$1385.96,Price paid
+s-sha-yan-cancel,Free cancel until Oct 13,Cancellation policy
+s-bcn-conf,2535421155,Yurbban Passage conf
+s-bcn-trip,1027885653,Chase Travel trip ID
+s-bcn-checkin,Oct 29,Check-in date
+s-bcn-checkout,Nov 2,Check-out date
+s-bcn-pts,"120,893",Chase UR points used
+s-bcn-cancel,Free cancel until Oct 28 15:00,Cancellation policy
+a-moraine-ref,INPC26-13891950B1,Moraine Lake shuttle ref
+a-moraine-date,Oct 4,Date
+a-moraine-price,CAD $29.00,Price paid
+c-sixt-conf,CN961135523748,Chase Travel car conf
+c-sixt-sixt,9735700791,Sixt counter conf number
+c-sixt-pickup,Oct 2 07:00,Pickup date/time
+c-sixt-dropoff,Oct 5 20:00,Drop-off date/time
+c-sixt-price,$454.25,Total price paid
+c-sixt-cancel,Free cancel until Sep 29,Cancellation policy
+pts-chase-remaining,"95,982",Chase UR pts remaining
+pts-bonvoy-remaining,"48,000",Bonvoy pts remaining (approx after BKK)
+pts-total-redeemed,"494,282",Total pts redeemed across all bookings
+pts-total-value,$4489,Estimated total value extracted
+pts-avg-cpp,1.23,Average cents per point
