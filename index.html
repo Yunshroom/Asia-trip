@@ -5940,7 +5940,6 @@ function _sheetSlug(header) {
 }
 
 function _parseSheet(csv) {
-  // Split into lines, handling quoted fields with embedded newlines
   const lines = [];
   let cur = '', inQ = false;
   for (let i = 0; i < csv.length; i++) {
@@ -5980,19 +5979,14 @@ function _parseSheet(csv) {
 }
 
 async function loadTripData() {
-  const urls = Object.values(SHEETS_URLS).filter(Boolean);
-  if (!urls.length) return;
   try {
     const results = await Promise.all(
-      Object.values(SHEETS_URLS).filter(Boolean).map(u => fetch(u).then(r => r.text()))
+      Object.values(SHEETS_URLS).map(u => fetch(u).then(r => r.text()))
     );
     const data = Object.assign({}, ...results.map(_parseSheet));
     document.querySelectorAll('[data-trip]').forEach(el => {
       const v = data[el.dataset.trip];
       if (v !== undefined && v !== '') {
-        // For elements that drive the FX currency display (data-usd),
-        // update the attribute so renderCurr picks up the new value,
-        // then re-format textContent in the currently selected currency.
         if ('usd' in el.dataset) {
           const n = parseFloat(v);
           if (!isNaN(n)) {
