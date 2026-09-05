@@ -11,7 +11,14 @@ f-yyc-bkk-arr,23:00 +1,YYC→BKK arrival time (next day)
 f-yyc-bkk-date,Oct 6–7,YYC→BKK travel dates
 f-yyc-bkk-ref,KXOXGQ,Booking ref
 f-yyc-bkk-price,$2209.20,Total price paid
-f-bkk-usm-date,Oct 9,BKK→USM date (not yet booked)
+f-bkk-usm-date,Oct 9,BKK→USM date
+f-bkk-usm-dep,15:30,BKK→USM departure time
+f-bkk-usm-arr,16:35,BKK→USM arrival time
+f-bkk-usm-flight,PG165,Bangkok Airways flight number
+f-bkk-usm-ref,CKWMQE,Airline confirmation
+f-bkk-usm-chase-trip,1028902776,Chase Travel Trip ID
+f-bkk-usm-pts,"34,403",Chase UR points used (Yan's account)
+f-bkk-usm-est-value,373.80,Documented USD equivalent (Chase Travel receipt)
 f-usm-hkg-dep,11:55,USM→HKG departure time
 f-usm-hkg-arr,16:20,USM→HKG arrival time
 f-usm-hkg-date,Oct 12,USM→HKG date
@@ -61,6 +68,7 @@ s-sha-yun-trip,1020733455,Chase Travel trip ID
 s-sha-yun-checkin,Oct 14,Check-in date
 s-sha-yun-checkout,Oct 17,Check-out date
 s-sha-yun-pts,"87,196",Chase UR points used
+s-sha-yun-est-value,1438.74,Documented USD equiv — Chase Travel Trip# 1020733455 receipt
 s-sha-yun-cancel,Free cancel until Oct 13,Cancellation policy
 s-sha-yan-conf,77732471,Shanghai EDITION Yan+Mom conf
 s-sha-yan-trip,1020790091,Chase Travel trip ID
@@ -73,6 +81,7 @@ s-bcn-trip,1027885653,Chase Travel trip ID
 s-bcn-checkin,Oct 29,Check-in date
 s-bcn-checkout,Nov 2,Check-out date
 s-bcn-pts,"120,893",Chase UR points used
+s-bcn-est-value,2019.81,Documented USD equiv — Chase Travel Trip# 1027885653 receipt
 s-bcn-cancel,Free cancel until Oct 28 15:00,Cancellation policy
 a-moraine-ref,INPC26-13891950B1,Moraine Lake shuttle ref
 a-moraine-date,Oct 4,Date
@@ -83,8 +92,14 @@ c-sixt-pickup,Oct 2 07:00,Pickup date/time
 c-sixt-dropoff,Oct 5 20:00,Drop-off date/time
 c-sixt-price,$454.25,Total price paid
 c-sixt-cancel,Free cancel until Sep 29,Cancellation policy
-pts-chase-remaining,"95,982",Chase UR pts remaining
-pts-bonvoy-remaining,"48,000",Bonvoy pts remaining (approx after BKK)
-pts-total-redeemed,"494,282",Total pts redeemed across all bookings
-pts-total-value,$4489,Estimated total value extracted
-pts-avg-cpp,1.23,Average cents per point
+pts-chase-remaining,"95,982",Chase UR pts remaining (after 87K EDITION + 121K Barcelona)
+pts-bonvoy-remaining,"57,447",Bonvoy pts remaining (after 55K BKK hotel)
+pts-total-redeemed,"350,082",Total pts redeemed (6 redemptions across 3 programs)
+pts-total-value,$4790,Estimated total value extracted
+pts-avg-cpp,1.37,Average cents per point weighted
+s-milos-conf,63164966,D3 Milos booking confirmation
+s-milos-checkin,Oct 24,Check-in date (3:00 PM)
+s-milos-checkout,Oct 26,Check-out date (11:00 AM)
+s-milos-price,€610.80,Total price (€606.80 prepaid + €4 climate tax at property)
+s-milos-cancel,Non-refundable — 100% fee,Cancellation policy
+s-milos-suite,Exclusive Suite with Private Pool & Sea View,Room type
