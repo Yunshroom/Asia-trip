@@ -4105,7 +4105,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <!-- ══ TRANSPORTATION ══ -->
         <div class="ldg-cat ldg-cat-transport">
           <div class="ldg-cat-label"><i class="ri-plane-fill"></i> Transportation</div>
-          <div class="ldg-cat-subtotal"><span data-usd="4306.64">$4,306.64</span></div>
+          <div class="ldg-cat-subtotal"><span data-usd="4844.64">$4,844.64</span></div>
         </div>
 
         <!-- EWR→YYC Yun (Aeroplan points — $0) -->
@@ -4195,6 +4195,29 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
               <div class="ldg-detail-item"><div class="ldg-detail-label">Aircraft</div><div class="ldg-detail-val">Bangkok Airways A319</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">฿<span data-trip="usm-hkg-yun-amount-paid" data-num>18,090</span> <span data-trip="usm-hkg-yun-amount-currency">THB</span> covers both Yun + Yan</div></div>
               <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-no"><i class="ri-error-warning-line"></i> <span data-trip="usm-hkg-yun-cancel-policy">Non-endorsable — no refund — change-restricted</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PVG→ATH Yun (Juneyao Air / Aegean codeshare) -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">PVG → ATH <span style="font-size:11px;font-weight:400;color:var(--muted)">Yun · PFM44G</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">Juneyao Air HO1657 (Aegean codeshare A3 1900) · Oct 24 dep 01:10 → arr 07:55+1 · 11h 45m · B787-9 · nonstop</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Confirmed · Seat 39G</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Confirmed · Seat <span data-trip="pvg-ath-yun-seat">39G</span></span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">CSR<br>••••7559</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="538.00" data-trip="pvg-ath-yun-amount-paid">$538.00</span></div></div>
+          </div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val" data-trip="pvg-ath-yun-booking-ref">PFM44G</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Seat</div><div class="ldg-detail-val">Seat <span data-trip="pvg-ath-yun-seat">39G</span> · Economy (Class S)</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Ticket</div><div class="ldg-detail-val">0182107589873 · Yun only (Yan's PVG→ATH is BCG-covered separately)</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Note</div><div class="ldg-detail-val">Yun's personal expense — not shared since Yan's same-flight ticket is company-covered</div></div>
             </div>
           </div>
         </div>
@@ -4291,7 +4314,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#5565c0;"><i class="ri-plane-fill" style="margin-right:.35rem"></i>Transportation total</div>
           <div></div><div></div>
-          <div class="ldg-subtotal-val"><span data-usd="4306.64">$4,306.64</span></div>
+          <div class="ldg-subtotal-val"><span data-usd="4844.64">$4,844.64</span></div>
         </div>
 
         <!-- ══ STAY ══ -->
@@ -4485,7 +4508,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div class="ldg-total-label">Total personal cash</div>
             <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:.25rem;letter-spacing:.04em;">Yun's CAD spend: CA$1,954.94 (Miette CA$440.27 + Otter CA$1,485.67 + Moraine CA$29.00) · Yan's ATH→BCN €324.88 (Yan fronted both shares)</div>
           </div>
-          <div style="font-family:var(--mono);font-size:1.45rem;font-weight:700;color:var(--ink);letter-spacing:.02em;" id="ledger-total-val">$5,970.78</div>
+          <div style="font-family:var(--mono);font-size:1.45rem;font-weight:700;color:var(--ink);letter-spacing:.02em;" id="ledger-total-val">$6,508.78</div>
         </div>
 
       </div><!-- /ldg-wrap -->
@@ -4526,8 +4549,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
                 <span id="split-a-yan-own">$197.63</span>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:12px;padding:.35rem 0;color:var(--muted);">
-                <span>Yun's own: EWR→YYC (pts) · BCN→JFK</span>
-                <span>$0 + $543.13</span>
+                <span>Yun's own: EWR→YYC (pts) · PVG→ATH · BCN→JFK</span>
+                <span>$0 + $538 + $543.13</span>
               </div>
             </div>
             <div style="background:var(--green-bg);border:1px solid var(--green);padding:.85rem 1.4rem;border-radius:3px;display:flex;justify-content:space-between;align-items:baseline;">
@@ -4543,15 +4566,15 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             <div style="margin-bottom:1.2rem;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.4rem 0;border-bottom:1px solid var(--line);">
                 <span style="color:var(--muted);">Total cash spend</span>
-                <span style="color:var(--ink);" id="split-b-total">$5,970.78</span>
+                <span style="color:var(--ink);" id="split-b-total">$6,508.78</span>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.4rem 0;border-bottom:1px solid var(--line);">
                 <span style="color:var(--muted);">Each person's fair share (÷ 2)</span>
-                <span style="color:var(--ink);" id="split-b-each">$2,985.39</span>
+                <span style="color:var(--ink);" id="split-b-each">$3,254.39</span>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.4rem 0;border-bottom:1px solid var(--line);">
                 <span style="color:var(--muted);">Yun actually paid</span>
-                <span style="color:var(--ink);" id="split-b-yun-paid">$5,420.66</span>
+                <span style="color:var(--ink);" id="split-b-yun-paid">$5,958.66</span>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:.4rem 0;">
                 <span style="color:var(--muted);">Yan actually paid</span>
@@ -4560,13 +4583,13 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
             </div>
             <div style="background:var(--green-bg);border:1px solid var(--green);padding:.85rem 1.4rem;border-radius:3px;display:flex;justify-content:space-between;align-items:baseline;">
               <span style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);">Yan owes Yun</span>
-              <span style="font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--green);" id="split-b-result">$2,435.27</span>
+              <span style="font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--green);" id="split-b-result">$2,704.27</span>
             </div>
           </div>
 
         </div>
         <div style="font-size:12px;color:var(--muted);letter-spacing:.04em;">
-          Excludes Yan's BCG-covered flights (PVG→ATH, BCN→JFK Business). Yun's EWR→YYC via Aeroplan pts ($0 cash). Scenario A shared = ATH→BCN + YYC→BKK + USM→HKG + Sixt + all hotels + Moraine. Amounts convert with the currency selector above. EUR→USD at ~1.085.
+          Excludes Yan's BCG-covered flights (PVG→ATH, BCN→JFK Business). Yun's EWR→YYC via Aeroplan pts ($0 cash). Yun's PVG→ATH ($538) is Yun-only — Yan's same-flight ticket is company-covered. Scenario A shared = ATH→BCN + YYC→BKK + USM→HKG + Sixt + all hotels + Moraine. Amounts convert with the currency selector above. EUR→USD at ~1.085.
         </div>
       </div>
     </section>
@@ -5330,14 +5353,14 @@ function renderCurr(curr) {
   if (hdr) hdr.textContent = curr + ' equiv.';
   // Ledger total
   const tot = document.getElementById('ledger-total-val');
-  if (tot) tot.textContent = fmtCurr(5970.78, curr);
+  if (tot) tot.textContent = fmtCurr(6508.78, curr);
   // Split amounts
   const vals = {
     'split-a-shared': 4877.53, 'split-a-yan-half': 2438.77,
     'split-a-yan-own': 197.63,  'split-a-result': 2262.52,
-    'split-b-total': 5970.78,   'split-b-each': 2985.39,
-    'split-b-yun-paid': 5420.66,'split-b-yan-paid': 550.12,
-    'split-b-result': 2435.27,
+    'split-b-total': 6508.78,   'split-b-each': 3254.39,
+    'split-b-yun-paid': 5958.66,'split-b-yan-paid': 550.12,
+    'split-b-result': 2704.27,
   };
   for (const [id, v] of Object.entries(vals)) {
     const el = document.getElementById(id);
