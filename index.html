@@ -4114,7 +4114,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <!-- ══ TRANSPORTATION ══ -->
         <div class="ldg-cat ldg-cat-transport">
           <div class="ldg-cat-label"><i class="ri-plane-fill"></i> Transportation</div>
-          <div class="ldg-cat-subtotal"><span data-usd="4844.64">$4,844.64</span></div>
+          <div class="ldg-cat-subtotal"><span id="ldg-transport-cat" data-usd="4844.64">$4,844.64</span></div>
         </div>
 
         <!-- EWR→YYC Yun (Aeroplan points — $0) -->
@@ -4346,13 +4346,13 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#5565c0;"><i class="ri-plane-fill" style="margin-right:.35rem"></i>Transportation total</div>
           <div></div><div></div>
-          <div class="ldg-subtotal-val"><span data-usd="4844.64">$4,844.64</span></div>
+          <div class="ldg-subtotal-val"><span id="ldg-transport-sub" data-usd="4844.64">$4,844.64</span></div>
         </div>
 
         <!-- ══ STAY ══ -->
         <div class="ldg-cat ldg-cat-stay">
           <div class="ldg-cat-label"><i class="ri-hotel-bed-fill"></i> Stay</div>
-          <div class="ldg-cat-subtotal"><span data-usd="2306.38">$2,306.38</span></div>
+          <div class="ldg-cat-subtotal"><span id="ldg-stay-cat" data-usd="2306.38">$2,306.38</span></div>
         </div>
 
         <!-- Residence Inn Calgary -->
@@ -4518,13 +4518,13 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#9e6e18;"><i class="ri-hotel-bed-fill" style="margin-right:.35rem"></i>Stay total</div>
           <div></div><div></div>
-          <div class="ldg-subtotal-val"><span data-usd="2306.38">$2,306.38</span></div>
+          <div class="ldg-subtotal-val"><span id="ldg-stay-sub" data-usd="2306.38">$2,306.38</span></div>
         </div>
 
         <!-- ══ ACTIVITIES ══ -->
         <div class="ldg-cat ldg-cat-activities">
           <div class="ldg-cat-label"><i class="ri-map-2-fill"></i> Activities</div>
-          <div class="ldg-cat-subtotal"><span data-usd="20.48">$20.48</span></div>
+          <div class="ldg-cat-subtotal"><span id="ldg-activities-cat" data-usd="20.48">$20.48</span></div>
         </div>
 
         <!-- Moraine Lake Shuttle -->
@@ -4554,7 +4554,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#2d8a4c;"><i class="ri-map-2-fill" style="margin-right:.35rem"></i>Activities total</div>
           <div></div><div></div>
-          <div class="ldg-subtotal-val"><span data-usd="20.48">$20.48</span></div>
+          <div class="ldg-subtotal-val"><span id="ldg-activities-sub" data-usd="20.48">$20.48</span></div>
         </div>
 
         <!-- Grand total -->
@@ -5427,7 +5427,7 @@ function setCurrSelect(sel) {
 }
 
 function renderCurr(curr) {
-  // Update all data-usd cells in ledger
+  // Update all data-usd cells
   document.querySelectorAll('[data-usd]').forEach(el => {
     const v = parseFloat(el.dataset.usd);
     if (!isNaN(v)) el.textContent = fmtCurr(v, curr);
@@ -5435,27 +5435,84 @@ function renderCurr(curr) {
   // Column header label
   const hdr = document.getElementById('ledger-curr-hdr');
   if (hdr) hdr.textContent = curr + ' equiv.';
-  // Ledger total
-  const tot = document.getElementById('ledger-total-val');
-  if (tot) tot.textContent = fmtCurr(7171.50, curr);
-  // Split amounts
-  const vals = {
-    'split-a-shared': 4877.53, 'split-a-yan-half': 2438.77,
-    'split-a-yan-own': 197.63,  'split-a-result': 1931.16,
-    'split-b-total': 7171.50,   'split-b-each': 3585.75,
-    'split-b-yun-paid': 5958.66,'split-b-yan-paid': 1212.84,
-    'split-b-result': 2372.91,
-  };
-  for (const [id, v] of Object.entries(vals)) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = fmtCurr(v, curr);
-  }
+  // Recompute derived totals + splits from live row values
+  recomputeLedger();
   // FX note
   const noteEl = document.getElementById('fx-rate-note');
   if (noteEl && curr !== 'USD') {
     noteEl.textContent = `Rate: 1 USD = ${(fxRates[curr]||1).toFixed(4)} ${curr} · `;
   } else if (noteEl) {
     noteEl.textContent = '';
+  }
+}
+
+// ── Dynamic ledger totals + split computation ─────────────────────
+// Yan-paid line items (data-trip keys with data-usd on their amount spans)
+const YAN_PAID_KEYS    = ['ewr-yyc-yan-amount-paid', 'ath-bcn-yan-amount-paid', 'milos-yan-amount-paid'];
+// Yun solo items excluded from Scenario A shared pool
+const YUN_SOLO_KEYS    = ['pvg-ath-yun-amount-paid', 'bcn-jfk-yun-amount-paid'];
+// Yan fronted for both — Yun owes back 50% (deducted from what Yan owes Yun in Scenario A)
+const YAN_FRONTED_HALF = ['ath-bcn-yan-amount-paid', 'milos-yan-amount-paid'];
+
+function recomputeLedger() {
+  // Sum USD values from individual row amount spans per category
+  function sumCat(cls) {
+    let t = 0;
+    document.querySelectorAll(`.${cls} .ldg-amount [data-usd]`).forEach(el => {
+      t += parseFloat(el.dataset.usd) || 0;
+    });
+    return t;
+  }
+  // Get USD value from a specific data-trip amount span
+  function usdOf(tripKey) {
+    const el = document.querySelector(`[data-trip="${tripKey}"][data-usd]`);
+    return el ? parseFloat(el.dataset.usd) || 0 : 0;
+  }
+  function setEl(id, usdVal) {
+    const el = document.getElementById(id);
+    if (el) { el.dataset.usd = usdVal.toFixed(2); el.textContent = fmtCurr(usdVal, activeCurr); }
+  }
+
+  const transport  = sumCat('ldg-transport');
+  const stay       = sumCat('ldg-stay');
+  const activities = sumCat('ldg-activities');
+  const grand      = transport + stay + activities;
+
+  // Update category subtotals (header chips + subtotal rows)
+  setEl('ldg-transport-cat', transport); setEl('ldg-transport-sub', transport);
+  setEl('ldg-stay-cat',      stay);      setEl('ldg-stay-sub',      stay);
+  setEl('ldg-activities-cat',activities);setEl('ldg-activities-sub',activities);
+
+  // Grand total display
+  const totEl = document.getElementById('ledger-total-val');
+  if (totEl) totEl.textContent = fmtCurr(grand, activeCurr);
+
+  // Payer breakdown
+  const yanPaid  = YAN_PAID_KEYS.reduce((s, k) => s + usdOf(k), 0);
+  const yunPaid  = grand - yanPaid;
+  const yunSolo  = YUN_SOLO_KEYS.reduce((s, k) => s + usdOf(k), 0);
+  const yanCredit= YAN_FRONTED_HALF.reduce((s, k) => s + usdOf(k) / 2, 0);
+
+  // Scenario B — pure 50/50
+  const bEach   = grand / 2;
+  const bResult = yunPaid - bEach;   // positive = Yan owes Yun
+
+  // Scenario A — individual own flights separate, shared pool split 50/50
+  const aShared  = yunPaid - yunSolo;
+  const aYanHalf = aShared / 2;
+  const aResult  = aYanHalf - yanCredit;
+
+  const splitVals = {
+    'split-a-shared':   aShared,  'split-a-yan-half': aYanHalf,
+    'split-a-yan-own':  usdOf('ewr-yyc-yan-amount-paid'),
+    'split-a-result':   aResult,
+    'split-b-total':    grand,    'split-b-each':     bEach,
+    'split-b-yun-paid': yunPaid,  'split-b-yan-paid': yanPaid,
+    'split-b-result':   bResult,
+  };
+  for (const [id, v] of Object.entries(splitVals)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = fmtCurr(v, activeCurr);
   }
 }
 
@@ -6130,6 +6187,8 @@ async function loadTripData() {
         }
       }
     });
+    // After all data-trip elements are populated, recompute all derived totals
+    recomputeLedger();
   } catch(e) { console.log('Trip data fetch failed, using hardcoded fallbacks'); }
 }
 loadTripData();
