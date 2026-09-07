@@ -2290,32 +2290,7 @@ html.dark .ldg-detail-no { color: #f08070; }
   color: var(--muted);
 }
 
-/* ── View toggle (concise / detail) ────────────────── */
-.view-toggle {
-  display: inline-flex;
-  background: var(--nav-toggle-bg);
-  border-radius: 3px;
-  padding: 2px;
-  gap: 1px;
-  flex-shrink: 0;
-}
-.view-toggle-btn {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  background: transparent;
-  color: var(--muted);
-  transition: all .18s;
-}
-.view-toggle-btn.active {
-  background: var(--ink);
-  color: var(--paper);
-}
+/* view-toggle removed */
 
 /* Tracker concise mode — hide detail sub-lines */
 .tr-concise .tr-detail { display: none !important; }
@@ -2895,6 +2870,21 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
   /* Map page doesn't need padding */
   #page-map { padding-bottom: 0; }
+
+  /* ── Points summary stats: stack to 1 col on mobile ── */
+  .pts-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pts-summary-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .pts-summary-grid > div:last-child { border-bottom: none; }
+
+  /* Points redemptions table: horizontal scroll (table preserves all columns) */
+  .pts-tbl-scroll { border-radius: 3px; }
+
+  /* Remaining balances: already 2→1 col via .points-grid */
 }
 </style>
 </head>
@@ -2990,11 +2980,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <div class="tracker-heading" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
       <span>Booking tracker — 7 destinations</span>
       <div style="display:flex;align-items:center;gap:.75rem;">
-        <div class="view-toggle" id="tracker-view-toggle">
-          <button class="view-toggle-btn active" onclick="setTrackerMode('concise',this)">Concise</button>
-          <button class="view-toggle-btn" onclick="setTrackerMode('detail',this)">Detail</button>
-        </div>
-
       </div>
     </div>
 
@@ -3115,24 +3100,23 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
       <!-- Calgary transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun · AC585 EWR→YYC<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan · AC585 EWR→YYC<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · AC585 EWR→YYC · booked separately ✓<span class="tr-detail">Oct 1 · dep 14:25 → arr 17:30 MDT · 5h 05m · Yun: BCFAML · Yan: BCFEFG</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Sixt CX-5 · YYC<span class="tr-detail">Oct 2 07:00 pickup → Oct 5 drop-off · Free cancel before pickup</span></span></div>
       </div>
 
       <!-- Bangkok transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · WS80+WS5930 YYC→BKK · KXOXGQ ✓<span class="tr-detail">Oct 6 dep 14:50 YYC → Oct 7 arr 23:00 BKK · 19h 10m via NRT · WestJet/JAL</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · WS80+WS5930 YYC→BKK · booked together ✓<span class="tr-detail">Oct 6 dep 14:50 YYC → Oct 7 arr 23:00 BKK · 19h 10m via NRT · WestJet/JAL · Ref KXOXGQ</span></span></div>
       </div>
 
       <!-- Koh Samui transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · PG165 BKK→USM · CKWMQE ✓<span class="tr-detail">Oct 9 dep 15:30 → arr 16:35 · 1h 05m · Bangkok Airways A319 · Chase UR</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · PG165 BKK→USM · booked together ✓<span class="tr-detail">Oct 9 dep 15:30 → arr 16:35 · 1h 05m · Bangkok Airways A319 · Chase UR · Ref CKWMQE</span></span></div>
       </div>
 
       <!-- Hong Kong transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · PG807 USM→HKG · FVZ2OD ✓<span class="tr-detail">Oct 12 dep 11:55 → arr 16:20 HKG T2 · 1h 25m · Bangkok Airways</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · PG807 USM→HKG · booked together ✓<span class="tr-detail">Oct 12 dep 11:55 → arr 16:20 HKG T2 · 1h 25m · Bangkok Airways · Ref FVZ2OD · ✦ Chase Sapphire Lounge at HKG (Yun's CSR)</span></span></div>
       </div>
 
       <!-- Shanghai transport -->
@@ -3143,17 +3127,16 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
       <!-- Athens / Milos transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun · HO1657 PVG→ATH · PFM44G ✓<span class="tr-detail">Oct 24 · dep 01:10 → arr 07:55 · Seat 39G · Juneyao Air</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan · HO1657 PVG→ATH · AZ5QGD ✓<span class="tr-detail">Oct 24 · dep 01:10 → arr 07:55 · A3 1900 codeshare · EHMJVO</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · GQ410 ATH→MLO · 8R7MKC ✓<span class="tr-detail">Oct 24 · dep 12:20 → arr 13:00 · SKY Express · Yun 4B · Yan 4A</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · GQ411 MLO→ATH · 8R7MKC ✓<span class="tr-detail">Oct 26 · dep 11:30 → arr 12:15 · SKY Express · Yun 3D · Yan 3C</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · HO1657 PVG→ATH · booked separately ✓<span class="tr-detail">Oct 24 · dep 01:10 → arr 07:55 · Juneyao/Aegean · Yun: PFM44G seat 39G · Yan: AZ5QGD/EHMJVO</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · GQ410 ATH→MLO · booked together ✓<span class="tr-detail">Oct 24 · dep 12:20 → arr 13:00 · SKY Express · Yun 4B · Yan 4A · Ref 8R7MKC</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · GQ411 MLO→ATH · booked together ✓<span class="tr-detail">Oct 26 · dep 11:30 → arr 12:15 · SKY Express · Yun 3D · Yan 3C · Ref 8R7MKC</span></span></div>
       </div>
 
       <!-- Barcelona transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · A3 712 ATH→BCN · 76QQ85 ✓<span class="tr-detail">Oct 29 · dep 16:40 → arr 18:50 · 3h 10m · Aegean Airlines</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · A3 712 ATH→BCN · booked together ✓<span class="tr-detail">Oct 29 · dep 16:40 → arr 18:50 · 3h 10m · Aegean Airlines · Ref 76QQ85</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan · AZLZGO ⚠ rebook<span class="tr-detail">Original return — coordinate with BCG re BCN leg</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · AA67 BCN→JFK · AM2LKL / IHTZNM ✓<span class="tr-detail">Nov 2 · dep 11:55 → arr 15:25 · Yun Economy · Yan Business (BCG)</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · AA67 BCN→JFK · booked separately ✓<span class="tr-detail">Nov 2 · dep 11:55 → arr 15:25 · Yun Economy AM2LKL · Yan Business IHTZNM (BCG)</span></span></div>
       </div>
 
       <!-- ── STAY BAND ── -->
@@ -3584,7 +3567,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="ic-day">
         <div class="ic-day-title">Oct 14 — Lantau + Fly Shanghai</div>
         <div class="ic-day-body">Early: ferry to <strong>Lantau Island</strong> — Ngong Ping 360 cable car, Tian Tan Buddha (Big Buddha), Po Lin Monastery. Return by lunchtime → HKG airport → morning flight to Shanghai Pudong (PVG). Arrive Shanghai ~early afternoon.</div>
-        <div class="ic-tip">China tourist visa required for both — apply at the Chinese Consulate (US office). Allow 4–6 weeks. One visa covers HK entry via PVG and all mainland cities.</div>
+        <div class="ic-tip"><i class="ri-vip-crown-line" style="color:var(--gold);margin-right:.25rem;"></i><strong>Chase Sapphire Lounge by The Club at HKG</strong> — Yun's CSR card gets access. Use before the PVG departure on Oct 14. China tourist visa required for both — apply at Chinese Consulate (US office). Allow 4–6 weeks.</div>
       </div>
         </div>
       </div>
@@ -4065,10 +4048,6 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:1rem;">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
           <div style="font-size:12px;color:var(--muted);letter-spacing:.04em;">Click any row to expand &nbsp;·&nbsp; <span id="fx-rate-note"></span></div>
-          <div class="view-toggle" id="ledger-view-toggle">
-            <button class="view-toggle-btn active" onclick="setLedgerMode('concise',this)">Concise</button>
-            <button class="view-toggle-btn" onclick="setLedgerMode('detail',this)">Detail</button>
-          </div>
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;">
           <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Show in</span>
@@ -4662,7 +4641,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <h2 class="section-title">Points &amp; Miles</h2>
 
       <!-- Summary stats -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-strong);overflow:hidden;border-radius:4px;margin-bottom:2.5rem;">
+      <div class="pts-summary-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-strong);overflow:hidden;border-radius:4px;margin-bottom:2.5rem;">
         <div style="padding:1.2rem 1.8rem;background:var(--paper);border-right:1px solid var(--line-strong);">
           <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem;">Total Redeemed</div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--ink);line-height:1;">350,082</div>
@@ -4683,14 +4662,15 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Redemptions table -->
       <div style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--line-strong);display:flex;gap:.5rem;align-items:center;"><i class="ri-exchange-dollar-line"></i> Points Redeemed</div>
 
-      <div style="border:1px solid var(--line-strong);border-radius:4px;overflow:hidden;margin-bottom:2.5rem;">
+      <div class="pts-tbl-scroll" style="overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line-strong);border-radius:4px;margin-bottom:2.5rem;">
+      <div style="min-width:560px;">
         <!-- Column headers -->
         <div style="display:grid;grid-template-columns:1fr 130px 110px 80px 90px;background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.5rem 1rem;gap:0;">
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Redemption</div>
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Program</div>
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">Pts Used</div>
           <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">CPP</div>
-          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">Value</div>
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;">Value <span title="≈ estimated · ✓ from booking receipt" style="cursor:help;opacity:.6;">ⓘ</span></div>
         </div>
 
         <!-- Row 1: Yun Aeroplan EWR→YYC -->
@@ -4702,7 +4682,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Aeroplan<br><span style="font-size:10px;">••••1431</span></div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">34,190</div>
           <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~1.08¢</div>
-          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">~$370</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;" title="Estimated — no receipt value available">≈$370</div>
         </div>
 
         <!-- Row 2: Yan Aeroplan EWR→YYC -->
@@ -4714,7 +4694,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Aeroplan<br><span style="font-size:10px;">••••1922</span></div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">18,400</div>
           <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~0.99¢</div>
-          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">~$182</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;" title="Estimated — no receipt value available">≈$182</div>
         </div>
 
         <!-- Row 3: Yun Bonvoy Bangkok -->
@@ -4726,7 +4706,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Marriott Bonvoy<br><span style="font-size:10px;">Yun's acct</span></div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">55,000</div>
           <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~0.75¢</div>
-          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">~$406</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;" title="Estimated — no receipt value available">≈$406</div>
         </div>
 
         <!-- Row 4: Yun Chase UR Shanghai EDITION -->
@@ -4738,7 +4718,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Chase UR<br><span style="font-size:10px;">••••7559</span></div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">87,196</div>
           <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;font-weight:600;">1.65¢ ✦</div>
-          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">$<span data-trip="sha-yun-est-points-value" data-num>1,438.74</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;" title="Documented — from Chase Travel booking receipt">$<span data-trip="sha-yun-est-points-value" data-num>1,438.74</span> <i class="ri-receipt-line" style="font-size:10px;opacity:.6;vertical-align:middle;"></i></div>
         </div>
 
         <!-- Row 5: Yun Chase UR Yurbban Barcelona -->
@@ -4750,7 +4730,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Chase UR<br><span style="font-size:10px;">••••7559</span></div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">120,893</div>
           <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;font-weight:600;">1.67¢ ✦</div>
-          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">$<span data-trip="bcn-yun-est-points-value" data-num>2,019.81</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;" title="Documented — from Chase Travel booking receipt">$<span data-trip="bcn-yun-est-points-value" data-num>2,019.81</span> <i class="ri-receipt-line" style="font-size:10px;opacity:.6;vertical-align:middle;"></i></div>
         </div>
 
         <!-- Row 6: Yan Chase UR BKK→USM -->
@@ -4762,7 +4742,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:11px;color:var(--muted);">Chase UR<br><span style="font-size:10px;">Yan's acct</span></div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);text-align:right;">34,403</div>
           <div style="font-family:var(--mono);font-size:13px;color:var(--warm);text-align:right;">~1.09¢</div>
-          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;">$<span data-trip="bkk-usm-yan-est-points-value" data-num>373.80</span></div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green);text-align:right;" title="Documented — from Chase Travel booking receipt">$<span data-trip="bkk-usm-yan-est-points-value" data-num>373.80</span> <i class="ri-receipt-line" style="font-size:10px;opacity:.6;vertical-align:middle;"></i></div>
         </div>
 
         <!-- Total row -->
@@ -4773,6 +4753,12 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div style="font-family:var(--mono);font-size:12px;color:var(--warm);text-align:right;font-weight:600;">1.37¢ avg</div>
           <div style="font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green);text-align:right;">~$4,790</div>
         </div>
+      </div></div><!-- /pts-tbl-scroll inner + outer -->
+
+      <!-- Value key -->
+      <div style="font-size:11px;color:var(--muted);margin-bottom:2rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <span><span style="font-family:var(--mono);">≈$</span> = estimated value (no receipt)</span>
+        <span><i class="ri-receipt-line" style="font-size:11px;"></i> = documented value from booking receipt</span>
       </div>
 
       <!-- Remaining balances -->
@@ -5549,20 +5535,7 @@ async function loadFxRates() {
 }
 loadFxRates();
 
-// ── View mode toggles ─────────────────────────────────────────
-function setTrackerMode(mode, btn) {
-  const grid = document.querySelector('.tracker-grid');
-  if (grid) grid.classList.toggle('tr-concise', mode === 'concise');
-  btn.closest('.view-toggle').querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-function setLedgerMode(mode, btn) {
-  const wrap = document.querySelector('.ldg-wrap');
-  if (wrap) wrap.classList.toggle('ldg-concise', mode === 'concise');
-  btn.closest('.view-toggle').querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
+// view mode toggles removed
 
 // ── Live weather (Open-Meteo, no API key) ─────────────────────
 const WX_CITIES = [
