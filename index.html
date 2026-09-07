@@ -3145,8 +3145,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="tr-section tr-sec-t">
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yun: PVG → ATH · HO1657 · PFM44G ✓<span class="tr-detail">Oct 24 · dep 01:10 · Seat 39G · Juneyao Air</span></span></div>
         <div class="tracker-row"><span class="status-dot s-booked"></span><span>Yan: PVG→ATH · AZ5QGD ✓<span class="tr-detail">Oct 24 · same flight as Yun · A3 1900/HO1657 · EHMJVO</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-needed"></span><span>ATH → Milos · Oct 24<span class="tr-detail">Not booked · domestic flight ~40 min or ferry ~3.5 hrs · arrive ~13:30</span></span></div>
-        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Milos → ATH · Oct 26<span class="tr-detail">Not booked · return for BHI conference</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>ATH → MLO · GQ410 · 8R7MKC ✓<span class="tr-detail">Oct 24 · dep 12:20 → arr 13:00 · SKY Express · Yun 4B · Yan 4A</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>MLO → ATH · GQ411 · 8R7MKC ✓<span class="tr-detail">Oct 26 · dep 11:30 → arr 12:15 · SKY Express · Yun 3D · Yan 3C</span></span></div>
       </div>
 
       <!-- Barcelona transport -->
@@ -3737,7 +3737,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ic-plan">
       <div class="ic-day">
         <div class="ic-day-title">Oct 24 — Arrive Athens → Transit to Milos <i class="ri-flight-takeoff-line"></i></div>
-        <div class="ic-day-body"><strong>Both</strong> land ATH Oct 24 07:55 — same flight (HO1657 / A3 1900 · Juneyao/Aegean · Yan AZ5QGD / EHMJVO · Yun PFM44G Seat 39G). After landing, transit to Milos: domestic flight (~40 min, Sky Express / Olympic Air) or Piraeus ferry (~3.5 hrs). D3 Milos check-in 15:00 — <strong>Exclusive Suite with Private Pool &amp; Sea View</strong> (65 sqm king suite, private pool, breakfast included). Plaka village, overlooking the Aegean.</div>
+        <div class="ic-day-body"><strong>Both</strong> land ATH Oct 24 07:55 — same flight (HO1657 / A3 1900 · Juneyao/Aegean · Yan AZ5QGD / EHMJVO · Yun PFM44G Seat 39G). Connect to Milos on <strong>SKY Express GQ410 ✓</strong> — dep ATH 12:20 → arr MLO 13:00 (~40 min · Yun 4B · Yan 4A · Ref 8R7MKC). D3 Milos check-in 15:00 — <strong>Exclusive Suite with Private Pool &amp; Sea View</strong> (65 sqm king suite, private pool, breakfast included). Plaka village, overlooking the Aegean.</div>
         <div class="ic-tip">D3 Milos is one of the most striking island hotels in the Cyclades — white Cycladic cube architecture with a private plunge pool facing the caldera sea. Conf 63164966 · Yan's card · Non-refundable.</div>
       </div>
       <div class="ic-day">
@@ -3747,7 +3747,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-day">
         <div class="ic-day-title">Oct 26 — Milos → Athens</div>
-        <div class="ic-day-body">Check out D3 Milos by 11:00. Return flight or ferry to Athens (domestic ~40 min or ferry ~3.5 hrs). Arrive Athens afternoon — check in to Athens hotel (Oct 26–27, both together). <strong>Evening:</strong> Monastiraki flea market or rooftop dinner overlooking the Acropolis lit up at night.</div>
+        <div class="ic-day-body">Check out D3 Milos by 11:00. Return to Athens on <strong>SKY Express GQ411 ✓</strong> — dep MLO 11:30 → arr ATH 12:15 (~45 min · Yun 3D · Yan 3C · Ref 8R7MKC). Arrive Athens afternoon — check in to Athens hotel (Oct 26–27, both together). <strong>Evening:</strong> Monastiraki flea market or rooftop dinner overlooking the Acropolis lit up at night.</div>
         <div class="ic-tip">Top pick for Athens hotel (Oct 26–29): <strong>New Hotel Athens</strong> (Campana Bros interiors, Syntagma), <strong>Hotel Grande Bretagne</strong> (iconic 5-star), or <strong>Electra Metropolis</strong> (rooftop pool with Acropolis view).</div>
       </div>
       <div class="ic-day">
@@ -4342,6 +4342,30 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
         </div>
 
+        <!-- ATH↔MLO SKY Express GQ410/GQ411 (Yan paid for both) -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">ATH ↔ MLO <span style="font-size:11px;font-weight:400;color:var(--muted)">Both · 8R7MKC</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">SKY Express GQ410 + GQ411 · Oct 24 dep 12:20→arr 13:00 / Oct 26 dep 11:30→arr 12:15 · ~40 min each · Yan paid €269.84 for both</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Flexible fare</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Confirmed · Yan's card</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yan</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">Yan's<br>card</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="293.30" data-trip="ath-mlo-yan-amount-paid" data-curr="EUR">$293.30</span></div></div>
+          </div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">8R7MKC · SKY Express</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Outbound GQ410</div><div class="ldg-detail-val">ATH → MLO · Oct 24 · dep 12:20 → arr 13:00 · Yun 4B · Yan 4A</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Return GQ411</div><div class="ldg-detail-val">MLO → ATH · Oct 26 · dep 11:30 → arr 12:15 · Yun 3D · Yan 3C</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">€269.84 EUR · Yan paid for both (Yun owes half ≈ €134.92)</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Flexible fare</div></div>
+            </div>
+          </div>
+        </div>
+
         <!-- Transport subtotal -->
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#5565c0;"><i class="ri-plane-fill" style="margin-right:.35rem"></i>Transportation total</div>
@@ -4648,7 +4672,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
         </div>
         <div style="font-size:12px;color:var(--muted);letter-spacing:.04em;">
-          Excludes Yan's BCG-covered flights (PVG→ATH, BCN→JFK Business). Yun's EWR→YYC via Aeroplan pts ($0 cash). BKK→USM via Yan's Chase UR pts ($0 cash — equiv. $373.80, Yan covered both). Yun's PVG→ATH ($538) is Yun-only — Yan's same-flight ticket is company-covered. D3 Milos €610.80 paid by Yan for both — Scenario A credits Yun's half (€305.40 ≈ $331.36) back to Yan. Scenario A shared = ATH→BCN + YYC→BKK + USM→HKG + Sixt + all hotels + Moraine. Amounts convert with the currency selector above. EUR→USD at ~1.085.
+          Excludes Yan's BCG-covered flights (PVG→ATH, BCN→JFK Business). Yun's EWR→YYC via Aeroplan pts ($0 cash). BKK→USM via Yan's Chase UR pts ($0 cash — equiv. $373.80, Yan covered both). Yun's PVG→ATH ($538) is Yun-only — Yan's same-flight ticket is company-covered. D3 Milos €610.80 paid by Yan for both — Scenario A credits Yun's half (€305.40 ≈ $331.36) back to Yan. ATH↔MLO (SKY Express) €269.84 paid by Yan for both — Scenario A credits Yun's half (€134.92 ≈ $146.65) back to Yan. Scenario A shared = ATH→BCN + ATH↔MLO + YYC→BKK + USM→HKG + Sixt + all hotels + Moraine. Amounts convert with the currency selector above. EUR→USD at ~1.085.
         </div>
       </div>
     </section>
@@ -5155,7 +5179,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="cal-day">
         <div class="cal-day-num">24</div>
         <span class="cal-event ce-flight"><i class="ri-plane-line"></i> HO1657/A3 1900 PVG→ATH · 01:10 · Both ✓</span>
-        <span class="cal-event ce-flight">Arrive Athens 07:55 → transit to Milos</span>
+        <span class="cal-event ce-flight">Arrive Athens 07:55 → GQ410 12:20 → Milos 13:00 ✓</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> D3 Milos · Both ✓</span>
       </div>
 
@@ -5170,7 +5194,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 26 Mon -->
       <div class="cal-day">
         <div class="cal-day-num">26</div>
-        <span class="cal-event ce-flight">Milos → Athens (return)</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> GQ411 MLO→ATH 11:30→12:15 ✓</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Athens hotel (both)</span>
       </div>
 
@@ -5448,11 +5472,11 @@ function renderCurr(curr) {
 
 // ── Dynamic ledger totals + split computation ─────────────────────
 // Yan-paid line items (data-trip keys with data-usd on their amount spans)
-const YAN_PAID_KEYS    = ['ewr-yyc-yan-amount-paid', 'ath-bcn-yan-amount-paid', 'milos-yan-amount-paid'];
+const YAN_PAID_KEYS    = ['ewr-yyc-yan-amount-paid', 'ath-bcn-yan-amount-paid', 'milos-yan-amount-paid', 'ath-mlo-yan-amount-paid'];
 // Yun solo items excluded from Scenario A shared pool
 const YUN_SOLO_KEYS    = ['pvg-ath-yun-amount-paid', 'bcn-jfk-yun-amount-paid'];
 // Yan fronted for both — Yun owes back 50% (deducted from what Yan owes Yun in Scenario A)
-const YAN_FRONTED_HALF = ['ath-bcn-yan-amount-paid', 'milos-yan-amount-paid'];
+const YAN_FRONTED_HALF = ['ath-bcn-yan-amount-paid', 'milos-yan-amount-paid', 'ath-mlo-yan-amount-paid'];
 
 function recomputeLedger() {
   // Sum USD values from individual row amount spans per category
