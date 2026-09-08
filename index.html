@@ -3121,7 +3121,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
       <!-- Shanghai transport -->
       <div class="tr-section tr-sec-t">
-        <div class="tracker-row"><span class="status-dot s-needed"></span><span>Both · HKG→PVG · Oct 14<span class="tr-detail">Not yet booked</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Both · MU722 HKG→SHA · dep 12:05 · 2h 35m · booked together ✓<span class="tr-detail">Oct 14 · dep 12:05 HKG → arr 14:40 SHA Hongqiao · China Eastern A321 · Ref PFTV0J · $276.80 · Chase Trip 1029037000</span></span></div>
         <div class="tracker-row"><span class="status-dot s-needed"></span><span>Yan · SHA→Shanxi · Oct 17<span class="tr-detail">Domestic · TBD</span></span></div>
       </div>
 
@@ -3565,8 +3565,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-day">
         <div class="ic-day-title">Oct 14 — Lantau + Fly Shanghai</div>
-        <div class="ic-day-body">Early: ferry to <strong>Lantau Island</strong> — Ngong Ping 360 cable car, Tian Tan Buddha (Big Buddha), Po Lin Monastery. Return by lunchtime → HKG airport → morning flight to Shanghai Pudong (PVG). Arrive Shanghai ~early afternoon.</div>
-        <div class="ic-tip"><i class="ri-vip-crown-line" style="color:var(--gold);margin-right:.25rem;"></i><strong>Chase Sapphire Lounge by The Club at HKG</strong> — Yun's CSR card gets access. Use before the PVG departure on Oct 14. China tourist visa required for both — apply at Chinese Consulate (US office). Allow 4–6 weeks.</div>
+        <div class="ic-day-body">Early: ferry to <strong>Lantau Island</strong> — Ngong Ping 360 cable car, Tian Tan Buddha (Big Buddha), Po Lin Monastery. Return by lunchtime → HKG airport → <strong>MU722 dep 12:05 → arr 14:40 SHA Hongqiao</strong> · China Eastern A321 · 2h 35m · Ref PFTV0J ✓. Arrive Shanghai Hongqiao ~2:40 PM.</div>
+        <div class="ic-tip"><i class="ri-vip-crown-line" style="color:var(--gold);margin-right:.25rem;"></i><strong>Chase Sapphire Lounge by The Club at HKG</strong> — Yun's CSR card gets access. Use before the MU722 12:05 departure on Oct 14. China tourist visa required for both — apply at Chinese Consulate (US office). Allow 4–6 weeks.</div>
       </div>
         </div>
       </div>
@@ -3582,7 +3582,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-card" id="ic5">
     <div class="ic-no-flight">
-      <span><i class="ri-plane-line"></i> HKG → PVG — ~2h 30m · 1,452 km · Multiple carriers · Morning flight Oct 14</span>
+      <span><i class="ri-plane-line"></i> HKG → SHA — 2h 35m · China Eastern MU722 · Oct 14 dep 12:05 ✓</span>
       <span class="badge badge-needed">Not yet booked</span>
     </div>
         <div class="ic-body">
@@ -3623,7 +3623,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ic-plan">
       <div class="ic-day">
         <div class="ic-day-title">Oct 14 — Arrive Shanghai</div>
-        <div class="ic-day-body">Arrive PVG Pudong. Check in — book 2 rooms in same hotel (Yun + Yan in one, Yun's mom in adjacent). <strong>The Bund</strong> at night: walk the waterfront promenade facing the Pudong skyline — best lit from dusk onwards. Dinner in Xintiandi or Jing An.</div>
+        <div class="ic-day-body">Arrive SHA Hongqiao ~14:40. Check in — book 2 rooms in same hotel (Yun solo; Yan + mom). <strong>The Bund</strong> at night: walk the waterfront promenade facing the Pudong skyline — best lit from dusk onwards. Dinner in Xintiandi or Jing An.</div>
         <div class="ic-tip"><strong>Top pick: The Middle House</strong> (Jing An) — Neri&amp;Hu designed, Small Luxury Hotels, the most Shinola-like property in Shanghai. ~$280/nt. Or Andaz Shanghai (Yan's Chase UR → Hyatt, ~25K pts/nt) in the Bund area.</div>
       </div>
       <div class="ic-day">
@@ -4065,7 +4065,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <!-- ══ TRANSPORTATION ══ -->
         <div class="ldg-cat ldg-cat-transport">
           <div class="ldg-cat-label"><i class="ri-plane-fill"></i> Transportation</div>
-          <div class="ldg-cat-subtotal"><span id="ldg-transport-cat" data-usd="4844.64">$4,844.64</span></div>
+          <div class="ldg-cat-subtotal"><span id="ldg-transport-cat" data-usd="5121.44">$5,121.44</span></div>
         </div>
 
         <!-- EWR→YYC Yun (Aeroplan points — $0) -->
@@ -4317,11 +4317,34 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           </div>
         </div>
 
+        <!-- HKG→SHA China Eastern MU722 (Yun paid for both) -->
+        <div class="ldg-row ldg-transport" onclick="toggleLdgRow(this)">
+          <div class="ldg-row-top">
+            <div class="ldg-row-main">
+              <div class="ldg-route">HKG → SHA <span style="font-size:11px;font-weight:400;color:var(--muted)">Both · PFTV0J</span> <span class="ldg-chevron"><i class="ri-arrow-right-s-line"></i></span></div>
+              <div class="ldg-route-sub">China Eastern MU722 · Oct 14 dep 12:05 → arr 14:40 SHA Hongqiao · 2h 35m · A321 · nonstop · Yun paid for both</div>
+              <div class="ldg-cancel ldg-cancel-ok"><i class="ri-shield-check-line"></i> Refundable</div>
+              <div class="ldg-badges"><span class="ldg-badge ldg-badge-ok">✓ Confirmed · $138.40/person</span></div>
+            </div>
+            <div class="ldg-payer-cell"><div class="ldg-payer">Yun</div></div>
+            <div class="ldg-card-cell"><div class="ldg-card-short">CSR<br>••••7559</div></div>
+            <div class="ldg-amount-cell"><div class="ldg-amount"><span data-usd="276.80" data-trip="hkg-sha-yun-amount-paid">$276.80</span></div></div>
+          </div>
+          <div class="ldg-row-body">
+            <div class="ldg-detail-grid">
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Booking ref</div><div class="ldg-detail-val">PFTV0J · China Eastern</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Chase Trip</div><div class="ldg-detail-val">#1029037000</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Original charge</div><div class="ldg-detail-val">$276.80 USD · Yun's CSR · covers both Yun + Yan ($138.40/person)</div></div>
+              <div class="ldg-detail-item"><div class="ldg-detail-label">Cancel policy</div><div class="ldg-detail-val ldg-detail-ok"><i class="ri-shield-check-line"></i> Refundable (fee may apply)</div></div>
+            </div>
+          </div>
+        </div>
+
         <!-- Transport subtotal -->
         <div class="ldg-subtotal-row">
           <div class="ldg-subtotal-label" style="color:#5565c0;"><i class="ri-plane-fill" style="margin-right:.35rem"></i>Transportation total</div>
           <div></div><div></div>
-          <div class="ldg-subtotal-val"><span id="ldg-transport-sub" data-usd="4844.64">$4,844.64</span></div>
+          <div class="ldg-subtotal-val"><span id="ldg-transport-sub" data-usd="5121.44">$5,121.44</span></div>
         </div>
 
         <!-- ══ STAY ══ -->
@@ -5032,7 +5055,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <!-- Oct 14 Wed -->
       <div class="cal-day">
         <div class="cal-day-num">14</div>
-        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> HKG→PVG · ~2.5h</span>
+        <span class="cal-event ce-flight"><i class="ri-plane-line"></i> MU722 HKG→SHA · 12:05–14:40 ✓</span>
         <span class="cal-event ce-hotel"><i class="ri-hotel-bed-line"></i> Shanghai EDITION · check-in</span>
       </div>
 

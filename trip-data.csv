@@ -26,7 +26,13 @@ f-usm-hkg-ref,FVZ2OD,Booking ref (both)
 f-usm-hkg-yun-seat,16A,Yun seat
 f-usm-hkg-yan-seat,16B,Yan seat
 f-usm-hkg-price,"THB 18,090",Price paid
-f-hkg-pvg-date,Oct 14,HKG→PVG date (not yet booked)
+f-hkg-sha-date,Oct 14,HKG→SHA date
+f-hkg-sha-dep,12:05,HKG→SHA departure time
+f-hkg-sha-arr,14:40,HKG→SHA arrival time (SHA Hongqiao)
+f-hkg-sha-flight,MU722,China Eastern flight number
+f-hkg-sha-ref,PFTV0J,Airline confirmation (both)
+f-hkg-sha-chase-trip,1029037000,Chase Travel Trip ID
+f-hkg-sha-price,$276.80,Total price paid (Yun's CSR — covers both)
 f-pvg-ath-dep,01:10,PVG→ATH departure time (CST)
 f-pvg-ath-arr,07:55,PVG→ATH arrival time (EEST)
 f-pvg-ath-date,Oct 24,PVG→ATH date
