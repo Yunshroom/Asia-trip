@@ -1,0 +1,90 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Yan & Yun · Asia 2026//Hotel Stays//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Asia 2026 — Hotel Stays
+X-WR-TIMEZONE:UTC
+X-WR-CALDESC:Confirmed hotel stays for Yan & Yun Asia 2026 trip
+
+BEGIN:VEVENT
+UID:calgary-yun-2026@asia-trip
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:Residence Inn Calgary · Yun
+LOCATION:610 10th Avenue SW\, Calgary AB T2R 1M3\, Canada
+DESCRIPTION:Conf #2491461985 · Chase Travel #1019392378 · $211.16 USD · Non-refundable · Property fee $10.77 incl.
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:jasper-yun-2026@asia-trip
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Miette Mountain Cabins · Yun
+LOCATION:Highway 16 East Pocahontas\, Jasper AB T0E 1E0\, Canada
+DESCRIPTION:Expedia ref 72075854441977 · Cedar Lodge · CA$440.27 (incl. CA$24.55 resort fee at property) · Free cancel until Sep 29 18:00
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:banff-yun-2026@asia-trip
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261005
+SUMMARY:Otter Hotel Banff · Yun
+LOCATION:600 Banff Ave\, Banff AB T1L 1H8\, Canada
+DESCRIPTION:Expedia ref 72075854361589 · Superior Room 1 King · CA$1\,485.67 · Free cancel until Sep 30 18:00
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:bangkok-both-2026@asia-trip
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261009
+SUMMARY:Public House Bangkok · Both
+LOCATION:249 Soi Sukhumvit 31\, Khlong Tan Nuea\, Bangkok 10110\, Thailand
+DESCRIPTION:Conf #88511655 · Marriott Bonvoy · 55\,000 Bonvoy pts (Yun's acct) · Uptown King City View · Free cancel until Oct 4 23:59 local
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:sha-yun-2026@asia-trip
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261017
+SUMMARY:The Shanghai EDITION · Yun
+LOCATION:199 Nanjing Road East\, Shanghai 200002\, China
+DESCRIPTION:Conf #72389014 · Chase Travel Trip #1020733455 · 87\,196 Chase UR pts · 1.65× Points Boost · Premium City View King · Daily breakfast for 2 · $100 property credit · Free cancel until Oct 13 12:00am local
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:sha-yan-2026@asia-trip
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261017
+SUMMARY:The Shanghai EDITION · Yan + Mom
+LOCATION:199 Nanjing Road East\, Shanghai 200002\, China
+DESCRIPTION:Conf #77732471 · Chase Travel Trip #1020790091 · $1\,385.96 USD · Deluxe Room · Breakfast for 2 · $100 property credit · Yan's mom sharing room · Free cancel until Oct 13
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:milos-both-2026@asia-trip
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:D3 Milos (Cycladic Living) · Both
+LOCATION:Plaka 84800\, Milos\, Greece
+DESCRIPTION:Conf #63164966 · €610.80 total (€606.80 prepaid + €4 climate tax at property) · Exclusive Suite with Private Pool & Sea View · 65 sqm · Breakfast incl. · Yan's card · Non-refundable · Check-in 15:00 · Check-out 11:00
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
+UID:bcn-both-2026@asia-trip
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261102
+SUMMARY:Yurbban Passage Hotel & Spa · Both
+LOCATION:Carrer de Trafalgar 26\, Barcelona 08003\, Spain
+DESCRIPTION:Conf #2535421155 · Chase Travel Trip #1027885653 · 120\,893 Chase UR pts + $72.34 cash · 1.6× Points Boost · Premium Double Room Terrace 1 King · Rooftop spa · $85.51 resort fee due at property · Free cancel until Oct 28 15:00 local
+STATUS:CONFIRMED
+END:VEVENT
+
+END:VCALENDAR
