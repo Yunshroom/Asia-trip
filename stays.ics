@@ -87,4 +87,14 @@ DESCRIPTION:Conf #2535421155 · Chase Travel Trip #1027885653 · 120\,893 Chase 
 STATUS:CONFIRMED
 END:VEVENT
 
+BEGIN:VEVENT
+UID:athens-yan-2026@asia-trip
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261029
+SUMMARY:Hotel Grande Bretagne · Yan (BCG)
+LOCATION:1 Vasileos Georgiou A\, Syntagma Square\, Athens 105 64\, Greece
+DESCRIPTION:BCG company-covered · Lodge card · BHI Conference Oct 27–29 · 3 nights · ~€450–550/nt equiv
+STATUS:CONFIRMED
+END:VEVENT
+
 END:VCALENDAR
