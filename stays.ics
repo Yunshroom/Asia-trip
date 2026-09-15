@@ -48,6 +48,16 @@ STATUS:CONFIRMED
 END:VEVENT
 
 BEGIN:VEVENT
+UID:hkg-both-2026@asia-trip
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261014
+SUMMARY:AKI Hotel Hong Kong · Yan + Yun
+LOCATION:239 Jaffe Road\, Wan Chai\, Hong Kong SAR\, China
+DESCRIPTION:Conf QQXHBNCL · MGallery / ALL Accor · ZENsation Stay · Deluxe King Tatami · HKD 5\,955.10 at property (Yan paying) · Free cancel until Oct 11 12:00 local · Incl. daily breakfast + HK$400 dining credit · Bvlgari amenities · 270° city + harbour view
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
 UID:sha-yun-2026@asia-trip
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261017
