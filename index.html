@@ -1764,7 +1764,8 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   flex-direction: column;
   align-items: flex-end;
   gap: .3rem;
-  flex-shrink: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 .ic-flight-date {
   font-family: var(--mono);
@@ -1776,6 +1777,8 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 .ic-airline {
   font-size: 14px;
   color: var(--muted);
+  text-align: right;
+  word-break: break-word;
   white-space: nowrap;
 }
 .ic-no-flight {
@@ -3405,7 +3408,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-flight-meta">
         <div class="ic-flight-date" data-trip="yyc-bkk-yun-date">Oct 6</div>
-        <div class="ic-airline">WS80 + WS5930 · WestJet / JAL · B787-9 + B787-8</div>
+        <div class="ic-airline">WS80 · WestJet + JAL · 1 stop NRT</div>
         <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
