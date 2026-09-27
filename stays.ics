@@ -48,6 +48,16 @@ STATUS:CONFIRMED
 END:VEVENT
 
 BEGIN:VEVENT
+UID:samui-both-2026@asia-trip
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261012
+SUMMARY:Cape Fahn Hotel · Private Islands · Both
+LOCATION:24/269 Moo 5\, Bo-Phut\, Koh Samui\, Surat Thani 84320\, Thailand
+DESCRIPTION:Res 14747 · Cape Fahn Hotel direct · Ocean View Pool Villa · 3 nights · Incl. daily breakfast\, roundtrip airport transfer\, water sports\, mini bar · Both Yun + Yan
+STATUS:CONFIRMED
+END:VEVENT
+
+BEGIN:VEVENT
 UID:hkg-both-2026@asia-trip
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261014

@@ -20,6 +20,15 @@ f-bkk-usm-chase-trip,1028902776,Chase Travel Trip ID
 f-bkk-usm-pts,"34,403",Chase UR points used (Yan's account)
 f-bkk-usm-est-value,373.80,Documented USD equivalent (Chase Travel receipt)
 f-usm-hkg-dep,11:55,USM→HKG departure time
+s-samui-conf,14747,Cape Fahn Hotel reservation number
+s-samui-checkin,Oct 9,Cape Fahn check-in
+s-samui-checkout,Oct 12,Cape Fahn check-out
+s-samui-nights,3,Number of nights
+s-samui-room,Ocean View Pool Villa,Room type
+s-samui-who,Both,Guests: Yun Yang + Yan Liu
+s-samui-cancel,No cancel policy stated — direct hotel booking,Cancel policy
+s-samui-address,"24/269 Moo 5, Bo-Phut, Koh Samui, Surat Thani 84320, Thailand",Full address
+s-samui-incl,"Daily breakfast, roundtrip airport transfer, water sports, mini bar, wifi",Inclusions
 f-usm-hkg-arr,16:20,USM→HKG arrival time
 f-usm-hkg-date,Oct 12,USM→HKG date
 f-usm-hkg-ref,FVZ2OD,Booking ref (both)

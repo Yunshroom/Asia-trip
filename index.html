@@ -1716,6 +1716,9 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   text-align: center;
 }
 
+/* Hide single-track line for connecting flights — transfer bar replaces it */
+.ic-track-wrap:has(.ic-transfer) > .ic-track { display: none; }
+
 /* ── Transfer / connection bar ── */
 .ic-transfer {
   margin-top: .55rem;
@@ -2943,25 +2946,25 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
     <div class="hero-bottom">
       <span>Scroll <span class="scroll-line"></span></span>
     </div>
-    <!-- Route bar inside hero -->
-    <nav class="route-bar">
-      <span class="route-stop active" onclick="scrollToId('p-leg1')" onmouseenter="heroArt('calgary')">Calgary / Banff</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onclick="scrollToId('p-leg2')" onmouseenter="heroArt('bangkok')">Bangkok</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onclick="scrollToId('p-leg3')" onmouseenter="heroArt('samui')">Koh Samui</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onclick="scrollToId('p-leg4')" onmouseenter="heroArt('hongkong')">Hong Kong</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onclick="scrollToId('p-leg5')" onmouseenter="heroArt('shanghai')">Shanghai</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onclick="scrollToId('p-leg6')" onmouseenter="heroArt('athens')">Athens</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onclick="scrollToId('p-leg7')" onmouseenter="heroArt('barcelona')">Barcelona</span>
-      <span class="route-arrow">→</span>
-      <span class="route-stop" onmouseenter="heroArt('newyork')">Home</span>
-    </nav>
   </section>
+  <!-- Route bar — sits between hero and content, outside hero grid -->
+  <nav class="route-bar">
+    <span class="route-stop active" onclick="scrollToId('p-leg1')" onmouseenter="heroArt('calgary')">Calgary / Banff</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg2')" onmouseenter="heroArt('bangkok')">Bangkok</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg3')" onmouseenter="heroArt('samui')">Koh Samui</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg4')" onmouseenter="heroArt('hongkong')">Hong Kong</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg5')" onmouseenter="heroArt('shanghai')">Shanghai</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg6')" onmouseenter="heroArt('athens')">Athens</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onclick="scrollToId('p-leg7')" onmouseenter="heroArt('barcelona')">Barcelona</span>
+    <span class="route-arrow">→</span>
+    <span class="route-stop" onmouseenter="heroArt('newyork')">Home</span>
+  </nav>
 
   <!-- QUICK LINKS BAR -->
   <div class="quick-links" style="background:var(--surface);border-bottom:1px solid var(--line-strong);padding:.65rem 3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
@@ -3157,7 +3160,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
 
       <!-- Koh Samui stay -->
       <div class="tr-section tr-sec-s">
-        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Wedding island<span class="tr-detail">Oct 9–12 · 3 nts · confirmed ✓</span></span></div>
+        <div class="tracker-row"><span class="status-dot s-booked"></span><span>Cape Fahn Hotel · Private Islands ✓<span class="tr-detail">Oct 9–12 · 3 nts · Ocean View Pool Villa · Res 14747 · incl. breakfast + airport transfer</span></span></div>
       </div>
 
       <!-- Hong Kong stay -->
@@ -3490,13 +3493,14 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <div class="ic-hotels">
         <div class="ic-hotel">
           <div class="ic-hotel-info">
-            <span class="ic-hotel-name"><i class="ri-heart-line"></i> Wedding — Private Island off Koh Samui</span>
-            <span class="ic-hotel-cancel"><i class="ri-shield-check-line"></i> Both confirmed · Oct 9–12</span>
+            <span class="ic-hotel-name"><i class="ri-hotel-bed-line"></i> Cape Fahn Hotel · Private Islands</span>
+            <span class="ic-hotel-cancel"><i class="ri-shield-check-line"></i> Incl. breakfast · airport transfer · water sports · mini bar · Res 14747</span>
           </div>
           <span class="ic-hotel-span">Oct 9–12 · 3 nights</span>
+          <span class="ic-badge ib-ok">✓ Res <span data-trip="samui-both-confirmation">14747</span> · Ocean View Pool Villa</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act" href="https://merylandmichaelforever.com" target="_blank" title="Wedding website"><i class="ri-global-line"></i></a>
-            <a class="ic-act" href="https://maps.google.com/?q=Koh+Phangan+Private+Island,+Koh+Samui,+Thailand" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <a class="ic-act-btn" href="https://maps.google.com/?q=24/269+Moo+5,+Bo-Phut,+Koh+Samui,+Surat+Thani+84320,+Thailand" target="_blank" title="Open in Google Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act-btn" onclick="copyAddr(this,'24/269 Moo 5, Bo-Phut, Koh Samui, Surat Thani 84320, Thailand')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
           </div>
