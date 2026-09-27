@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Departure Guide · Yang Yun · Oct–Nov 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  /* ─── Reset & Base ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --ink: #10181F;
+    --paper: #FAF9F5;
+    --gold: #B5862C;
+    --muted: #6B7280;
+    --faint: #EDE9E1;
+    --line: #DDD8CF;
+
+    --ch-canada: #1A3528;
+    --ch-bangkok: #3B1800;
+    --ch-samui: #0B233E;
+    --ch-hkg: #171717;
+    --ch-sha: #163030;
+    --ch-greece: #0D1E50;
+    --ch-bcn: #431200;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--ink);
+    background: #C5BCAF;
+    padding: 32px 16px;
+    line-height: 1.55;
+  }
+
+  /* ─── Page Cards (Screen) ─── */
+  .page {
+    width: 5.5in;
+    min-height: 8.5in;
+    background: var(--paper);
+    margin: 0 auto 28px;
+    padding: 0.4in 0.45in;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.22), 0 1px 6px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Cover has no padding — full bleed */
+  .page.cover {
+    padding: 0;
+  }
+
+  /* ─── Typography ─── */
+  .font-playfair { font-family: 'Playfair Display', Georgia, serif; }
+  .font-dm-sans  { font-family: 'DM Sans', sans-serif; }
+  .font-dm-mono  { font-family: 'DM Mono', 'Courier New', monospace; }
+
+  h1, h2, h3, .chapter-title {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* ─── Chapter Headers — Full Bleed ─── */
+  .chapter-header {
+    margin: -0.4in -0.45in 0.28in;
+    padding: 0.4in 0.45in 0.28in;
+    position: relative;
+  }
+
+  .chapter-header .chapter-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 6pt;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .chapter-header .chapter-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 28pt;
+    line-height: 1.0;
+    color: #fff;
+    margin-bottom: 8pt;
+    letter-spacing: -0.01em;
+  }
+
+  .chapter-header .chapter-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.06em;
+    margin-top: 2pt;
+  }
+
+  .chapter-header .chapter-rule {
+    display: block;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 16pt;
+    margin-bottom: 0;
+  }
+
+  /* ─── Section Labels ─── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin: 14pt 0 5pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ─── Hotel Cards ─── */
+  .hotel-card {
+    background: var(--faint);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    padding: 9pt 10pt;
+    margin: 6pt 0;
+    border-radius: 2px;
+  }
+
+  .hotel-card.tbd {
+    border-left: 3px dashed var(--muted);
+    background: transparent;
+    border-style: dashed;
+    border-color: var(--line);
+    border-left-style: dashed;
+    border-left-color: var(--muted);
+    position: relative;
+  }
+
+  .tbd-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.1em;
+    background: var(--muted);
+    color: #fff;
+    padding: 1pt 5pt;
+    border-radius: 2px;
+    margin-left: 6pt;
+    vertical-align: middle;
+  }
+
+  .hotel-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2pt;
+  }
+
+  .hotel-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 4pt;
+  }
+
+  .hotel-perks {
+    font-size: 7.5pt;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .hotel-perks span {
+    display: inline-block;
+    margin-right: 6pt;
+  }
+
+  .hotel-perks span::before {
+    content: '·  ';
+    color: var(--gold);
+  }
+
+  /* ─── Flight Strips ─── */
+  .flight-strip {
+    background: var(--ink);
+    color: #fff;
+    padding: 8pt 10pt;
+    border-radius: 2px;
+    margin: 5pt 0;
+    display: flex;
+    align-items: center;
+    gap: 8pt;
+    flex-wrap: wrap;
+  }
+
+  .flight-strip .flight-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .flight-strip .flight-route {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .flight-strip .flight-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+  }
+
+  .flight-strip .flight-carrier {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.55);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .flight-strip .flight-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+
+  .flight-note {
+    font-size: 7.5pt;
+    color: var(--muted);
+    font-style: italic;
+    margin: 4pt 0 2pt;
+    padding-left: 4pt;
+  }
+
+  /* ─── Activity Items ─── */
+  .activity-item {
+    padding: 8pt 0 8pt;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .activity-item:last-child {
+    border-bottom: none;
+  }
+
+  .activity-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    margin-bottom: 2pt;
+  }
+
+  .activity-detail {
+    font-size: 7.5pt;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .activity-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+  }
+
+  /* ─── Pull Quotes ─── */
+  .pull-quote {
+    border-left: 2px solid var(--gold);
+    padding: 6pt 10pt;
+    margin: 12pt 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.5;
+    background: var(--faint);
+  }
+
+  /* ─── Tipbox ─── */
+  .tipbox {
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--gold);
+    padding: 8pt 10pt;
+    margin: 10pt 0;
+    font-size: 7.5pt;
+    line-height: 1.55;
+    background: #fff;
+  }
+
+  .tipbox strong {
+    color: var(--ink);
+  }
+
+  /* ─── Intro Paragraphs ─── */
+  .intro {
+    font-size: 8.5pt;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 10pt;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ─── Footnotes ─── */
+  .footnotes {
+    border-top: 1px solid var(--line);
+    margin-top: 16pt;
+    padding-top: 6pt;
+  }
+
+  .footnotes p {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1pt;
+  }
+
+  sup {
+    font-family: 'DM Mono', monospace;
+    font-size: 5.5pt;
+    color: var(--gold);
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  /* ─── Stats Bar ─── */
+  .stats-bar {
+    display: flex;
+    gap: 6pt;
+    margin: 12pt 0 14pt;
+  }
+
+  .stat-chip {
+    flex: 1;
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    padding: 7pt 4pt;
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    border-radius: 2px;
+  }
+
+  .stat-chip .stat-val {
+    display: block;
+    font-size: 13pt;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0;
+    line-height: 1.1;
+    margin-bottom: 2pt;
+  }
+
+  /* ─── Journey Table ─── */
+  .journey-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8pt;
+    font-size: 8pt;
+  }
+
+  .journey-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 5pt 6pt;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .journey-table td {
+    padding: 5pt 6pt;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  .journey-table td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .journey-table td:nth-child(2) {
+    font-weight: 500;
+  }
+
+  .journey-table td:nth-child(3) {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .journey-table .destination-sub {
+    display: block;
+    font-size: 7pt;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 1pt;
+  }
+
+  .journey-table .row-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── Car Row ─── */
+  .car-row {
+    background: var(--faint);
+    border: 1px solid var(--line);
+    padding: 7pt 10pt;
+    margin: 5pt 0;
+    font-size: 7.5pt;
+    line-height: 1.5;
+    border-radius: 2px;
+  }
+
+  .car-row .car-name {
+    font-weight: 600;
+    font-size: 8pt;
+  }
+
+  /* ─── Wedding Box ─── */
+  .wedding-box {
+    text-align: center;
+    padding: 14pt 16pt;
+    margin: 10pt 0;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--faint) 0%, #fff 100%);
+  }
+
+  .wedding-box .wedding-names {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4pt;
+  }
+
+  .wedding-box .wedding-detail {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 6pt;
+  }
+
+  .wedding-box .wedding-caption {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  /* ─── Reference Table ─── */
+  .ref-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin: 14pt 0 5pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid var(--gold);
+    opacity: 0.85;
+  }
+
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+    margin-bottom: 8pt;
+  }
+
+  .ref-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 4pt 6pt;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ref-table td {
+    padding: 4pt 6pt;
+    border-bottom: 1px solid var(--faint);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  .ref-table td:last-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+  }
+
+  .ref-table td:nth-child(2) {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* ─── Settlement ─── */
+  .settlement-section {
+    margin: 12pt 0 8pt;
+  }
+
+  .settlement-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6pt;
+    display: block;
+  }
+
+  .settlement-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+  }
+
+  .settlement-table td {
+    padding: 5pt 0;
+    border-bottom: 1px solid var(--faint);
+    vertical-align: top;
+  }
+
+  .settlement-table td:last-child {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 7.5pt;
+    white-space: nowrap;
+  }
+
+  .settlement-table .total-row td {
+    border-top: 1.5px solid var(--ink);
+    border-bottom: none;
+    font-weight: 600;
+    padding-top: 6pt;
+  }
+
+  .net-box {
+    background: var(--ink);
+    color: #fff;
+    padding: 10pt 14pt;
+    margin: 14pt 0;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    text-align: center;
+  }
+
+  .net-box strong {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 3pt;
+  }
+
+  .net-box span {
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ─── Page Header (non-chapter pages) ─── */
+  .page-header {
+    padding-bottom: 10pt;
+    margin-bottom: 14pt;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .page-header .page-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .page-header .page-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 4pt;
+  }
+
+  /* ─── Cover specific ─── */
+  .cover-inner {
+    background: var(--ink);
+    width: 100%;
+    min-height: 8.5in;
+    padding: 0.45in 0.5in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cover-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28pt;
+  }
+
+  .cover-monogram {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 72pt;
+    line-height: 0.9;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    margin-bottom: 10pt;
+  }
+
+  .cover-monogram .gold-letter {
+    color: var(--gold);
+  }
+
+  .cover-date {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 12pt;
+    color: rgba(250,249,245,0.65);
+    margin-bottom: 20pt;
+  }
+
+  .cover-rule {
+    display: block;
+    border: none;
+    border-top: 1px solid rgba(181,134,44,0.4);
+    margin: 18pt 0 18pt;
+  }
+
+  .cover-route {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: rgba(250,249,245,0.45);
+    letter-spacing: 0.12em;
+    line-height: 2.0;
+  }
+
+  .cover-route .route-group {
+    display: block;
+    margin-bottom: 2pt;
+  }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20pt;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    color: rgba(250,249,245,0.35);
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── Chapter Counter (top-right of chapter header) ─── */
+  .chapter-counter {
+    position: absolute;
+    top: 0.26in;
+    right: 0.38in;
+    text-align: right;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .chapter-counter .counter-num {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 52pt;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.55;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  .chapter-counter .counter-label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 6pt;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4pt;
+    text-align: right;
+  }
+
+  /* ─── Night Dots (journey table) ─── */
+  .night-dots {
+    display: block;
+    text-align: right;
+    font-size: 8pt;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 2pt;
+  }
+  .night-dots.nts { color: var(--gold); }
+  .night-dots.days { color: var(--muted); opacity: 0.55; font-size: 7pt; }
+  .night-count {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 5.5pt;
+    color: var(--muted);
+    text-align: right;
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── Print Styles ─── */
+  @media print {
+    @page {
+      size: 5.5in 8.5in;
+      margin: 0.4in 0.45in;
+    }
+
+    body {
+      background: none;
+      padding: 0;
+    }
+
+    .page {
+      width: 100%;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .page.cover {
+      padding: 0;
+      margin: -0.4in -0.45in;
+      width: calc(100% + 0.9in);
+    }
+
+    .cover-inner {
+      min-height: 8.5in;
+      padding: 0.4in 0.45in;
+    }
+
+    .chapter-header {
+      margin: -0.4in -0.45in 0.28in;
+      padding: 0.4in 0.45in 0.28in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER                           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-eyebrow">Pre-Departure Guide &nbsp;·&nbsp; Oct–Nov 2026</div>
+
+      <div class="cover-monogram">
+        <span class="gold-letter">Y</span>&thinsp;<span style="font-size:48pt; color: var(--paper); opacity:0.6;">&amp;</span>&thinsp;<span>Y</span>
+      </div>
+
+      <div class="cover-date">October — November 2026</div>
+
+      <hr class="cover-rule">
+
+      <div class="cover-route">
+        <span class="route-group">CALGARY &nbsp;·&nbsp; JASPER &nbsp;·&nbsp; BANFF</span>
+        <span class="route-group">BANGKOK &nbsp;·&nbsp; KOH SAMUI</span>
+        <span class="route-group">HONG KONG &nbsp;·&nbsp; SHANGHAI</span>
+        <span class="route-group">MILOS &nbsp;·&nbsp; ATHENS</span>
+        <span class="route-group">BARCELONA</span>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <span>Prepared for Yang Yun</span>
+      <span>PRIVATE DOCUMENT</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: AT A GLANCE                     -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title">The Journey</div>
+    <div class="page-subtitle">33 days &nbsp;·&nbsp; 3 continents &nbsp;·&nbsp; 8 destinations</div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-chip">
+      <span class="stat-val">33</span>
+      DAYS
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val">8</span>
+      CITIES
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val">3</span>
+      CONTINENTS
+    </div>
+    <div class="stat-chip">
+      <span class="stat-val">~350K</span>
+      PTS REDEEMED
+    </div>
+  </div>
+
+  <table class="journey-table">
+    <thead>
+      <tr>
+        <th>DATE</th>
+        <th>DESTINATION</th>
+        <th>NIGHTS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Oct 1–6</td>
+        <td>
+          Canadian Rockies
+          <span class="destination-sub">Calgary → Jasper → Banff</span>
+        </td>
+        <td><span class="night-dots nts">●●●●●</span><span class="night-count">5 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 7–9</td>
+        <td>Bangkok</td>
+        <td><span class="night-dots nts">●●</span><span class="night-count">2 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 9–12</td>
+        <td>
+          Koh Samui
+          <span class="destination-sub">Meryl &amp; Michael's Wedding</span>
+        </td>
+        <td><span class="night-dots nts">●●●</span><span class="night-count">3 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 12–14</td>
+        <td>Hong Kong</td>
+        <td><span class="night-dots nts">●●</span><span class="night-count">2 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 14–17</td>
+        <td>Shanghai</td>
+        <td><span class="night-dots nts">●●●</span><span class="night-count">3 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 17–24</td>
+        <td>
+          Shanghai / China
+          <span class="destination-sub row-note">† Free days before overnight to Athens</span>
+        </td>
+        <td><span class="night-dots days">○○○○○○○</span><span class="night-count">7 days</span></td>
+      </tr>
+      <tr>
+        <td>Oct 24–26</td>
+        <td>Milos, Greece</td>
+        <td><span class="night-dots nts">●●</span><span class="night-count">2 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 26–29</td>
+        <td>Athens</td>
+        <td><span class="night-dots nts">●●●</span><span class="night-count">3 nts</span></td>
+      </tr>
+      <tr>
+        <td>Oct 29–Nov 2</td>
+        <td>Barcelona</td>
+        <td><span class="night-dots nts">●●●●</span><span class="night-count">4 nts</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-family:'DM Mono',monospace; font-size:6.5pt; color:var(--muted); margin-top:10pt; line-height:1.6;">
+    † Oct 17–24: free days in Shanghai / China before the overnight flight to Athens
+  </p>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: CHAPTER 01 — CANADIAN ROCKIES   -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background-color:#1A3528; background-image: linear-gradient(rgba(26,53,40,0.62), rgba(26,53,40,0.62)), url('images/calgary_h.png'); background-size:cover; background-position:center;">
+    <div class="chapter-eyebrow">Chapter 01</div>
+    <div class="chapter-title">Canadian<br>Rockies</div>
+    <div class="chapter-sub">Oct 1 – 6 &nbsp;·&nbsp; Calgary &nbsp;·&nbsp; Jasper &nbsp;·&nbsp; Banff</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">5</span><span class="counter-label">NTS</span></div>
+  </div>
+
+  <span class="section-label">Outbound Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">AC 585</span>
+    <span class="flight-route">EWR → YYC</span>
+    <span class="flight-time">Oct 1 &nbsp;·&nbsp; dep 14:25 → arr 17:30 MDT &nbsp;·&nbsp; 5h 05m</span>
+    <span class="flight-carrier">Air Canada &nbsp;·&nbsp; Ref BCFAML</span>
+  </div>
+
+  <span class="section-label">Accommodation</span>
+
+  <div class="hotel-card">
+    <div class="hotel-name">Residence Inn Calgary</div>
+    <div class="hotel-meta">Oct 1–2 &nbsp;·&nbsp; 1 night &nbsp;·&nbsp; Standard King</div>
+    <div class="hotel-perks">
+      <span>Standard Marriott</span><span>City center</span><span>Oct 1 arrival</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 6pt;padding-left:2pt;">¹ $211.16 USD &nbsp;·&nbsp; Conf #2491461985</p>
+
+  <div class="hotel-card">
+    <div class="hotel-name">Miette Mountain Cabins</div>
+    <div class="hotel-meta">Oct 2–3 &nbsp;·&nbsp; 1 night &nbsp;·&nbsp; Cedar Lodge</div>
+    <div class="hotel-perks">
+      <span>Hot spring resort</span><span>Pocahontas, Jasper</span><span>Daily breakfast</span><span>Rustic mountain cabin</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 6pt;padding-left:2pt;">² CA$440.27 incl. CA$24.55 resort fee at property &nbsp;·&nbsp; Expedia ref 72075854441977</p>
+
+  <div class="hotel-card">
+    <div class="hotel-name">Otter Hotel Banff</div>
+    <div class="hotel-meta">Oct 3–6 &nbsp;·&nbsp; 3 nights &nbsp;·&nbsp; Superior Room King</div>
+    <div class="hotel-perks">
+      <span>Banff Ave</span><span>Spa access</span><span>Mountain views</span><span>Ideal base for Lake Louise day</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 6pt;padding-left:2pt;">³ CA$2,187.75 &nbsp;·&nbsp; Expedia ref 72075854361589</p>
+
+  <span class="section-label">Car Rental</span>
+  <div class="car-row">
+    <span class="car-name">Sixt Mazda CX-5</span>&ensp;·&ensp;Oct 2 07:00 pickup YYC → Oct 6 12:00 drop-off&ensp;·&ensp;Conf CN961341228250<sup>4</sup>
+  </div>
+
+  <span class="section-label">Activity</span>
+  <div class="activity-item">
+    <div class="activity-name">Moraine Lake Shuttle <sup>5</sup></div>
+    <div class="activity-detail">
+      Oct 4 &nbsp;·&nbsp; Parks Canada reservation &nbsp;·&nbsp; <span class="activity-ref">INPC26-13891950B1</span><br>
+      <em>Shuttle is mandatory in Oct — the road closes to private vehicles. Book the earliest departure.</em>
+    </div>
+  </div>
+
+  <span class="section-label">Onward Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">WS 80 + WS 5930</span>
+    <span class="flight-route">YYC → BKK via NRT</span>
+    <span class="flight-time">Oct 6 dep 14:50 → Oct 7 arr 23:00 &nbsp;·&nbsp; 19h 10m</span>
+    <span class="flight-carrier">WestJet / JAL &nbsp;·&nbsp; Ref KXOXGQ<sup>6</sup></span>
+  </div>
+
+  <div class="footnotes">
+    <p>⁴ $454.25 USD &nbsp;·&nbsp; Free cancel Sep 29</p>
+    <p>⁵ CAD $29.00</p>
+    <p>⁶ $2,209.20 USD total (both)</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: CHAPTER 02 — BANGKOK           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background-color:#3B1800; background-image: linear-gradient(rgba(59,24,0,0.62), rgba(59,24,0,0.62)), url('images/bangkok_h.png'); background-size:cover; background-position:center;">
+    <div class="chapter-eyebrow">Chapter 02</div>
+    <div class="chapter-title">Bangkok</div>
+    <div class="chapter-sub">Oct 7 – 9</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">2</span><span class="counter-label">NTS</span></div>
+  </div>
+
+  <span class="section-label">Accommodation</span>
+  <div class="hotel-card">
+    <div class="hotel-name">Eastin Grand Hotel Phayathai</div>
+    <div class="hotel-meta">Oct 7–9 &nbsp;·&nbsp; 2 nights &nbsp;·&nbsp; Superior Panorama</div>
+    <div class="hotel-perks">
+      <span>Rooftop pool</span><span>Phaya Thai BTS at doorstep</span><span>Panoramic views</span><span>Central location</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 10pt;padding-left:2pt;">¹ 48,871 Amex MR pts (Yan's acct ••••2004) &nbsp;·&nbsp; Conf 9103484418003 &nbsp;·&nbsp; Equiv. $342.10</p>
+
+  <div class="pull-quote">
+    "Order the boat noodles from the vendor at the Victory Monument — 20 baht, and it will ruin you for noodles everywhere else."
+  </div>
+
+  <span class="section-label">Onward Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">PG 165</span>
+    <span class="flight-route">BKK → USM</span>
+    <span class="flight-time">Oct 9 &nbsp;·&nbsp; dep 15:30 → arr 16:35 &nbsp;·&nbsp; 1h 05m</span>
+    <span class="flight-carrier">Bangkok Airways &nbsp;·&nbsp; Ref CKWMQE<sup>2</sup></span>
+  </div>
+
+  <div class="footnotes">
+    <p>² 34,403 Chase UR pts (Yan's acct) &nbsp;·&nbsp; equiv. $373.80</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: CHAPTER 03 — KOH SAMUI         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background-color:#0B233E; background-image: linear-gradient(rgba(11,35,62,0.60), rgba(11,35,62,0.60)), url('images/samui_h.png'); background-size:cover; background-position:center;">
+    <div class="chapter-eyebrow">Chapter 03</div>
+    <div class="chapter-title">Koh Samui</div>
+    <div class="chapter-sub">Oct 9 – 12 &nbsp;·&nbsp; Meryl &amp; Michael's Wedding</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">3</span><span class="counter-label">NTS</span></div>
+  </div>
+
+  <div class="wedding-box">
+    <div class="wedding-names">Meryl &amp; Michael</div>
+    <div class="wedding-detail">Oct 9 – 12 &nbsp;·&nbsp; Koh Samui, Thailand</div>
+    <div class="wedding-caption">The reason the whole arc bends this way.</div>
+  </div>
+
+  <div class="tipbox">
+    <strong>What to wear:</strong> Dress for tropical evenings — the heat breaks after sundown but stays humid. Silk, linen, or anything light. Bring a small bag for ceremonies by the water.
+  </div>
+
+  <span class="section-label">Onward Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">PG 807</span>
+    <span class="flight-route">USM → HKG</span>
+    <span class="flight-time">Oct 12 &nbsp;·&nbsp; dep 11:55 → arr 16:20 &nbsp;·&nbsp; 3h 25m</span>
+    <span class="flight-carrier">Bangkok Airways &nbsp;·&nbsp; Ref FVZ2OD<sup>1</sup></span>
+  </div>
+
+  <div class="flight-note">
+    ✦ Chase Sapphire Lounge at HKG T2 — use Yun's CSR on arrival.
+  </div>
+
+  <div class="footnotes">
+    <p>¹ THB 18,090 (both)</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: CHAPTER 04 — HONG KONG         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background-color:#171717; background-image: linear-gradient(rgba(23,23,23,0.60), rgba(23,23,23,0.60)), url('images/hongkong_h.png'); background-size:cover; background-position:center;">
+    <div class="chapter-eyebrow">Chapter 04</div>
+    <div class="chapter-title">Hong Kong</div>
+    <div class="chapter-sub">Oct 12 – 14</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">2</span><span class="counter-label">NTS</span></div>
+  </div>
+
+  <span class="section-label">Accommodation</span>
+  <div class="hotel-card">
+    <div class="hotel-name">AKI Hotel Hong Kong <span style="font-family:'DM Mono',monospace;font-size:6.5pt;font-weight:400;color:var(--muted);">MGallery · ALL Accor</span></div>
+    <div class="hotel-meta">Oct 12–14 &nbsp;·&nbsp; 2 nights &nbsp;·&nbsp; Deluxe King Tatami</div>
+    <div class="hotel-perks">
+      <span>ZENsation Stay</span><span>Daily breakfast</span><span>HK$400 dining credit</span><span>Bvlgari amenities</span><span>270° city + partial harbour view</span><span>239 Jaffe Rd, Wan Chai</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 8pt;padding-left:2pt;">¹ HKD 5,955.10 at property &nbsp;·&nbsp; Conf QQXHBNCL</p>
+
+  <div class="tipbox">
+    <strong>Chase Sapphire Lounge</strong> is at HKG T2 — arrive Oct 12 at 16:20 and go straight there before the taxi queue. Coffee, showers, and quiet before heading to Wan Chai.
+  </div>
+
+  <span class="section-label">Onward Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">MU 722</span>
+    <span class="flight-route">HKG → SHA Hongqiao</span>
+    <span class="flight-time">Oct 14 &nbsp;·&nbsp; dep 12:05 → arr 14:40 &nbsp;·&nbsp; 2h 35m</span>
+    <span class="flight-carrier">China Eastern &nbsp;·&nbsp; Ref PFTV0J<sup>2</sup></span>
+  </div>
+  <div class="flight-note">
+    Note: arrival is SHA <strong>Hongqiao</strong> (not Pudong).
+  </div>
+
+  <div class="footnotes">
+    <p>² $276.80 USD (both) &nbsp;·&nbsp; Chase Travel #1029037000</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 7: CHAPTER 05 — SHANGHAI           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background-color:#163030; background-image: linear-gradient(rgba(22,48,48,0.60), rgba(22,48,48,0.60)), url('images/shanghai_h.png'); background-size:cover; background-position:center;">
+    <div class="chapter-eyebrow">Chapter 05</div>
+    <div class="chapter-title">Shanghai</div>
+    <div class="chapter-sub">Oct 14 – 17 + Free Days through Oct 24</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">10</span><span class="counter-label">DAYS</span></div>
+  </div>
+
+  <span class="section-label">Accommodation</span>
+  <div class="hotel-card">
+    <div class="hotel-name">The Shanghai EDITION</div>
+    <div class="hotel-meta">Oct 14–17 &nbsp;·&nbsp; 3 nights &nbsp;·&nbsp; Premium City View King</div>
+    <div class="hotel-perks">
+      <span>Daily breakfast for 2</span><span>$100 property credit</span><span>Welcome amenity</span><span>Wi-Fi</span><span>Upgrade on arrival</span><span>199 Nanjing Road East</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 8pt;padding-left:2pt;">¹ 87,196 Chase UR pts &nbsp;·&nbsp; 1.65× Points Boost &nbsp;·&nbsp; equiv. $1,438.74 documented &nbsp;·&nbsp; Conf 72389014</p>
+
+  <div class="pull-quote">
+    "The Bund at 6am: no one there, the light on the Pudong skyline, and the river moving slowly. Worth the alarm."
+  </div>
+
+  <span class="section-label">Free Days</span>
+  <div class="tipbox">
+    <strong>Oct 17–24:</strong> Free days in Shanghai / China before the overnight to Athens. The calendar is open — the city rewards slow exploration.
+  </div>
+
+  <span class="section-label">Onward Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">HO 1657</span>
+    <span class="flight-route">PVG → ATH</span>
+    <span class="flight-time">Oct 24 &nbsp;·&nbsp; dep 01:10 CST → arr 07:55 EEST &nbsp;·&nbsp; ~11h 45m</span>
+    <span class="flight-carrier">Juneyao / Aegean &nbsp;·&nbsp; Ref PFM44G &nbsp;·&nbsp; Seat 39G<sup>2</sup></span>
+  </div>
+  <div class="flight-note">
+    Departure is from Pudong (PVG) — allow ~1hr from Hongqiao area.
+  </div>
+
+  <div class="footnotes">
+    <p>² Yun ref PFM44G</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 8: CHAPTER 06 — MILOS + ATHENS    -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background-color:#0D1E50; background-image: linear-gradient(rgba(13,30,80,0.58), rgba(13,30,80,0.58)), url('images/athens_h.png'); background-size:cover; background-position:center;">
+    <div class="chapter-eyebrow">Chapter 06</div>
+    <div class="chapter-title">Milos &amp;<br>Athens</div>
+    <div class="chapter-sub">Oct 24 – 29</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">5</span><span class="counter-label">NTS</span></div>
+  </div>
+
+  <span class="section-label">ATH ↔ MLO Transfers</span>
+  <div class="flight-strip">
+    <span class="flight-num">GQ 410</span>
+    <span class="flight-route">ATH → MLO</span>
+    <span class="flight-time">Oct 24 &nbsp;·&nbsp; dep 12:20 → arr 13:00 &nbsp;·&nbsp; ~40m &nbsp;·&nbsp; Seat 4B</span>
+    <span class="flight-carrier">SKY Express &nbsp;·&nbsp; Ref 8R7MKC<sup>1</sup></span>
+  </div>
+  <div class="flight-strip" style="margin-top:4pt;">
+    <span class="flight-num">GQ 411</span>
+    <span class="flight-route">MLO → ATH</span>
+    <span class="flight-time">Oct 26 &nbsp;·&nbsp; dep 11:30 → arr 12:15 &nbsp;·&nbsp; ~45m &nbsp;·&nbsp; Seat 3D</span>
+    <span class="flight-carrier">SKY Express &nbsp;·&nbsp; Ref 8R7MKC<sup>1</sup></span>
+  </div>
+
+  <span class="section-label">Milos — Accommodation</span>
+  <div class="hotel-card">
+    <div class="hotel-name">D3 Milos <span style="font-family:'DM Mono',monospace;font-size:6.5pt;font-weight:400;color:var(--muted);">Cycladic Living</span></div>
+    <div class="hotel-meta">Oct 24–26 &nbsp;·&nbsp; 2 nights &nbsp;·&nbsp; Exclusive Suite with Private Pool &amp; Sea View</div>
+    <div class="hotel-perks">
+      <span>65 sqm clifftop suite</span><span>Private plunge pool</span><span>Sea view terrace</span><span>Breakfast included</span><span>Plaka village, hilltop</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 8pt;padding-left:2pt;">² €610.80 (€606.80 prepaid + €4 climate tax at property) &nbsp;·&nbsp; Non-refundable &nbsp;·&nbsp; Conf #63164966</p>
+
+  <span class="section-label">Athens — Accommodation</span>
+  <div class="hotel-card tbd">
+    <div class="hotel-name">Athens Hotel <span class="tbd-badge">TBD</span></div>
+    <div class="hotel-meta">Oct 26–29 &nbsp;·&nbsp; 3 nights</div>
+    <div class="hotel-perks" style="color:var(--muted); font-style:italic;">
+      Electra Metropolis recommended — Acropolis-view rooftop pool · Syntagma area · book directly
+    </div>
+  </div>
+
+  <div class="tipbox">
+    <strong>Acropolis sunrise:</strong> go before 8am on Oct 27 or 28 — the site opens at 8am and is empty for the first hour. The light is everything in Athens.
+  </div>
+
+  <span class="section-label">Onward Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">A3 712</span>
+    <span class="flight-route">ATH → BCN</span>
+    <span class="flight-time">Oct 29 &nbsp;·&nbsp; dep 16:40 → arr 18:50 &nbsp;·&nbsp; 3h 10m</span>
+    <span class="flight-carrier">Aegean Airlines &nbsp;·&nbsp; Ref 76QQ85<sup>2</sup></span>
+  </div>
+
+  <div class="footnotes">
+    <p>¹ €269.84 EUR total (both) &nbsp;·&nbsp; Yan paid &nbsp;·&nbsp; Yun seat: 4B outbound, 3D return</p>
+    <p>² Both &nbsp;·&nbsp; Ref 76QQ85</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 9: CHAPTER 07 — BARCELONA          -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header" style="background: var(--ch-bcn);">
+    <div class="chapter-eyebrow">Chapter 07</div>
+    <div class="chapter-title">Barcelona</div>
+    <div class="chapter-sub">Oct 29 – Nov 2</div>
+    <hr class="chapter-rule">
+    <div class="chapter-counter"><span class="counter-num">4</span><span class="counter-label">NTS</span></div>
+  </div>
+
+  <span class="section-label">Accommodation</span>
+  <div class="hotel-card">
+    <div class="hotel-name">Yurbban Passage Hotel &amp; Spa</div>
+    <div class="hotel-meta">Oct 29–Nov 2 &nbsp;·&nbsp; 4 nights &nbsp;·&nbsp; Premium Double Room Terrace 1 King</div>
+    <div class="hotel-perks">
+      <span>Rooftop spa with pool</span><span>El Born district</span><span>Carrer de Trafalgar 26</span><span>$85.51 resort fee at property</span>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:6.5pt;color:var(--muted);margin:2pt 0 8pt;padding-left:2pt;">¹ 120,893 Chase UR pts + $72.34 cash &nbsp;·&nbsp; 1.6× Points Boost &nbsp;·&nbsp; equiv. $2,019.81 &nbsp;·&nbsp; Conf #2535421155</p>
+
+  <span class="section-label">Confirmed Activities</span>
+
+  <div class="activity-item">
+    <div class="activity-name">Casa Batlló — "Be the First" <sup>2</sup></div>
+    <div class="activity-detail">
+      Oct 30 &nbsp;·&nbsp; 08:30 &nbsp;·&nbsp; Exclusive pre-opening access &nbsp;·&nbsp; Noble Floor &nbsp;·&nbsp; Boneyard rooftop<br>
+      Passeig de Gràcia 43 &nbsp;·&nbsp; Res. 106963911 &nbsp;·&nbsp; <em>Arrive 08:30 sharp.</em>
+    </div>
+  </div>
+
+  <div class="activity-item">
+    <div class="activity-name">Sagrada Família + Towers <sup>3</sup></div>
+    <div class="activity-detail">
+      Oct 30 &nbsp;·&nbsp; 13:00 entrance / 13:45 towers &nbsp;·&nbsp; Timed entry — enter on Carrer de la Marina<br>
+      Tower on Passion facade (west side) &nbsp;·&nbsp; Bring photo ID (non-transferable)<br>
+      <span class="activity-ref">Yun ticket: 316448909 &nbsp;·&nbsp; Code 106680086</span>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    "Oct 30 is a full Gaudí day — Casa Batlló at dawn, Sagrada Família at noon. Don't schedule anything else."
+  </div>
+
+  <div class="tipbox">
+    <strong>Nov 1 is All Saints' Day (public holiday)</strong> — most museums closed. Best day for Barceloneta beach, a long seafood lunch, and Port Olímpic.
+  </div>
+
+  <span class="section-label">Return Flight</span>
+  <div class="flight-strip">
+    <span class="flight-num">AA 67</span>
+    <span class="flight-route">BCN → JFK</span>
+    <span class="flight-time">Nov 2 &nbsp;·&nbsp; dep 11:55 → arr 15:25 &nbsp;·&nbsp; 9h 30m</span>
+    <span class="flight-carrier">American Airlines &nbsp;·&nbsp; Ref AM2LKL<sup>4</sup></span>
+  </div>
+  <div class="flight-note">
+    Terminal 1 BCN. Recommend Priority Pass Sala VIP Pau Casals lounge (CSR eligible).
+  </div>
+
+  <div class="footnotes">
+    <p>² €45/person &nbsp;·&nbsp; €90 total</p>
+    <p>³ €36/person &nbsp;·&nbsp; €72 total</p>
+    <p>⁴ Yun ref AM2LKL</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 10: BOOKING REFERENCE APPENDIX     -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title">Booking References</div>
+    <div class="page-subtitle">Complete confirmation numbers for all reservations</div>
+  </div>
+
+  <span class="ref-section-label">Flights</span>
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Booking</th>
+        <th>Flight</th>
+        <th>Date</th>
+        <th>Conf / Ref</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>EWR → YYC (Yun)</td>
+        <td>AC585</td>
+        <td>Oct 1</td>
+        <td>BCFAML</td>
+      </tr>
+      <tr>
+        <td>YYC → BKK (Both)</td>
+        <td>WS80/5930</td>
+        <td>Oct 6</td>
+        <td>KXOXGQ</td>
+      </tr>
+      <tr>
+        <td>BKK → USM (Both)</td>
+        <td>PG165</td>
+        <td>Oct 9</td>
+        <td>CKWMQE</td>
+      </tr>
+      <tr>
+        <td>USM → HKG (Both)</td>
+        <td>PG807</td>
+        <td>Oct 12</td>
+        <td>FVZ2OD</td>
+      </tr>
+      <tr>
+        <td>HKG → SHA (Both)</td>
+        <td>MU722</td>
+        <td>Oct 14</td>
+        <td>PFTV0J</td>
+      </tr>
+      <tr>
+        <td>PVG → ATH (Yun)</td>
+        <td>HO1657</td>
+        <td>Oct 24</td>
+        <td>PFM44G</td>
+      </tr>
+      <tr>
+        <td>ATH ↔ MLO (Both)</td>
+        <td>GQ410/411</td>
+        <td>Oct 24+26</td>
+        <td>8R7MKC</td>
+      </tr>
+      <tr>
+        <td>ATH → BCN (Both)</td>
+        <td>A3 712</td>
+        <td>Oct 29</td>
+        <td>76QQ85</td>
+      </tr>
+      <tr>
+        <td>BCN → JFK (Yun)</td>
+        <td>AA67</td>
+        <td>Nov 2</td>
+        <td>AM2LKL</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="ref-section-label">Stays</span>
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Dates</th>
+        <th>Confirmation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Residence Inn Calgary</td>
+        <td>Oct 1–2</td>
+        <td>2491461985</td>
+      </tr>
+      <tr>
+        <td>Miette Mountain Cabins</td>
+        <td>Oct 2–3</td>
+        <td>72075854441977</td>
+      </tr>
+      <tr>
+        <td>Otter Hotel Banff</td>
+        <td>Oct 3–6</td>
+        <td>72075854361589</td>
+      </tr>
+      <tr>
+        <td>Eastin Grand Phayathai</td>
+        <td>Oct 7–9</td>
+        <td>9103484418003</td>
+      </tr>
+      <tr>
+        <td>AKI Hotel Hong Kong</td>
+        <td>Oct 12–14</td>
+        <td>QQXHBNCL</td>
+      </tr>
+      <tr>
+        <td>The Shanghai EDITION</td>
+        <td>Oct 14–17</td>
+        <td>72389014</td>
+      </tr>
+      <tr>
+        <td>D3 Milos</td>
+        <td>Oct 24–26</td>
+        <td>63164966</td>
+      </tr>
+      <tr>
+        <td>Yurbban Passage Barcelona</td>
+        <td>Oct 29–Nov 2</td>
+        <td>2535421155</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="ref-section-label">Activities &amp; Car</span>
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Booking</th>
+        <th>Date</th>
+        <th>Confirmation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Moraine Lake Shuttle</td>
+        <td>Oct 4</td>
+        <td>INPC26-13891950B1</td>
+      </tr>
+      <tr>
+        <td>Casa Batlló</td>
+        <td>Oct 30</td>
+        <td>106963911</td>
+      </tr>
+      <tr>
+        <td>Sagrada Família</td>
+        <td>Oct 30</td>
+        <td>106680086 (ticket 316448909)</td>
+      </tr>
+      <tr>
+        <td>Sixt Mazda CX-5, Calgary</td>
+        <td>Oct 2–6</td>
+        <td>CN961341228250</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 11: SETTLEMENT                     -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-title">Settlement</div>
+    <div class="page-subtitle" style="max-width: 4.5in; line-height:1.5;">Approximate USD equivalents based on booking receipts and documented values. Final settlement in the currency of your choice.</div>
+  </div>
+
+  <div class="settlement-section">
+    <span class="settlement-section-label">Yun owes Yan</span>
+    <table class="settlement-table">
+      <tbody>
+        <tr>
+          <td>BKK → USM flight (Yan's Chase UR, both)</td>
+          <td>~$187</td>
+        </tr>
+        <tr>
+          <td>Eastin Grand Bangkok (Yan's Amex MR, both)</td>
+          <td>~$171</td>
+        </tr>
+        <tr>
+          <td>AKI Hotel Hong Kong (Yan paid, both)</td>
+          <td>~$383</td>
+        </tr>
+        <tr>
+          <td>ATH ↔ MLO, SKY Express (Yan paid, both)</td>
+          <td>~$147</td>
+        </tr>
+        <tr>
+          <td>D3 Milos (Yan paid, both)</td>
+          <td>~$332</td>
+        </tr>
+        <tr>
+          <td>ATH → BCN flight (Yan paid, both)</td>
+          <td>TBC</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Subtotal Yun → Yan</strong></td>
+          <td><strong>~$1,220 + TBC</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="settlement-section" style="margin-top:18pt;">
+    <span class="settlement-section-label">Yan owes Yun</span>
+    <table class="settlement-table">
+      <tbody>
+        <tr>
+          <td>HKG → SHA flight (Yun's CSR, both)</td>
+          <td>~$138</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Subtotal Yan → Yun</strong></td>
+          <td><strong>~$138</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="net-box">
+    <strong>Net: Yun owes Yan approximately $1,082</strong>
+    <span>pending ATH → BCN flight confirmation</span>
+  </div>
+
+  <div class="footnotes">
+    <p>All USD figures are approximate equivalents based on documented booking receipts. Points redemptions valued at documented Chase/Amex redemption rates. Foreign currency items (HKD, EUR, THB) converted at rates in effect at time of booking. Final settlement should be confirmed against actual receipts.</p>
+  </div>
+</div>
+
+</body>
+</html>

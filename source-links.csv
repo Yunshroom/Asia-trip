@@ -1,0 +1,39 @@
+item,type,who,date_range,conf_number,has_pdf,pdf_filename,alt_source,booking_platform,booking_url_or_ref,notes
+EWR→YYC (Yun),flight,Yun,Oct 1,BCFAML,yes,10-01 - ✈️ - Yun - EWR-YYC - BCFAML.pdf,,Air Canada / Aeroplan,aeroplan.com,Aeroplan points redemption; Yun ••••7559 CSR
+EWR→YYC (Yan),flight,Yan,Oct 1,BCFEFG,yes,10-01 - ✈️ - Yan - EWR-YYC - BCFEFG.pdf,,Air Canada / Aeroplan,aeroplan.com,Aeroplan points + cash; Yan ••••1922
+Residence Inn Calgary,hotel,Yun,Oct 1–2,2491461985,yes,10-01 - 🏨 - Yun - Residence-Inn-Calgary - 2491461985.pdf,,Marriott Bonvoy,marriott.com,$211.16 USD · Non-refundable
+Sixt Car Rental YYC,car,Yun,Oct 2–6,CN961341228250,yes,10-02 - 🚗 - Yun - Sixt-CX5-Calgary - CN961341228250.pdf,,Chase Travel,chasetravel.com,$454.25 USD · CX-5 · Free cancel Sep 30 07:00 · Chase Trip 1019420392 · Drop-off Oct 6 12:00 · Extended from CN961135523748
+Miette Mountain Cabins Jasper,hotel,Yun,Oct 2–3,72075854441977,yes,10-02 - 🏨 - Yun - Miette-Mountain-Cabins-Jasper - Expedia72075854441977.pdf,,Expedia / Chase Travel,expedia.com,Expedia ref; Free cancel Sep 29
+Otter Hotel Banff,hotel,Yun,Oct 3–6,72075854361589,yes,10-03 - 🏨 - Both - OtterHotelBanff - 72075854361589.pdf,,Expedia / Chase Travel,expedia.com,CA$2187.75 · 3 nts · Superior King · Free cancel Sep 30 18:00 · Chase Trip (Gmail PDF)
+Moraine Lake Shuttle,activity,Both,Oct 4,INPC26-13891950B1,yes,10-04 - 🎟️ - Both - Moraine-Lake-Shuttle - INPC26.pdf,,Parks Canada,reservation.pc.gc.ca,CAD $29.00 · Non-refundable
+YYC→BKK (WestJet/JAL),flight,Both,Oct 6–7,KXOXGQ,yes,10-06 - ✈️ - Both - YYC-BKK-WestJet - KXOXGQ.pdf,,WestJet,westjet.com,$2209.20 USD · Non-refundable · via NRT
+Eastin Grand Hotel Phayathai Bangkok,hotel,Both,Oct 7–9,9103484418003,yes,10-07 - 🏨 - Both - Eastin-Grand-Bangkok - 9103484418003.pdf,,Amex Travel / MR points,travel.amex.com,48871 Amex MR pts (Yan ••••2004) · $342.10 equiv · Non-refundable
+Wedding Schedule (Meryl & Michael),wedding,Both,Oct 9–12,merylandmichaelforever.com,yes,10-09 - 💒 - Wedding-Schedule - Meryl-Michael.pdf,,Private invitation,merylandmichaelforever.com,Private island off Koh Samui; not a personal booking
+BKK→USM PG165 (Bangkok Airways),flight,Both,Oct 9,CKWMQE,yes,10-09 - ✈️ - Both - BKK-USM - PG165-CKWMQE.pdf,,Chase Travel,chasetravel.com,34403 Chase UR pts (Yan) · $373.80 equiv · Chase Trip 1028902776
+USM→HKG PG807 (Yun),flight,Yun,Oct 12,FVZ2OD,yes,10-12 - ✈️ - Yun - USM-HKG - FVZ2OD.pdf,,Third-party / Yun's card,,THB 18090 total (both); Yun seat 16A
+USM→HKG PG807 (Yan),flight,Yan,Oct 12,FVZ2OD,yes,10-12 - ✈️ - Yan - USM-HKG - FVZ2OD.pdf,,Third-party / Yun's card,,Same ref FVZ2OD shared with Yun; Yan seat 16B
+AKI Hotel Hong Kong (MGallery),hotel,Both,Oct 12–14,QQXHBNCL,yes,10-12 - 🏨 - Both - AKI-Hotel-Hong-Kong - QQXHBNCL.pdf,,Accor / MGallery,all.accor.com,HKD 5955.10 at property (Yan paying) · Free cancel Oct 11 12:00
+HKG→SHA MU722 (China Eastern),flight,Both,Oct 14,PFTV0J,yes,10-14 - ✈️ - Both - HKG-SHA - MU722-PFTV0J.pdf,,Chase Travel,chasetravel.com,$276.80 USD (Yun CSR) · Chase Trip 1029037000
+Shanghai EDITION (Yun),hotel,Yun,Oct 14–17,72389014,yes,10-14 - 🏨 - Yun - Shanghai-EDITION - 72389014.pdf,,Chase Travel,chasetravel.com,87196 Chase UR pts · $1438.74 equiv · Chase Trip 1020733455
+Shanghai EDITION (Yan+Mom),hotel,Yan+Mom,Oct 14–17,77732471,yes,10-14 - 🏨 - Yun Mom - Shanghai-EDITION - 77732471.pdf,,Chase Travel,chasetravel.com,$1385.96 USD · Chase Trip 1020790091
+PVG→ATH HO1657 (Yun),flight,Yun,Oct 24,PFM44G,yes,10-24 - ✈️ - Yun - PVG-ATH - HO1657-PFM44G.pdf,,Juneyao Airlines / Yun's card,,Seat 39G; Ref PFM44G
+PVG→ATH Yun seat selection,supporting,Yun,Oct 24,PFM44G,yes,10-24 - ✈️ - Yun - PVG-ATH - PFM44G-seat-selection.pdf,,Juneyao Airlines,,Duplicate seat selection doc for same booking
+PVG→ATH HO1657 (Yan — company),flight,Yan,Oct 24,AZ5QGD,yes,10-24 - ✈️ - Yan - PVG-ATH - EHMJVO-invoice.pdf,,BCG Amex GBT,amexgbt.com,Amex GBT ref EHMJVO · BCG Lodge card · company-expensed · NOT in personal ledger
+PVG→ATH seat screenshot (Yun),supporting,Yun,Oct 24,PFM44G,yes,10-24 - 📋 - Yun - PVG-ATH - seat-selection-screenshot.pdf,,Screenshot,,Duplicate screenshot; same seat selection as above PDF
+D3 Milos (Exclusive Suite),hotel,Both,Oct 24–26,63164966,yes,10-24 - 🏨 - Both - D3-Milos - 63164966.pdf,,D3 Hotels direct,d3hotels.com,€610.80 total (€606.80 prepaid + €4 climate tax at property) · Non-refundable
+ATH↔MLO SKY Express GQ410/GQ411,flight,Both,Oct 24 + Oct 26,8R7MKC,yes,10-24 - ✈️ - Both - ATH-MLO-ATH - GQ410-GQ411-8R7MKC.pdf,,SKY Express,skyexpress.gr,€269.84 total (both) · Yan paid · Yun 4B+3D · Yan 4A+3C
+ATH→BCN A3 712,flight,Both,Oct 29,76QQ85,yes,10-29 - ✈️ - Both - ATH-BCN - A3712-76QQ85.pdf,,Aegean Airlines,aegeanair.com,€324.88 total · Yan fronted Yun's half (€162.44)
+Yurbban Passage Barcelona,hotel,Both,Oct 29–Nov 2,2535421155,yes,10-29 - 🏨 - Both - Yurbban-Passage-Barcelona - 2535421155.pdf,,Chase Travel,chasetravel.com,120893 Chase UR pts · $2019.81 equiv · Chase Trip 1027885653 · Free cancel Oct 28 15:00
+Casa Batlló (Barcelona),activity,Both,Oct 30,106963911,yes,10-30 - 🎟️ - Both - Casa-Batllo-Barcelona - 106963911.pdf,,Casa Batlló direct,casabatllo.es,€90.00 total (€45 × 2) · Be the First 08:30 entry
+Sagrada Família (Barcelona),activity,Both,Oct 30,106680086,yes,10-30 - 🎟️ - Both - Sagrada-Familia-Barcelona - 106680086.pdf,,Sagrada Família direct,sagradafamilia.org,€72.00 total (€36 × 2) · 13:00 entry + 13:45 tower · ticket locators 316448909 (Yun) 316448910 (Yan)
+BCN→JFK AA67 (Yan — company),flight,Yan,Nov 2,IHTZNM,yes,11-02 - ✈️ - Yan-company - BCN-JFK - AA67-IHTZNM-USXNZA.pdf,,BCG Amex GBT,amexgbt.com,Amex GBT ref USXNZA · Business Seat 3A · BCG Lodge card · company-expensed · NOT in personal ledger
+BCN→JFK AA67 (Yun),flight,Yun,Nov 2,AM2LKL,yes,11-02 - ✈️ - Yun - BCN-JFK - AM2LKL.pdf,,American Airlines / Yun's card,aa.com,Economy · Yun CSR · Non-refundable
+Public House Bangkok (CANCELLED),hotel,Both,Oct 7–9,88511655,yes (_cancelled),_cancelled/10-07 - 🏨 - Both - Public-House-Bangkok - 88511655.pdf,,Bonvoy / Marriott,marriott.com,55000 Bonvoy pts · CANCELLED Sep 2026 · 55K pts returned · replaced by Eastin Grand
+ATH→EWR A3 3415 (CANCELLED),flight,Yan,Oct 30,EIGQSX,yes (_cancelled),_cancelled/10-30 - ✈️ - Yan-company - ATH-EWR - EIGQSX.pdf,,BCG Amex GBT,amexgbt.com,BCG Lodge card · CANCELLED — superseded by BCN→JFK Nov 2 (Yan keeping Barcelona)
+Chase UR remaining balance,points_balance,Yun,,95982,no,,,Calculated from booking receipts,,After 87196 pts EDITION + 120893 pts Barcelona; no standalone PDF
+Bonvoy remaining balance,points_balance,Yun,,112447,no,,,Calculated — 55K pts returned from BKK cancellation,,No standalone PDF; derived from account balance + cancellation
+Amex MR remaining balance (Yan),points_balance,Yan,,180000,no,,,Amex account statement (not on file),,No PDF; user-provided balance
+BKK→USM Chase UR value estimate,estimate,Yan,,,$373.80 USD equiv,no,,,Chase Travel receipt,Chase Trip 1028902776,Documented value from Chase Travel booking receipt — not a confirmation PDF
+SHA EDITION Yun value estimate,estimate,Yun,,,$1438.74 USD equiv,no,,,Chase Travel receipt,Chase Trip 1020733455,Documented value from Chase Travel booking receipt
+Barcelona Yurbban value estimate,estimate,Yun,,,$2019.81 USD equiv,no,,,Chase Travel receipt,Chase Trip 1027885653,Documented value from Chase Travel booking receipt
+Eastin Grand Amex MR value estimate,estimate,Yan,,,$342.10 USD equiv,no,,,Amex Travel receipt,ZO-AX1083-59188,Documented value from Amex Travel booking receipt

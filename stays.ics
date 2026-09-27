@@ -30,10 +30,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:banff-yun-2026@asia-trip
 DTSTART;VALUE=DATE:20261003
-DTEND;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
 SUMMARY:Otter Hotel Banff · Yun
 LOCATION:600 Banff Ave\, Banff AB T1L 1H8\, Canada
-DESCRIPTION:Expedia ref 72075854361589 · Superior Room 1 King · CA$1\,485.67 · Free cancel until Sep 30 18:00
+DESCRIPTION:Expedia ref 72075854361589 · Superior Room 1 King · CA$2\,187.75 · Free cancel until Sep 30 18:00
 STATUS:CONFIRMED
 END:VEVENT
 
@@ -41,9 +41,9 @@ BEGIN:VEVENT
 UID:bangkok-both-2026@asia-trip
 DTSTART;VALUE=DATE:20261007
 DTEND;VALUE=DATE:20261009
-SUMMARY:Public House Bangkok · Both
-LOCATION:249 Soi Sukhumvit 31\, Khlong Tan Nuea\, Bangkok 10110\, Thailand
-DESCRIPTION:Conf #88511655 · Marriott Bonvoy · 55\,000 Bonvoy pts (Yun's acct) · Uptown King City View · Free cancel until Oct 4 23:59 local
+SUMMARY:Eastin Grand Hotel Phayathai · Both
+LOCATION:18 Phaya Thai Road\, Ratchathewi\, Bangkok 10400\, Thailand
+DESCRIPTION:Conf 9103484418003 · Amex Trip ZO-AX1083-59188 · 48\,871 Amex MR pts (Yan ••••2004) · $342.10 equiv · Non-refundable · Deluxe King
 STATUS:CONFIRMED
 END:VEVENT
 

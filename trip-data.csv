@@ -51,6 +51,7 @@ f-bcn-jfk-yun-ref,AM2LKL,Yun booking ref
 f-bcn-jfk-yan-ref,IHTZNM,Yan airline ref
 f-bcn-jfk-yan-amex,USXNZA,Yan Amex GBT ref
 f-bcn-jfk-yan-seat,3A,Yan seat (Business)
+f-ath-ewr-status,CANCELLED,A3 3415 ATH→EWR Oct 30 — BCG booking superseded by BCN→JFK Nov 2 · PDF in _cancelled/
 s-calgary-conf,2491461985,Residence Inn Calgary conf
 s-calgary-checkin,Oct 1,Check-in date
 s-calgary-checkout,Oct 2,Check-out date
@@ -62,8 +63,8 @@ s-jasper-checkout,Oct 3,Check-out date
 s-jasper-cancel,Free cancel until Sep 29,Cancellation policy
 s-banff-conf,72075854361589,Otter Hotel Banff Expedia ref
 s-banff-checkin,Oct 3,Check-in date
-s-banff-checkout,Oct 5,Check-out date
-s-banff-cancel,Free cancel until Sep 30,Cancellation policy
+s-banff-checkout,Oct 6,Check-out date
+s-banff-cancel,Free cancellation until Sept 30 at 6:00 p.m. (property local time); after that first night rate plus taxes,Cancellation policy
 s-bangkok-conf,88511655,Public House Bangkok Bonvoy conf
 s-bangkok-checkin,Oct 7,Check-in date
 s-bangkok-checkout,Oct 9,Check-out date
@@ -92,12 +93,12 @@ s-bcn-cancel,Free cancel until Oct 28 15:00,Cancellation policy
 a-moraine-ref,INPC26-13891950B1,Moraine Lake shuttle ref
 a-moraine-date,Oct 4,Date
 a-moraine-price,CAD $29.00,Price paid
-c-sixt-conf,CN961135523748,Chase Travel car conf
-c-sixt-sixt,9735700791,Sixt counter conf number
+c-sixt-conf,CN961341228250,Chase Travel car conf
+c-sixt-sixt,9735738700,Sixt counter conf number
 c-sixt-pickup,Oct 2 07:00,Pickup date/time
-c-sixt-dropoff,Oct 5 20:00,Drop-off date/time
+c-sixt-dropoff,Oct 6 12:00,Drop-off date/time
 c-sixt-price,$454.25,Total price paid
-c-sixt-cancel,Free cancel until Sep 29,Cancellation policy
+c-sixt-cancel,Free cancel until Sep 30 07:00,Cancellation policy
 pts-chase-remaining,"95,982",Chase UR pts remaining (after 87K EDITION + 121K Barcelona)
 pts-bonvoy-remaining,"112,447",Bonvoy pts remaining (55K BKK returned — Public House Bangkok cancelled)
 pts-total-redeemed,"350,082",Total pts redeemed (6 redemptions across 3 programs)
