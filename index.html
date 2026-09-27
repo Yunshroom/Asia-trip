@@ -1639,13 +1639,14 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
 /* ── Flight strip (top, always visible) ── */
 .ic-flight {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 70% 1fr;
   gap: 1.5rem;
   align-items: center;
   padding: 1rem 1.5rem;
   background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
+.ic-flight-meta { min-width: 0; }
 .ic-flight-route {
   display: flex;
   align-items: center;
@@ -3268,7 +3269,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="ic-flight-meta">
         <div class="ic-flight-date" data-trip="ewr-yyc-yun-date">Oct 1</div>
         <div class="ic-airline">AC585 · Air Canada</div>
-        <span class="badge badge-booked">Yun · <span data-trip="ewr-yyc-yun-booking-ref">BCFAML</span> · Yan · <span data-trip="ewr-yyc-yan-booking-ref">BCFEFG</span> ✓</span>
+        <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
         <div class="ic-body">
@@ -3401,8 +3402,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-flight-meta">
         <div class="ic-flight-date" data-trip="yyc-bkk-yun-date">Oct 6</div>
-        <div class="ic-airline">WS80 + WS5930 · WestJet / JAL · B787-9 + B787-8 · <span data-trip="yyc-bkk-yun-booking-ref">KXOXGQ</span></div>
-        <span class="badge badge-booked">Both confirmed ✓</span>
+        <div class="ic-airline">WS80 + WS5930 · WestJet / JAL · B787-9 + B787-8</div>
+        <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
         <div class="ic-body">
@@ -3477,8 +3478,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-flight-meta">
         <div class="ic-flight-date" data-trip="bkk-usm-yun-date">Oct 9</div>
-        <div class="ic-airline">PG165 · Bangkok Airways · nonstop · <span data-trip="bkk-usm-yun-booking-ref">CKWMQE</span></div>
-        <span class="badge badge-booked">Both · <span data-trip="bkk-usm-yun-booking-ref">CKWMQE</span> ✓</span>
+        <div class="ic-airline">PG165 · Bangkok Airways · nonstop</div>
+        <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
         <div class="ic-body">
@@ -3551,8 +3552,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-flight-meta">
         <div class="ic-flight-date" data-trip="usm-hkg-yun-date">Oct 12</div>
-        <div class="ic-airline">PG807 · Bangkok Airways · Airbus A319 · nonstop · <span data-trip="usm-hkg-yun-booking-ref">FVZ2OD</span></div>
-        <span class="badge badge-booked">Both · <span data-trip="usm-hkg-yun-booking-ref">FVZ2OD</span> ✓</span>
+        <div class="ic-airline">PG807 · Bangkok Airways · Airbus A319 · nonstop</div>
+        <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
         <div class="ic-body">
@@ -3627,8 +3628,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       </div>
       <div class="ic-flight-meta">
         <div class="ic-flight-date" data-trip="hkg-sha-yun-date">Oct 14</div>
-        <div class="ic-airline">MU722 · China Eastern · nonstop · <span data-trip="hkg-sha-yun-booking-ref">PFTV0J</span></div>
-        <span class="badge badge-booked">Both · <span data-trip="hkg-sha-yun-booking-ref">PFTV0J</span> ✓</span>
+        <div class="ic-airline">MU722 · China Eastern · nonstop</div>
+        <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
         <div class="ic-body">
@@ -3731,8 +3732,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="ic-flight-meta">
         <div class="ic-flight-date">Oct 24 · Both</div>
         <div class="ic-airline">HO1657 / A3 1900 · Juneyao Air / Aegean codeshare · Boeing 787-9</div>
-        <span class="badge badge-booked">Yan · <span data-trip="pvg-ath-yan-booking-ref">AZ5QGD</span> · <span data-trip="pvg-ath-yan-booking-ref">EHMJVO</span> ✓</span>
-        <span class="badge badge-booked" style="margin-left:.4rem">Yun · <span data-trip="pvg-ath-yun-booking-ref">PFM44G</span> ✓ Seat <span data-trip="pvg-ath-yun-seat">39G</span></span>
+        <span class="badge badge-booked">Both ✓</span>
+        <span class="badge badge-booked" style="margin-left:.4rem">Yun · Seat <span data-trip="pvg-ath-yun-seat">39G</span></span>
       </div>
     </div>
         <div class="ic-body">
@@ -3840,7 +3841,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
       <div class="ic-flight-meta">
         <div class="ic-flight-date">Oct 29 · Both</div>
         <div class="ic-airline">A3 712 · Aegean Airlines · Airbus A321neo · ComfortFlex</div>
-        <span class="badge badge-booked">Both confirmed ✓ · Ref <span data-trip="ath-bcn-yun-booking-ref">76QQ85</span></span>
+        <span class="badge badge-booked">Both ✓</span>
       </div>
     </div>
         <div class="ic-body">
@@ -3911,8 +3912,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
         <div class="ic-flight-meta">
           <div class="ic-flight-date">Nov 2 · Both</div>
           <div class="ic-airline">AA 67 / BA 1557 · American Airlines · Airbus A321neo</div>
-          <span class="badge badge-booked">Yun · <span data-trip="bcn-jfk-yun-booking-ref">AM2LKL</span> ✓ Economy</span>
-          <span class="badge badge-booked" style="margin-left:.4rem">Yan · <span data-trip="bcn-jfk-yan-booking-ref">IHTZNM</span> ✓ Business · Seat <span data-trip="bcn-jfk-yan-seat">3A</span> ✦</span>
+          <span class="badge badge-booked">Yun · Economy ✓</span>
+          <span class="badge badge-booked" style="margin-left:.4rem">Yan · Business · Seat <span data-trip="bcn-jfk-yan-seat">3A</span> ✦ ✓</span>
         </div>
       </div>
     </section>
