@@ -1646,7 +1646,6 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
-.ic-flight-meta { min-width: 0; }
 .ic-flight-route {
   display: flex;
   align-items: center;
@@ -1779,7 +1778,6 @@ html.dark .ic-card:hover { box-shadow: 0 2px 14px rgba(0,0,0,.3); }
   color: var(--muted);
   text-align: right;
   word-break: break-word;
-  white-space: nowrap;
 }
 .ic-no-flight {
   padding: .6rem 1.5rem;
@@ -3427,7 +3425,7 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-badge ib-ok">48,871 Amex MR (Yan ••••2004) · Conf #9103484418003</span>
           <div class="ic-hotel-acts">
             <a class="ic-act" href="https://maps.google.com/?q=18+Phaya+Thai+Road,+Ratchathewi,+Bangkok,+Thailand+10400" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
-            <button class="ic-act" onclick="navigator.clipboard.writeText('18 Phaya Thai Road, Ratchathewi, Bangkok, Thailand 10400')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'18 Phaya Thai Road, Ratchathewi, Bangkok, Thailand 10400')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
           </div>
@@ -3502,8 +3500,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-hotel-span">Oct 9–12 · 3 nights</span>
           <span class="ic-badge ib-ok">✓ Res <span data-trip="samui-both-confirmation">14747</span> · Ocean View Pool Villa</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act-btn" href="https://maps.google.com/?q=24/269+Moo+5,+Bo-Phut,+Koh+Samui,+Surat+Thani+84320,+Thailand" target="_blank" title="Open in Google Maps"><i class="ri-map-pin-line"></i></a>
-            <button class="ic-act-btn" onclick="copyAddr(this,'24/269 Moo 5, Bo-Phut, Koh Samui, Surat Thani 84320, Thailand')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+            <a class="ic-act" href="https://maps.google.com/?q=24/269+Moo+5,+Bo-Phut,+Koh+Samui,+Surat+Thani+84320,+Thailand" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'24/269 Moo 5, Bo-Phut, Koh Samui, Surat Thani 84320, Thailand')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
           </div>
@@ -3653,8 +3651,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-hotel-span">Oct 14–17 · 3 nights</span>
           <span class="ic-badge ib-ok">✓ Conf <span data-trip="sha-yun-confirmation">72389014</span> · <span data-trip="sha-yun-points-used">87,196</span> UR pts</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act-btn" href="https://maps.google.com/?q=199+Nanjing+Road+East,+Shanghai+200002,+China" target="_blank" title="Open in Google Maps"><i class="ri-map-pin-line"></i></a>
-            <button class="ic-act-btn" onclick="copyAddr(this,'199 Nanjing Road East, Shanghai 200002, China')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+            <a class="ic-act" href="https://maps.google.com/?q=199+Nanjing+Road+East,+Shanghai+200002,+China" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'199 Nanjing Road East, Shanghai 200002, China')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
         <div class="ic-hotel">
@@ -3665,8 +3663,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-hotel-span">Oct 14–17 · 3 nights</span>
           <span class="ic-badge ib-ok">✓ Conf <span data-trip="sha-yan-confirmation">77732471</span></span>
           <div class="ic-hotel-acts">
-            <a class="ic-act-btn" href="https://maps.google.com/?q=199+Nanjing+Road+East,+Shanghai+200002,+China" target="_blank" title="Open in Google Maps"><i class="ri-map-pin-line"></i></a>
-            <button class="ic-act-btn" onclick="copyAddr(this,'199 Nanjing Road East, Shanghai 200002, China')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+            <a class="ic-act" href="https://maps.google.com/?q=199+Nanjing+Road+East,+Shanghai+200002,+China" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'199 Nanjing Road East, Shanghai 200002, China')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
         <div class="ic-hotel">
@@ -3757,8 +3755,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-hotel-span">Oct 24–26 · 2 nights</span>
           <span class="ic-badge ib-ok">✓ Conf <span data-trip="milos-both-confirmation">63164966</span> · €610.80 both</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act-btn" href="https://maps.google.com/?q=D3+Milos,+Plaka+84800,+Milos,+Greece" target="_blank" title="Open in Google Maps"><i class="ri-map-pin-line"></i></a>
-            <button class="ic-act-btn" onclick="copyAddr(this,'D3 Milos, Plaka 84800, Milos, Greece')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+            <a class="ic-act" href="https://maps.google.com/?q=D3+Milos,+Plaka+84800,+Milos,+Greece" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'D3 Milos, Plaka 84800, Milos, Greece')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
         <div class="ic-hotel">
@@ -3865,8 +3863,8 @@ html.dark .tc-weather { background: rgba(255,255,255,.04); }
           <span class="ic-hotel-span">Oct 29–Nov 2 · 4 nights</span>
           <span class="ic-badge ib-ok">✓ Conf <span data-trip="bcn-yun-confirmation">2535421155</span> · <span data-trip="bcn-yun-points-used">120,893</span> UR pts</span>
           <div class="ic-hotel-acts">
-            <a class="ic-act-btn" href="https://maps.google.com/?q=Carrer+de+Trafalgar+26,+Barcelona+08003,+Spain" target="_blank" title="Open in Google Maps"><i class="ri-map-pin-line"></i></a>
-            <button class="ic-act-btn" onclick="copyAddr(this,'Carrer de Trafalgar 26, Barcelona 08003, Spain')" title="Copy address"><i class="ri-file-copy-line"></i></button>
+            <a class="ic-act" href="https://maps.google.com/?q=Carrer+de+Trafalgar+26,+Barcelona+08003,+Spain" target="_blank" title="Open in Maps"><i class="ri-map-pin-line"></i></a>
+            <button class="ic-act addr-btn" onclick="copyAddr(this,'Carrer de Trafalgar 26, Barcelona 08003, Spain')" title="Copy address"><i class="ri-file-copy-line"></i></button>
           </div>
         </div>
           </div>
